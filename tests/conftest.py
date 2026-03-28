@@ -92,6 +92,7 @@ def _import_runtime_objects() -> dict[str, Any]:
     _require_runtime_stack()
     from tigrbl.engine import Engine, EngineSpec
     from tigrbl_auth.app import app
+    from tigrbl_auth.api.surfaces import surface_api as composed_surface_api
     from tigrbl_auth.db import get_db
     from tigrbl_auth.routers.surface import surface_api
     from tigrbl_auth.runtime.engine_resolver import register_api_provider, resolve_api_provider
@@ -102,6 +103,7 @@ def _import_runtime_objects() -> dict[str, Any]:
         "register_api_provider": register_api_provider,
         "resolve_api_provider": resolve_api_provider,
         "app": app,
+        "composed_surface_api": composed_surface_api,
         "get_db": get_db,
         "surface_api": surface_api,
     }
@@ -158,21 +160,31 @@ async def _runtime_engine_context(database_url: str):
     register_api_provider = runtime["register_api_provider"]
     resolve_api_provider = runtime["resolve_api_provider"]
     surface_api = runtime["surface_api"]
+    composed_surface_api = runtime["composed_surface_api"]
     app = runtime["app"]
 
     spec = EngineSpec.from_any(database_url)
     engine = Engine(spec)
     provider = engine.provider
     original_surface = resolve_api_provider(surface_api)
+    original_composed_surface = resolve_api_provider(composed_surface_api)
     original_app = resolve_api_provider(app)
     register_api_provider(surface_api, provider)
+    register_api_provider(composed_surface_api, provider)
     register_api_provider(app, provider)
     setattr(surface_api, "_ddl_executed", False)
     await surface_api.initialize()
+    raw_engine, _ = provider.ensure()
+    async with raw_engine.begin() as conn:
+        def _create_runtime_tables(sync_conn):
+            from tigrbl_auth.tables import Base
+
+            Base.metadata.create_all(bind=sync_conn, checkfirst=True)
+
+        await conn.run_sync(_create_runtime_tables)
     try:
         yield engine
     finally:
-        raw_engine, _ = provider.ensure()
         if str(database_url).startswith("postgresql"):
             try:
                 async with raw_engine.begin() as conn:
@@ -181,6 +193,7 @@ async def _runtime_engine_context(database_url: str):
                 pass
         await raw_engine.dispose()
         register_api_provider(surface_api, original_surface or provider)
+        register_api_provider(composed_surface_api, original_composed_surface or provider)
         register_api_provider(app, original_app or provider)
         setattr(surface_api, "_ddl_executed", False)
 
@@ -248,7 +261,7 @@ async def async_client(override_get_db) -> AsyncGenerator[AsyncClient, None]:
 
     app = _import_runtime_objects()["app"]
     transport = ASGITransport(app=app)
-    async with AsyncClient(transport=transport, base_url="http://test") as client:
+    async with AsyncClient(transport=transport, base_url="https://test") as client:
         yield client
 
 

@@ -517,6 +517,12 @@ def _probe_modules(expected_modules: list[dict[str, Any]]) -> list[dict[str, Any
         return []
     code = (
         "import importlib, json, sys\n"
+        "if sys.version_info < (3, 11):\n"
+        "    try:\n"
+        "        import tomllib  # noqa: F401\n"
+        "    except ModuleNotFoundError:\n"
+        "        import tomli as tomllib\n"
+        "        sys.modules['tomllib'] = tomllib\n"
         "payload = json.loads(sys.argv[1])\n"
         "results = []\n"
         "for item in payload:\n"

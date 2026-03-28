@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 import asyncio
-from datetime import UTC, datetime, timedelta
+from datetime import datetime, timedelta, timezone
 from types import SimpleNamespace
 from uuid import uuid4
 
@@ -238,3 +238,4 @@ def test_hardening_discovery_and_contract_are_truthful_for_sender_constraints_an
     logout_schema = openapi["components"]["schemas"]["LogoutResponse"]["properties"]
     assert "frontchannel_delivery" in logout_schema
     assert "backchannel_delivery" in logout_schema
+UTC = timezone.utc
