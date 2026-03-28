@@ -39,21 +39,34 @@ def _env_bool(name: str, default: str = "false") -> bool:
     return os.environ.get(name, default).lower() in {"1", "true", "yes", "on"}
 
 
+def _env_int(name: str, default: int) -> int:
+    raw = os.environ.get(name)
+    if raw is None:
+        return default
+    text = str(raw).strip()
+    if not text:
+        return default
+    try:
+        return int(text)
+    except (TypeError, ValueError):
+        return default
+
+
 class Settings(BaseSettings):
     # ------------------------------------------------------------------
     # Storage and runtime infrastructure
     # ------------------------------------------------------------------
     redis_url_env: Optional[str] = Field(default=os.environ.get("REDIS_URL"))
     redis_host: Optional[str] = Field(default=os.environ.get("REDIS_HOST"))
-    redis_port: int = Field(default=int(os.environ.get("REDIS_PORT", "6379")))
-    redis_db: int = Field(default=int(os.environ.get("REDIS_DB", "0")))
+    redis_port: int = Field(default=_env_int("REDIS_PORT", 6379))
+    redis_db: int = Field(default=_env_int("REDIS_DB", 0))
     redis_password: Optional[str] = Field(default=os.environ.get("REDIS_PASSWORD"))
 
     pg_dsn_env: Optional[str] = Field(
         default=os.environ.get("POSTGRES_URL") or os.environ.get("PG_DSN")
     )
     pg_host: Optional[str] = Field(default=os.environ.get("PG_HOST"))
-    pg_port: int = Field(default=int(os.environ.get("PG_PORT", "5432")))
+    pg_port: int = Field(default=_env_int("PG_PORT", 5432))
     pg_db: Optional[str] = Field(default=os.environ.get("PG_DB"))
     pg_user: Optional[str] = Field(default=os.environ.get("PG_USER"))
     pg_pass: Optional[str] = Field(default=os.environ.get("PG_PASS"))
@@ -324,7 +337,7 @@ class Settings(BaseSettings):
     def enable_dpop(self) -> bool:
         return self.enable_rfc9449
 
-    model_config = SettingsConfigDict(env_file=None)
+    model_config = SettingsConfigDict(env_file=None, env_ignore_empty=True)
 
 
 _existing = globals().get("settings")

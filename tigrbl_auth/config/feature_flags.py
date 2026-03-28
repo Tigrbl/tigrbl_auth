@@ -20,6 +20,7 @@ FEATURE_FLAG_GROUPS: Final[dict[str, dict[str, object]]] = {
             "enable_rfc7519": "RFC 7519 JWT",
             "enable_oidc_core": "OIDC Core 1.0",
             "enable_oidc_discovery": "OIDC Discovery 1.0",
+            "enable_oidc_session_management": "OIDC session management",
         },
     },
     "production": {

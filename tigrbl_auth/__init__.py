@@ -9,9 +9,25 @@ by the repository tests and previous checkpoints.
 
 from __future__ import annotations
 
+import sys
 from http import HTTPStatus as _HTTPStatus
 from importlib import import_module
 from typing import Any
+
+
+def _install_tomllib_alias() -> None:
+    """Backfill ``tomllib`` on Python 3.10 using ``tomli`` if available."""
+
+    if sys.version_info >= (3, 11):
+        return
+    try:  # pragma: no cover - exercised on Python 3.10 CI lanes
+        import tomllib as _tomllib  # noqa: F401
+    except ModuleNotFoundError:
+        try:
+            import tomli as _tomllib  # type: ignore[no-redef]
+        except ModuleNotFoundError:
+            return
+        sys.modules.setdefault("tomllib", _tomllib)
 
 
 def _install_http_status_aliases() -> None:
@@ -29,6 +45,7 @@ def _install_http_status_aliases() -> None:
             setattr(_HTTPStatus, alias, int(item))
 
 
+_install_tomllib_alias()
 _install_http_status_aliases()
 
 _MODULE_EXPORTS = {

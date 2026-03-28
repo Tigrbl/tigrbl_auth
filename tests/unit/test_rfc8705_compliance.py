@@ -7,7 +7,7 @@ The tests below verify that behavior is enforced when the feature flag is
 enabled and bypassed when disabled.
 """
 
-from datetime import UTC, datetime, timedelta
+from datetime import datetime, timedelta, timezone
 
 import pytest
 from cryptography import x509
@@ -108,3 +108,4 @@ def test_validate_binding_respects_enabled_flag():
     """``validate_certificate_binding`` bypasses checks when disabled."""
     payload = {"cnf": {"x5t#S256": "thumb"}}
     validate_certificate_binding(payload, "other", enabled=False)
+UTC = timezone.utc
