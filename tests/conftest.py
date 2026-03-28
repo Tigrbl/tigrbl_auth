@@ -12,6 +12,7 @@ from pathlib import Path
 from typing import Any, AsyncGenerator, Generator
 
 import pytest
+import pytest_asyncio
 from httpx import AsyncClient
 from tests.lanes import (
     active_lane,
@@ -22,8 +23,6 @@ from tests.lanes import (
     skip_reason_for_test_path,
 )
 from tests.support import TestClient
-
-pytest_asyncio = pytest.importorskip("pytest_asyncio")
 
 
 
