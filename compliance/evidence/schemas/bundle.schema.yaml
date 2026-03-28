@@ -1,0 +1,12 @@
+
+schema_version: 1
+kind: evidence-bundle-schema
+required_fields:
+  - bundle_id
+  - target
+  - tier
+  - profile
+  - generated_at
+  - generator
+  - artifacts
+  - reproduction

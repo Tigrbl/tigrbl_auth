@@ -1,0 +1,107 @@
+schema_version: 1
+package: tigrbl_auth
+profiles:
+  baseline:
+    description: Minimum interoperable OAuth 2.0 / OIDC / JOSE server profile.
+    phase: P1
+    minimum_claim_tier: 2
+    claimable: true
+    scope: core
+    target_sets:
+    - rfc-targets
+    - oidc-targets
+    - openapi-targets
+    excludes:
+    - extension-targets
+    - alignment-targets
+    surface_sets:
+    - public-rest
+    - admin-rpc
+    - diagnostics
+    protocol_slices: []
+    runtime_styles:
+    - plugin
+    - standalone
+  production:
+    description: Production-ready authn/z profile with lifecycle, browser, and registration
+      surfaces.
+    phase: P2
+    minimum_claim_tier: 3
+    claimable: true
+    scope: core
+    target_sets:
+    - rfc-targets
+    - oidc-targets
+    - openapi-targets
+    - openrpc-targets
+    excludes:
+    - extension-targets
+    - alignment-targets
+    surface_sets:
+    - public-rest
+    - admin-rpc
+    - diagnostics
+    protocol_slices: []
+    runtime_styles:
+    - plugin
+    - standalone
+  hardening:
+    description: Advanced hardening and interop profile for sender-constrained tokens
+      and hardened request channels.
+    phase: P3
+    minimum_claim_tier: 3
+    claimable: true
+    scope: core
+    target_sets:
+    - rfc-targets
+    - oidc-targets
+    - openapi-targets
+    - openrpc-targets
+    excludes:
+    - extension-targets
+    - alignment-targets
+    surface_sets:
+    - public-rest
+    - admin-rpc
+    - diagnostics
+    protocol_slices:
+    - device
+    - token-exchange
+    - par
+    - jar
+    - rar
+    - dpop
+    - mtls
+    runtime_styles:
+    - plugin
+    - standalone
+  peer-claim:
+    description: Independent peer-supported promotion profile for fully evidenced
+      targets.
+    phase: P3
+    minimum_claim_tier: 4
+    claimable: true
+    scope: core
+    target_sets:
+    - rfc-targets
+    - oidc-targets
+    - openapi-targets
+    - openrpc-targets
+    excludes:
+    - extension-targets
+    - alignment-targets
+    surface_sets:
+    - public-rest
+    - admin-rpc
+    - diagnostics
+    protocol_slices:
+    - device
+    - token-exchange
+    - par
+    - jar
+    - rar
+    - dpop
+    - mtls
+    runtime_styles:
+    - plugin
+    - standalone

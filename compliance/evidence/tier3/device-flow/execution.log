@@ -1,0 +1,49 @@
+# Tier 3 execution transcript for RFC 8628
+
+- profile: `hardening`
+- generated_at: `2026-03-24T02:16:12+00:00`
+- execution_mode: `dependency-light preserved evidence`
+- note: `Targeted phase-8 unit and conformance coverage was executed with PYTHONPATH=. and --noconftest because the full Tigrbl/SQLAlchemy runtime stack is not installed in this checkpoint container.`
+
+## Targeted pytest transcript
+```text
+tests/unit/test_phase8_hardening_cluster_a.py::test_phase8_resource_indicator_selection_accepts_same_effective_target PASSED [  6%]
+tests/unit/test_phase8_hardening_cluster_a.py::test_phase8_resource_indicator_selection_rejects_ambiguous_targets PASSED [ 12%]
+tests/unit/test_phase8_hardening_cluster_a.py::test_phase8_resource_indicator_selection_rejects_audience_conflict PASSED [ 18%]
+tests/unit/test_phase8_hardening_cluster_a.py::test_phase8_device_poll_helpers_enforce_slow_down_profile PASSED [ 25%]
+tests/unit/test_phase8_hardening_cluster_a.py::test_phase8_token_exchange_helpers_are_bounded_and_actor_aware PASSED [ 31%]
+tests/unit/test_phase8_hardening_cluster_a.py::test_phase8_describe_metadata_is_truthful PASSED [ 37%]
+tests/unit/test_phase8_hardening_cluster_a.py::test_phase8_client_registration_rpc_delete_round_trip PASSED [ 43%]
+tests/unit/test_phase8_hardening_cluster_a.py::test_phase8_token_exchange_rpc_persists_lineage PASSED [ 50%]
+tests/unit/test_phase8_hardening_cluster_a.py::test_phase8_device_code_poll_slow_down PASSED [ 56%]
+tests/unit/test_phase8_hardening_cluster_a.py::test_phase8_device_code_poll_denied_and_expired PASSED [ 62%]
+tests/unit/test_phase8_hardening_cluster_a.py::test_phase8_token_exchange_runtime_rejects_conflicting_target PASSED [ 68%]
+tests/unit/test_phase8_hardening_cluster_a.py::test_phase8_token_exchange_runtime_emits_lineage_audit PASSED [ 75%]
+tests/conformance/hardening/test_rfc7592_client_registration_management.py::test_rfc7592_management_route_is_published_in_hardening_contract PASSED [ 81%]
+tests/conformance/hardening/test_rfc8628_device_authorization.py::test_rfc8628_device_authorization_is_published PASSED [ 87%]
+tests/conformance/hardening/test_rfc8693_token_exchange.py::test_rfc8693_token_exchange_route_is_active_in_hardening PASSED [ 93%]
+tests/conformance/hardening/test_rfc8707_resource_indicators.py::test_rfc8707_resource_indicators_are_advertised_and_mapped PASSED [100%]
+
+=============================== warnings summary ===============================
+../../../../opt/pyvenv/lib/python3.13/site-packages/_pytest/config/__init__.py:1428
+  /opt/pyvenv/lib/python3.13/site-packages/_pytest/config/__init__.py:1428: PytestConfigWarning: Unknown config option: timeout
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+======================== 16 passed, 1 warning in 1.57s =========================
+```
+
+## Governance regeneration commands
+- `python scripts/claims_lint.py`
+- `python scripts/generate_effective_release_manifests.py`
+- `python scripts/generate_certification_scope.py`
+- `python scripts/generate_openapi_contract.py`
+- `python scripts/generate_openrpc_contract.py`
+- `python scripts/generate_discovery_snapshots.py`
+- `python scripts/generate_state_reports.py`
+- `python scripts/run_release_gates.py`
+- `python scripts/build_release_bundle.py`
+- `python scripts/sign_release_bundle.py`
+- `python scripts/verify_release_signing.py`
+- `python scripts/run_recertification.py`

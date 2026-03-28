@@ -1,0 +1,16 @@
+{
+  "passed": true,
+  "failures": [],
+  "warnings": [],
+  "details": {
+    "bundle_root": "/mnt/data/phase12work/extracted/tigrbl_auth_phase13_final_certification_closeout_checkpoint_updated/dist/release-bundles/0.3.2.dev14/baseline",
+    "verified_artifact_count": 4,
+    "signing_key_id": "ed25519:79439999e613a609cddf68b8",
+    "artifact_labels": [
+      "release-bundle",
+      "claim-manifest",
+      "evidence-manifest",
+      "contract-set"
+    ]
+  }
+}

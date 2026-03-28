@@ -1,0 +1,11 @@
+capture_mode: contract-derived-snapshot
+profile: production
+source_contract: specs/openapi/profiles/production/tigrbl_auth.public.openapi.json
+paths:
+- path: /revoke
+  operations:
+  - method: POST
+    operationId: post_revoke
+    summary: Token revocation endpoint
+    responses:
+    - '200'

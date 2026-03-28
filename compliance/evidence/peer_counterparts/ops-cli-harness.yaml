@@ -1,0 +1,18 @@
+schema_version: 1
+id: ops-cli-harness
+title: External CLI/operator harness
+counterpart_class: cli-harness
+execution_style: black-box-cli
+independence_requirement: external operator harness required
+attestation_class_required: independent-external
+required_identity_fields:
+- peer_name
+- peer_version
+required_container_fields:
+- image_ref
+- image_digest
+required_artifacts:
+- stdout.log
+- result.yaml
+notes:
+- Use for CLI/operator independent validation.

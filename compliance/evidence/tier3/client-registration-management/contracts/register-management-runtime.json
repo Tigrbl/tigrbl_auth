@@ -1,0 +1,10 @@
+{
+  "label": "RFC 7592",
+  "title": "OAuth 2.0 Dynamic Client Registration Management Protocol",
+  "runtime_status": "phase-8-persistence-backed-management-runtime",
+  "public_surface": [
+    "/register/{client_id}"
+  ],
+  "notes": "Authoritative standards-tree owner module. Registration management is mounted on the public release path with bearer-authenticated GET/PUT/DELETE semantics, durable client-registration metadata persistence, and audit-observable update/delete behavior.",
+  "spec_url": "https://www.rfc-editor.org/rfc/rfc7592"
+}

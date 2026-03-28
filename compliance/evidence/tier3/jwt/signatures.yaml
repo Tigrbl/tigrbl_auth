@@ -1,0 +1,5 @@
+mode: internal-sha256-digest-only
+externally_attested: false
+note: Certification-grade external signing remains outstanding; this checkpoint stores
+  internal digests only.
+manifest_sha256: 85cd032c2d62299dda18365dd43e1253aec563a4f77d80ff1346ed25c6b7a40a

@@ -1,0 +1,84 @@
+schema_version: 1
+package: tigrbl_auth
+target_family: runtime
+scope: core
+targets:
+- id: runtime.asgi3-application
+  label: ASGI 3 application package
+  title: Server-agnostic ASGI 3 application boundary
+  phase: P0
+  minimum_claim_tier: 3
+  profiles:
+  - baseline
+  - production
+  - hardening
+  - peer-claim
+  modules:
+  - tigrbl_auth/api/app.py
+  - tigrbl_auth/app.py
+  - tigrbl_auth/plugin.py
+  - tigrbl_auth/gateway.py
+  - tigrbl_auth/config/deployment.py
+  - tigrbl_auth/runtime/__init__.py
+  - tigrbl_auth/runtime/types.py
+  - tigrbl_auth/runtime/base.py
+  - tigrbl_auth/runtime/plan.py
+  - tigrbl_auth/runtime/registry.py
+  status: evidenced-release-gated
+- id: runtime.runner-uvicorn
+  label: 'Runner profile: Uvicorn'
+  title: Uvicorn-backed serving profile
+  phase: P0
+  minimum_claim_tier: 3
+  profiles:
+  - baseline
+  - production
+  - hardening
+  - peer-claim
+  modules:
+  - tigrbl_auth/api/app.py
+  - tigrbl_auth/gateway.py
+  - tigrbl_auth/cli/handlers.py
+  - tigrbl_auth/config/deployment.py
+  - tigrbl_auth/runtime/registry.py
+  - tigrbl_auth/runtime/plan.py
+  - tigrbl_auth/runtime/uvicorn.py
+  status: evidenced-release-gated
+- id: runtime.runner-hypercorn
+  label: 'Runner profile: Hypercorn'
+  title: Hypercorn-backed serving profile
+  phase: P0
+  minimum_claim_tier: 3
+  profiles:
+  - baseline
+  - production
+  - hardening
+  - peer-claim
+  modules:
+  - tigrbl_auth/api/app.py
+  - tigrbl_auth/gateway.py
+  - tigrbl_auth/cli/handlers.py
+  - tigrbl_auth/config/deployment.py
+  - tigrbl_auth/runtime/registry.py
+  - tigrbl_auth/runtime/plan.py
+  - tigrbl_auth/runtime/hypercorn.py
+  status: evidenced-release-gated
+- id: runtime.runner-tigrcorn
+  label: 'Runner profile: Tigrcorn'
+  title: Tigrcorn-backed serving profile
+  phase: P0
+  minimum_claim_tier: 3
+  profiles:
+  - baseline
+  - production
+  - hardening
+  - peer-claim
+  modules:
+  - tigrbl_auth/api/app.py
+  - tigrbl_auth/gateway.py
+  - tigrbl_auth/cli/handlers.py
+  - tigrbl_auth/config/deployment.py
+  - tigrbl_auth/runtime/registry.py
+  - tigrbl_auth/runtime/plan.py
+  - tigrbl_auth/runtime/tigrcorn.py
+  status: evidenced-release-gated

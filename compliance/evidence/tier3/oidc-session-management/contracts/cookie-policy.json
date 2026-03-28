@@ -1,0 +1,21 @@
+{
+  "label": "RFC 6265",
+  "title": "HTTP State Management Mechanism",
+  "runtime_status": "phase-7-browser-session-runtime",
+  "public_surface": [
+    "/login",
+    "/authorize",
+    "/logout"
+  ],
+  "cookie_name": "sid",
+  "path": "/",
+  "domain": null,
+  "secure": true,
+  "http_only": true,
+  "same_site": "lax",
+  "cross_site": false,
+  "max_age_seconds": 3600,
+  "rotation_supported": true,
+  "invalidation_supported": true,
+  "notes": "Browser-session cookies are now domain-owned and opaque. The release path enforces secure / HttpOnly / SameSite policy, supports controlled cross-site mode for logout interoperability, and binds the cookie to durable session state."
+}

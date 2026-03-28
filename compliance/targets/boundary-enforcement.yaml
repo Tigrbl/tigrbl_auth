@@ -1,0 +1,73 @@
+schema_version: 1
+package: tigrbl_auth
+enforcement:
+  checks:
+  - claims_linter
+  - declared-target-only-certification
+  - framework_leakage_scan
+  - module-boundary-resolution
+  - boundary-import-scan
+  - wrapper_hygiene_scan
+  - contract_sync_gate
+  - evidence_gate
+  - peer_gate
+  - strict_partial_feature_disappearance
+  - extension-quarantine-check
+  - project_tree_layout_check
+  - migration_move_map_check
+  - boundary-scope-freeze
+  scripts:
+    claims_linter: scripts/claims_lint.py
+    framework_leakage_scan: scripts/verify_no_fastapi_starlette.py
+    module-boundary-resolution: scripts/verify_boundary_enforcement.py
+    boundary-import-scan: scripts/verify_boundary_enforcement.py
+    wrapper_hygiene_scan: scripts/verify_wrapper_hygiene.py
+    contract_sync_gate: scripts/verify_contract_sync.py
+    evidence_gate: scripts/verify_evidence_peer.py
+    peer_gate: scripts/verify_evidence_peer.py
+    boundary_enforcement: scripts/verify_boundary_enforcement.py
+    project_tree_layout_check: scripts/verify_project_tree_layout.py
+    migration_move_map_check: scripts/verify_migration_plan.py
+    boundary-scope-freeze: scripts/verify_boundary_enforcement.py
+  supported_package_paths:
+  - tigrbl_auth/api
+  - tigrbl_auth/tables
+  - tigrbl_auth/ops
+  - tigrbl_auth/services
+  - tigrbl_auth/security
+  - tigrbl_auth/config
+  - tigrbl_auth/standards
+  - tigrbl_auth/plugin.py
+  - tigrbl_auth/gateway.py
+  - tigrbl_auth/framework.py
+  forbidden_import_roots:
+  - fastapi
+  - starlette
+  - tigrbl_auth.rfc
+  - tigrbl_auth.routers
+  - tigrbl_auth.orm
+  - tigrbl_auth.backends
+  - tigrbl_auth.runtime_cfg
+  - tigrbl_auth.extensions
+  - tigrbl_core
+  - tigrbl._
+  profile_artifacts:
+    baseline:
+      openapi: specs/openapi/profiles/baseline/tigrbl_auth.public.openapi.json
+      openrpc: specs/openrpc/profiles/baseline/tigrbl_auth.admin.openrpc.json
+      claims: compliance/claims/effective-target-claims.baseline.yaml
+      evidence: compliance/evidence/effective-release-evidence.baseline.yaml
+    production:
+      openapi: specs/openapi/profiles/production/tigrbl_auth.public.openapi.json
+      openrpc: specs/openrpc/profiles/production/tigrbl_auth.admin.openrpc.json
+      claims: compliance/claims/effective-target-claims.production.yaml
+      evidence: compliance/evidence/effective-release-evidence.production.yaml
+    hardening:
+      openapi: specs/openapi/profiles/hardening/tigrbl_auth.public.openapi.json
+      openrpc: specs/openrpc/profiles/hardening/tigrbl_auth.admin.openrpc.json
+      claims: compliance/claims/effective-target-claims.hardening.yaml
+      evidence: compliance/evidence/effective-release-evidence.hardening.yaml
+  fail_closed: true
+  note: Boundary enforcement is authoritative for certification. Failing checks do
+    not block checkpoint zips, but they do block certifiable releases. Boundary freeze
+    metadata is also authoritative for closeout.

@@ -1,0 +1,13 @@
+name: static
+checks:
+- no_direct_fastapi_starlette_runtime
+- no_direct_fastapi_starlette_tests
+- no_direct_fastapi_starlette_scripts
+- pyproject_no_fastapi_starlette_dependency
+- no_release_path_framework_fallbacks
+- no_non_public_tigrbl_runtime_imports
+- claims_lint_clean
+- legacy_label_corrections_present
+- feature_surface_modularity_verifier_clean
+- openapi_artifact_not_placeholder
+- openrpc_artifact_not_placeholder

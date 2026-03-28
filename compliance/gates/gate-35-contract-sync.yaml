@@ -1,0 +1,5 @@
+name: contract-sync
+checks:
+  - openapi_contract_generated
+  - openrpc_contract_generated
+  - contract_sync_clean

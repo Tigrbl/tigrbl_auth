@@ -1,0 +1,3029 @@
+schema_version: 1
+package: tigrbl_auth
+phase: P10
+authoritative: true
+repository_tier: 3
+authoritative_sources:
+  target_manifests:
+  - compliance/targets/rfc-targets.yaml
+  - compliance/targets/oidc-targets.yaml
+  - compliance/targets/openapi-targets.yaml
+  - compliance/targets/openrpc-targets.yaml
+  - compliance/targets/runtime-targets.yaml
+  - compliance/targets/operator-targets.yaml
+  claims: compliance/claims/declared-target-claims.yaml
+  effective_claims:
+  - compliance/claims/effective-target-claims.baseline.yaml
+  - compliance/claims/effective-target-claims.production.yaml
+  - compliance/claims/effective-target-claims.hardening.yaml
+  effective_evidence:
+  - compliance/evidence/effective-release-evidence.baseline.yaml
+  - compliance/evidence/effective-release-evidence.production.yaml
+  - compliance/evidence/effective-release-evidence.hardening.yaml
+  contracts:
+  - specs/openapi/profiles/baseline/tigrbl_auth.public.openapi.json
+  - specs/openapi/profiles/production/tigrbl_auth.public.openapi.json
+  - specs/openapi/profiles/hardening/tigrbl_auth.public.openapi.json
+  - specs/openrpc/profiles/baseline/tigrbl_auth.admin.openrpc.json
+  - specs/openrpc/profiles/production/tigrbl_auth.admin.openrpc.json
+  - specs/openrpc/profiles/hardening/tigrbl_auth.admin.openrpc.json
+  mappings:
+  - compliance/mappings/target-to-module.yaml
+  - compliance/mappings/target-to-endpoint.yaml
+  - compliance/mappings/target-to-test.yaml
+  - compliance/mappings/target-to-evidence.yaml
+  - compliance/mappings/test_classification.yaml
+  - compliance/mappings/test-classification.yaml
+bucket_interpretation:
+  baseline-certifiable-now: Baseline certification candidate set. This is a scope
+    bucket, not a Tier 3 or Tier 4 promotion.
+  production-completion-required: In-scope production RFC/OIDC targets that still
+    require route, persistence, runtime, or evidence completion.
+  hardening-completion-required: In-scope hardening RFC/OIDC targets that still require
+    runtime enforcement, public surface completion, or evidence completion.
+  runtime-completion-required: In-scope ASGI application and runner-profile targets
+    required before the package can truthfully claim a fully featured runtime boundary.
+  operator-completion-required: In-scope CLI/operator/release targets required before
+    the package can truthfully claim a fully featured package boundary.
+  out-of-scope/deferred: Quarantined extension, alignment-only, or explicitly deferred
+    capabilities that are excluded from the default certification claim boundary.
+scope_buckets:
+  baseline-certifiable-now:
+    count: 13
+    targets:
+    - RFC 6749
+    - RFC 6750
+    - RFC 7636
+    - RFC 8414
+    - RFC 8615
+    - RFC 7515
+    - RFC 7516
+    - RFC 7517
+    - RFC 7518
+    - RFC 7519
+    - OIDC Core 1.0
+    - OIDC Discovery 1.0
+    - OpenAPI 3.1 / 3.2 compatible public contract
+  production-completion-required:
+    count: 15
+    targets:
+    - RFC 7009
+    - RFC 7591
+    - RFC 7592
+    - RFC 7662
+    - RFC 8252
+    - RFC 9068
+    - RFC 9207
+    - RFC 6265
+    - RFC 7521
+    - RFC 7523
+    - RFC 9728
+    - OIDC UserInfo
+    - OIDC Session Management
+    - OIDC RP-Initiated Logout
+    - OpenRPC 1.4.x admin/control-plane contract
+  hardening-completion-required:
+    count: 11
+    targets:
+    - RFC 8628
+    - RFC 8693
+    - RFC 8705
+    - RFC 8707
+    - RFC 9101
+    - RFC 9126
+    - RFC 9396
+    - RFC 9449
+    - RFC 9700
+    - OIDC Front-Channel Logout
+    - OIDC Back-Channel Logout
+  runtime-completion-required:
+    count: 4
+    targets:
+    - ASGI 3 application package
+    - 'Runner profile: Uvicorn'
+    - 'Runner profile: Hypercorn'
+    - 'Runner profile: Tigrcorn'
+  operator-completion-required:
+    count: 5
+    targets:
+    - CLI operator surface
+    - Bootstrap and migration lifecycle
+    - Key lifecycle and JWKS publication
+    - Import/export portability
+    - Release bundle and signature verification
+boundary_freeze:
+  decision_id: BND-012
+  adr: docs/adr/ADR-0029-certification-closeout-boundary-freeze.md
+  effective_date: '2026-03-26'
+  status: frozen-for-certification-closeout
+  source_of_truth: compliance/targets/certification_scope.yaml
+  enforced_by_checks:
+  - claims_linter
+  - boundary-scope-freeze
+  release_gates:
+  - gate-05-governance
+  - gate-15-boundary-enforcement
+  - gate-90-release
+  retained_target_count: 48
+  retained_rfc_target_count: 30
+  retained_non_rfc_target_count: 18
+  retained_bucket_counts:
+    baseline-certifiable-now: 13
+    production-completion-required: 15
+    hardening-completion-required: 11
+    runtime-completion-required: 4
+    operator-completion-required: 5
+  deferred_target_count: 13
+  retained_target_identity_hash: b5caac77a8e8bc398c8d4679049f525d94ad701cd345eaa51498567972ce9f60
+  retained_rfc_target_identity_hash: 0ad8e089ffb79da0729f5553d27762810d5e2819b43b6de2c6646f96e25ee60f
+  retained_non_rfc_target_identity_hash: ed5c67dd36ad0698c670540dd5ad267b21ce46fe5e1ab97269539bca3d40b3be
+  deferred_target_identity_hash: 2a017f3e33fdf309a3652fbe2aa8a21eb66340787e6752692ded535a68aba6f2
+  no_target_count_drift_during_closeout: true
+  closeout_scope_expansion_requires_separate_program: true
+  fully_featured_claim_boundary_fixed: true
+  prohibited_expansions:
+  - RFC 7800
+  - RFC 7952
+  - RFC 8291
+  - RFC 8812
+  - RFC 8932
+  - OAuth 2.1 alignment profile
+  - SAML IdP/SP
+  - LDAP/AD federation
+  - SCIM
+  - policy-platform/federation breadth outside the declared boundary
+  notes:
+  - Do not widen the retained 48-target certification boundary during closeout.
+  - Do not silently reclassify deferred, alignment-only, or out-of-scope items as
+    part of the fully featured claim.
+  - Any broader business claim requires a separate scope-expansion program with updated
+    manifests, mappings, tests, evidence, and peer obligations.
+deferred_targets:
+- label: RFC 7800
+  kind: extension-quarantine
+  reason: Optional hardening extension not yet promoted into the certified core boundary.
+  modules:
+  - tigrbl_auth/standards/jose/rfc7800.py
+- label: RFC 7952
+  kind: extension-quarantine
+  reason: Outside the default OAuth 2.0 / OIDC auth-server certification boundary.
+  modules:
+  - tigrbl_auth/extensions/rfc7952.py
+- label: RFC 8291
+  kind: extension-quarantine
+  reason: Web Push is not part of the certified auth-core boundary.
+  modules:
+  - tigrbl_auth/extensions/rfc8291.py
+- label: RFC 8812
+  kind: extension-quarantine
+  reason: WebAuthn is extension work and not part of the default certified boundary.
+  modules:
+  - tigrbl_auth/extensions/rfc8812.py
+- label: RFC 8932
+  kind: extension-quarantine
+  reason: RFC 8932 is not an OAuth/OIDC auth-core target and remains quarantined from
+    certification claims.
+  modules:
+  - tigrbl_auth/extensions/rfc8932.py
+- label: OAuth 2.1 alignment profile
+  kind: alignment-only
+  reason: Track draft-era alignment only. Do not emit as a final RFC compliance claim.
+  claimable_as_rfc: false
+- label: SAML IdP/SP
+  kind: out-of-scope-baseline
+  reason: explicitly excluded from the default certification boundary
+- label: LDAP/AD federation
+  kind: out-of-scope-baseline
+  reason: explicitly excluded from the default certification boundary
+- label: SCIM
+  kind: out-of-scope-baseline
+  reason: explicitly excluded from the default certification boundary
+- label: full authorization-policy platform
+  kind: out-of-scope-baseline
+  reason: explicitly excluded from the default certification boundary
+- label: Supabase-style data-plane authorization
+  kind: out-of-scope-baseline
+  reason: explicitly excluded from the default certification boundary
+- label: framework-local auth subsystem
+  kind: out-of-scope-baseline
+  reason: explicitly excluded from the default certification boundary
+- label: Keycloak-scale federation breadth
+  kind: out-of-scope-baseline
+  reason: explicitly excluded from the default certification boundary
+targets:
+- label: RFC 6749
+  id: oauth2.core
+  family: rfc
+  scope_bucket: baseline-certifiable-now
+  phase: P1
+  minimum_claim_tier: 2
+  first_claimable_profile: baseline
+  claim:
+    target: RFC 6749
+    tier: 3
+    status: evidenced-release-gated
+    profile: baseline
+  owner_modules:
+  - tigrbl_auth/standards/oauth2/rfc6749.py
+  - tigrbl_auth/standards/oauth2/rfc6749_token.py
+  endpoint_surface:
+    current:
+    - /authorize
+    - /token
+    target:
+    - /authorize
+    - /token
+    status: tracked
+  tests:
+    paths:
+    - tests/conformance/baseline/test_rfc6749_auth_flow_endpoints.py
+    - tests/conformance/baseline/test_rfc6749_token_endpoint.py
+    - tests/integration/test_auth_flows.py
+    - tests/integration/test_authorization_code_flow.py
+    - tests/integration/test_profile_surface_and_contract_alignment.py
+    - tests/interop/test_peer_counterpart_catalog.py
+    - tests/interop/test_peer_matrix_artifacts.py
+    - tests/interop/test_tier4_promotion_fail_closed.py
+    classes:
+    - conformance
+    - integration
+    - interop
+  evidence:
+    refs:
+    - compliance/evidence/tier3/oauth2-core/
+  profile_reality:
+    baseline:
+      active_target: true
+      effective_claim: true
+      openapi_paths_present:
+      - /authorize
+      - /token
+      openrpc_present: false
+    production:
+      active_target: true
+      effective_claim: true
+      openapi_paths_present:
+      - /authorize
+      - /token
+      openrpc_present: false
+    hardening:
+      active_target: true
+      effective_claim: true
+      openapi_paths_present:
+      - /authorize
+      - /token
+      openrpc_present: false
+  discrepancies: []
+- label: RFC 6750
+  id: oauth2.bearer
+  family: rfc
+  scope_bucket: baseline-certifiable-now
+  phase: P1
+  minimum_claim_tier: 2
+  first_claimable_profile: baseline
+  claim:
+    target: RFC 6750
+    tier: 3
+    status: evidenced-release-gated
+    profile: baseline
+  owner_modules:
+  - tigrbl_auth/standards/oauth2/rfc6750.py
+  endpoint_surface:
+    current:
+    - /token
+    - /userinfo
+    - /introspect
+    target:
+    - /token
+    - /userinfo
+    - /introspect
+    status: mounted-shared-bearer-token-surface
+  tests:
+    paths:
+    - tests/conformance/baseline/test_rfc6750_bearer_token.py
+    - tests/integration/test_auth_flows.py
+    - tests/interop/test_peer_counterpart_catalog.py
+    - tests/interop/test_peer_matrix_artifacts.py
+    - tests/interop/test_tier4_promotion_fail_closed.py
+    classes:
+    - conformance
+    - integration
+    - interop
+  evidence:
+    refs:
+    - compliance/evidence/tier3/bearer/
+  profile_reality:
+    baseline:
+      active_target: true
+      effective_claim: true
+      openapi_paths_present:
+      - /token
+      openrpc_present: false
+    production:
+      active_target: true
+      effective_claim: true
+      openapi_paths_present:
+      - /token
+      - /userinfo
+      - /introspect
+      openrpc_present: false
+    hardening:
+      active_target: true
+      effective_claim: true
+      openapi_paths_present:
+      - /token
+      - /userinfo
+      - /introspect
+      openrpc_present: false
+  discrepancies: []
+- label: RFC 7636
+  id: oauth2.pkce
+  family: rfc
+  scope_bucket: baseline-certifiable-now
+  phase: P1
+  minimum_claim_tier: 2
+  first_claimable_profile: baseline
+  claim:
+    target: RFC 7636
+    tier: 3
+    status: evidenced-release-gated
+    profile: baseline
+  owner_modules:
+  - tigrbl_auth/standards/oauth2/rfc7636_pkce.py
+  endpoint_surface:
+    current:
+    - /authorize
+    - /token
+    target:
+    - /authorize
+    - /token
+    status: mounted-pkce-enforced-auth-code-surface
+  tests:
+    paths:
+    - tests/conformance/baseline/test_rfc7636_pkce.py
+    - tests/integration/test_authorization_code_flow.py
+    - tests/unit/test_auth_code_exchange_pkce.py
+    - tests/interop/test_peer_counterpart_catalog.py
+    - tests/interop/test_peer_matrix_artifacts.py
+    - tests/interop/test_tier4_promotion_fail_closed.py
+    classes:
+    - conformance
+    - integration
+    - unit
+    - interop
+  evidence:
+    refs:
+    - compliance/evidence/tier3/pkce/
+  profile_reality:
+    baseline:
+      active_target: true
+      effective_claim: true
+      openapi_paths_present:
+      - /authorize
+      - /token
+      openrpc_present: false
+    production:
+      active_target: true
+      effective_claim: true
+      openapi_paths_present:
+      - /authorize
+      - /token
+      openrpc_present: false
+    hardening:
+      active_target: true
+      effective_claim: true
+      openapi_paths_present:
+      - /authorize
+      - /token
+      openrpc_present: false
+  discrepancies: []
+- label: RFC 8414
+  id: oauth2.metadata
+  family: rfc
+  scope_bucket: baseline-certifiable-now
+  phase: P1
+  minimum_claim_tier: 2
+  first_claimable_profile: baseline
+  claim:
+    target: RFC 8414
+    tier: 3
+    status: evidenced-release-gated
+    profile: baseline
+  owner_modules:
+  - tigrbl_auth/standards/oauth2/rfc8414.py
+  - tigrbl_auth/standards/oauth2/rfc8414_metadata.py
+  endpoint_surface:
+    current:
+    - /.well-known/oauth-authorization-server
+    target:
+    - /.well-known/oauth-authorization-server
+    status: tracked
+  tests:
+    paths:
+    - tests/conformance/baseline/test_rfc8414_authorization_server_metadata.py
+    - tests/integration/test_rfc8414_metadata.py
+    classes:
+    - conformance
+    - integration
+  evidence:
+    refs:
+    - compliance/evidence/tier3/discovery/
+  profile_reality:
+    baseline:
+      active_target: true
+      effective_claim: true
+      openapi_paths_present:
+      - /.well-known/oauth-authorization-server
+      openrpc_present: false
+    production:
+      active_target: true
+      effective_claim: true
+      openapi_paths_present:
+      - /.well-known/oauth-authorization-server
+      openrpc_present: false
+    hardening:
+      active_target: true
+      effective_claim: true
+      openapi_paths_present:
+      - /.well-known/oauth-authorization-server
+      openrpc_present: false
+  discrepancies: []
+- label: RFC 8615
+  id: http.well-known
+  family: rfc
+  scope_bucket: baseline-certifiable-now
+  phase: P1
+  minimum_claim_tier: 2
+  first_claimable_profile: baseline
+  claim:
+    target: RFC 8615
+    tier: 3
+    status: evidenced-release-gated
+    profile: baseline
+  owner_modules:
+  - tigrbl_auth/standards/http/well_known.py
+  endpoint_surface:
+    current:
+    - /.well-known/openid-configuration
+    - /.well-known/oauth-authorization-server
+    - /.well-known/jwks.json
+    - /.well-known/oauth-protected-resource
+    target:
+    - /.well-known/openid-configuration
+    - /.well-known/oauth-authorization-server
+    - /.well-known/jwks.json
+    - /.well-known/oauth-protected-resource
+    status: tracked
+  tests:
+    paths:
+    - tests/conformance/production/test_rfc8615_well_known_uris.py
+    - tests/integration/test_profile_surface_and_contract_alignment.py
+    - tests/unit/test_well_known_endpoints_behavior.py
+    classes:
+    - conformance
+    - integration
+    - unit
+  evidence:
+    refs:
+    - compliance/evidence/tier3/well-known/
+  profile_reality:
+    baseline:
+      active_target: true
+      effective_claim: true
+      openapi_paths_present:
+      - /.well-known/openid-configuration
+      - /.well-known/oauth-authorization-server
+      - /.well-known/jwks.json
+      openrpc_present: false
+    production:
+      active_target: true
+      effective_claim: true
+      openapi_paths_present:
+      - /.well-known/openid-configuration
+      - /.well-known/oauth-authorization-server
+      - /.well-known/jwks.json
+      - /.well-known/oauth-protected-resource
+      openrpc_present: false
+    hardening:
+      active_target: true
+      effective_claim: true
+      openapi_paths_present:
+      - /.well-known/openid-configuration
+      - /.well-known/oauth-authorization-server
+      - /.well-known/jwks.json
+      - /.well-known/oauth-protected-resource
+      openrpc_present: false
+  discrepancies: []
+- label: RFC 7515
+  id: jose.jws
+  family: rfc
+  scope_bucket: baseline-certifiable-now
+  phase: P1
+  minimum_claim_tier: 2
+  first_claimable_profile: baseline
+  claim:
+    target: RFC 7515
+    tier: 3
+    status: evidenced-release-gated
+    profile: baseline
+  owner_modules:
+  - tigrbl_auth/standards/jose/rfc7515.py
+  endpoint_surface:
+    current: []
+    target: []
+    status: tracked
+  tests:
+    paths:
+    - tests/conformance/baseline/test_rfc7515_jws.py
+    - tests/unit/test_rfc7515_jws.py
+    classes:
+    - conformance
+    - unit
+  evidence:
+    refs:
+    - compliance/evidence/tier3/jose/
+  profile_reality:
+    baseline:
+      active_target: true
+      effective_claim: true
+      openapi_paths_present: []
+      openrpc_present: false
+    production:
+      active_target: true
+      effective_claim: true
+      openapi_paths_present: []
+      openrpc_present: false
+    hardening:
+      active_target: true
+      effective_claim: true
+      openapi_paths_present: []
+      openrpc_present: false
+  discrepancies: []
+- label: RFC 7516
+  id: jose.jwe
+  family: rfc
+  scope_bucket: baseline-certifiable-now
+  phase: P2
+  minimum_claim_tier: 3
+  first_claimable_profile: baseline
+  claim:
+    target: RFC 7516
+    tier: 3
+    status: evidenced-release-gated
+    profile: baseline
+  owner_modules:
+  - tigrbl_auth/standards/jose/rfc7516.py
+  - tigrbl_auth/standards/oidc/id_token.py
+  - tigrbl_auth/standards/oidc/discovery_metadata.py
+  endpoint_surface:
+    current: []
+    target: []
+    status: runtime-integrated-encrypted-id-token-profile
+  tests:
+    paths:
+    - tests/conformance/production/test_rfc7516_jwe_profile.py
+    - tests/unit/test_rfc7516_jwe.py
+    - tests/unit/test_oidc_id_token_encryption.py
+    classes:
+    - conformance
+    - unit
+  evidence:
+    refs:
+    - compliance/evidence/tier3/jwe/
+  profile_reality:
+    baseline:
+      active_target: true
+      effective_claim: true
+      openapi_paths_present: []
+      openrpc_present: false
+    production:
+      active_target: true
+      effective_claim: true
+      openapi_paths_present: []
+      openrpc_present: false
+    hardening:
+      active_target: true
+      effective_claim: true
+      openapi_paths_present: []
+      openrpc_present: false
+  discrepancies: []
+- label: RFC 7517
+  id: jose.jwk
+  family: rfc
+  scope_bucket: baseline-certifiable-now
+  phase: P1
+  minimum_claim_tier: 2
+  first_claimable_profile: baseline
+  claim:
+    target: RFC 7517
+    tier: 3
+    status: evidenced-release-gated
+    profile: baseline
+  owner_modules:
+  - tigrbl_auth/standards/jose/rfc7517.py
+  endpoint_surface:
+    current:
+    - /.well-known/jwks.json
+    target:
+    - /.well-known/jwks.json
+    status: tracked
+  tests:
+    paths:
+    - tests/conformance/baseline/test_rfc7517_jwk.py
+    - tests/unit/test_jwks_rotation.py
+    classes:
+    - conformance
+    - unit
+  evidence:
+    refs:
+    - compliance/evidence/tier3/jwks/
+  profile_reality:
+    baseline:
+      active_target: true
+      effective_claim: true
+      openapi_paths_present:
+      - /.well-known/jwks.json
+      openrpc_present: false
+    production:
+      active_target: true
+      effective_claim: true
+      openapi_paths_present:
+      - /.well-known/jwks.json
+      openrpc_present: false
+    hardening:
+      active_target: true
+      effective_claim: true
+      openapi_paths_present:
+      - /.well-known/jwks.json
+      openrpc_present: false
+  discrepancies: []
+- label: RFC 7518
+  id: jose.jwa
+  family: rfc
+  scope_bucket: baseline-certifiable-now
+  phase: P1
+  minimum_claim_tier: 2
+  first_claimable_profile: baseline
+  claim:
+    target: RFC 7518
+    tier: 3
+    status: evidenced-release-gated
+    profile: baseline
+  owner_modules:
+  - tigrbl_auth/standards/jose/rfc7518.py
+  endpoint_surface:
+    current: []
+    target: []
+    status: tracked
+  tests:
+    paths:
+    - tests/conformance/baseline/test_rfc7518_jwa.py
+    - tests/unit/test_rfc7518_jwa.py
+    classes:
+    - conformance
+    - unit
+  evidence:
+    refs:
+    - compliance/evidence/tier3/jose/
+  profile_reality:
+    baseline:
+      active_target: true
+      effective_claim: true
+      openapi_paths_present: []
+      openrpc_present: false
+    production:
+      active_target: true
+      effective_claim: true
+      openapi_paths_present: []
+      openrpc_present: false
+    hardening:
+      active_target: true
+      effective_claim: true
+      openapi_paths_present: []
+      openrpc_present: false
+  discrepancies: []
+- label: RFC 7519
+  id: jose.jwt
+  family: rfc
+  scope_bucket: baseline-certifiable-now
+  phase: P1
+  minimum_claim_tier: 2
+  first_claimable_profile: baseline
+  claim:
+    target: RFC 7519
+    tier: 3
+    status: evidenced-release-gated
+    profile: baseline
+  owner_modules:
+  - tigrbl_auth/standards/jose/rfc7519.py
+  endpoint_surface:
+    current: []
+    target: []
+    status: tracked
+  tests:
+    paths:
+    - tests/conformance/baseline/test_rfc7519_jwt.py
+    - tests/unit/test_jwtoken.py
+    classes:
+    - conformance
+    - unit
+  evidence:
+    refs:
+    - compliance/evidence/tier3/jwt/
+  profile_reality:
+    baseline:
+      active_target: true
+      effective_claim: true
+      openapi_paths_present: []
+      openrpc_present: false
+    production:
+      active_target: true
+      effective_claim: true
+      openapi_paths_present: []
+      openrpc_present: false
+    hardening:
+      active_target: true
+      effective_claim: true
+      openapi_paths_present: []
+      openrpc_present: false
+  discrepancies: []
+- label: RFC 7009
+  id: oauth2.revocation
+  family: rfc
+  scope_bucket: production-completion-required
+  phase: P2
+  minimum_claim_tier: 3
+  first_claimable_profile: production
+  claim:
+    target: RFC 7009
+    tier: 3
+    status: evidenced-release-gated
+    profile: production
+  owner_modules:
+  - tigrbl_auth/standards/oauth2/revocation.py
+  - tigrbl_auth/api/rest/routers/revoke.py
+  - tigrbl_auth/ops/revoke.py
+  - tigrbl_auth/services/persistence.py
+  - tigrbl_auth/tables/revoked_token.py
+  - tigrbl_auth/tables/token_record.py
+  endpoint_surface:
+    current:
+    - /revoke
+    target:
+    - /revoke
+    status: mounted
+  tests:
+    paths:
+    - tests/conformance/production/test_rfc7009_token_revocation.py
+    - tests/integration/test_full_workflow.py
+    - tests/integration/test_migration_upgrade_downgrade_safety.py
+    - tests/integration/test_persistence_lifecycle_durability.py
+    - tests/unit/test_phase3_public_route_contracts.py
+    classes:
+    - conformance
+    - integration
+    - unit
+  evidence:
+    refs:
+    - compliance/evidence/tier3/revocation/
+  profile_reality:
+    baseline:
+      active_target: false
+      effective_claim: false
+      openapi_paths_present: []
+      openrpc_present: false
+    production:
+      active_target: true
+      effective_claim: true
+      openapi_paths_present:
+      - /revoke
+      openrpc_present: false
+    hardening:
+      active_target: true
+      effective_claim: true
+      openapi_paths_present:
+      - /revoke
+      openrpc_present: false
+  discrepancies: []
+- label: RFC 7591
+  id: oauth2.dynamic-registration
+  family: rfc
+  scope_bucket: production-completion-required
+  phase: P2
+  minimum_claim_tier: 3
+  first_claimable_profile: production
+  claim:
+    target: RFC 7591
+    tier: 3
+    status: evidenced-release-gated
+    profile: production
+  owner_modules:
+  - tigrbl_auth/standards/oauth2/dynamic_client_registration.py
+  - tigrbl_auth/api/rest/routers/register.py
+  - tigrbl_auth/ops/register.py
+  - tigrbl_auth/tables/client_registration.py
+  - tigrbl_auth/services/persistence.py
+  endpoint_surface:
+    current:
+    - /register
+    target:
+    - /register
+    status: mounted
+  tests:
+    paths:
+    - tests/conformance/production/test_rfc7591_dynamic_client_registration.py
+    - tests/integration/test_persistence_lifecycle_durability.py
+    - tests/integration/test_profile_surface_and_contract_alignment.py
+    - tests/unit/test_phase3_public_route_contracts.py
+    - tests/unit/test_rfc7591_client_registration_endpoint.py
+    classes:
+    - conformance
+    - integration
+    - unit
+  evidence:
+    refs:
+    - compliance/evidence/tier3/client-registration/
+  profile_reality:
+    baseline:
+      active_target: false
+      effective_claim: false
+      openapi_paths_present: []
+      openrpc_present: false
+    production:
+      active_target: true
+      effective_claim: true
+      openapi_paths_present:
+      - /register
+      openrpc_present: false
+    hardening:
+      active_target: true
+      effective_claim: true
+      openapi_paths_present:
+      - /register
+      openrpc_present: false
+  discrepancies: []
+- label: RFC 7592
+  id: oauth2.registration-management
+  family: rfc
+  scope_bucket: production-completion-required
+  phase: P3
+  minimum_claim_tier: 3
+  first_claimable_profile: production
+  claim:
+    target: RFC 7592
+    tier: 3
+    status: evidenced-release-gated
+    profile: production
+  owner_modules:
+  - tigrbl_auth/standards/oauth2/client_registration_management.py
+  - tigrbl_auth/tables/client_registration.py
+  - tigrbl_auth/services/persistence.py
+  - tigrbl_auth/api/rest/routers/register.py
+  - tigrbl_auth/ops/register.py
+  - tigrbl_auth/api/rpc/methods/client_registration.py
+  - tigrbl_auth/api/rpc/schemas/client_registration.py
+  endpoint_surface:
+    current:
+    - /register/{client_id}
+    target:
+    - /register/{client_id}
+    status: mounted
+  tests:
+    paths:
+    - tests/unit/test_phase8_hardening_cluster_a.py
+    - tests/conformance/hardening/test_rfc7592_client_registration_management.py
+    - tests/integration/test_profile_surface_and_contract_alignment.py
+    - tests/unit/test_phase7_advanced_surface_contracts.py
+    - tests/unit/test_rfc7592_client_management_endpoint.py
+    classes:
+    - unit
+    - conformance
+    - integration
+  evidence:
+    refs:
+    - compliance/evidence/tier3/client-registration-management/
+  profile_reality:
+    baseline:
+      active_target: false
+      effective_claim: false
+      openapi_paths_present: []
+      openrpc_present: false
+    production:
+      active_target: true
+      effective_claim: true
+      openapi_paths_present:
+      - /register/{client_id}
+      openrpc_present: false
+    hardening:
+      active_target: true
+      effective_claim: true
+      openapi_paths_present:
+      - /register/{client_id}
+      openrpc_present: false
+  discrepancies: []
+- label: RFC 7662
+  id: oauth2.introspection
+  family: rfc
+  scope_bucket: production-completion-required
+  phase: P2
+  minimum_claim_tier: 3
+  first_claimable_profile: production
+  claim:
+    target: RFC 7662
+    tier: 3
+    status: evidenced-release-gated
+    profile: production
+  owner_modules:
+  - tigrbl_auth/standards/oauth2/introspection.py
+  - tigrbl_auth/services/persistence.py
+  - tigrbl_auth/tables/token_record.py
+  - tigrbl_auth/tables/revoked_token.py
+  endpoint_surface:
+    current:
+    - /introspect
+    target:
+    - /introspect
+    status: mounted
+  tests:
+    paths:
+    - tests/conformance/production/test_rfc7662_introspection.py
+    - tests/integration/test_migration_upgrade_downgrade_safety.py
+    - tests/integration/test_persistence_lifecycle_durability.py
+    - tests/integration/test_rfc7662.py
+    - tests/unit/test_phase3_public_route_contracts.py
+    classes:
+    - conformance
+    - integration
+    - unit
+  evidence:
+    refs:
+    - compliance/evidence/tier3/introspection/
+  profile_reality:
+    baseline:
+      active_target: false
+      effective_claim: false
+      openapi_paths_present: []
+      openrpc_present: false
+    production:
+      active_target: true
+      effective_claim: true
+      openapi_paths_present:
+      - /introspect
+      openrpc_present: false
+    hardening:
+      active_target: true
+      effective_claim: true
+      openapi_paths_present:
+      - /introspect
+      openrpc_present: false
+  discrepancies: []
+- label: RFC 8252
+  id: oauth2.native-apps
+  family: rfc
+  scope_bucket: production-completion-required
+  phase: P2
+  minimum_claim_tier: 3
+  first_claimable_profile: production
+  claim:
+    target: RFC 8252
+    tier: 3
+    status: evidenced-release-gated
+    profile: production
+  owner_modules:
+  - tigrbl_auth/standards/oauth2/native_apps.py
+  - tigrbl_auth/tables/client.py
+  - tigrbl_auth/ops/authorize.py
+  - tigrbl_auth/ops/register.py
+  - tigrbl_auth/ops/token.py
+  endpoint_surface:
+    current:
+    - /authorize
+    - /token
+    - /register
+    - /register/{client_id}
+    target:
+    - /authorize
+    - /token
+    - /register
+    - /register/{client_id}
+    status: runtime-validated-native-app-profile
+  tests:
+    paths:
+    - tests/unit/test_rfc8252_native_app_redirects.py
+    - tests/conformance/production/test_rfc8252_native_apps.py
+    - tests/interop/test_peer_counterpart_catalog.py
+    - tests/interop/test_peer_matrix_artifacts.py
+    - tests/interop/test_tier4_promotion_fail_closed.py
+    classes:
+    - unit
+    - conformance
+    - interop
+  evidence:
+    refs:
+    - compliance/evidence/tier3/native-apps/
+  profile_reality:
+    baseline:
+      active_target: false
+      effective_claim: false
+      openapi_paths_present:
+      - /authorize
+      - /token
+      openrpc_present: false
+    production:
+      active_target: true
+      effective_claim: true
+      openapi_paths_present:
+      - /authorize
+      - /token
+      - /register
+      - /register/{client_id}
+      openrpc_present: false
+    hardening:
+      active_target: true
+      effective_claim: true
+      openapi_paths_present:
+      - /authorize
+      - /token
+      - /register
+      - /register/{client_id}
+      openrpc_present: false
+  discrepancies: []
+- label: RFC 8628
+  id: oauth2.device
+  family: rfc
+  scope_bucket: hardening-completion-required
+  phase: P3
+  minimum_claim_tier: 3
+  first_claimable_profile: hardening
+  claim:
+    target: RFC 8628
+    tier: 3
+    status: evidenced-release-gated
+    profile: hardening
+  owner_modules:
+  - tigrbl_auth/standards/oauth2/device_authorization.py
+  - tigrbl_auth/api/rest/routers/device_authorization.py
+  - tigrbl_auth/ops/device_authorization.py
+  - tigrbl_auth/tables/device_code.py
+  - tigrbl_auth/ops/token.py
+  - tigrbl_auth/services/persistence.py
+  endpoint_surface:
+    current:
+    - /device_authorization
+    target:
+    - /device_authorization
+    status: mounted
+  tests:
+    paths:
+    - tests/unit/test_phase8_hardening_cluster_a.py
+    - tests/conformance/hardening/test_rfc8628_device_authorization.py
+    - tests/integration/test_device_code_flow.py
+    - tests/integration/test_profile_surface_and_contract_alignment.py
+    - tests/integration/test_rfc8628.py
+    - tests/unit/test_phase3_public_route_contracts.py
+    - tests/interop/test_peer_counterpart_catalog.py
+    - tests/interop/test_peer_matrix_artifacts.py
+    - tests/interop/test_tier4_promotion_fail_closed.py
+    classes:
+    - unit
+    - conformance
+    - integration
+    - interop
+  evidence:
+    refs:
+    - compliance/evidence/tier3/device-flow/
+  profile_reality:
+    baseline:
+      active_target: false
+      effective_claim: false
+      openapi_paths_present: []
+      openrpc_present: false
+    production:
+      active_target: false
+      effective_claim: false
+      openapi_paths_present: []
+      openrpc_present: false
+    hardening:
+      active_target: true
+      effective_claim: true
+      openapi_paths_present:
+      - /device_authorization
+      openrpc_present: false
+  discrepancies: []
+- label: RFC 8693
+  id: oauth2.token-exchange
+  family: rfc
+  scope_bucket: hardening-completion-required
+  phase: P3
+  minimum_claim_tier: 3
+  first_claimable_profile: hardening
+  claim:
+    target: RFC 8693
+    tier: 3
+    status: evidenced-release-gated
+    profile: hardening
+  owner_modules:
+  - tigrbl_auth/standards/oauth2/token_exchange.py
+  - tigrbl_auth/ops/token.py
+  - tigrbl_auth/services/token_service.py
+  - tigrbl_auth/services/persistence.py
+  - tigrbl_auth/api/rpc/methods/token.py
+  - tigrbl_auth/api/rpc/schemas/token.py
+  endpoint_surface:
+    current:
+    - /token/exchange
+    target:
+    - /token/exchange
+    status: mounted
+  tests:
+    paths:
+    - tests/unit/test_phase8_hardening_cluster_a.py
+    - tests/conformance/hardening/test_rfc8693_token_exchange.py
+    - tests/integration/test_profile_surface_and_contract_alignment.py
+    - tests/integration/test_rfc8693_token_exchange_endpoint.py
+    - tests/integration/test_token_exchange_flow.py
+    - tests/unit/test_phase3_public_route_contracts.py
+    - tests/interop/test_peer_counterpart_catalog.py
+    - tests/interop/test_peer_matrix_artifacts.py
+    - tests/interop/test_tier4_promotion_fail_closed.py
+    classes:
+    - unit
+    - conformance
+    - integration
+    - interop
+  evidence:
+    refs:
+    - compliance/evidence/tier3/token-exchange/
+  profile_reality:
+    baseline:
+      active_target: false
+      effective_claim: false
+      openapi_paths_present: []
+      openrpc_present: false
+    production:
+      active_target: false
+      effective_claim: false
+      openapi_paths_present: []
+      openrpc_present: false
+    hardening:
+      active_target: true
+      effective_claim: true
+      openapi_paths_present:
+      - /token/exchange
+      openrpc_present: false
+  discrepancies: []
+- label: RFC 8705
+  id: oauth2.mtls
+  family: rfc
+  scope_bucket: hardening-completion-required
+  phase: P3
+  minimum_claim_tier: 3
+  first_claimable_profile: hardening
+  claim:
+    target: RFC 8705
+    tier: 3
+    status: evidenced-release-gated
+    profile: hardening
+  owner_modules:
+  - tigrbl_auth/standards/oauth2/mtls.py
+  - tigrbl_auth/standards/oauth2/rfc9700.py
+  - tigrbl_auth/ops/token.py
+  - tigrbl_auth/standards/oauth2/token_exchange.py
+  - tigrbl_auth/services/token_service.py
+  - tigrbl_auth/ops/register.py
+  - tigrbl_auth/api/rest/schemas.py
+  - tigrbl_auth/standards/oidc/discovery_metadata.py
+  - tigrbl_auth/security/auth.py
+  - tigrbl_auth/security/deps.py
+  endpoint_surface:
+    current:
+    - /token
+    - /token/exchange
+    target:
+    - /token
+    - /token/exchange
+    status: runtime-enforced-sender-constraint
+  tests:
+    paths:
+    - tests/conformance/hardening/test_rfc8705_mtls.py
+    - tests/integration/test_profile_surface_and_contract_alignment.py
+    - tests/unit/test_phase7_advanced_surface_contracts.py
+    - tests/interop/test_peer_counterpart_catalog.py
+    - tests/interop/test_peer_matrix_artifacts.py
+    - tests/interop/test_tier4_promotion_fail_closed.py
+    - tests/unit/test_phase10_hardening_cluster_c.py
+    classes:
+    - conformance
+    - integration
+    - unit
+    - interop
+  evidence:
+    refs:
+    - compliance/evidence/tier3/mtls/
+  profile_reality:
+    baseline:
+      active_target: false
+      effective_claim: false
+      openapi_paths_present:
+      - /token
+      openrpc_present: false
+    production:
+      active_target: false
+      effective_claim: false
+      openapi_paths_present:
+      - /token
+      openrpc_present: false
+    hardening:
+      active_target: true
+      effective_claim: true
+      openapi_paths_present:
+      - /token
+      - /token/exchange
+      openrpc_present: false
+  discrepancies: []
+- label: RFC 8707
+  id: oauth2.resource-indicators
+  family: rfc
+  scope_bucket: hardening-completion-required
+  phase: P3
+  minimum_claim_tier: 3
+  first_claimable_profile: hardening
+  claim:
+    target: RFC 8707
+    tier: 3
+    status: evidenced-release-gated
+    profile: hardening
+  owner_modules:
+  - tigrbl_auth/standards/oauth2/resource_indicators.py
+  - tigrbl_auth/ops/authorize.py
+  - tigrbl_auth/ops/token.py
+  - tigrbl_auth/ops/device_authorization.py
+  - tigrbl_auth/ops/par.py
+  - tigrbl_auth/standards/oauth2/token_exchange.py
+  - tigrbl_auth/services/token_service.py
+  endpoint_surface:
+    current:
+    - /authorize
+    - /token
+    - /device_authorization
+    - /par
+    - /token/exchange
+    target:
+    - /authorize
+    - /token
+    - /device_authorization
+    - /par
+    - /token/exchange
+    status: mounted
+  tests:
+    paths:
+    - tests/unit/test_phase8_hardening_cluster_a.py
+    - tests/conformance/hardening/test_rfc8707_resource_indicators.py
+    - tests/integration/test_profile_surface_and_contract_alignment.py
+    - tests/unit/test_phase7_advanced_surface_contracts.py
+    classes:
+    - unit
+    - conformance
+    - integration
+  evidence:
+    refs:
+    - compliance/evidence/tier3/resource-indicators/
+  profile_reality:
+    baseline:
+      active_target: false
+      effective_claim: false
+      openapi_paths_present:
+      - /authorize
+      - /token
+      openrpc_present: false
+    production:
+      active_target: false
+      effective_claim: false
+      openapi_paths_present:
+      - /authorize
+      - /token
+      openrpc_present: false
+    hardening:
+      active_target: true
+      effective_claim: true
+      openapi_paths_present:
+      - /authorize
+      - /token
+      - /device_authorization
+      - /par
+      - /token/exchange
+      openrpc_present: false
+  discrepancies: []
+- label: RFC 9068
+  id: oauth2.jwt-access-tokens
+  family: rfc
+  scope_bucket: production-completion-required
+  phase: P2
+  minimum_claim_tier: 3
+  first_claimable_profile: production
+  claim:
+    target: RFC 9068
+    tier: 3
+    status: evidenced-release-gated
+    profile: production
+  owner_modules:
+  - tigrbl_auth/standards/oauth2/jwt_access_tokens.py
+  - tigrbl_auth/services/token_service.py
+  - tigrbl_auth/ops/login.py
+  - tigrbl_auth/ops/token.py
+  - tigrbl_auth/standards/oauth2/token_exchange.py
+  endpoint_surface:
+    current:
+    - /login
+    - /token
+    - /token/exchange
+    target:
+    - /login
+    - /token
+    - /token/exchange
+    status: mounted-jwt-access-token-profile
+  tests:
+    paths:
+    - tests/conformance/production/test_rfc9068_jwt_profile.py
+    - tests/integration/test_profile_surface_and_contract_alignment.py
+    - tests/unit/test_phase7_advanced_surface_contracts.py
+    - tests/interop/test_peer_counterpart_catalog.py
+    - tests/interop/test_peer_matrix_artifacts.py
+    - tests/interop/test_tier4_promotion_fail_closed.py
+    classes:
+    - conformance
+    - integration
+    - unit
+    - interop
+  evidence:
+    refs:
+    - compliance/evidence/tier3/jwt-access-token-profile/
+  profile_reality:
+    baseline:
+      active_target: false
+      effective_claim: false
+      openapi_paths_present:
+      - /login
+      - /token
+      openrpc_present: false
+    production:
+      active_target: true
+      effective_claim: true
+      openapi_paths_present:
+      - /login
+      - /token
+      openrpc_present: false
+    hardening:
+      active_target: true
+      effective_claim: true
+      openapi_paths_present:
+      - /login
+      - /token
+      - /token/exchange
+      openrpc_present: false
+  discrepancies: []
+- label: RFC 9101
+  id: oauth2.jar
+  family: rfc
+  scope_bucket: hardening-completion-required
+  phase: P3
+  minimum_claim_tier: 3
+  first_claimable_profile: hardening
+  claim:
+    target: RFC 9101
+    tier: 3
+    status: evidenced-release-gated
+    profile: hardening
+  owner_modules:
+  - tigrbl_auth/standards/oauth2/jar.py
+  - tigrbl_auth/ops/authorize.py
+  - tigrbl_auth/ops/par.py
+  - tigrbl_auth/cli/artifacts.py
+  endpoint_surface:
+    current:
+    - /authorize
+    - /par
+    target:
+    - /authorize
+    - /par
+    status: mounted
+  tests:
+    paths:
+    - tests/conformance/hardening/test_rfc9101_jar.py
+    - tests/integration/test_profile_surface_and_contract_alignment.py
+    - tests/unit/test_phase7_advanced_surface_contracts.py
+    - tests/interop/test_peer_counterpart_catalog.py
+    - tests/interop/test_peer_matrix_artifacts.py
+    - tests/interop/test_tier4_promotion_fail_closed.py
+    - tests/unit/test_phase9_hardening_cluster_b.py
+    classes:
+    - conformance
+    - integration
+    - unit
+    - interop
+  evidence:
+    refs:
+    - compliance/evidence/tier3/jar/
+  profile_reality:
+    baseline:
+      active_target: false
+      effective_claim: false
+      openapi_paths_present:
+      - /authorize
+      openrpc_present: false
+    production:
+      active_target: false
+      effective_claim: false
+      openapi_paths_present:
+      - /authorize
+      openrpc_present: false
+    hardening:
+      active_target: true
+      effective_claim: true
+      openapi_paths_present:
+      - /authorize
+      - /par
+      openrpc_present: false
+  discrepancies: []
+- label: RFC 9126
+  id: oauth2.par
+  family: rfc
+  scope_bucket: hardening-completion-required
+  phase: P3
+  minimum_claim_tier: 3
+  first_claimable_profile: hardening
+  claim:
+    target: RFC 9126
+    tier: 3
+    status: evidenced-release-gated
+    profile: hardening
+  owner_modules:
+  - tigrbl_auth/standards/oauth2/par.py
+  - tigrbl_auth/api/rest/routers/par.py
+  - tigrbl_auth/ops/par.py
+  - tigrbl_auth/ops/authorize.py
+  - tigrbl_auth/tables/pushed_authorization_request.py
+  endpoint_surface:
+    current:
+    - /par
+    target:
+    - /par
+    status: mounted-normalized-request-surface
+  tests:
+    paths:
+    - tests/conformance/hardening/test_rfc9126_par.py
+    - tests/integration/test_profile_surface_and_contract_alignment.py
+    - tests/unit/test_phase3_public_route_contracts.py
+    - tests/interop/test_peer_counterpart_catalog.py
+    - tests/interop/test_peer_matrix_artifacts.py
+    - tests/interop/test_tier4_promotion_fail_closed.py
+    - tests/unit/test_phase9_hardening_cluster_b.py
+    classes:
+    - conformance
+    - integration
+    - unit
+    - interop
+  evidence:
+    refs:
+    - compliance/evidence/tier3/par/
+  profile_reality:
+    baseline:
+      active_target: false
+      effective_claim: false
+      openapi_paths_present: []
+      openrpc_present: false
+    production:
+      active_target: false
+      effective_claim: false
+      openapi_paths_present: []
+      openrpc_present: false
+    hardening:
+      active_target: true
+      effective_claim: true
+      openapi_paths_present:
+      - /par
+      openrpc_present: false
+  discrepancies: []
+- label: RFC 9207
+  id: oauth2.issuer-identification
+  family: rfc
+  scope_bucket: production-completion-required
+  phase: P3
+  minimum_claim_tier: 3
+  first_claimable_profile: production
+  claim:
+    target: RFC 9207
+    tier: 3
+    status: evidenced-release-gated
+    profile: production
+  owner_modules:
+  - tigrbl_auth/standards/oauth2/issuer_identification.py
+  - tigrbl_auth/config/deployment.py
+  - tigrbl_auth/ops/authorize.py
+  - tigrbl_auth/standards/oidc/discovery_metadata.py
+  - tigrbl_auth/cli/artifacts.py
+  endpoint_surface:
+    current:
+    - /authorize
+    - /.well-known/openid-configuration
+    target:
+    - /authorize
+    - /.well-known/openid-configuration
+    status: mounted
+  tests:
+    paths:
+    - tests/conformance/hardening/test_rfc9207_issuer_identification.py
+    - tests/integration/test_profile_surface_and_contract_alignment.py
+    - tests/unit/test_phase6_profile_discovery_runtime.py
+    - tests/unit/test_rfc9207_issuer_identification.py
+    - tests/unit/test_phase9_hardening_cluster_b.py
+    classes:
+    - conformance
+    - integration
+    - unit
+  evidence:
+    refs:
+    - compliance/evidence/tier3/issuer-identification/
+  profile_reality:
+    baseline:
+      active_target: false
+      effective_claim: false
+      openapi_paths_present:
+      - /authorize
+      - /.well-known/openid-configuration
+      openrpc_present: false
+    production:
+      active_target: true
+      effective_claim: true
+      openapi_paths_present:
+      - /authorize
+      - /.well-known/openid-configuration
+      openrpc_present: false
+    hardening:
+      active_target: true
+      effective_claim: true
+      openapi_paths_present:
+      - /authorize
+      - /.well-known/openid-configuration
+      openrpc_present: false
+  discrepancies: []
+- label: RFC 9396
+  id: oauth2.rar
+  family: rfc
+  scope_bucket: hardening-completion-required
+  phase: P3
+  minimum_claim_tier: 3
+  first_claimable_profile: hardening
+  claim:
+    target: RFC 9396
+    tier: 3
+    status: evidenced-release-gated
+    profile: hardening
+  owner_modules:
+  - tigrbl_auth/standards/oauth2/rar.py
+  - tigrbl_auth/ops/authorize.py
+  - tigrbl_auth/ops/par.py
+  - tigrbl_auth/cli/artifacts.py
+  endpoint_surface:
+    current:
+    - /authorize
+    - /par
+    target:
+    - /authorize
+    - /par
+    status: mounted
+  tests:
+    paths:
+    - tests/conformance/hardening/test_rfc9396_rar.py
+    - tests/integration/test_profile_surface_and_contract_alignment.py
+    - tests/unit/test_phase7_advanced_surface_contracts.py
+    - tests/interop/test_peer_counterpart_catalog.py
+    - tests/interop/test_peer_matrix_artifacts.py
+    - tests/interop/test_tier4_promotion_fail_closed.py
+    - tests/unit/test_phase9_hardening_cluster_b.py
+    classes:
+    - conformance
+    - integration
+    - unit
+    - interop
+  evidence:
+    refs:
+    - compliance/evidence/tier3/rar/
+  profile_reality:
+    baseline:
+      active_target: false
+      effective_claim: false
+      openapi_paths_present:
+      - /authorize
+      openrpc_present: false
+    production:
+      active_target: false
+      effective_claim: false
+      openapi_paths_present:
+      - /authorize
+      openrpc_present: false
+    hardening:
+      active_target: true
+      effective_claim: true
+      openapi_paths_present:
+      - /authorize
+      - /par
+      openrpc_present: false
+  discrepancies: []
+- label: RFC 9449
+  id: oauth2.dpop
+  family: rfc
+  scope_bucket: hardening-completion-required
+  phase: P3
+  minimum_claim_tier: 3
+  first_claimable_profile: hardening
+  claim:
+    target: RFC 9449
+    tier: 3
+    status: evidenced-release-gated
+    profile: hardening
+  owner_modules:
+  - tigrbl_auth/standards/oauth2/dpop.py
+  - tigrbl_auth/standards/oauth2/rfc9700.py
+  - tigrbl_auth/ops/token.py
+  - tigrbl_auth/standards/oauth2/token_exchange.py
+  - tigrbl_auth/security/auth.py
+  - tigrbl_auth/security/deps.py
+  endpoint_surface:
+    current:
+    - /token
+    - /token/exchange
+    target:
+    - /token
+    - /token/exchange
+    status: runtime-enforced-dpop
+  tests:
+    paths:
+    - tests/conformance/hardening/test_rfc9449_dpop.py
+    - tests/integration/test_profile_surface_and_contract_alignment.py
+    - tests/unit/test_phase7_advanced_surface_contracts.py
+    - tests/interop/test_peer_counterpart_catalog.py
+    - tests/interop/test_peer_matrix_artifacts.py
+    - tests/interop/test_tier4_promotion_fail_closed.py
+    - tests/unit/test_phase10_hardening_cluster_c.py
+    classes:
+    - conformance
+    - integration
+    - unit
+    - interop
+  evidence:
+    refs:
+    - compliance/evidence/tier3/dpop/
+  profile_reality:
+    baseline:
+      active_target: false
+      effective_claim: false
+      openapi_paths_present:
+      - /token
+      openrpc_present: false
+    production:
+      active_target: false
+      effective_claim: false
+      openapi_paths_present:
+      - /token
+      openrpc_present: false
+    hardening:
+      active_target: true
+      effective_claim: true
+      openapi_paths_present:
+      - /token
+      - /token/exchange
+      openrpc_present: false
+  discrepancies: []
+- label: RFC 6265
+  id: http.cookies
+  family: rfc
+  scope_bucket: production-completion-required
+  phase: P2
+  minimum_claim_tier: 3
+  first_claimable_profile: production
+  claim:
+    target: RFC 6265
+    tier: 3
+    status: evidenced-release-gated
+    profile: production
+  owner_modules:
+  - tigrbl_auth/standards/http/cookies.py
+  - tigrbl_auth/standards/oidc/session_mgmt.py
+  - tigrbl_auth/ops/login.py
+  - tigrbl_auth/ops/authorize.py
+  - tigrbl_auth/ops/logout.py
+  - tigrbl_auth/tables/auth_session.py
+  endpoint_surface:
+    current:
+    - /login
+    - /authorize
+    - /logout
+    target:
+    - /login
+    - /authorize
+    - /logout
+    status: mounted
+  tests:
+    paths:
+    - tests/conformance/production/test_rfc6265_cookies.py
+    - tests/integration/test_migration_upgrade_downgrade_safety.py
+    - tests/integration/test_persistence_lifecycle_durability.py
+    - tests/negative/test_cookie_and_logout_abuse_cases.py
+    classes:
+    - conformance
+    - integration
+    - negative
+  evidence:
+    refs:
+    - compliance/evidence/tier3/cookies/
+  profile_reality:
+    baseline:
+      active_target: false
+      effective_claim: false
+      openapi_paths_present:
+      - /login
+      - /authorize
+      openrpc_present: false
+    production:
+      active_target: true
+      effective_claim: true
+      openapi_paths_present:
+      - /login
+      - /authorize
+      - /logout
+      openrpc_present: false
+    hardening:
+      active_target: true
+      effective_claim: true
+      openapi_paths_present:
+      - /login
+      - /authorize
+      - /logout
+      openrpc_present: false
+  discrepancies: []
+- label: RFC 7521
+  id: oauth2.jwt-bearer-assertions
+  family: rfc
+  scope_bucket: production-completion-required
+  phase: P2
+  minimum_claim_tier: 3
+  first_claimable_profile: production
+  claim:
+    target: RFC 7521
+    tier: 3
+    status: evidenced-release-gated
+    profile: production
+  owner_modules:
+  - tigrbl_auth/standards/oauth2/assertion_framework.py
+  - tigrbl_auth/ops/token.py
+  - tigrbl_auth/cli/artifacts.py
+  endpoint_surface:
+    current:
+    - /token
+    target:
+    - /token
+    status: runtime-integrated-token-endpoint
+  tests:
+    paths:
+    - tests/conformance/production/test_rfc7521_assertion_framework.py
+    - tests/unit/test_rfc7521_assertion_framework.py
+    classes:
+    - conformance
+    - unit
+  evidence:
+    refs:
+    - compliance/evidence/tier3/assertion-framework/
+  profile_reality:
+    baseline:
+      active_target: false
+      effective_claim: false
+      openapi_paths_present:
+      - /token
+      openrpc_present: false
+    production:
+      active_target: true
+      effective_claim: true
+      openapi_paths_present:
+      - /token
+      openrpc_present: false
+    hardening:
+      active_target: true
+      effective_claim: true
+      openapi_paths_present:
+      - /token
+      openrpc_present: false
+  discrepancies: []
+- label: RFC 7523
+  id: oauth2.jwt-client-auth
+  family: rfc
+  scope_bucket: production-completion-required
+  phase: P2
+  minimum_claim_tier: 3
+  first_claimable_profile: production
+  claim:
+    target: RFC 7523
+    tier: 3
+    status: evidenced-release-gated
+    profile: production
+  owner_modules:
+  - tigrbl_auth/standards/oauth2/jwt_client_auth.py
+  - tigrbl_auth/ops/token.py
+  - tigrbl_auth/ops/register.py
+  - tigrbl_auth/standards/oidc/discovery_metadata.py
+  - tigrbl_auth/cli/artifacts.py
+  endpoint_surface:
+    current:
+    - /token
+    - /register
+    - /register/{client_id}
+    target:
+    - /token
+    - /register
+    - /register/{client_id}
+    status: runtime-integrated-token-endpoint-and-registration-metadata
+  tests:
+    paths:
+    - tests/conformance/production/test_rfc7523_jwt_profile.py
+    - tests/unit/test_rfc7523_jwt_profile.py
+    classes:
+    - conformance
+    - unit
+  evidence:
+    refs:
+    - compliance/evidence/tier3/jwt-client-auth/
+  profile_reality:
+    baseline:
+      active_target: false
+      effective_claim: false
+      openapi_paths_present:
+      - /token
+      openrpc_present: false
+    production:
+      active_target: true
+      effective_claim: true
+      openapi_paths_present:
+      - /token
+      - /register
+      - /register/{client_id}
+      openrpc_present: false
+    hardening:
+      active_target: true
+      effective_claim: true
+      openapi_paths_present:
+      - /token
+      - /register
+      - /register/{client_id}
+      openrpc_present: false
+  discrepancies: []
+- label: RFC 9728
+  id: oauth2.protected-resource-metadata
+  family: rfc
+  scope_bucket: production-completion-required
+  phase: P2
+  minimum_claim_tier: 3
+  first_claimable_profile: production
+  claim:
+    target: RFC 9728
+    tier: 3
+    status: evidenced-release-gated
+    profile: production
+  owner_modules:
+  - tigrbl_auth/standards/oauth2/rfc9728.py
+  endpoint_surface:
+    current:
+    - /.well-known/oauth-protected-resource
+    target:
+    - /.well-known/oauth-protected-resource
+    status: tracked
+  tests:
+    paths:
+    - tests/conformance/production/test_rfc9728_protected_resource_metadata.py
+    - tests/integration/test_profile_surface_and_contract_alignment.py
+    - tests/integration/test_rfc8414_metadata.py
+    - tests/unit/test_rfc9728_metadata_checkpoint.py
+    - tests/interop/test_peer_counterpart_catalog.py
+    - tests/interop/test_peer_matrix_artifacts.py
+    - tests/interop/test_tier4_promotion_fail_closed.py
+    classes:
+    - conformance
+    - integration
+    - unit
+    - interop
+  evidence:
+    refs:
+    - compliance/evidence/tier3/protected-resource-metadata/
+  profile_reality:
+    baseline:
+      active_target: false
+      effective_claim: false
+      openapi_paths_present: []
+      openrpc_present: false
+    production:
+      active_target: true
+      effective_claim: true
+      openapi_paths_present:
+      - /.well-known/oauth-protected-resource
+      openrpc_present: false
+    hardening:
+      active_target: true
+      effective_claim: true
+      openapi_paths_present:
+      - /.well-known/oauth-protected-resource
+      openrpc_present: false
+  discrepancies: []
+- label: RFC 9700
+  id: oauth2.security-bcp
+  family: rfc
+  scope_bucket: hardening-completion-required
+  phase: P3
+  minimum_claim_tier: 3
+  first_claimable_profile: hardening
+  claim:
+    target: RFC 9700
+    tier: 3
+    status: evidenced-release-gated
+    profile: hardening
+  owner_modules:
+  - tigrbl_auth/standards/oauth2/rfc9700.py
+  - tigrbl_auth/ops/authorize.py
+  - tigrbl_auth/ops/token.py
+  - tigrbl_auth/standards/oidc/discovery.py
+  - tigrbl_auth/standards/oidc/discovery_metadata.py
+  - tigrbl_auth/cli/artifacts.py
+  - tigrbl_auth/security/auth.py
+  - tigrbl_auth/security/deps.py
+  endpoint_surface:
+    current:
+    - /authorize
+    - /token
+    - /.well-known/openid-configuration
+    target:
+    - /authorize
+    - /token
+    - /.well-known/openid-configuration
+    status: implemented-core-runtime-enforcement
+  tests:
+    paths:
+    - tests/conformance/hardening/test_rfc9700_security_bcp.py
+    - tests/integration/test_profile_surface_and_contract_alignment.py
+    - tests/negative/test_phase6_hardening_runtime_enforcement.py
+    - tests/unit/test_phase6_profile_discovery_runtime.py
+    - tests/unit/test_rfc9700_security_bcp_profile_checkpoint.py
+    - tests/unit/test_phase10_hardening_cluster_c.py
+    classes:
+    - conformance
+    - integration
+    - negative
+    - unit
+  evidence:
+    refs:
+    - compliance/evidence/tier3/security-bcp/
+  profile_reality:
+    baseline:
+      active_target: false
+      effective_claim: false
+      openapi_paths_present:
+      - /authorize
+      - /token
+      - /.well-known/openid-configuration
+      openrpc_present: false
+    production:
+      active_target: false
+      effective_claim: false
+      openapi_paths_present:
+      - /authorize
+      - /token
+      - /.well-known/openid-configuration
+      openrpc_present: false
+    hardening:
+      active_target: true
+      effective_claim: true
+      openapi_paths_present:
+      - /authorize
+      - /token
+      - /.well-known/openid-configuration
+      openrpc_present: false
+  discrepancies: []
+- label: OIDC Core 1.0
+  id: oidc.core
+  family: oidc
+  scope_bucket: baseline-certifiable-now
+  phase: P1
+  minimum_claim_tier: 2
+  first_claimable_profile: baseline
+  claim:
+    target: OIDC Core 1.0
+    tier: 3
+    status: evidenced-release-gated
+    profile: baseline
+  owner_modules:
+  - tigrbl_auth/standards/oidc/core.py
+  - tigrbl_auth/standards/oidc/id_token.py
+  endpoint_surface:
+    current: []
+    target: []
+    status: tracked
+  tests:
+    paths:
+    - tests/conformance/baseline/test_oidc_id_token.py
+    - tests/conformance/baseline/test_openid_userinfo_endpoint.py
+    - tests/integration/test_authorization_response_types.py
+    - tests/integration/test_oidc_endpoints.py
+    classes:
+    - conformance
+    - integration
+  evidence:
+    refs:
+    - compliance/evidence/tier3/oidc-core/
+  profile_reality:
+    baseline:
+      active_target: true
+      effective_claim: true
+      openapi_paths_present: []
+      openrpc_present: false
+    production:
+      active_target: true
+      effective_claim: true
+      openapi_paths_present: []
+      openrpc_present: false
+    hardening:
+      active_target: true
+      effective_claim: true
+      openapi_paths_present: []
+      openrpc_present: false
+  discrepancies: []
+- label: OIDC Discovery 1.0
+  id: oidc.discovery
+  family: oidc
+  scope_bucket: baseline-certifiable-now
+  phase: P1
+  minimum_claim_tier: 2
+  first_claimable_profile: baseline
+  claim:
+    target: OIDC Discovery 1.0
+    tier: 3
+    status: evidenced-release-gated
+    profile: baseline
+  owner_modules:
+  - tigrbl_auth/standards/oidc/discovery.py
+  endpoint_surface:
+    current:
+    - /.well-known/openid-configuration
+    target:
+    - /.well-known/openid-configuration
+    status: tracked
+  tests:
+    paths:
+    - tests/conformance/baseline/test_openid_configuration.py
+    - tests/integration/test_oidc_endpoints.py
+    - tests/integration/test_profile_surface_and_contract_alignment.py
+    - tests/integration/test_rfc8414_metadata.py
+    - tests/interop/test_peer_counterpart_catalog.py
+    - tests/interop/test_peer_matrix_artifacts.py
+    - tests/interop/test_tier4_promotion_fail_closed.py
+    classes:
+    - conformance
+    - integration
+    - interop
+  evidence:
+    refs:
+    - compliance/evidence/tier3/discovery/
+  profile_reality:
+    baseline:
+      active_target: true
+      effective_claim: true
+      openapi_paths_present:
+      - /.well-known/openid-configuration
+      openrpc_present: false
+    production:
+      active_target: true
+      effective_claim: true
+      openapi_paths_present:
+      - /.well-known/openid-configuration
+      openrpc_present: false
+    hardening:
+      active_target: true
+      effective_claim: true
+      openapi_paths_present:
+      - /.well-known/openid-configuration
+      openrpc_present: false
+  discrepancies: []
+- label: OIDC UserInfo
+  id: oidc.userinfo
+  family: oidc
+  scope_bucket: production-completion-required
+  phase: P2
+  minimum_claim_tier: 3
+  first_claimable_profile: production
+  claim:
+    target: OIDC UserInfo
+    tier: 3
+    status: evidenced-release-gated
+    profile: production
+  owner_modules:
+  - tigrbl_auth/standards/oidc/userinfo.py
+  endpoint_surface:
+    current:
+    - /userinfo
+    target:
+    - /userinfo
+    status: mounted
+  tests:
+    paths:
+    - tests/conformance/baseline/test_openid_userinfo_endpoint.py
+    - tests/integration/test_oidc_endpoints.py
+    - tests/unit/test_openid_userinfo_endpoint.py
+    classes:
+    - conformance
+    - integration
+    - unit
+  evidence:
+    refs:
+    - compliance/evidence/tier3/oidc-userinfo/
+  profile_reality:
+    baseline:
+      active_target: false
+      effective_claim: false
+      openapi_paths_present: []
+      openrpc_present: false
+    production:
+      active_target: true
+      effective_claim: true
+      openapi_paths_present:
+      - /userinfo
+      openrpc_present: false
+    hardening:
+      active_target: true
+      effective_claim: true
+      openapi_paths_present:
+      - /userinfo
+      openrpc_present: false
+  discrepancies: []
+- label: OIDC Session Management
+  id: oidc.session-management
+  family: oidc
+  scope_bucket: production-completion-required
+  phase: P2
+  minimum_claim_tier: 3
+  first_claimable_profile: production
+  claim:
+    target: OIDC Session Management
+    tier: 3
+    status: evidenced-release-gated
+    profile: production
+  owner_modules:
+  - tigrbl_auth/standards/oidc/session_mgmt.py
+  - tigrbl_auth/standards/http/cookies.py
+  - tigrbl_auth/ops/login.py
+  - tigrbl_auth/ops/authorize.py
+  - tigrbl_auth/ops/logout.py
+  - tigrbl_auth/tables/auth_session.py
+  - tigrbl_auth/tables/auth_code.py
+  - tigrbl_auth/services/persistence.py
+  endpoint_surface:
+    current:
+    - /login
+    - /authorize
+    - /logout
+    target:
+    - /login
+    - /authorize
+    - /logout
+    status: mounted
+  tests:
+    paths:
+    - tests/conformance/production/test_oidc_session_management.py
+    - tests/integration/test_migration_upgrade_downgrade_safety.py
+    - tests/integration/test_persistence_lifecycle_durability.py
+    - tests/negative/test_cookie_and_logout_abuse_cases.py
+    - tests/unit/test_phase7_session_logout_cluster_b.py
+    classes:
+    - conformance
+    - integration
+    - negative
+    - unit
+  evidence:
+    refs:
+    - compliance/evidence/tier3/oidc-session-management/
+  profile_reality:
+    baseline:
+      active_target: false
+      effective_claim: false
+      openapi_paths_present:
+      - /login
+      - /authorize
+      openrpc_present: false
+    production:
+      active_target: true
+      effective_claim: true
+      openapi_paths_present:
+      - /login
+      - /authorize
+      - /logout
+      openrpc_present: false
+    hardening:
+      active_target: true
+      effective_claim: true
+      openapi_paths_present:
+      - /login
+      - /authorize
+      - /logout
+      openrpc_present: false
+  discrepancies: []
+- label: OIDC RP-Initiated Logout
+  id: oidc.rp-initiated-logout
+  family: oidc
+  scope_bucket: production-completion-required
+  phase: P2
+  minimum_claim_tier: 3
+  first_claimable_profile: production
+  claim:
+    target: OIDC RP-Initiated Logout
+    tier: 3
+    status: evidenced-release-gated
+    profile: production
+  owner_modules:
+  - tigrbl_auth/standards/oidc/rp_initiated_logout.py
+  - tigrbl_auth/api/rest/routers/logout.py
+  - tigrbl_auth/ops/logout.py
+  - tigrbl_auth/tables/logout_state.py
+  - tigrbl_auth/tables/client_registration.py
+  - tigrbl_auth/services/persistence.py
+  endpoint_surface:
+    current:
+    - /logout
+    target:
+    - /logout
+    status: mounted
+  tests:
+    paths:
+    - tests/conformance/production/test_oidc_rp_initiated_logout.py
+    - tests/integration/test_migration_upgrade_downgrade_safety.py
+    - tests/integration/test_persistence_lifecycle_durability.py
+    - tests/negative/test_cookie_and_logout_abuse_cases.py
+    - tests/unit/test_phase7_session_logout_cluster_b.py
+    classes:
+    - conformance
+    - integration
+    - negative
+    - unit
+  evidence:
+    refs:
+    - compliance/evidence/tier3/oidc-rp-initiated-logout/
+  profile_reality:
+    baseline:
+      active_target: false
+      effective_claim: false
+      openapi_paths_present: []
+      openrpc_present: false
+    production:
+      active_target: true
+      effective_claim: true
+      openapi_paths_present:
+      - /logout
+      openrpc_present: false
+    hardening:
+      active_target: true
+      effective_claim: true
+      openapi_paths_present:
+      - /logout
+      openrpc_present: false
+  discrepancies: []
+- label: OIDC Front-Channel Logout
+  id: oidc.front-channel-logout
+  family: oidc
+  scope_bucket: hardening-completion-required
+  phase: P3
+  minimum_claim_tier: 3
+  first_claimable_profile: hardening
+  claim:
+    target: OIDC Front-Channel Logout
+    tier: 3
+    status: evidenced-release-gated
+    profile: hardening
+  owner_modules:
+  - tigrbl_auth/standards/oidc/frontchannel_logout.py
+  - tigrbl_auth/standards/oidc/rp_initiated_logout.py
+  - tigrbl_auth/ops/logout.py
+  - tigrbl_auth/tables/logout_state.py
+  - tigrbl_auth/tables/client_registration.py
+  - tigrbl_auth/services/persistence.py
+  - tigrbl_auth/api/rest/shared.py
+  - tigrbl_auth/standards/oidc/discovery_metadata.py
+  - tigrbl_auth/cli/artifacts.py
+  endpoint_surface:
+    current:
+    - /logout
+    target:
+    - /logout
+    status: fanout-planned-on-mounted-logout-route
+  tests:
+    paths:
+    - tests/conformance/hardening/test_oidc_frontchannel_logout.py
+    - tests/integration/test_persistence_lifecycle_durability.py
+    - tests/negative/test_cookie_and_logout_abuse_cases.py
+    - tests/unit/test_phase10_hardening_cluster_c.py
+    classes:
+    - conformance
+    - integration
+    - negative
+    - unit
+  evidence:
+    refs:
+    - compliance/evidence/tier3/oidc-frontchannel-logout/
+  profile_reality:
+    baseline:
+      active_target: false
+      effective_claim: false
+      openapi_paths_present: []
+      openrpc_present: false
+    production:
+      active_target: false
+      effective_claim: false
+      openapi_paths_present:
+      - /logout
+      openrpc_present: false
+    hardening:
+      active_target: true
+      effective_claim: true
+      openapi_paths_present:
+      - /logout
+      openrpc_present: false
+  discrepancies: []
+- label: OIDC Back-Channel Logout
+  id: oidc.back-channel-logout
+  family: oidc
+  scope_bucket: hardening-completion-required
+  phase: P3
+  minimum_claim_tier: 3
+  first_claimable_profile: hardening
+  claim:
+    target: OIDC Back-Channel Logout
+    tier: 3
+    status: evidenced-release-gated
+    profile: hardening
+  owner_modules:
+  - tigrbl_auth/standards/oidc/backchannel_logout.py
+  - tigrbl_auth/standards/oidc/rp_initiated_logout.py
+  - tigrbl_auth/ops/logout.py
+  - tigrbl_auth/tables/logout_state.py
+  - tigrbl_auth/tables/client_registration.py
+  - tigrbl_auth/services/persistence.py
+  - tigrbl_auth/api/rest/shared.py
+  - tigrbl_auth/standards/oidc/discovery_metadata.py
+  - tigrbl_auth/cli/artifacts.py
+  endpoint_surface:
+    current:
+    - /logout
+    target:
+    - /logout
+    status: fanout-planned-on-mounted-logout-route
+  tests:
+    paths:
+    - tests/conformance/hardening/test_oidc_backchannel_logout.py
+    - tests/integration/test_persistence_lifecycle_durability.py
+    - tests/negative/test_cookie_and_logout_abuse_cases.py
+    - tests/unit/test_phase10_hardening_cluster_c.py
+    classes:
+    - conformance
+    - integration
+    - negative
+    - unit
+  evidence:
+    refs:
+    - compliance/evidence/tier3/oidc-backchannel-logout/
+  profile_reality:
+    baseline:
+      active_target: false
+      effective_claim: false
+      openapi_paths_present: []
+      openrpc_present: false
+    production:
+      active_target: false
+      effective_claim: false
+      openapi_paths_present:
+      - /logout
+      openrpc_present: false
+    hardening:
+      active_target: true
+      effective_claim: true
+      openapi_paths_present:
+      - /logout
+      openrpc_present: false
+  discrepancies: []
+- label: OpenAPI 3.1 / 3.2 compatible public contract
+  id: openapi.public-http
+  family: contract
+  scope_bucket: baseline-certifiable-now
+  phase: P1
+  minimum_claim_tier: 2
+  first_claimable_profile: baseline
+  claim:
+    target: OpenAPI 3.1 / 3.2 compatible public contract
+    tier: 3
+    status: evidenced-release-gated
+    profile: baseline
+  owner_modules:
+  - tigrbl_auth/api/rest
+  - tigrbl_auth/api/surfaces.py
+  endpoint_surface:
+    current: []
+    target: []
+    status: tracked
+  tests:
+    paths:
+    - tests/e2e/test_release_gate_catalog.py
+    - tests/integration/test_profile_surface_and_contract_alignment.py
+    - tests/unit/test_contract_generation_live.py
+    classes:
+    - e2e
+    - integration
+    - unit
+  evidence:
+    refs:
+    - compliance/evidence/tier3/contracts/openapi/
+  profile_reality:
+    baseline:
+      active_target: true
+      effective_claim: true
+      openapi_paths_present: []
+      openrpc_present: false
+    production:
+      active_target: true
+      effective_claim: true
+      openapi_paths_present: []
+      openrpc_present: false
+    hardening:
+      active_target: true
+      effective_claim: true
+      openapi_paths_present: []
+      openrpc_present: false
+  discrepancies: []
+- label: OpenRPC 1.4.x admin/control-plane contract
+  id: openrpc.admin-plane
+  family: contract
+  scope_bucket: production-completion-required
+  phase: P2
+  minimum_claim_tier: 3
+  first_claimable_profile: production
+  claim:
+    target: OpenRPC 1.4.x admin/control-plane contract
+    tier: 3
+    status: evidenced-release-gated
+    profile: baseline
+  owner_modules:
+  - tigrbl_auth/api/rpc/__init__.py
+  - tigrbl_auth/api/rpc/registry.py
+  - tigrbl_auth/api/rpc/methods
+  - tigrbl_auth/api/rpc/schemas
+  - tigrbl_auth/api/surfaces.py
+  - tigrbl_auth/cli/artifacts.py
+  - tigrbl_auth/cli/reports.py
+  - tigrbl_auth/config/deployment.py
+  endpoint_surface:
+    current:
+    - /rpc
+    target:
+    - /rpc
+    status: implementation-backed
+  tests:
+    paths:
+    - tests/e2e/test_release_gate_catalog.py
+    - tests/unit/test_contract_generation_live.py
+    - tests/unit/test_rpc_registry_live.py
+    classes:
+    - e2e
+    - unit
+  evidence:
+    refs:
+    - compliance/evidence/tier3/contracts/openrpc/
+  profile_reality:
+    baseline:
+      active_target: true
+      effective_claim: true
+      openapi_paths_present: []
+      openrpc_present: true
+    production:
+      active_target: true
+      effective_claim: true
+      openapi_paths_present: []
+      openrpc_present: true
+    hardening:
+      active_target: true
+      effective_claim: true
+      openapi_paths_present: []
+      openrpc_present: true
+  discrepancies: []
+- label: ASGI 3 application package
+  id: runtime.asgi3-application
+  family: runtime
+  scope_bucket: runtime-completion-required
+  phase: P0
+  minimum_claim_tier: 3
+  first_claimable_profile: baseline
+  claim:
+    target: ASGI 3 application package
+    tier: 3
+    status: evidenced-release-gated
+    profile: baseline
+  owner_modules:
+  - tigrbl_auth/api/app.py
+  - tigrbl_auth/app.py
+  - tigrbl_auth/plugin.py
+  - tigrbl_auth/gateway.py
+  - tigrbl_auth/config/deployment.py
+  - tigrbl_auth/runtime/__init__.py
+  - tigrbl_auth/runtime/types.py
+  - tigrbl_auth/runtime/base.py
+  - tigrbl_auth/runtime/plan.py
+  - tigrbl_auth/runtime/registry.py
+  - tigrbl_auth/cli/runtime.py
+  endpoint_surface:
+    current: []
+    target: []
+    status: tracked
+  tests:
+    paths:
+    - tests/integration/test_profile_surface_and_contract_alignment.py
+    - tests/unit/test_deployment_resolver.py
+    - tests/unit/test_phase0_claim_boundary_rebaseline.py
+    - tests/unit/test_phase2_runner_adapter_runtime_layer.py
+    - tests/unit/test_phase3_runtime_launcher.py
+    - tests/runtime/test_runner_invariance.py
+    - tests/conformance/operator/test_cli_serve_runtime.py
+    classes:
+    - integration
+    - unit
+    - conformance
+  evidence:
+    refs:
+    - compliance/evidence/tier3/asgi-application/
+  profile_reality:
+    baseline:
+      active_target: true
+      effective_claim: true
+      openapi_paths_present: []
+      openrpc_present: false
+    production:
+      active_target: true
+      effective_claim: true
+      openapi_paths_present: []
+      openrpc_present: false
+    hardening:
+      active_target: true
+      effective_claim: true
+      openapi_paths_present: []
+      openrpc_present: false
+  discrepancies: []
+- label: 'Runner profile: Uvicorn'
+  id: runtime.runner-uvicorn
+  family: runtime
+  scope_bucket: runtime-completion-required
+  phase: P0
+  minimum_claim_tier: 3
+  first_claimable_profile: baseline
+  claim:
+    target: 'Runner profile: Uvicorn'
+    tier: 3
+    status: evidenced-release-gated
+    profile: baseline
+  owner_modules:
+  - tigrbl_auth/api/app.py
+  - tigrbl_auth/gateway.py
+  - tigrbl_auth/cli/handlers.py
+  - tigrbl_auth/config/deployment.py
+  - tigrbl_auth/runtime/registry.py
+  - tigrbl_auth/runtime/plan.py
+  - tigrbl_auth/runtime/uvicorn.py
+  - tigrbl_auth/cli/runtime.py
+  - tigrbl_auth/cli/reports.py
+  endpoint_surface:
+    current: []
+    target: []
+    status: tracked
+  tests:
+    paths:
+    - tests/unit/test_phase0_claim_boundary_rebaseline.py
+    - tests/unit/test_phase2_runner_adapter_runtime_layer.py
+    - tests/unit/test_runtime_cfg.py
+    - tests/unit/test_phase3_runtime_launcher.py
+    - tests/runtime/test_runner_uvicorn.py
+    - tests/runtime/test_runner_invariance.py
+    - tests/conformance/operator/test_cli_serve_runtime.py
+    classes:
+    - unit
+    - integration
+    - conformance
+  evidence:
+    refs:
+    - compliance/evidence/tier3/runner-uvicorn/
+  profile_reality:
+    baseline:
+      active_target: true
+      effective_claim: true
+      openapi_paths_present: []
+      openrpc_present: false
+    production:
+      active_target: true
+      effective_claim: true
+      openapi_paths_present: []
+      openrpc_present: false
+    hardening:
+      active_target: true
+      effective_claim: true
+      openapi_paths_present: []
+      openrpc_present: false
+  discrepancies: []
+- label: 'Runner profile: Hypercorn'
+  id: runtime.runner-hypercorn
+  family: runtime
+  scope_bucket: runtime-completion-required
+  phase: P0
+  minimum_claim_tier: 3
+  first_claimable_profile: baseline
+  claim:
+    target: 'Runner profile: Hypercorn'
+    tier: 3
+    status: evidenced-release-gated
+    profile: baseline
+  owner_modules:
+  - tigrbl_auth/api/app.py
+  - tigrbl_auth/gateway.py
+  - tigrbl_auth/cli/handlers.py
+  - tigrbl_auth/config/deployment.py
+  - tigrbl_auth/runtime/registry.py
+  - tigrbl_auth/runtime/plan.py
+  - tigrbl_auth/runtime/hypercorn.py
+  - tigrbl_auth/cli/runtime.py
+  - tigrbl_auth/cli/reports.py
+  endpoint_surface:
+    current: []
+    target: []
+    status: tracked
+  tests:
+    paths:
+    - tests/unit/test_phase0_claim_boundary_rebaseline.py
+    - tests/unit/test_phase2_runner_adapter_runtime_layer.py
+    - tests/unit/test_runtime_cfg.py
+    - tests/unit/test_phase3_runtime_launcher.py
+    - tests/runtime/test_runner_hypercorn.py
+    - tests/runtime/test_runner_invariance.py
+    - tests/conformance/operator/test_cli_serve_runtime.py
+    classes:
+    - unit
+    - integration
+    - conformance
+  evidence:
+    refs:
+    - compliance/evidence/tier3/runner-hypercorn/
+  profile_reality:
+    baseline:
+      active_target: true
+      effective_claim: true
+      openapi_paths_present: []
+      openrpc_present: false
+    production:
+      active_target: true
+      effective_claim: true
+      openapi_paths_present: []
+      openrpc_present: false
+    hardening:
+      active_target: true
+      effective_claim: true
+      openapi_paths_present: []
+      openrpc_present: false
+  discrepancies: []
+- label: 'Runner profile: Tigrcorn'
+  id: runtime.runner-tigrcorn
+  family: runtime
+  scope_bucket: runtime-completion-required
+  phase: P0
+  minimum_claim_tier: 3
+  first_claimable_profile: baseline
+  claim:
+    target: 'Runner profile: Tigrcorn'
+    tier: 3
+    status: evidenced-release-gated
+    profile: baseline
+  owner_modules:
+  - tigrbl_auth/api/app.py
+  - tigrbl_auth/gateway.py
+  - tigrbl_auth/cli/handlers.py
+  - tigrbl_auth/config/deployment.py
+  - tigrbl_auth/runtime/registry.py
+  - tigrbl_auth/runtime/plan.py
+  - tigrbl_auth/runtime/tigrcorn.py
+  - tigrbl_auth/cli/runtime.py
+  - tigrbl_auth/cli/reports.py
+  endpoint_surface:
+    current: []
+    target: []
+    status: tracked
+  tests:
+    paths:
+    - tests/unit/test_phase0_claim_boundary_rebaseline.py
+    - tests/unit/test_phase2_runner_adapter_runtime_layer.py
+    - tests/unit/test_runtime_cfg.py
+    - tests/unit/test_phase3_runtime_launcher.py
+    - tests/runtime/test_runner_tigrcorn.py
+    - tests/runtime/test_runner_invariance.py
+    - tests/conformance/operator/test_cli_serve_runtime.py
+    classes:
+    - unit
+    - integration
+    - conformance
+  evidence:
+    refs:
+    - compliance/evidence/tier3/runner-tigrcorn/
+  profile_reality:
+    baseline:
+      active_target: true
+      effective_claim: true
+      openapi_paths_present: []
+      openrpc_present: false
+    production:
+      active_target: true
+      effective_claim: true
+      openapi_paths_present: []
+      openrpc_present: false
+    hardening:
+      active_target: true
+      effective_claim: true
+      openapi_paths_present: []
+      openrpc_present: false
+  discrepancies: []
+- label: CLI operator surface
+  id: operator.cli-surface
+  family: operator
+  scope_bucket: operator-completion-required
+  phase: P0
+  minimum_claim_tier: 3
+  first_claimable_profile: baseline
+  claim:
+    target: CLI operator surface
+    tier: 3
+    status: evidenced-release-gated
+    profile: baseline
+  owner_modules:
+  - tigrbl_auth/cli/main.py
+  - tigrbl_auth/cli/metadata.py
+  - tigrbl_auth/cli/handlers.py
+  - tigrbl_auth/cli/runtime.py
+  - tigrbl_auth/cli/reports.py
+  - tigrbl_auth/services/operator_service.py
+  - tigrbl_auth/services/audit_service.py
+  - tigrbl_auth/services/client_service.py
+  - tigrbl_auth/services/identity_service.py
+  - tigrbl_auth/services/session_service.py
+  endpoint_surface:
+    current: []
+    target: []
+    status: tracked
+  tests:
+    paths:
+    - tests/unit/test_phase0_claim_boundary_rebaseline.py
+    - tests/unit/test_cli_surface_checkpoint.py
+    - tests/unit/test_phase3_runtime_launcher.py
+    - tests/unit/test_phase4_cli_contract.py
+    - tests/unit/test_phase5_operator_service_layer.py
+    - tests/conformance/operator/test_cli_serve_runtime.py
+    - tests/conformance/operator/test_cli_resource_lifecycle.py
+    - tests/conformance/operator/test_cli_keys_lifecycle.py
+    - tests/conformance/operator/test_cli_import_export.py
+    - tests/conformance/operator/test_cli_bootstrap_migrate.py
+    classes:
+    - unit
+    - conformance
+  evidence:
+    refs:
+    - compliance/evidence/tier3/cli-operator-surface/
+  profile_reality:
+    baseline:
+      active_target: true
+      effective_claim: true
+      openapi_paths_present: []
+      openrpc_present: false
+    production:
+      active_target: true
+      effective_claim: true
+      openapi_paths_present: []
+      openrpc_present: false
+    hardening:
+      active_target: true
+      effective_claim: true
+      openapi_paths_present: []
+      openrpc_present: false
+  discrepancies: []
+- label: Bootstrap and migration lifecycle
+  id: operator.bootstrap-migration
+  family: operator
+  scope_bucket: operator-completion-required
+  phase: P0
+  minimum_claim_tier: 3
+  first_claimable_profile: baseline
+  claim:
+    target: Bootstrap and migration lifecycle
+    tier: 3
+    status: evidenced-release-gated
+    profile: baseline
+  owner_modules:
+  - tigrbl_auth/cli/main.py
+  - tigrbl_auth/cli/metadata.py
+  - tigrbl_auth/cli/handlers.py
+  - tigrbl_auth/cli/project_tree.py
+  - tigrbl_auth/services/persistence.py
+  endpoint_surface:
+    current: []
+    target: []
+    status: tracked
+  tests:
+    paths:
+    - tests/unit/test_phase0_claim_boundary_rebaseline.py
+    - tests/e2e/test_release_gate_catalog.py
+    - tests/unit/test_phase4_cli_contract.py
+    - tests/conformance/operator/test_cli_bootstrap_migrate.py
+    classes:
+    - unit
+    - e2e
+    - conformance
+  evidence:
+    refs:
+    - compliance/evidence/tier3/bootstrap-migration/
+  profile_reality:
+    baseline:
+      active_target: true
+      effective_claim: true
+      openapi_paths_present: []
+      openrpc_present: false
+    production:
+      active_target: true
+      effective_claim: true
+      openapi_paths_present: []
+      openrpc_present: false
+    hardening:
+      active_target: true
+      effective_claim: true
+      openapi_paths_present: []
+      openrpc_present: false
+  discrepancies: []
+- label: Key lifecycle and JWKS publication
+  id: operator.keys-jwks
+  family: operator
+  scope_bucket: operator-completion-required
+  phase: P0
+  minimum_claim_tier: 3
+  first_claimable_profile: baseline
+  claim:
+    target: Key lifecycle and JWKS publication
+    tier: 3
+    status: evidenced-release-gated
+    profile: baseline
+  owner_modules:
+  - tigrbl_auth/cli/metadata.py
+  - tigrbl_auth/cli/handlers.py
+  - tigrbl_auth/api/rpc/methods/keys.py
+  - tigrbl_auth/standards/jose/rfc7517.py
+  - tigrbl_auth/services/key_management.py
+  - tigrbl_auth/services/operator_service.py
+  endpoint_surface:
+    current: []
+    target: []
+    status: tracked
+  tests:
+    paths:
+    - tests/unit/test_phase0_claim_boundary_rebaseline.py
+    - tests/unit/test_jwks_rotation.py
+    - tests/unit/test_rpc_registry_live.py
+    - tests/unit/test_phase4_cli_contract.py
+    - tests/unit/test_phase5_operator_service_layer.py
+    - tests/conformance/operator/test_cli_keys_lifecycle.py
+    classes:
+    - unit
+    - conformance
+  evidence:
+    refs:
+    - compliance/evidence/tier3/key-lifecycle-jwks/
+  profile_reality:
+    baseline:
+      active_target: true
+      effective_claim: true
+      openapi_paths_present: []
+      openrpc_present: false
+    production:
+      active_target: true
+      effective_claim: true
+      openapi_paths_present: []
+      openrpc_present: false
+    hardening:
+      active_target: true
+      effective_claim: true
+      openapi_paths_present: []
+      openrpc_present: false
+  discrepancies: []
+- label: Import/export portability
+  id: operator.import-export
+  family: operator
+  scope_bucket: operator-completion-required
+  phase: P0
+  minimum_claim_tier: 3
+  first_claimable_profile: baseline
+  claim:
+    target: Import/export portability
+    tier: 3
+    status: evidenced-release-gated
+    profile: baseline
+  owner_modules:
+  - tigrbl_auth/cli/metadata.py
+  - tigrbl_auth/cli/handlers.py
+  - tigrbl_auth/services/import_export_service.py
+  - tigrbl_auth/services/operator_service.py
+  endpoint_surface:
+    current: []
+    target: []
+    status: tracked
+  tests:
+    paths:
+    - tests/unit/test_phase0_claim_boundary_rebaseline.py
+    - tests/unit/test_phase4_cli_contract.py
+    - tests/unit/test_phase5_operator_service_layer.py
+    - tests/conformance/operator/test_cli_import_export.py
+    classes:
+    - unit
+    - conformance
+  evidence:
+    refs:
+    - compliance/evidence/tier3/import-export-portability/
+  profile_reality:
+    baseline:
+      active_target: true
+      effective_claim: true
+      openapi_paths_present: []
+      openrpc_present: false
+    production:
+      active_target: true
+      effective_claim: true
+      openapi_paths_present: []
+      openrpc_present: false
+    hardening:
+      active_target: true
+      effective_claim: true
+      openapi_paths_present: []
+      openrpc_present: false
+  discrepancies: []
+- label: Release bundle and signature verification
+  id: operator.release-bundle-signing
+  family: operator
+  scope_bucket: operator-completion-required
+  phase: P0
+  minimum_claim_tier: 3
+  first_claimable_profile: baseline
+  claim:
+    target: Release bundle and signature verification
+    tier: 3
+    status: evidenced-release-gated
+    profile: baseline
+  owner_modules:
+  - tigrbl_auth/cli/reports.py
+  - tigrbl_auth/cli/handlers.py
+  - tigrbl_auth/cli/artifacts.py
+  endpoint_surface:
+    current: []
+    target: []
+    status: tracked
+  tests:
+    paths:
+    - tests/unit/test_phase0_claim_boundary_rebaseline.py
+    - tests/security/test_release_bundle_signing.py
+    - tests/unit/test_phase1_published_dependency_model.py
+    - tests/security/test_phase12_sender_constraint_replay.py
+    classes:
+    - unit
+    - security
+  evidence:
+    refs:
+    - compliance/evidence/tier3/release-bundle-signing/
+  profile_reality:
+    baseline:
+      active_target: true
+      effective_claim: true
+      openapi_paths_present: []
+      openrpc_present: false
+    production:
+      active_target: true
+      effective_claim: true
+      openapi_paths_present: []
+      openrpc_present: false
+    hardening:
+      active_target: true
+      effective_claim: true
+      openapi_paths_present: []
+      openrpc_present: false
+  discrepancies: []
+discrepancy_summary: {}
+truthful_status:
+  fully_certifiable: false
+  fully_rfc_compliant: false
+  note: This retained-boundary freeze improves truthfulness and traceability, but
+    it does not by itself complete the missing runtime, evidence, or independent validation
+    work required for final certification.

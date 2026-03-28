@@ -1,0 +1,20 @@
+schema_version: 1
+id: assertion-client-harness
+title: External JWT/assertion-capable client harness
+counterpart_class: oauth-client-assertion
+execution_style: black-box-http
+independence_requirement: external JWT/assertion client or SDK runner required
+attestation_class_required: independent-external
+required_identity_fields:
+- peer_name
+- peer_version
+required_container_fields:
+- image_ref
+- image_digest
+required_artifacts:
+- http-transcript.yaml
+- jwt-assertions.json
+- result.yaml
+notes:
+- Use for RFC 7521, RFC 7523, and JOSE/JWT/JWK posture validation from an independent
+  client harness.

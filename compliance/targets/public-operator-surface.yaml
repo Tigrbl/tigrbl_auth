@@ -1,0 +1,341 @@
+schema_version: 1
+package: tigrbl_auth
+surfaces:
+  public_auth_plane:
+    checkpoint_current:
+      install_entrypoint: tigrbl_auth.plugin.TigrblAuthPlugin.install
+      routes:
+      - /login
+      - /authorize
+      - /token
+      - /userinfo
+      - /register
+      - /register/{client_id}
+      - /revoke
+      - /logout
+      - /introspect
+      - /device_authorization
+      - /par
+      - /token/exchange
+      - /.well-known/openid-configuration
+      - /.well-known/oauth-authorization-server
+      - /.well-known/oauth-protected-resource
+      - /.well-known/jwks.json
+      mounting_entrypoint: tigrbl_auth.api.surfaces.attach_runtime_surfaces
+      capability_registry: tigrbl_auth/config/surfaces.py:PUBLIC_CAPABILITIES
+      discovery_snapshots:
+      - specs/discovery/profiles/baseline/openid-configuration.json
+      - specs/discovery/profiles/production/openid-configuration.json
+      - specs/discovery/profiles/hardening/openid-configuration.json
+    target:
+      routes:
+      - /login
+      - /authorize
+      - /token
+      - /userinfo
+      - /logout
+      - /introspect
+      - /revoke
+      - /register
+      - /register/{client_id}
+      - /device_authorization
+      - /par
+      - /token/exchange
+      - /.well-known/openid-configuration
+      - /.well-known/oauth-authorization-server
+      - /.well-known/oauth-protected-resource
+      - /.well-known/jwks.json
+      profiles:
+      - baseline
+      - production
+      - hardening
+      partial_feature_consumption_rule: Disabled features must not appear in mounted
+        routes, discovery documents, contracts, claims, or evidence.
+      target_profile_truth:
+        RFC 7516:
+          profiles:
+          - baseline
+          - production
+          - hardening
+          routes: []
+          flags:
+          - enable_rfc7516
+          surface_mode: runtime-helper-no-standalone-route
+          discovery_metadata_condition: enable_id_token_encryption
+          notes:
+          - Baseline and higher profiles activate JOSE/JWE helper support through
+            enable_rfc7516.
+          - No standalone public route exists for RFC 7516; encrypted ID token discovery
+            metadata appears only when enable_id_token_encryption is true.
+        RFC 7592:
+          profiles:
+          - production
+          - hardening
+          routes:
+          - /register/{client_id}
+          flags:
+          - enable_rfc7592
+          surface_mode: standalone-public-route
+          notes:
+          - Production and hardening profiles mount the client registration management
+            route on /register/{client_id}.
+        RFC 9207:
+          profiles:
+          - production
+          - hardening
+          routes:
+          - /authorize
+          - /.well-known/openid-configuration
+          flags:
+          - enable_rfc9207
+          surface_mode: shared-route-and-discovery-semantics
+          notes:
+          - Production and hardening profiles expose issuer-identification semantics
+            through authorization responses and OpenID discovery metadata.
+  admin_control_plane:
+    checkpoint_current:
+      tables:
+      - Tenant
+      - User
+      - Client
+      - ClientRegistration
+      - ApiKey
+      - Service
+      - ServiceKey
+      - AuthSession
+      - AuthCode
+      - TokenRecord
+      - PushedAuthorizationRequest
+      - RevokedToken
+      - Consent
+      - LogoutState
+      - AuditEvent
+      - KeyRotationEvent
+    target:
+      tables:
+      - Tenant
+      - User
+      - Client
+      - ClientRegistration
+      - ApiKey
+      - Service
+      - ServiceKey
+      - AuthSession
+      - AuthCode
+      - TokenRecord
+      - PushedAuthorizationRequest
+      - RevokedToken
+      - Consent
+      - LogoutState
+      - AuditEvent
+      - KeyRotationEvent
+  operator_plane:
+    checkpoint_current:
+      commands:
+      - bootstrap
+      - migrate
+      - serve
+      - verify
+      - gate
+      - spec
+      - evidence
+      - claims
+      - adr
+      - doctor
+      - release
+      - tenant
+      - client
+      - identity
+      - flow
+      - session
+      - token
+      - keys
+      - discovery
+      - import
+      - export
+      serve_runtime_status: launches-runtime-through-selected-runner-adapter
+      keys_canonical_command: keys
+      retired_certified_aliases:
+      - key
+      resource_family_state: explicit lifecycle verbs, typed flags, output contracts,
+        and durable operator-plane handlers present across operator/admin families
+      cli_contract_artifacts:
+      - docs/reference/CLI_SURFACE.md
+      - specs/cli/cli_contract.json
+      - specs/cli/cli_contract.yaml
+      - docs/compliance/cli_conformance_snapshot.json
+      - docs/compliance/cli_conformance_snapshot.md
+      command_verbs:
+        bootstrap:
+        - status
+        - manifest
+        - apply
+        - verify
+        migrate:
+        - status
+        - plan
+        - apply
+        - verify
+        tenant:
+        - create
+        - update
+        - delete
+        - get
+        - list
+        - enable
+        - disable
+        client:
+        - create
+        - update
+        - delete
+        - get
+        - list
+        - rotate-secret
+        - enable
+        - disable
+        identity:
+        - create
+        - update
+        - delete
+        - get
+        - list
+        - set-password
+        - lock
+        - unlock
+        flow:
+        - create
+        - update
+        - delete
+        - get
+        - list
+        - enable
+        - disable
+        session:
+        - get
+        - list
+        - revoke
+        - revoke-all
+        token:
+        - get
+        - list
+        - introspect
+        - revoke
+        - exchange
+        keys:
+        - generate
+        - import
+        - export
+        - rotate
+        - retire
+        - publish-jwks
+        - get
+        - list
+        - delete
+        spec:
+        - generate
+        - validate
+        - diff
+        - report
+        discovery:
+        - show
+        - validate
+        - publish
+        - diff
+        import:
+        - validate
+        - run
+        - status
+        export:
+        - validate
+        - run
+        - status
+        release:
+        - bundle
+        - sign
+        - verify
+        - status
+        - recertify
+    target:
+      commands:
+      - bootstrap
+      - migrate
+      - serve
+      - verify
+      - gate
+      - spec
+      - evidence
+      - claims
+      - adr
+      - doctor
+      - release
+      - tenant
+      - client
+      - identity
+      - flow
+      - session
+      - token
+      - keys
+      - discovery
+      - import
+      - export
+      serve_runtime_status: must-launch-runtime
+      keys_canonical_command: keys
+      legacy_aliases_allowed: []
+      resource_family_state: full lifecycle verbs and flags required
+  rpc_control_plane:
+    checkpoint_current:
+      prefix: /rpc
+      implementation: implementation-backed-rpc-registry
+      contract_generation: implementation-backed method registry with profile snapshots
+    target:
+      prefix: /rpc
+      required_method: rpc.discover
+      required_methods:
+      - rpc.discover
+      - client.registration.list
+      - client.registration.show
+      - client.registration.upsert
+      - session.list
+      - session.show
+      - session.terminate
+      - token.list
+      - token.inspect
+      - consent.list
+      - consent.show
+      - consent.revoke
+      - audit.list
+      - audit.export
+      - keys.list
+      - jwks.show
+      - keys.rotate
+      - profile.show
+      - target.list
+      - target.show
+  diagnostics_plane:
+    checkpoint_current:
+      prefix: /system
+    target:
+      prefix: /system
+  plugin_plane:
+    checkpoint_current:
+      modes:
+      - public-only
+      - admin-only
+      - mixed
+      - diagnostics-only
+      runtime_model: asgi3-application-with-runner-adapter-runtime-layer
+      supported_runner_profiles:
+      - uvicorn
+      - hypercorn
+      - tigrcorn
+    target:
+      modes:
+      - public-only
+      - admin-only
+      - mixed
+      - diagnostics-only
+      runtime_model: asgi3-application-with-runner-qualified-serving-profiles
+      supported_runner_profiles:
+      - uvicorn
+      - hypercorn
+      - tigrcorn

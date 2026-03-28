@@ -1,0 +1,8 @@
+flow: browser-session-management
+requests:
+- method: GET
+  path: /authorize
+  result: session_state emitted when OIDC session management is enabled
+- method: BROWSER
+  path: session_state validation
+  result: hash + salt must match client origin, client_id, session_id, and issuer

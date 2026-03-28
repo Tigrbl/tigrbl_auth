@@ -1,0 +1,4 @@
+name: gate-75-test-classification
+description: Ensure categorized test coverage manifests exist
+checks:
+- test_classification_complete

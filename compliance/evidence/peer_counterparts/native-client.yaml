@@ -1,0 +1,19 @@
+schema_version: 1
+id: native-client
+title: External native-app redirect client harness
+counterpart_class: native-client
+execution_style: black-box-cli
+independence_requirement: external native-app harness or SDK runner required
+attestation_class_required: independent-external
+required_identity_fields:
+- peer_name
+- peer_version
+required_container_fields:
+- image_ref
+- image_digest
+required_artifacts:
+- http-transcript.yaml
+- stdout.log
+- result.yaml
+notes:
+- Use for RFC 8252 redirect, PKCE, JWE, and issuer-parameter interop.

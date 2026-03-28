@@ -1,0 +1,81 @@
+schema_version: 1
+package: tigrbl_auth
+boundaries:
+  certified_core:
+    description: Release-eligible Tigrbl-native authn/z implementation boundary. Only
+      modules in this boundary may back certifiable RFC/OIDC/OpenAPI/OpenRPC claims.
+    scope: core
+    includes:
+    - OAuth 2.0 authorization server endpoints
+    - OpenID Connect provider endpoints
+    - JOSE / JWT / JWK / JWKS
+    - discovery and .well-known metadata
+    - 'token lifecycle: revocation, introspection, JWT access-token profile'
+    - sessions, cookies, and logout
+    - client registration and management
+    - device authorization, token exchange, hardened request channels, sender-constrained
+      tokens
+    - OpenAPI and OpenRPC contracts
+    - ADRs, claims, evidence, release gates, and peer packs when mapped to declared
+      targets
+    - ASGI 3 application package boundary
+    - runner-profile-qualified serving claims (Uvicorn / Hypercorn / Tigrcorn) when
+      evidenced
+    - CLI operator lifecycle surface when mapped to declared runtime/operator targets
+    excludes:
+    - SAML IdP / SP
+    - LDAP / Active Directory federation
+    - SCIM
+    - generic policy decision platform
+    - database-native authorization
+    - framework-local auth subsystem
+    - Keycloak-scale federation breadth
+  governance_plane:
+    description: Governance, certification, evidence, and operator tooling. Not itself
+      a protocol claim surface, but required to certify the core.
+    scope: governance
+    includes:
+    - CLI governance commands
+    - spec generation tooling
+    - claims/evidence/gate verification tooling
+    - migration and release utilities
+    - manifest-derived current-state and claim-language generation
+    - operator and runtime target manifests
+  legacy_transition:
+    description: Legacy modules and migration shims kept only to preserve continuity
+      during the refactor. These modules are never certifiable and may not back active
+      claims.
+    scope: transition
+    includes:
+    - flat RFC-number modules
+    - legacy routers and ORM tree
+    - wrapper modules that re-export older implementations
+    - checkpoint compatibility shims
+  extension_quarantine:
+    description: Implemented or partially implemented features outside the default
+      certified auth-core boundary.
+    scope: extension
+    includes:
+    - WebAuthn / passkeys and WebAuthn algorithm registries
+    - Security Event Tokens
+    - Web Push encryption
+    - DNS privacy and other non-auth-core RFCs
+    - optional trust / federation / adapter work not yet promoted
+  alignment_only:
+    description: Profiles tracked for future or draft alignment without formal RFC
+      compliance claims.
+    scope: alignment-only
+    includes:
+    - OAuth 2.1 alignment profile
+  out_of_scope_baseline:
+    description: Capabilities explicitly excluded from the baseline boundary and certification
+      target set.
+    scope: out-of-scope
+    includes:
+    - SAML IdP/SP
+    - LDAP/AD federation
+    - SCIM
+    - full authorization-policy platform
+    - Supabase-style data-plane authorization
+    - framework-local auth subsystem
+    - Keycloak-scale federation breadth

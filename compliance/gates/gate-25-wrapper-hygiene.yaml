@@ -1,0 +1,4 @@
+name: wrapper-hygiene
+checks:
+  - wrapper_hygiene_scan
+  - certified_core_wrapper_count_zero

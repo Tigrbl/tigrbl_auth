@@ -1,0 +1,5 @@
+name: migration-plan
+description: Require the current-to-target move map to be installed and synchronized
+  with moved files.
+enforced_by:
+- scripts/verify_migration_plan.py

@@ -1,0 +1,11 @@
+capture_mode: contract-derived-snapshot
+profile: production
+source_contract: specs/openapi/profiles/production/tigrbl_auth.public.openapi.json
+paths:
+- path: /register
+  operations:
+  - method: POST
+    operationId: post_register
+    summary: Dynamic client registration endpoint
+    responses:
+    - '200'

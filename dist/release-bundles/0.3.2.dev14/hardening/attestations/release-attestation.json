@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "payload": {
+    "schema_version": 1,
+    "statement_type": "https://tigrbl.dev/attestations/release-bundle/v1",
+    "issued_at": "2026-03-27T20:23:32Z",
+    "signer": {
+      "signer_id": "tigrbl_auth.checkpoint.attestor",
+      "key_id": "ed25519:6b8610b664b40b6cb006c386",
+      "algorithm": "Ed25519",
+      "identity_kind": "repository-release-attestor",
+      "public_key_pem": "-----BEGIN PUBLIC KEY-----\nMCowBQYDK2VwAyEAkEvTaJUUF1YbY+nrtjLarkgddj7H2oRNiCwjn9FrMCw=\n-----END PUBLIC KEY-----\n",
+      "public_key_sha256": "6b8610b664b40b6cb006c386928e92e65d914069208e07881fe2b5eaba600bf2",
+      "source": "inline-pem"
+    },
+    "subject": {
+      "package": "tigrbl_auth",
+      "version": "0.3.2.dev14",
+      "profile": "hardening",
+      "bundle_root": "hardening",
+      "signed_artifacts": [
+        {
+          "label": "release-bundle",
+          "artifact_path": "release-bundle.json",
+          "artifact_sha256": "d1f0ddf08d6cc6605420afed753e4097c93b2ddff0507c912aecf2ad402c6281",
+          "attestation_path": "attestations/release-bundle.attestation.json"
+        },
+        {
+          "label": "claim-manifest",
+          "artifact_path": "compliance/claims/effective-target-claims.hardening.yaml",
+          "artifact_sha256": "2179eda0df66f740828c7fb6337ac87d1e31d225354fb12491e6231a6c396a63",
+          "attestation_path": "attestations/claim-manifest.attestation.json"
+        },
+        {
+          "label": "evidence-manifest",
+          "artifact_path": "compliance/evidence/effective-release-evidence.hardening.yaml",
+          "artifact_sha256": "83ac3b20497c55ec3f667d31aad83d238fa7f35364d438dc10efdc0d48a979ba",
+          "attestation_path": "attestations/evidence-manifest.attestation.json"
+        },
+        {
+          "label": "contract-set",
+          "artifact_path": "attestations/contract-set.manifest.json",
+          "artifact_sha256": "808274baf0a516036b6de3349d627dd5d1b173eb5d3ee750360837583b2b7a37",
+          "attestation_path": "attestations/contract-set.attestation.json"
+        }
+      ]
+    }
+  },
+  "signature": {
+    "algorithm": "Ed25519",
+    "encoding": "base64url",
+    "value": "Uh5HY-iMX8iPOdBfVjZx7SQ4pIMAsMj-Uxz7DBUWi4LIRqMAWtD29u-ISr_VjJK0aivU0alblK2osYM5Va8-Cg",
+    "payload_sha256": "4ee9fc32a64b7a295af4a3001049e84d640980ae3f293bf3f19a5da8ab180926"
+  }
+}

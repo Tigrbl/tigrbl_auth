@@ -1,0 +1,6 @@
+flow: assertion-grant-token-request
+requests:
+- method: POST
+  path: /token
+  content_type: application/x-www-form-urlencoded
+  grant_type: urn:ietf:params:oauth:grant-type:jwt-bearer

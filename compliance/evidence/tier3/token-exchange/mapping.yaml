@@ -1,0 +1,31 @@
+targets:
+- RFC 8693
+modules:
+- tigrbl_auth/standards/oauth2/token_exchange.py
+- tigrbl_auth/ops/token.py
+- tigrbl_auth/services/token_service.py
+- tigrbl_auth/services/persistence.py
+- tigrbl_auth/api/rpc/methods/token.py
+- tigrbl_auth/api/rpc/schemas/token.py
+tests:
+- tests/unit/test_phase8_hardening_cluster_a.py
+- tests/conformance/hardening/test_rfc8693_token_exchange.py
+contracts:
+- contracts/openid-configuration.json
+- contracts/token-exchange-openapi-path.json
+- contracts/token-exchange-runtime.json
+reports:
+- reports/certification_state_report.json
+- reports/certification_state_report.md
+- reports/current_state_report.json
+- reports/current_state_report.md
+- reports/release_gate_report.json
+- reports/release_gate_report.md
+- reports/target_contract_mapping_report.json
+- reports/target_contract_mapping_report.md
+- reports/target_evidence_mapping_report.json
+- reports/target_evidence_mapping_report.md
+- reports/target_module_mapping_report.json
+- reports/target_module_mapping_report.md
+- reports/target_test_mapping_report.json
+- reports/target_test_mapping_report.md

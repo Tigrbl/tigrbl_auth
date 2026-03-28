@@ -1,0 +1,30 @@
+flow: resource-indicator-single-effective-target
+requests:
+- method: GET
+  path: /authorize
+  parameters:
+  - resource
+- method: POST
+  path: /token
+  parameters:
+  - resource
+  - audience
+  conflict_result: invalid_target
+- method: POST
+  path: /device_authorization
+  parameters:
+  - resource
+  - audience
+  conflict_result: invalid_target
+- method: POST
+  path: /par
+  parameters:
+  - resource
+  - audience
+  conflict_result: invalid_target
+- method: POST
+  path: /token/exchange
+  parameters:
+  - resource
+  - audience
+  conflict_result: invalid_target

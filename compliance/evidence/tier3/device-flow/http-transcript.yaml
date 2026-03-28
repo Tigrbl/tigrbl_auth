@@ -1,0 +1,17 @@
+flow: device-authorization-and-polling
+requests:
+- method: POST
+  path: /device_authorization
+  parameters:
+  - client_id
+  - scope
+  - audience
+  - resource
+- method: POST
+  path: /token
+  grant_type: urn:ietf:params:oauth:grant-type:device_code
+  possible_errors:
+  - authorization_pending
+  - slow_down
+  - access_denied
+  - expired_token

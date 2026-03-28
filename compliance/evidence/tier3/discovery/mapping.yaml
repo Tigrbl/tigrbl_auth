@@ -1,0 +1,77 @@
+schema_version: 1
+targets:
+- target: RFC 8414
+  claim:
+    target: RFC 8414
+    tier: 3
+    status: evidenced-release-gated
+    profile: baseline
+  modules:
+  - tigrbl_auth/standards/oauth2/rfc8414.py
+  - tigrbl_auth/standards/oauth2/rfc8414_metadata.py
+  tests:
+  - tests/conformance/baseline/test_rfc8414_authorization_server_metadata.py
+  - tests/integration/test_rfc8414_metadata.py
+  endpoint_mapping:
+    current:
+    - /.well-known/oauth-authorization-server
+    target:
+    - /.well-known/oauth-authorization-server
+- target: OIDC Discovery 1.0
+  claim:
+    target: OIDC Discovery 1.0
+    tier: 3
+    status: evidenced-release-gated
+    profile: baseline
+  modules:
+  - tigrbl_auth/standards/oidc/discovery.py
+  tests:
+  - tests/conformance/baseline/test_openid_configuration.py
+  - tests/integration/test_oidc_endpoints.py
+  - tests/integration/test_profile_surface_and_contract_alignment.py
+  - tests/integration/test_rfc8414_metadata.py
+  - tests/interop/test_peer_counterpart_catalog.py
+  - tests/interop/test_peer_matrix_artifacts.py
+  - tests/interop/test_tier4_promotion_fail_closed.py
+  endpoint_mapping:
+    current:
+    - /.well-known/openid-configuration
+    target:
+    - /.well-known/openid-configuration
+profile: baseline
+reports:
+- docs/compliance/claims_lint_report.json
+- docs/compliance/claims_lint_report.md
+- docs/compliance/contract_sync_report.json
+- docs/compliance/contract_sync_report.md
+- docs/compliance/feature_flags_surface_modularity_report.json
+- docs/compliance/feature_flags_surface_modularity_report.md
+- docs/compliance/target_module_mapping_report.json
+- docs/compliance/target_module_mapping_report.md
+- docs/compliance/target_route_mapping_report.json
+- docs/compliance/target_route_mapping_report.md
+- docs/compliance/target_contract_mapping_report.json
+- docs/compliance/target_contract_mapping_report.md
+- docs/compliance/target_test_mapping_report.json
+- docs/compliance/target_test_mapping_report.md
+- docs/compliance/target_evidence_mapping_report.json
+- docs/compliance/target_evidence_mapping_report.md
+- docs/compliance/test_classification_report.json
+- docs/compliance/test_classification_report.md
+- docs/compliance/release_gate_report.json
+- docs/compliance/release_gate_report.md
+- docs/compliance/evidence_peer_readiness_report.json
+- docs/compliance/evidence_peer_readiness_report.md
+- docs/compliance/evidence_status_report.json
+- docs/compliance/evidence_status_report.md
+- docs/compliance/current_state_report.json
+- docs/compliance/current_state_report.md
+- docs/compliance/certification_state_report.json
+- docs/compliance/certification_state_report.md
+contracts:
+- specs/discovery/profiles/baseline/openid-configuration.json
+- specs/discovery/profiles/baseline/oauth-authorization-server.json
+- specs/discovery/profiles/baseline/jwks.json
+scenario_ids:
+- rfc-8414
+- oidc-discovery-10

@@ -1,0 +1,30 @@
+targets:
+- OIDC RP-Initiated Logout
+modules:
+- tigrbl_auth/standards/oidc/rp_initiated_logout.py
+- tigrbl_auth/api/rest/routers/logout.py
+- tigrbl_auth/ops/logout.py
+- tigrbl_auth/tables/logout_state.py
+- tigrbl_auth/tables/client_registration.py
+- tigrbl_auth/services/persistence.py
+tests:
+- tests/unit/test_phase7_session_logout_cluster_b.py
+- tests/conformance/production/test_oidc_rp_initiated_logout.py
+- tests/negative/test_cookie_and_logout_abuse_cases.py
+contracts:
+- contracts/openid-configuration.json
+- contracts/logout-openapi-path.json
+- contracts/logout-runtime.json
+reports:
+- reports/current_state_report.md
+- reports/current_state_report.json
+- reports/certification_state_report.md
+- reports/certification_state_report.json
+- reports/release_gate_report.md
+- reports/release_gate_report.json
+- reports/target_module_mapping_report.md
+- reports/target_module_mapping_report.json
+- reports/target_test_mapping_report.md
+- reports/target_test_mapping_report.json
+- reports/target_evidence_mapping_report.md
+- reports/target_evidence_mapping_report.json

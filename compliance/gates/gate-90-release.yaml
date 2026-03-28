@@ -1,0 +1,7 @@
+name: release
+description: Final certification gate proving runtime readiness, clean-room matrix success, Tier 3 evidence rebuild, and Tier 4 promotion completion.
+checks:
+  - runtime_profiles_truly_ready
+  - clean_room_install_matrix_green
+  - tier3_evidence_rebuilt_from_validated_runs
+  - tier4_bundle_promotion_complete

@@ -1,0 +1,15 @@
+
+schema_version: 1
+package: tigrbl_auth
+active_waivers: []
+expired_waivers: []
+policy:
+  allow_waivers: true
+  boundary_widening_forbidden: true
+  required_fields:
+    - waiver_id
+    - gate
+    - rationale
+    - approved_by
+    - linked_issue
+    - expires_on

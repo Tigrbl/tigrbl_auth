@@ -1,0 +1,17 @@
+# OpenAPI Contract Summary
+
+- Title: `tigrbl_auth public auth server`
+- Version: `0.3.2.dev14`
+- Profile: `baseline`
+- Surface sets: `public-rest, admin-rpc, diagnostics`
+- Path count: `6`
+- Schema count: `16`
+
+## Paths
+
+- `/login` → `post`
+- `/authorize` → `get`
+- `/token` → `post`
+- `/.well-known/openid-configuration` → `get`
+- `/.well-known/oauth-authorization-server` → `get`
+- `/.well-known/jwks.json` → `get`

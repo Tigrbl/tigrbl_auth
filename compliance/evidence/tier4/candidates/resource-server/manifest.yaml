@@ -1,0 +1,53 @@
+schema_version: 1
+bundle_kind: tier4-candidate-layout
+profile: resource-server
+counterpart_id: resource-server
+status: awaiting-independent-external-artifacts
+runtime_profile: hardening
+required_targets:
+- RFC 6750
+- RFC 7662
+- RFC 8693
+- RFC 8707
+- RFC 9068
+- RFC 9728
+- RFC 9700
+scenario_ids:
+- bearer-resource
+- introspection-resource
+- jwt-access-token-resource
+- token-exchange-resource
+- resource-indicator-binding
+- hardening-protected-resource-metadata
+required_peer_artifacts:
+- http-transcript.yaml
+- resource-response.log
+- result.yaml
+required_identity_fields:
+- peer_name
+- peer_version
+required_container_fields:
+- image_ref
+- image_digest
+attestation_class_required: independent-external
+contract_profiles:
+- production
+- hardening
+- peer-claim
+contract_snapshot_refs:
+  production:
+  - specs/openapi/profiles/production/tigrbl_auth.public.openapi.json
+  - specs/openrpc/profiles/production/tigrbl_auth.admin.openrpc.json
+  - compliance/claims/effective-target-claims.production.yaml
+  - compliance/evidence/effective-release-evidence.production.yaml
+  hardening:
+  - specs/openapi/profiles/hardening/tigrbl_auth.public.openapi.json
+  - specs/openrpc/profiles/hardening/tigrbl_auth.admin.openrpc.json
+  - compliance/claims/effective-target-claims.hardening.yaml
+  - compliance/evidence/effective-release-evidence.hardening.yaml
+  peer-claim:
+  - specs/openapi/profiles/peer-claim/tigrbl_auth.public.openapi.json
+  - specs/openrpc/profiles/peer-claim/tigrbl_auth.admin.openrpc.json
+  - compliance/claims/effective-target-claims.peer-claim.yaml
+  - compliance/evidence/effective-release-evidence.peer-claim.yaml
+generated_at: '2026-03-26T23:32:33+00:00'

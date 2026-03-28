@@ -1,0 +1,47 @@
+schema_version: 1
+package: tigrbl_auth
+promotion_rules:
+  tier_1_to_2:
+    requires:
+    - declared target manifest
+    - module mapping
+    - test mapping
+    - implementation status note
+  tier_2_to_3:
+    requires:
+    - preserved evidence bundle
+    - gate pass record
+    - contract snapshot where applicable
+    - updated declared-target-claims.yaml
+  tier_3_to_4:
+    requires:
+    - preserved peer bundle
+    - peer-profile metadata
+    - reproducible execution instructions
+    - promotion approval
+    - peer identity and version provenance
+    - peer runtime/container image digest provenance
+    - complete passing scenario results
+    - preserved reproduction material
+    - independent-external attestation class
+    public_independent_wording_requirement: mandatory
+  public_claim_language:
+    generated_from:
+    - compliance/targets/certification_scope.yaml
+    - compliance/claims/declared-target-claims.yaml
+    - compliance/claims/effective-target-claims.baseline.yaml
+    - compliance/claims/effective-target-claims.production.yaml
+    - compliance/claims/effective-target-claims.hardening.yaml
+    - compliance/claims/effective-target-claims.peer-claim.yaml
+    prohibits:
+    - manual blanket fully-featured wording that outruns manifests
+    - manual blanket fully RFC compliant wording that outruns manifests
+    - public independent wording without Tier 4 promotion
+prohibitions:
+- no direct Tier 1 to Tier 3 promotion
+- no Tier 4 promotion without Tier 3 evidence
+- no public "independent" wording below Tier 4
+- no package-level "fully featured" wording unless runtime, operator, and release
+  targets in the retained boundary are complete
+- no package-level "fully RFC compliant" wording unless the retained boundary is complete
+  and manifested as such

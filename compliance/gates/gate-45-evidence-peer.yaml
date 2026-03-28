@@ -1,0 +1,4 @@
+name: evidence-peer
+checks:
+  - tier3_claims_have_evidence_refs
+  - tier4_claims_have_peer_refs

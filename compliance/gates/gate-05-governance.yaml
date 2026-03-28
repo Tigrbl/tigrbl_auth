@@ -1,0 +1,20 @@
+name: governance
+required:
+- docs/adr/README.md
+- compliance/README.md
+- compliance/targets/README.md
+- compliance/mappings/README.md
+- compliance/claims/README.md
+- compliance/evidence/README.md
+- compliance/evidence/manifest.yaml
+- compliance/evidence/retention-policy.yaml
+- compliance/waivers/register.yaml
+checks:
+- required_adrs_present
+- vendor_removal_adr_present
+- governance_reports_generated
+- evidence_manifest_present
+- waiver_register_present
+- feature_surface_modularity_reports_generated
+- target_buckets_present
+- surface_and_plane_manifests_present

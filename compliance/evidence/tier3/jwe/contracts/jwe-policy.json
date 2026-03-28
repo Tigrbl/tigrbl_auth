@@ -1,0 +1,19 @@
+{
+  "profile": "compact",
+  "alg_supported": [
+    "dir"
+  ],
+  "enc_supported": [
+    "A256GCM"
+  ],
+  "artifact_scopes": [
+    "encrypted-id-token"
+  ],
+  "negative_cases": [
+    "unsupported-alg",
+    "unsupported-enc",
+    "invalid-key-length",
+    "malformed-token",
+    "wrong-key-material"
+  ]
+}

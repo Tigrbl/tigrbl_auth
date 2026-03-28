@@ -1,0 +1,59 @@
+ADR-0001:
+  scope: governance
+ADR-0002:
+  scope: certification-boundary
+ADR-0003:
+  scope: package-shape
+ADR-0004:
+  scope: framework-boundary
+ADR-0005:
+  scope: extensions-quarantine
+ADR-0006:
+  scope: release-gates
+ADR-0007:
+  scope: contracts
+ADR-0008:
+  scope: evidence-and-peer-claims
+ADR-0009:
+  scope: package-boundary
+ADR-0010:
+  scope: standards-boundary-and-label-hygiene
+ADR-0011:
+  scope: evidence-bundles-and-tier-promotion
+ADR-0012:
+  scope: independent-peer-claims
+applies_to_targets:
+  all_core_targets:
+  - ADR-0001
+  - ADR-0002
+  - ADR-0003
+  - ADR-0004
+  - ADR-0006
+  - ADR-0007
+  - ADR-0009
+  - ADR-0010
+  - ADR-0011
+  - ADR-0012
+  - ADR-0013
+  - ADR-0015
+  - ADR-0016
+  - ADR-0017
+  - ADR-0027
+  - ADR-0028
+  extension_targets:
+  - ADR-0001
+  - ADR-0005
+  - ADR-0010
+  - ADR-0012
+ADR-0013:
+  scope: vendor-removal-and-no-private-shims
+ADR-0015:
+  scope: feature-flags-and-profile-gating
+ADR-0016:
+  scope: installable-surfaces-and-partial-feature-consumption
+ADR-0017:
+  scope: plane-modularity
+ADR-0027:
+  scope: runner-profile-certification
+ADR-0028:
+  scope: cli-operator-surface-certification-boundary

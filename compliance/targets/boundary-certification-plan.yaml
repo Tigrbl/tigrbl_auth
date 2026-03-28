@@ -1,0 +1,27 @@
+schema_version: 1
+package: tigrbl_auth
+plan:
+  phase: phase-7-tree-layout-and-migration
+  objective: Make the strict certified-core boundary machine-checkable and release-gated
+    while documenting remaining violations honestly.
+  deliverables:
+  - strict boundary manifests
+  - decision-to-check and decision-to-gate mappings
+  - module boundary map with legacy_transition quarantine
+  - boundary import scan
+  - wrapper hygiene scan
+  - contract sync scan across profiles
+  - evidence and peer readiness scan
+  - current-state and certification-status refresh
+  - project tree layout manifest
+  - current-to-target move map
+  - tree layout verification
+  - migration plan verification
+  release_blockers:
+  - certified-core imports legacy_transition or extension_quarantine modules
+  - wrapper modules remain in certified-core paths
+  - committed contracts drift from generated profile contracts
+  - tier3 or tier4 claims lack required evidence references
+  - undeclared, extension, or out-of-scope targets appear in claimable surfaces
+  - required target tree directories or files are missing
+  - current-to-target move map drifts from the repository state

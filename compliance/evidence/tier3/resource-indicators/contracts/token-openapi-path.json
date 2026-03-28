@@ -1,0 +1,160 @@
+{
+  "post": {
+    "operationId": "post_token",
+    "summary": "Token endpoint",
+    "tags": [
+      "oauth2"
+    ],
+    "responses": {
+      "200": {
+        "description": "Success",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/TokenResponse"
+            }
+          }
+        }
+      }
+    },
+    "x-required-flags": [
+      "enable_rfc6749"
+    ],
+    "x-runtime-profile": {
+      "profile": "hardening",
+      "allowed_grant_types": [
+        "authorization_code",
+        "client_credentials",
+        "urn:ietf:params:oauth:grant-type:jwt-bearer",
+        "urn:ietf:params:oauth:grant-type:device_code",
+        "urn:ietf:params:oauth:grant-type:token-exchange"
+      ],
+      "allowed_response_types": [
+        "code"
+      ],
+      "par_required": true,
+      "sender_constraint_required": true,
+      "dpop_supported": true,
+      "mtls_supported": true,
+      "resource_indicators_supported": true,
+      "request_objects_supported": true,
+      "rich_authorization_requests_supported": true,
+      "jwt_access_token_profile_supported": true
+    },
+    "requestBody": {
+      "required": true,
+      "content": {
+        "application/x-www-form-urlencoded": {
+          "schema": {
+            "type": "object",
+            "required": [
+              "grant_type"
+            ],
+            "properties": {
+              "grant_type": {
+                "type": "string",
+                "enum": [
+                  "authorization_code",
+                  "client_credentials",
+                  "urn:ietf:params:oauth:grant-type:jwt-bearer",
+                  "urn:ietf:params:oauth:grant-type:device_code",
+                  "urn:ietf:params:oauth:grant-type:token-exchange"
+                ]
+              },
+              "code": {
+                "type": "string"
+              },
+              "device_code": {
+                "type": "string"
+              },
+              "redirect_uri": {
+                "type": "string",
+                "format": "uri"
+              },
+              "client_id": {
+                "type": "string"
+              },
+              "client_secret": {
+                "type": "string"
+              },
+              "client_assertion": {
+                "type": "string"
+              },
+              "client_assertion_type": {
+                "type": "string"
+              },
+              "assertion": {
+                "type": "string"
+              },
+              "code_verifier": {
+                "type": "string"
+              },
+              "refresh_token": {
+                "type": "string"
+              },
+              "username": {
+                "type": "string"
+              },
+              "password": {
+                "type": "string"
+              },
+              "scope": {
+                "type": "string"
+              },
+              "audience": {
+                "type": "string",
+                "format": "uri"
+              },
+              "resource": {
+                "type": "string",
+                "format": "uri"
+              }
+            }
+          },
+          "examples": {
+            "jwt_bearer_grant": {
+              "summary": "RFC 7521 JWT bearer assertion grant",
+              "value": {
+                "grant_type": "urn:ietf:params:oauth:grant-type:jwt-bearer",
+                "assertion": "<jwt-bearer-assertion>",
+                "scope": "openid profile email",
+                "client_id": "<client-id>",
+                "client_assertion_type": "urn:ietf:params:oauth:client-assertion-type:jwt-bearer",
+                "client_assertion": "<client-auth-assertion>",
+                "audience": "https://authn.example.com/token"
+              }
+            },
+            "jwt_client_auth": {
+              "summary": "RFC 7523 private_key_jwt token endpoint authentication",
+              "value": {
+                "client_id": "<client-id>",
+                "client_assertion_type": "urn:ietf:params:oauth:client-assertion-type:jwt-bearer",
+                "client_assertion": "<jwt-client-assertion>",
+                "token_endpoint_auth_method": "private_key_jwt",
+                "audience": "https://authn.example.com/token"
+              }
+            }
+          }
+        }
+      }
+    },
+    "parameters": [
+      {
+        "name": "DPoP",
+        "in": "header",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      },
+      {
+        "name": "X-Client-Cert-SHA256",
+        "in": "header",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ]
+  }
+}

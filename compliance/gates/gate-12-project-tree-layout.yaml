@@ -1,0 +1,5 @@
+name: project-tree-layout
+description: Require the Tigrbl-native certification-native directory layout to be
+  present.
+enforced_by:
+- scripts/verify_project_tree_layout.py

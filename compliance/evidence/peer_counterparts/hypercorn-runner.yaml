@@ -1,0 +1,18 @@
+schema_version: 1
+id: hypercorn-runner
+title: External Hypercorn runner harness
+counterpart_class: asgi-runner
+execution_style: black-box-http
+independence_requirement: external Hypercorn-based runner required
+attestation_class_required: independent-external
+required_identity_fields:
+- peer_name
+- peer_version
+required_container_fields:
+- image_ref
+- image_digest
+required_artifacts:
+- http-transcript.yaml
+- result.yaml
+notes:
+- Use for Hypercorn runtime-profile validation.

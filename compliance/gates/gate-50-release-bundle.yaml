@@ -1,0 +1,4 @@
+name: gate-50-release-bundle
+description: Build and digest a release bundle
+checks:
+- release_bundle_built

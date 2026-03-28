@@ -1,0 +1,11 @@
+
+schema_version: 1
+waiver:
+  waiver_id: WVR-0000
+  gate: gate-00-structure
+  rationale: explain the exception narrowly
+  approved_by: approver-name
+  linked_issue: issue-or-pr
+  created_on: YYYY-MM-DD
+  expires_on: YYYY-MM-DD
+  boundary_effect: none

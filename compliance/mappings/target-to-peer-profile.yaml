@@ -1,0 +1,115 @@
+RFC 6749:
+- browser
+- spa
+RFC 6750:
+- resource-server
+- gateway
+RFC 7636:
+- browser
+- spa
+- native
+RFC 8414:
+- browser
+- gateway
+RFC 8615:
+- browser
+- gateway
+RFC 7515:
+- assertion-client
+RFC 7516:
+- browser
+- native
+RFC 7517:
+- gateway
+- assertion-client
+RFC 7518:
+- assertion-client
+RFC 7519:
+- assertion-client
+RFC 7009:
+- assertion-client
+RFC 7591:
+- client-mgmt
+RFC 7592:
+- client-mgmt
+RFC 7662:
+- resource-server
+RFC 8252:
+- native
+RFC 8628:
+- device
+RFC 8693:
+- resource-server
+RFC 8705:
+- mtls
+RFC 8707:
+- resource-server
+- par-jar-rar
+RFC 9068:
+- resource-server
+RFC 9101:
+- par-jar-rar
+RFC 9126:
+- par-jar-rar
+RFC 9207:
+- browser
+- native
+RFC 9396:
+- par-jar-rar
+RFC 9449:
+- dpop
+RFC 6265:
+- rp-session-logout
+RFC 7521:
+- assertion-client
+RFC 7523:
+- assertion-client
+RFC 9728:
+- resource-server
+- gateway
+RFC 9700:
+- gateway
+- resource-server
+- dpop
+- mtls
+OIDC Core 1.0:
+- browser
+- spa
+OIDC Discovery 1.0:
+- browser
+- gateway
+- spa
+OIDC UserInfo:
+- browser
+OIDC Session Management:
+- rp-session-logout
+OIDC RP-Initiated Logout:
+- rp-session-logout
+OIDC Front-Channel Logout:
+- rp-session-logout
+OIDC Back-Channel Logout:
+- rp-session-logout
+OpenAPI 3.1 / 3.2 compatible public contract:
+- ops-cli
+OpenRPC 1.4.x admin/control-plane contract:
+- ops-cli
+ASGI 3 application package:
+- runner-uvicorn
+- runner-hypercorn
+- runner-tigrcorn
+'Runner profile: Uvicorn':
+- runner-uvicorn
+'Runner profile: Hypercorn':
+- runner-hypercorn
+'Runner profile: Tigrcorn':
+- runner-tigrcorn
+CLI operator surface:
+- ops-cli
+Bootstrap and migration lifecycle:
+- ops-cli
+Key lifecycle and JWKS publication:
+- ops-cli
+Import/export portability:
+- ops-cli
+Release bundle and signature verification:
+- ops-cli

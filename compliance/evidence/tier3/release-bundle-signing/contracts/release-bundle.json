@@ -1,0 +1,493 @@
+{
+  "schema_version": 1,
+  "package": "tigrbl_auth",
+  "version": "0.3.2.dev14",
+  "profile": "baseline",
+  "artifact_selection": "all",
+  "deployment": {
+    "profile": "baseline",
+    "plugin_mode": "mixed",
+    "runtime_style": "standalone",
+    "surface_sets": [
+      "public-rest",
+      "admin-rpc",
+      "diagnostics"
+    ],
+    "protocol_slices": [],
+    "extensions": [],
+    "issuer": "https://authn.example.com",
+    "protected_resource_identifier": "https://authn.example.com/resource",
+    "strict_boundary_enforcement": true,
+    "surfaces": {
+      "surface_public_enabled": true,
+      "surface_admin_enabled": true,
+      "surface_rpc_enabled": true,
+      "surface_diagnostics_enabled": true,
+      "surface_operator_enabled": true,
+      "surface_plugin_mode": "mixed"
+    },
+    "flags": {
+      "enable_rfc6749": true,
+      "enable_rfc6750": true,
+      "enable_rfc7636": true,
+      "enable_rfc8414": true,
+      "enable_rfc8615": true,
+      "enable_rfc7515": true,
+      "enable_rfc7516": true,
+      "enable_rfc7517": true,
+      "enable_rfc7518": true,
+      "enable_rfc7519": true,
+      "enable_oidc_core": true,
+      "enable_oidc_discovery": true,
+      "enable_rfc7009": false,
+      "enable_rfc7521": false,
+      "enable_rfc7523": false,
+      "enable_rfc7662": false,
+      "enable_rfc7591": false,
+      "enable_rfc7592": false,
+      "enable_rfc8252": false,
+      "enable_rfc9068": false,
+      "enable_rfc9207": false,
+      "enable_rfc9728": false,
+      "enable_oidc_userinfo": false,
+      "enable_oidc_session_management": false,
+      "enable_oidc_rp_initiated_logout": false,
+      "enable_rfc8628": false,
+      "enable_rfc8693": false,
+      "enable_rfc8705": false,
+      "enable_rfc8707": false,
+      "enable_rfc9101": false,
+      "enable_rfc9126": false,
+      "enable_rfc9396": false,
+      "enable_rfc9449": false,
+      "enable_rfc9700": false,
+      "enable_oidc_frontchannel_logout": false,
+      "enable_oidc_backchannel_logout": false,
+      "require_tls": true,
+      "enable_id_token_encryption": false,
+      "enable_rfc6750_query": false,
+      "enable_rfc6750_form": false,
+      "strict_boundary_enforcement": true,
+      "surface_public_enabled": true,
+      "surface_admin_enabled": true,
+      "surface_operator_enabled": true,
+      "surface_rpc_enabled": true,
+      "surface_diagnostics_enabled": true,
+      "surface_plugin_mode": "mixed",
+      "oauth21_alignment_mode": "tracked",
+      "enable_rfc7800": false,
+      "enable_rfc7952": false,
+      "enable_rfc8291": false,
+      "enable_rfc8812": false,
+      "enable_rfc8932": false,
+      "enable_rfc8523": false
+    },
+    "active_capabilities": [
+      "login",
+      "authorize",
+      "token",
+      "openid-configuration",
+      "oauth-authorization-server-metadata",
+      "jwks",
+      "diagnostics-health"
+    ],
+    "active_routes": [
+      "/login",
+      "/authorize",
+      "/token",
+      "/.well-known/openid-configuration",
+      "/.well-known/oauth-authorization-server",
+      "/.well-known/jwks.json",
+      "/system/health"
+    ],
+    "active_contract_routes": [
+      "/login",
+      "/authorize",
+      "/token",
+      "/.well-known/openid-configuration",
+      "/.well-known/oauth-authorization-server",
+      "/.well-known/jwks.json"
+    ],
+    "active_discovery_routes": [
+      "/.well-known/openid-configuration",
+      "/.well-known/oauth-authorization-server",
+      "/.well-known/jwks.json"
+    ],
+    "active_targets": [
+      "RFC 6749",
+      "RFC 6750",
+      "RFC 7636",
+      "RFC 8414",
+      "RFC 8615",
+      "RFC 7515",
+      "RFC 7516",
+      "RFC 7517",
+      "RFC 7518",
+      "RFC 7519",
+      "OIDC Core 1.0",
+      "OIDC Discovery 1.0",
+      "OpenAPI 3.1 / 3.2 compatible public contract",
+      "OpenRPC 1.4.x admin/control-plane contract",
+      "ASGI 3 application package",
+      "Runner profile: Uvicorn",
+      "Runner profile: Hypercorn",
+      "Runner profile: Tigrcorn",
+      "CLI operator surface",
+      "Bootstrap and migration lifecycle",
+      "Key lifecycle and JWKS publication",
+      "Import/export portability",
+      "Release bundle and signature verification"
+    ],
+    "active_openrpc_methods": [
+      "audit.export",
+      "audit.list",
+      "claims.lint",
+      "claims.show",
+      "client.list",
+      "client.registration.delete",
+      "client.registration.list",
+      "client.registration.show",
+      "client.registration.upsert",
+      "client.show",
+      "consent.list",
+      "consent.revoke",
+      "consent.show",
+      "discovery.show",
+      "evidence.status",
+      "flow.list",
+      "gate.run",
+      "identity.list",
+      "identity.show",
+      "jwks.show",
+      "keys.list",
+      "keys.rotate",
+      "profile.show",
+      "release.bundle",
+      "rpc.discover",
+      "session.list",
+      "session.show",
+      "session.terminate",
+      "target.list",
+      "target.show",
+      "tenant.list",
+      "tenant.show",
+      "token.exchange",
+      "token.inspect",
+      "token.list"
+    ]
+  },
+  "adr_index": {
+    "count": 28,
+    "entries": [
+      {
+        "id": "ADR-0001-use-adrs",
+        "path": "docs/adr/ADR-0001-use-adrs.md",
+        "title": "Use ADRs for package governance"
+      },
+      {
+        "id": "ADR-0002-certification-boundary",
+        "path": "docs/adr/ADR-0002-certification-boundary.md",
+        "title": "Freeze the certification boundary"
+      },
+      {
+        "id": "ADR-0003-tigrbl-native-shape",
+        "path": "docs/adr/ADR-0003-tigrbl-native-shape.md",
+        "title": "Adopt the Tigrbl-native package shape"
+      },
+      {
+        "id": "ADR-0004-no-fastapi-no-starlette",
+        "path": "docs/adr/ADR-0004-no-fastapi-no-starlette.md",
+        "title": "Direct FastAPI and Starlette imports are forbidden"
+      },
+      {
+        "id": "ADR-0005-standards-vs-extensions",
+        "path": "docs/adr/ADR-0005-standards-vs-extensions.md",
+        "title": "Separate standards core from optional extensions"
+      },
+      {
+        "id": "ADR-0006-release-gates-as-code",
+        "path": "docs/adr/ADR-0006-release-gates-as-code.md",
+        "title": "Release gates are defined as code"
+      },
+      {
+        "id": "ADR-0007-contract-generation",
+        "path": "docs/adr/ADR-0007-contract-generation.md",
+        "title": "Generate OpenAPI and OpenRPC artifacts"
+      },
+      {
+        "id": "ADR-0008-evidence-retention-and-peer-claims",
+        "path": "docs/adr/ADR-0008-evidence-retention-and-peer-claims.md",
+        "title": "Retain evidence and require peer review for Tier 4"
+      },
+      {
+        "id": "ADR-0009-package-boundary-strict-core",
+        "path": "docs/adr/ADR-0009-package-boundary-strict-core.md",
+        "title": "Define the strict package boundary"
+      },
+      {
+        "id": "ADR-0010-standards-boundary-and-label-hygiene",
+        "path": "docs/adr/ADR-0010-standards-boundary-and-label-hygiene.md",
+        "title": "Normalize standards labels and quarantine mis-scoped targets"
+      },
+      {
+        "id": "ADR-0011-evidence-model-and-tier-promotion",
+        "path": "docs/adr/ADR-0011-evidence-model-and-tier-promotion.md",
+        "title": "Evidence bundles are required for tier promotion"
+      },
+      {
+        "id": "ADR-0012-independent-peer-claims",
+        "path": "docs/adr/ADR-0012-independent-peer-claims.md",
+        "title": "Independent peer claims are a separate certification boundary"
+      },
+      {
+        "id": "ADR-0013-vendor-removal-and-no-private-shims",
+        "path": "docs/adr/ADR-0013-vendor-removal-and-no-private-shims.md",
+        "title": "Remove vendor directories and forbid private framework shims"
+      },
+      {
+        "id": "ADR-0014-tigrbl-public-api-only-composition",
+        "path": "docs/adr/ADR-0014-tigrbl-public-api-only-composition.md",
+        "title": "Tigrbl public-API-only composition is mandatory in release paths"
+      },
+      {
+        "id": "ADR-0015-feature-flags-and-profile-gating",
+        "path": "docs/adr/ADR-0015-feature-flags-and-profile-gating.md",
+        "title": "Feature flags and profile gating are release-governed surfaces"
+      },
+      {
+        "id": "ADR-0016-installable-surfaces-and-partial-feature-consumption",
+        "path": "docs/adr/ADR-0016-installable-surfaces-and-partial-feature-consumption.md",
+        "title": "Installable surfaces and partial feature consumption are first-class boundaries"
+      },
+      {
+        "id": "ADR-0017-plane-modularity",
+        "path": "docs/adr/ADR-0017-plane-modularity.md",
+        "title": "Runtime planes own one concern each"
+      },
+      {
+        "id": "ADR-0018-strict-partial-feature-disappearance",
+        "path": "docs/adr/ADR-0018-strict-partial-feature-disappearance.md",
+        "title": "ADR-0018: Strict Partial Feature Disappearance"
+      },
+      {
+        "id": "ADR-0019-boundary-enforcement-as-code",
+        "path": "docs/adr/ADR-0019-boundary-enforcement-as-code.md",
+        "title": "ADR-0019: Boundary Enforcement as Code"
+      },
+      {
+        "id": "ADR-0020-plugin-and-gateway-composition-profiles",
+        "path": "docs/adr/ADR-0020-plugin-and-gateway-composition-profiles.md",
+        "title": "ADR-0020: Plugin and Gateway Composition Profiles"
+      },
+      {
+        "id": "ADR-0021-project-tree-and-migration-plan",
+        "path": "docs/adr/ADR-0021-project-tree-and-migration-plan.md",
+        "title": "ADR-0021: Project tree and migration plan are certification artifacts"
+      },
+      {
+        "id": "ADR-0022-cli-metadata-single-source",
+        "path": "docs/adr/ADR-0022-cli-metadata-single-source.md",
+        "title": "CLI metadata as the single source"
+      },
+      {
+        "id": "ADR-0023-live-contract-generation-and-diff",
+        "path": "docs/adr/ADR-0023-live-contract-generation-and-diff.md",
+        "title": "Live contract generation and diff"
+      },
+      {
+        "id": "ADR-0024-evidence-bundles-and-peer-profiles",
+        "path": "docs/adr/ADR-0024-evidence-bundles-and-peer-profiles.md",
+        "title": "Evidence bundles and peer profiles"
+      },
+      {
+        "id": "ADR-0025-release-bundles-and-recertification",
+        "path": "docs/adr/ADR-0025-release-bundles-and-recertification.md",
+        "title": "Release bundles and recertification"
+      },
+      {
+        "id": "ADR-0026-browser-session-cookie-and-logout-semantics",
+        "path": "docs/adr/ADR-0026-browser-session-cookie-and-logout-semantics.md",
+        "title": "ADR-0026 Browser Session, Cookie, and Logout Semantics"
+      },
+      {
+        "id": "ADR-0027-runner-profile-certification",
+        "path": "docs/adr/ADR-0027-runner-profile-certification.md",
+        "title": "Runner profile certification"
+      },
+      {
+        "id": "ADR-0028-cli-operator-surface-is-certification-boundary",
+        "path": "docs/adr/ADR-0028-cli-operator-surface-is-certification-boundary.md",
+        "title": "CLI operator surface is part of the certification boundary"
+      }
+    ]
+  },
+  "dependency_provenance": {
+    "artifact_paths": [
+      "pyproject.toml",
+      "Dockerfile",
+      "constraints/base.txt",
+      "constraints/runner-uvicorn.txt",
+      "constraints/runner-hypercorn.txt",
+      "constraints/runner-tigrcorn.txt",
+      "constraints/dependency-lock.json",
+      "docs/runbooks/INSTALLATION_PROFILES.md",
+      "docs/runbooks/CLEAN_CHECKOUT_REPRO.md",
+      "docs/compliance/PHASE1_PUBLISHED_DEPENDENCY_MODEL.md",
+      ".github/workflows/ci-install-profiles.yml"
+    ],
+    "native_uv_lock_present": false,
+    "equivalent_lock_manifest": "constraints/dependency-lock.json"
+  },
+  "artifacts": [
+    {
+      "path": "compliance/claims/effective-target-claims.baseline.yaml",
+      "present": true,
+      "sha256": "67a5dfdfbc62775c2efa4ff4767a8ed425b0455c1cdb4b2931c58ac560c2bb5f"
+    },
+    {
+      "path": "compliance/evidence/effective-release-evidence.baseline.yaml",
+      "present": true,
+      "sha256": "69afc677b3073ab7d02d8335e739c181897c7eeba8bc18a99d3a51a7ba91d22c"
+    },
+    {
+      "path": "specs/openapi/profiles/baseline/tigrbl_auth.public.openapi.json",
+      "present": true,
+      "sha256": "05c68144246c02d1e99956d4db872348ddb34ff8ed54cfd743ca5385ba8d21c5"
+    },
+    {
+      "path": "specs/openrpc/profiles/baseline/tigrbl_auth.admin.openrpc.json",
+      "present": true,
+      "sha256": "aa28c229ddcb715bab6ab6e99c3e00f865686cefeeb5a011bc326b6e9aa335df"
+    },
+    {
+      "path": "docs/adr/INDEX.md",
+      "present": true,
+      "sha256": "65cdbca6cd8aee525e6ba464da6729e8fbd20287ddf02c1ebd2535b90c0a3b09"
+    },
+    {
+      "path": "docs/adr/index.json",
+      "present": true,
+      "sha256": "4e7be95c1cae73e6b7106cc1829047eefabc649b2931f05954d899959fe2c2c0"
+    },
+    {
+      "path": "pyproject.toml",
+      "present": true,
+      "sha256": "c197726613c940d1be8a76c44cfa101e97292850d3c3436266f955fe4f6e4058"
+    },
+    {
+      "path": "Dockerfile",
+      "present": true,
+      "sha256": "a0f979413a7656f9c50a20f19055045f1e1b97bc6655e3cd9c671810fc26fff7"
+    },
+    {
+      "path": "constraints/base.txt",
+      "present": true,
+      "sha256": "df95eaf454c05f1abb37aa69e8050aae8b9cb89675c26e8c815ebf0150a95587"
+    },
+    {
+      "path": "constraints/runner-uvicorn.txt",
+      "present": true,
+      "sha256": "afa921dd04d1b5d40e580c6ef28d5050aeec5f4da2406efc556b77f658abfd21"
+    },
+    {
+      "path": "constraints/runner-hypercorn.txt",
+      "present": true,
+      "sha256": "6b67509c2c642fe624f8ac3436da92b79d4e17db11cdf21f93470f1438b073c0"
+    },
+    {
+      "path": "constraints/runner-tigrcorn.txt",
+      "present": true,
+      "sha256": "91999aac5dceaa924807323526042b839847f34182b008fa5c76d8c8fca485c9"
+    },
+    {
+      "path": "constraints/dependency-lock.json",
+      "present": true,
+      "sha256": "3bbb1ea868482e9d1aac6a58a54e5a7486e3442a1c0b89ad2b80686f3ac5a0af"
+    },
+    {
+      "path": "docs/runbooks/INSTALLATION_PROFILES.md",
+      "present": true,
+      "sha256": "87e099caf0b03d420c4a5f516b546c0c50284b916185d40cb9ebbba86f5cb837"
+    },
+    {
+      "path": "docs/runbooks/CLEAN_CHECKOUT_REPRO.md",
+      "present": true,
+      "sha256": "3817a3249807d1b4630ed3621806394b6fb86789a1c22af3aa6a68f476473d04"
+    },
+    {
+      "path": "docs/compliance/PHASE1_PUBLISHED_DEPENDENCY_MODEL.md",
+      "present": true,
+      "sha256": "b682e6d8cd984d0d2a3b14efb03a9c8c9d78394f31d913bfbfe89f15ec163962"
+    },
+    {
+      "path": ".github/workflows/ci-install-profiles.yml",
+      "present": true,
+      "sha256": "7da4a2c4d6521c8514a04cf16b1da2434ac674e6378546ccbac444c4a1c60ae1"
+    },
+    {
+      "path": "docs/reference/CLI_SURFACE.md",
+      "present": true,
+      "sha256": "38d5da55515ce68f97d921d290a6f8df8ca23f5eb9857f2a2116d834ba91008a"
+    },
+    {
+      "path": "specs/cli/cli_contract.json",
+      "present": true,
+      "sha256": "37335eb908e86794677bf1341f8d75ca6ab37e2ee7c38dd116465e52132d0fa6"
+    },
+    {
+      "path": "specs/cli/cli_contract.yaml",
+      "present": true,
+      "sha256": "9baaffac5a164f9694d43443cc344ba9ed84915a25508fd691ed151d41e779f1"
+    },
+    {
+      "path": "docs/compliance/cli_conformance_snapshot.json",
+      "present": true,
+      "sha256": "c17ff82e0348d47d4028a628613b058b8f038de3b9110b56588f902f1cdd5f52"
+    },
+    {
+      "path": "docs/compliance/cli_conformance_snapshot.md",
+      "present": true,
+      "sha256": "dcde1076b6c8cfa66990cb56c35d1958714fabba57c64b294afcbaafd1d1c9cb"
+    },
+    {
+      "path": "docs/compliance/runtime_profile_report.json",
+      "present": true,
+      "sha256": "529f26c42456dcf7b95b3bc5feac120880553aeeec5dcc425b4a81cf8590bca5"
+    },
+    {
+      "path": "docs/compliance/runtime_profile_report.md",
+      "present": true,
+      "sha256": "c4d12fd0f8a27001180e3150c0c0c8ce95c41768fb70df966346f1c3a4876f54"
+    },
+    {
+      "path": "docs/compliance/artifact_truthfulness_report.json",
+      "present": true,
+      "sha256": "6733f444baabbb29f251316c1e5efe63da162669f13a5e6009d0169f70036719"
+    },
+    {
+      "path": "docs/compliance/PHASE3_RUNTIME_LAUNCHER.md",
+      "present": true,
+      "sha256": "b44f795078fd232080b4aa806128a90de6139b1764b043ee8bf459b770cd7840"
+    },
+    {
+      "path": "docs/compliance/PHASE4_CLI_CONTRACT.md",
+      "present": true,
+      "sha256": "ceb303723edebb2e72db1259b0dd29c0986b08b1ba241d566e55236fd9d2589a"
+    },
+    {
+      "path": "CURRENT_STATE.md",
+      "present": true,
+      "sha256": "faf5ab8749378a34d3475069d5a34beeb22eed802037efd19c09414c53fb7269"
+    },
+    {
+      "path": "CERTIFICATION_STATUS.md",
+      "present": true,
+      "sha256": "29e9227bbed93f4c22e6ee0ebeb7c7dc2810795bc4eda415541a1b2870150529"
+    },
+    {
+      "path": "scripts/verify_runner_profiles.py",
+      "present": true,
+      "sha256": "c45d6f5e4229829e19da28202a84301cb4db5b2e4000f4e037ed271962d92eac"
+    }
+  ]
+}

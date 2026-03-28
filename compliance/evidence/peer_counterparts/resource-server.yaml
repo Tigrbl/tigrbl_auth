@@ -1,0 +1,20 @@
+schema_version: 1
+id: resource-server
+title: External protected resource / resource server harness
+counterpart_class: resource-server
+execution_style: black-box-http
+independence_requirement: external RS or gateway required
+attestation_class_required: independent-external
+required_identity_fields:
+- peer_name
+- peer_version
+required_container_fields:
+- image_ref
+- image_digest
+required_artifacts:
+- http-transcript.yaml
+- resource-response.log
+- result.yaml
+notes:
+- Use for RFC 6750, RFC 7662, RFC 8693, RFC 8707, RFC 9068, RFC 9728, and RFC 9700
+  interop.

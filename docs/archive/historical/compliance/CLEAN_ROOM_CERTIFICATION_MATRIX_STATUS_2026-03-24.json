@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "implemented": true,
+  "executed_in_this_container": false,
+  "fully_certifiable_now": false,
+  "fully_rfc_compliant_now": false,
+  "python_versions": [
+    "3.10",
+    "3.11",
+    "3.12"
+  ],
+  "profiles": {
+    "base": true,
+    "sqlite_uvicorn": true,
+    "postgres_hypercorn": true,
+    "tigrcorn": {
+      "implemented": true,
+      "supported_python_versions": [
+        "3.11",
+        "3.12"
+      ]
+    },
+    "devtest": true,
+    "release_gates": {
+      "implemented": true,
+      "supported_python_versions": [
+        "3.11"
+      ]
+    }
+  },
+  "artifacts": {
+    "tox_manifest": "tox.ini",
+    "install_workflow": ".github/workflows/ci-install-profiles.yml",
+    "release_gate_workflow": ".github/workflows/ci-release-gates.yml",
+    "smoke_script": "scripts/clean_room_profile_smoke.py",
+    "test_constraints": "constraints/test.txt"
+  },
+  "open_gaps": [
+    "Matrix execution was not performed in this container across Python 3.10, 3.11, and 3.12.",
+    "Tier 4 independent peer evidence remains absent.",
+    "Final certification still depends on clean-room CI execution and preserved evidence."
+  ]
+}

@@ -1,0 +1,17 @@
+
+schema_version: 1
+package: tigrbl_auth
+policy:
+  preserve_release_bundles: true
+  preserve_peer_bundles: true
+  allow_mutation_after_release: false
+  require_repro_instructions: true
+  require_command_log: true
+  require_contract_snapshot: true
+retention:
+  tier3: release-lifetime
+  tier4: release-lifetime-plus-peer-reference
+disallowed:
+  - unverifiable screenshots without machine-readable companion artifacts
+  - evidence bundles without execution logs
+  - peer claims without preserved peer-profile metadata

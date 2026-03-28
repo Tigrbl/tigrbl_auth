@@ -1,0 +1,39 @@
+schema_version: 1
+package: tigrbl_auth
+target_family: rfc
+scope: extension
+targets:
+- id: jose.pop-cnf
+  label: RFC 7800
+  title: Proof-of-Possession Key Semantics for JSON Web Tokens (JWTs)
+  quarantine_reason: Optional hardening extension not yet promoted into the certified
+    core boundary.
+  modules:
+  - tigrbl_auth/standards/jose/rfc7800.py
+- id: set.core
+  label: RFC 7952
+  title: Security Event Token (SET)
+  quarantine_reason: Outside the default OAuth 2.0 / OIDC auth-server certification
+    boundary.
+  modules:
+  - tigrbl_auth/extensions/rfc7952.py
+- id: webpush.encryption
+  label: RFC 8291
+  title: Message Encryption for Web Push
+  quarantine_reason: Web Push is not part of the certified auth-core boundary.
+  modules:
+  - tigrbl_auth/extensions/rfc8291.py
+- id: webauthn.algorithms
+  label: RFC 8812
+  title: Web Authentication (WebAuthn) Cryptographic Algorithms
+  quarantine_reason: WebAuthn is extension work and not part of the default certified
+    boundary.
+  modules:
+  - tigrbl_auth/extensions/rfc8812.py
+- id: dns.privacy
+  label: RFC 8932
+  title: Recommendations for DNS Privacy Service Operators
+  quarantine_reason: RFC 8932 is not an OAuth/OIDC auth-core target and remains quarantined
+    from certification claims.
+  modules:
+  - tigrbl_auth/extensions/rfc8932.py

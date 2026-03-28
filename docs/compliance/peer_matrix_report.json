@@ -1,0 +1,282 @@
+{
+  "passed": true,
+  "summary": {
+    "profile_count": 16,
+    "candidate_profile_count": 16,
+    "external_bundle_count": 0,
+    "promoted_target_count": 0,
+    "retained_target_count": 48,
+    "tier4_claims_present": false,
+    "retained_boundary_promoted": false,
+    "supported_peer_profile_count": 16,
+    "required_external_bundle_count": 16,
+    "valid_external_bundle_count": 0,
+    "invalid_external_bundle_count": 0,
+    "missing_external_bundle_count": 16,
+    "profiles_missing_external_bundles": [
+      "assertion-client",
+      "browser",
+      "client-mgmt",
+      "device",
+      "dpop",
+      "gateway",
+      "mtls",
+      "native",
+      "ops-cli",
+      "par-jar-rar",
+      "resource-server",
+      "rp-session-logout",
+      "runner-hypercorn",
+      "runner-tigrcorn",
+      "runner-uvicorn",
+      "spa"
+    ],
+    "profiles_with_invalid_external_bundles": [],
+    "strict_independent_claims_ready": false
+  },
+  "details": [
+    {
+      "profile": "assertion-client",
+      "counterpart_id": "assertion-client-harness",
+      "runtime_profile": "production",
+      "required_targets": [
+        "RFC 7515",
+        "RFC 7517",
+        "RFC 7518",
+        "RFC 7519",
+        "RFC 7521",
+        "RFC 7523",
+        "RFC 7009"
+      ],
+      "candidate_dir": "compliance/evidence/tier4/candidates/assertion-client",
+      "external_bundle_dir": null,
+      "promotable_targets": [],
+      "validation_failures": []
+    },
+    {
+      "profile": "browser",
+      "counterpart_id": "browser-rp",
+      "runtime_profile": "hardening",
+      "required_targets": [
+        "RFC 6749",
+        "RFC 7636",
+        "RFC 7516",
+        "RFC 8414",
+        "RFC 8615",
+        "RFC 9207",
+        "OIDC Core 1.0",
+        "OIDC Discovery 1.0",
+        "OIDC UserInfo"
+      ],
+      "candidate_dir": "compliance/evidence/tier4/candidates/browser",
+      "external_bundle_dir": null,
+      "promotable_targets": [],
+      "validation_failures": []
+    },
+    {
+      "profile": "client-mgmt",
+      "counterpart_id": "client-mgmt-harness",
+      "runtime_profile": "hardening",
+      "required_targets": [
+        "RFC 7591",
+        "RFC 7592"
+      ],
+      "candidate_dir": "compliance/evidence/tier4/candidates/client-mgmt",
+      "external_bundle_dir": null,
+      "promotable_targets": [],
+      "validation_failures": []
+    },
+    {
+      "profile": "device",
+      "counterpart_id": "device-client",
+      "runtime_profile": "hardening",
+      "required_targets": [
+        "RFC 8628"
+      ],
+      "candidate_dir": "compliance/evidence/tier4/candidates/device",
+      "external_bundle_dir": null,
+      "promotable_targets": [],
+      "validation_failures": []
+    },
+    {
+      "profile": "dpop",
+      "counterpart_id": "dpop-client",
+      "runtime_profile": "hardening",
+      "required_targets": [
+        "RFC 9449",
+        "RFC 9700"
+      ],
+      "candidate_dir": "compliance/evidence/tier4/candidates/dpop",
+      "external_bundle_dir": null,
+      "promotable_targets": [],
+      "validation_failures": []
+    },
+    {
+      "profile": "gateway",
+      "counterpart_id": "gateway-peer",
+      "runtime_profile": "hardening",
+      "required_targets": [
+        "RFC 6750",
+        "RFC 8414",
+        "RFC 8615",
+        "RFC 7517",
+        "RFC 9700",
+        "RFC 9728",
+        "OIDC Discovery 1.0"
+      ],
+      "candidate_dir": "compliance/evidence/tier4/candidates/gateway",
+      "external_bundle_dir": null,
+      "promotable_targets": [],
+      "validation_failures": []
+    },
+    {
+      "profile": "mtls",
+      "counterpart_id": "mtls-peer",
+      "runtime_profile": "hardening",
+      "required_targets": [
+        "RFC 8705",
+        "RFC 9700"
+      ],
+      "candidate_dir": "compliance/evidence/tier4/candidates/mtls",
+      "external_bundle_dir": null,
+      "promotable_targets": [],
+      "validation_failures": []
+    },
+    {
+      "profile": "native",
+      "counterpart_id": "native-client",
+      "runtime_profile": "hardening",
+      "required_targets": [
+        "RFC 7636",
+        "RFC 8252",
+        "RFC 7516",
+        "RFC 9207"
+      ],
+      "candidate_dir": "compliance/evidence/tier4/candidates/native",
+      "external_bundle_dir": null,
+      "promotable_targets": [],
+      "validation_failures": []
+    },
+    {
+      "profile": "ops-cli",
+      "counterpart_id": "ops-cli-harness",
+      "runtime_profile": "production",
+      "required_targets": [
+        "OpenAPI 3.1 / 3.2 compatible public contract",
+        "OpenRPC 1.4.x admin/control-plane contract",
+        "CLI operator surface",
+        "Bootstrap and migration lifecycle",
+        "Key lifecycle and JWKS publication",
+        "Import/export portability",
+        "Release bundle and signature verification"
+      ],
+      "candidate_dir": "compliance/evidence/tier4/candidates/ops-cli",
+      "external_bundle_dir": null,
+      "promotable_targets": [],
+      "validation_failures": []
+    },
+    {
+      "profile": "par-jar-rar",
+      "counterpart_id": "par-jar-rar-client",
+      "runtime_profile": "hardening",
+      "required_targets": [
+        "RFC 9101",
+        "RFC 9126",
+        "RFC 9396",
+        "RFC 8707"
+      ],
+      "candidate_dir": "compliance/evidence/tier4/candidates/par-jar-rar",
+      "external_bundle_dir": null,
+      "promotable_targets": [],
+      "validation_failures": []
+    },
+    {
+      "profile": "resource-server",
+      "counterpart_id": "resource-server",
+      "runtime_profile": "hardening",
+      "required_targets": [
+        "RFC 6750",
+        "RFC 7662",
+        "RFC 8693",
+        "RFC 8707",
+        "RFC 9068",
+        "RFC 9728",
+        "RFC 9700"
+      ],
+      "candidate_dir": "compliance/evidence/tier4/candidates/resource-server",
+      "external_bundle_dir": null,
+      "promotable_targets": [],
+      "validation_failures": []
+    },
+    {
+      "profile": "rp-session-logout",
+      "counterpart_id": "rp-session-logout-rp",
+      "runtime_profile": "hardening",
+      "required_targets": [
+        "RFC 6265",
+        "OIDC Session Management",
+        "OIDC RP-Initiated Logout",
+        "OIDC Front-Channel Logout",
+        "OIDC Back-Channel Logout"
+      ],
+      "candidate_dir": "compliance/evidence/tier4/candidates/rp-session-logout",
+      "external_bundle_dir": null,
+      "promotable_targets": [],
+      "validation_failures": []
+    },
+    {
+      "profile": "runner-hypercorn",
+      "counterpart_id": "hypercorn-runner",
+      "runtime_profile": "production",
+      "required_targets": [
+        "ASGI 3 application package",
+        "Runner profile: Hypercorn"
+      ],
+      "candidate_dir": "compliance/evidence/tier4/candidates/runner-hypercorn",
+      "external_bundle_dir": null,
+      "promotable_targets": [],
+      "validation_failures": []
+    },
+    {
+      "profile": "runner-tigrcorn",
+      "counterpart_id": "tigrcorn-runner",
+      "runtime_profile": "production",
+      "required_targets": [
+        "ASGI 3 application package",
+        "Runner profile: Tigrcorn"
+      ],
+      "candidate_dir": "compliance/evidence/tier4/candidates/runner-tigrcorn",
+      "external_bundle_dir": null,
+      "promotable_targets": [],
+      "validation_failures": []
+    },
+    {
+      "profile": "runner-uvicorn",
+      "counterpart_id": "uvicorn-runner",
+      "runtime_profile": "production",
+      "required_targets": [
+        "ASGI 3 application package",
+        "Runner profile: Uvicorn"
+      ],
+      "candidate_dir": "compliance/evidence/tier4/candidates/runner-uvicorn",
+      "external_bundle_dir": null,
+      "promotable_targets": [],
+      "validation_failures": []
+    },
+    {
+      "profile": "spa",
+      "counterpart_id": "spa-rp",
+      "runtime_profile": "hardening",
+      "required_targets": [
+        "RFC 6749",
+        "RFC 7636",
+        "OIDC Core 1.0",
+        "OIDC Discovery 1.0"
+      ],
+      "candidate_dir": "compliance/evidence/tier4/candidates/spa",
+      "external_bundle_dir": null,
+      "promotable_targets": [],
+      "validation_failures": []
+    }
+  ]
+}

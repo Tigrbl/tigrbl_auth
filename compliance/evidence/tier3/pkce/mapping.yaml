@@ -1,0 +1,52 @@
+schema_version: 1
+targets:
+- target: RFC 7636
+  claim:
+    target: RFC 7636
+    tier: 3
+    status: evidenced-release-gated
+    profile: baseline
+  modules:
+  - tigrbl_auth/standards/oauth2/rfc7636_pkce.py
+  tests:
+  - tests/conformance/baseline/test_rfc7636_pkce.py
+  - tests/integration/test_authorization_code_flow.py
+  - tests/unit/test_auth_code_exchange_pkce.py
+  - tests/interop/test_peer_counterpart_catalog.py
+  - tests/interop/test_peer_matrix_artifacts.py
+  - tests/interop/test_tier4_promotion_fail_closed.py
+  endpoint_mapping: {}
+profile: baseline
+reports:
+- docs/compliance/claims_lint_report.json
+- docs/compliance/claims_lint_report.md
+- docs/compliance/contract_sync_report.json
+- docs/compliance/contract_sync_report.md
+- docs/compliance/feature_flags_surface_modularity_report.json
+- docs/compliance/feature_flags_surface_modularity_report.md
+- docs/compliance/target_module_mapping_report.json
+- docs/compliance/target_module_mapping_report.md
+- docs/compliance/target_route_mapping_report.json
+- docs/compliance/target_route_mapping_report.md
+- docs/compliance/target_contract_mapping_report.json
+- docs/compliance/target_contract_mapping_report.md
+- docs/compliance/target_test_mapping_report.json
+- docs/compliance/target_test_mapping_report.md
+- docs/compliance/target_evidence_mapping_report.json
+- docs/compliance/target_evidence_mapping_report.md
+- docs/compliance/test_classification_report.json
+- docs/compliance/test_classification_report.md
+- docs/compliance/release_gate_report.json
+- docs/compliance/release_gate_report.md
+- docs/compliance/evidence_peer_readiness_report.json
+- docs/compliance/evidence_peer_readiness_report.md
+- docs/compliance/evidence_status_report.json
+- docs/compliance/evidence_status_report.md
+- docs/compliance/current_state_report.json
+- docs/compliance/current_state_report.md
+- docs/compliance/certification_state_report.json
+- docs/compliance/certification_state_report.md
+contracts:
+- specs/openapi/profiles/baseline/tigrbl_auth.public.openapi.json
+scenario_ids:
+- rfc-7636

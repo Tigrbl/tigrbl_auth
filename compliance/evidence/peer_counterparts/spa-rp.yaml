@@ -1,0 +1,19 @@
+schema_version: 1
+id: spa-rp
+title: External SPA relying-party harness
+counterpart_class: spa-rp
+execution_style: black-box-browser
+independence_requirement: external SPA harness required
+attestation_class_required: independent-external
+required_identity_fields:
+- peer_name
+- peer_version
+required_container_fields:
+- image_ref
+- image_digest
+required_artifacts:
+- http-transcript.yaml
+- browser-trace.json
+- result.yaml
+notes:
+- Use for SPA authorization code + PKCE interop.

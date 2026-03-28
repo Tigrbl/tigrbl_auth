@@ -1,0 +1,3 @@
+{
+  "device_authorization_endpoint": "https://authn.example.com/device_authorization"
+}

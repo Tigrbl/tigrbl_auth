@@ -1,0 +1,5 @@
+name: gate-65-state-reports
+description: Generate current-state and certification-state reports from validated runtime/test evidence.
+checks:
+  - state_reports_generated
+  - validated_execution_report_generated

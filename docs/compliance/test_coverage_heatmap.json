@@ -1,0 +1,732 @@
+{
+  "schema_version": 1,
+  "category_order": [
+    "unit",
+    "integration",
+    "conformance",
+    "interop",
+    "e2e",
+    "security",
+    "negative",
+    "perf"
+  ],
+  "rows": [
+    {
+      "target": "OIDC Back-Channel Logout",
+      "unit": 0,
+      "integration": 1,
+      "conformance": 1,
+      "interop": 0,
+      "e2e": 0,
+      "security": 0,
+      "negative": 1,
+      "perf": 0,
+      "total": 3,
+      "tests": [
+        "tests/conformance/hardening/test_oidc_backchannel_logout.py",
+        "tests/integration/test_persistence_lifecycle_durability.py",
+        "tests/negative/test_cookie_and_logout_abuse_cases.py"
+      ]
+    },
+    {
+      "target": "OIDC Core 1.0",
+      "unit": 0,
+      "integration": 2,
+      "conformance": 2,
+      "interop": 0,
+      "e2e": 0,
+      "security": 0,
+      "negative": 0,
+      "perf": 0,
+      "total": 4,
+      "tests": [
+        "tests/conformance/baseline/test_oidc_id_token.py",
+        "tests/conformance/baseline/test_openid_userinfo_endpoint.py",
+        "tests/integration/test_authorization_response_types.py",
+        "tests/integration/test_oidc_endpoints.py"
+      ]
+    },
+    {
+      "target": "OIDC Discovery 1.0",
+      "unit": 0,
+      "integration": 3,
+      "conformance": 1,
+      "interop": 3,
+      "e2e": 0,
+      "security": 0,
+      "negative": 0,
+      "perf": 0,
+      "total": 7,
+      "tests": [
+        "tests/conformance/baseline/test_openid_configuration.py",
+        "tests/integration/test_oidc_endpoints.py",
+        "tests/integration/test_profile_surface_and_contract_alignment.py",
+        "tests/integration/test_rfc8414_metadata.py",
+        "tests/interop/test_peer_counterpart_catalog.py",
+        "tests/interop/test_peer_matrix_artifacts.py",
+        "tests/interop/test_tier4_promotion_fail_closed.py"
+      ]
+    },
+    {
+      "target": "OIDC Front-Channel Logout",
+      "unit": 0,
+      "integration": 1,
+      "conformance": 1,
+      "interop": 0,
+      "e2e": 0,
+      "security": 0,
+      "negative": 1,
+      "perf": 0,
+      "total": 3,
+      "tests": [
+        "tests/conformance/hardening/test_oidc_frontchannel_logout.py",
+        "tests/integration/test_persistence_lifecycle_durability.py",
+        "tests/negative/test_cookie_and_logout_abuse_cases.py"
+      ]
+    },
+    {
+      "target": "OIDC RP-Initiated Logout",
+      "unit": 0,
+      "integration": 2,
+      "conformance": 1,
+      "interop": 0,
+      "e2e": 0,
+      "security": 0,
+      "negative": 1,
+      "perf": 0,
+      "total": 4,
+      "tests": [
+        "tests/conformance/production/test_oidc_rp_initiated_logout.py",
+        "tests/integration/test_migration_upgrade_downgrade_safety.py",
+        "tests/integration/test_persistence_lifecycle_durability.py",
+        "tests/negative/test_cookie_and_logout_abuse_cases.py"
+      ]
+    },
+    {
+      "target": "OIDC Session Management",
+      "unit": 0,
+      "integration": 2,
+      "conformance": 1,
+      "interop": 0,
+      "e2e": 0,
+      "security": 0,
+      "negative": 1,
+      "perf": 0,
+      "total": 4,
+      "tests": [
+        "tests/conformance/production/test_oidc_session_management.py",
+        "tests/integration/test_migration_upgrade_downgrade_safety.py",
+        "tests/integration/test_persistence_lifecycle_durability.py",
+        "tests/negative/test_cookie_and_logout_abuse_cases.py"
+      ]
+    },
+    {
+      "target": "OIDC UserInfo",
+      "unit": 1,
+      "integration": 1,
+      "conformance": 1,
+      "interop": 0,
+      "e2e": 0,
+      "security": 0,
+      "negative": 0,
+      "perf": 0,
+      "total": 3,
+      "tests": [
+        "tests/conformance/baseline/test_openid_userinfo_endpoint.py",
+        "tests/integration/test_oidc_endpoints.py",
+        "tests/unit/test_openid_userinfo_endpoint.py"
+      ]
+    },
+    {
+      "target": "OpenAPI 3.1 / 3.2 compatible public contract",
+      "unit": 1,
+      "integration": 1,
+      "conformance": 0,
+      "interop": 0,
+      "e2e": 1,
+      "security": 0,
+      "negative": 0,
+      "perf": 0,
+      "total": 3,
+      "tests": [
+        "tests/e2e/test_release_gate_catalog.py",
+        "tests/integration/test_profile_surface_and_contract_alignment.py",
+        "tests/unit/test_contract_generation_live.py"
+      ]
+    },
+    {
+      "target": "OpenRPC 1.4.x admin/control-plane contract",
+      "unit": 2,
+      "integration": 0,
+      "conformance": 0,
+      "interop": 0,
+      "e2e": 1,
+      "security": 0,
+      "negative": 0,
+      "perf": 0,
+      "total": 3,
+      "tests": [
+        "tests/e2e/test_release_gate_catalog.py",
+        "tests/unit/test_contract_generation_live.py",
+        "tests/unit/test_rpc_registry_live.py"
+      ]
+    },
+    {
+      "target": "RFC 6265",
+      "unit": 0,
+      "integration": 2,
+      "conformance": 1,
+      "interop": 0,
+      "e2e": 0,
+      "security": 0,
+      "negative": 1,
+      "perf": 0,
+      "total": 4,
+      "tests": [
+        "tests/conformance/production/test_rfc6265_cookies.py",
+        "tests/integration/test_migration_upgrade_downgrade_safety.py",
+        "tests/integration/test_persistence_lifecycle_durability.py",
+        "tests/negative/test_cookie_and_logout_abuse_cases.py"
+      ]
+    },
+    {
+      "target": "RFC 6749",
+      "unit": 0,
+      "integration": 3,
+      "conformance": 2,
+      "interop": 3,
+      "e2e": 0,
+      "security": 0,
+      "negative": 0,
+      "perf": 0,
+      "total": 8,
+      "tests": [
+        "tests/conformance/baseline/test_rfc6749_auth_flow_endpoints.py",
+        "tests/conformance/baseline/test_rfc6749_token_endpoint.py",
+        "tests/integration/test_auth_flows.py",
+        "tests/integration/test_authorization_code_flow.py",
+        "tests/integration/test_profile_surface_and_contract_alignment.py",
+        "tests/interop/test_peer_counterpart_catalog.py",
+        "tests/interop/test_peer_matrix_artifacts.py",
+        "tests/interop/test_tier4_promotion_fail_closed.py"
+      ]
+    },
+    {
+      "target": "RFC 6750",
+      "unit": 0,
+      "integration": 1,
+      "conformance": 1,
+      "interop": 3,
+      "e2e": 0,
+      "security": 0,
+      "negative": 0,
+      "perf": 0,
+      "total": 5,
+      "tests": [
+        "tests/conformance/baseline/test_rfc6750_bearer_token.py",
+        "tests/integration/test_auth_flows.py",
+        "tests/interop/test_peer_counterpart_catalog.py",
+        "tests/interop/test_peer_matrix_artifacts.py",
+        "tests/interop/test_tier4_promotion_fail_closed.py"
+      ]
+    },
+    {
+      "target": "RFC 7009",
+      "unit": 1,
+      "integration": 3,
+      "conformance": 1,
+      "interop": 0,
+      "e2e": 0,
+      "security": 0,
+      "negative": 0,
+      "perf": 0,
+      "total": 5,
+      "tests": [
+        "tests/conformance/production/test_rfc7009_token_revocation.py",
+        "tests/integration/test_full_workflow.py",
+        "tests/integration/test_migration_upgrade_downgrade_safety.py",
+        "tests/integration/test_persistence_lifecycle_durability.py",
+        "tests/unit/test_phase3_public_route_contracts.py"
+      ]
+    },
+    {
+      "target": "RFC 7515",
+      "unit": 1,
+      "integration": 0,
+      "conformance": 1,
+      "interop": 0,
+      "e2e": 0,
+      "security": 0,
+      "negative": 0,
+      "perf": 0,
+      "total": 2,
+      "tests": [
+        "tests/conformance/baseline/test_rfc7515_jws.py",
+        "tests/unit/test_rfc7515_jws.py"
+      ]
+    },
+    {
+      "target": "RFC 7516",
+      "unit": 2,
+      "integration": 0,
+      "conformance": 0,
+      "interop": 0,
+      "e2e": 0,
+      "security": 0,
+      "negative": 0,
+      "perf": 0,
+      "total": 2,
+      "tests": [
+        "tests/unit/test_oidc_id_token_encryption.py",
+        "tests/unit/test_rfc7516_jwe.py"
+      ]
+    },
+    {
+      "target": "RFC 7517",
+      "unit": 1,
+      "integration": 0,
+      "conformance": 1,
+      "interop": 0,
+      "e2e": 0,
+      "security": 0,
+      "negative": 0,
+      "perf": 0,
+      "total": 2,
+      "tests": [
+        "tests/conformance/baseline/test_rfc7517_jwk.py",
+        "tests/unit/test_jwks_rotation.py"
+      ]
+    },
+    {
+      "target": "RFC 7518",
+      "unit": 1,
+      "integration": 0,
+      "conformance": 1,
+      "interop": 0,
+      "e2e": 0,
+      "security": 0,
+      "negative": 0,
+      "perf": 0,
+      "total": 2,
+      "tests": [
+        "tests/conformance/baseline/test_rfc7518_jwa.py",
+        "tests/unit/test_rfc7518_jwa.py"
+      ]
+    },
+    {
+      "target": "RFC 7519",
+      "unit": 1,
+      "integration": 0,
+      "conformance": 1,
+      "interop": 0,
+      "e2e": 0,
+      "security": 0,
+      "negative": 0,
+      "perf": 0,
+      "total": 2,
+      "tests": [
+        "tests/conformance/baseline/test_rfc7519_jwt.py",
+        "tests/unit/test_jwtoken.py"
+      ]
+    },
+    {
+      "target": "RFC 7521",
+      "unit": 2,
+      "integration": 0,
+      "conformance": 0,
+      "interop": 0,
+      "e2e": 0,
+      "security": 0,
+      "negative": 0,
+      "perf": 0,
+      "total": 2,
+      "tests": [
+        "tests/unit/test_rfc7521_assertion_framework.py",
+        "tests/unit/test_rfc8523_jwt_client_auth.py"
+      ]
+    },
+    {
+      "target": "RFC 7523",
+      "unit": 2,
+      "integration": 0,
+      "conformance": 0,
+      "interop": 0,
+      "e2e": 0,
+      "security": 0,
+      "negative": 0,
+      "perf": 0,
+      "total": 2,
+      "tests": [
+        "tests/unit/test_rfc7523_jwt_profile.py",
+        "tests/unit/test_rfc8523_jwt_client_auth.py"
+      ]
+    },
+    {
+      "target": "RFC 7591",
+      "unit": 2,
+      "integration": 2,
+      "conformance": 1,
+      "interop": 0,
+      "e2e": 0,
+      "security": 0,
+      "negative": 0,
+      "perf": 0,
+      "total": 5,
+      "tests": [
+        "tests/conformance/production/test_rfc7591_dynamic_client_registration.py",
+        "tests/integration/test_persistence_lifecycle_durability.py",
+        "tests/integration/test_profile_surface_and_contract_alignment.py",
+        "tests/unit/test_phase3_public_route_contracts.py",
+        "tests/unit/test_rfc7591_client_registration_endpoint.py"
+      ]
+    },
+    {
+      "target": "RFC 7592",
+      "unit": 2,
+      "integration": 1,
+      "conformance": 1,
+      "interop": 0,
+      "e2e": 0,
+      "security": 0,
+      "negative": 0,
+      "perf": 0,
+      "total": 4,
+      "tests": [
+        "tests/conformance/hardening/test_rfc7592_client_registration_management.py",
+        "tests/integration/test_profile_surface_and_contract_alignment.py",
+        "tests/unit/test_phase7_advanced_surface_contracts.py",
+        "tests/unit/test_rfc7592_client_management_endpoint.py"
+      ]
+    },
+    {
+      "target": "RFC 7636",
+      "unit": 1,
+      "integration": 1,
+      "conformance": 1,
+      "interop": 3,
+      "e2e": 0,
+      "security": 0,
+      "negative": 0,
+      "perf": 0,
+      "total": 6,
+      "tests": [
+        "tests/conformance/baseline/test_rfc7636_pkce.py",
+        "tests/integration/test_authorization_code_flow.py",
+        "tests/unit/test_auth_code_exchange_pkce.py",
+        "tests/interop/test_peer_counterpart_catalog.py",
+        "tests/interop/test_peer_matrix_artifacts.py",
+        "tests/interop/test_tier4_promotion_fail_closed.py"
+      ]
+    },
+    {
+      "target": "RFC 7662",
+      "unit": 1,
+      "integration": 3,
+      "conformance": 1,
+      "interop": 0,
+      "e2e": 0,
+      "security": 0,
+      "negative": 0,
+      "perf": 0,
+      "total": 5,
+      "tests": [
+        "tests/conformance/production/test_rfc7662_introspection.py",
+        "tests/integration/test_migration_upgrade_downgrade_safety.py",
+        "tests/integration/test_persistence_lifecycle_durability.py",
+        "tests/integration/test_rfc7662.py",
+        "tests/unit/test_phase3_public_route_contracts.py"
+      ]
+    },
+    {
+      "target": "RFC 8252",
+      "unit": 1,
+      "integration": 0,
+      "conformance": 1,
+      "interop": 3,
+      "e2e": 0,
+      "security": 0,
+      "negative": 0,
+      "perf": 0,
+      "total": 5,
+      "tests": [
+        "tests/conformance/production/test_rfc8252_native_apps.py",
+        "tests/unit/test_rfc8252_native_app_redirects.py",
+        "tests/interop/test_peer_counterpart_catalog.py",
+        "tests/interop/test_peer_matrix_artifacts.py",
+        "tests/interop/test_tier4_promotion_fail_closed.py"
+      ]
+    },
+    {
+      "target": "RFC 8414",
+      "unit": 0,
+      "integration": 1,
+      "conformance": 1,
+      "interop": 0,
+      "e2e": 0,
+      "security": 0,
+      "negative": 0,
+      "perf": 0,
+      "total": 2,
+      "tests": [
+        "tests/conformance/baseline/test_rfc8414_authorization_server_metadata.py",
+        "tests/integration/test_rfc8414_metadata.py"
+      ]
+    },
+    {
+      "target": "RFC 8615",
+      "unit": 1,
+      "integration": 1,
+      "conformance": 0,
+      "interop": 0,
+      "e2e": 0,
+      "security": 0,
+      "negative": 0,
+      "perf": 0,
+      "total": 2,
+      "tests": [
+        "tests/integration/test_profile_surface_and_contract_alignment.py",
+        "tests/unit/test_well_known_endpoints_behavior.py"
+      ]
+    },
+    {
+      "target": "RFC 8628",
+      "unit": 1,
+      "integration": 3,
+      "conformance": 1,
+      "interop": 3,
+      "e2e": 0,
+      "security": 0,
+      "negative": 0,
+      "perf": 0,
+      "total": 8,
+      "tests": [
+        "tests/conformance/hardening/test_rfc8628_device_authorization.py",
+        "tests/integration/test_device_code_flow.py",
+        "tests/integration/test_profile_surface_and_contract_alignment.py",
+        "tests/integration/test_rfc8628.py",
+        "tests/unit/test_phase3_public_route_contracts.py",
+        "tests/interop/test_peer_counterpart_catalog.py",
+        "tests/interop/test_peer_matrix_artifacts.py",
+        "tests/interop/test_tier4_promotion_fail_closed.py"
+      ]
+    },
+    {
+      "target": "RFC 8693",
+      "unit": 1,
+      "integration": 3,
+      "conformance": 1,
+      "interop": 3,
+      "e2e": 0,
+      "security": 0,
+      "negative": 0,
+      "perf": 0,
+      "total": 8,
+      "tests": [
+        "tests/conformance/hardening/test_rfc8693_token_exchange.py",
+        "tests/integration/test_profile_surface_and_contract_alignment.py",
+        "tests/integration/test_rfc8693_token_exchange_endpoint.py",
+        "tests/integration/test_token_exchange_flow.py",
+        "tests/unit/test_phase3_public_route_contracts.py",
+        "tests/interop/test_peer_counterpart_catalog.py",
+        "tests/interop/test_peer_matrix_artifacts.py",
+        "tests/interop/test_tier4_promotion_fail_closed.py"
+      ]
+    },
+    {
+      "target": "RFC 8705",
+      "unit": 1,
+      "integration": 1,
+      "conformance": 1,
+      "interop": 3,
+      "e2e": 0,
+      "security": 0,
+      "negative": 0,
+      "perf": 0,
+      "total": 6,
+      "tests": [
+        "tests/conformance/hardening/test_rfc8705_mtls.py",
+        "tests/integration/test_profile_surface_and_contract_alignment.py",
+        "tests/unit/test_phase7_advanced_surface_contracts.py",
+        "tests/interop/test_peer_counterpart_catalog.py",
+        "tests/interop/test_peer_matrix_artifacts.py",
+        "tests/interop/test_tier4_promotion_fail_closed.py"
+      ]
+    },
+    {
+      "target": "RFC 8707",
+      "unit": 1,
+      "integration": 1,
+      "conformance": 1,
+      "interop": 0,
+      "e2e": 0,
+      "security": 0,
+      "negative": 0,
+      "perf": 0,
+      "total": 3,
+      "tests": [
+        "tests/conformance/hardening/test_rfc8707_resource_indicators.py",
+        "tests/integration/test_profile_surface_and_contract_alignment.py",
+        "tests/unit/test_phase7_advanced_surface_contracts.py"
+      ]
+    },
+    {
+      "target": "RFC 9068",
+      "unit": 1,
+      "integration": 1,
+      "conformance": 1,
+      "interop": 3,
+      "e2e": 0,
+      "security": 0,
+      "negative": 0,
+      "perf": 0,
+      "total": 6,
+      "tests": [
+        "tests/conformance/production/test_rfc9068_jwt_profile.py",
+        "tests/integration/test_profile_surface_and_contract_alignment.py",
+        "tests/unit/test_phase7_advanced_surface_contracts.py",
+        "tests/interop/test_peer_counterpart_catalog.py",
+        "tests/interop/test_peer_matrix_artifacts.py",
+        "tests/interop/test_tier4_promotion_fail_closed.py"
+      ]
+    },
+    {
+      "target": "RFC 9101",
+      "unit": 1,
+      "integration": 1,
+      "conformance": 1,
+      "interop": 3,
+      "e2e": 0,
+      "security": 0,
+      "negative": 0,
+      "perf": 0,
+      "total": 6,
+      "tests": [
+        "tests/conformance/hardening/test_rfc9101_jar.py",
+        "tests/integration/test_profile_surface_and_contract_alignment.py",
+        "tests/unit/test_phase7_advanced_surface_contracts.py",
+        "tests/interop/test_peer_counterpart_catalog.py",
+        "tests/interop/test_peer_matrix_artifacts.py",
+        "tests/interop/test_tier4_promotion_fail_closed.py"
+      ]
+    },
+    {
+      "target": "RFC 9126",
+      "unit": 1,
+      "integration": 1,
+      "conformance": 1,
+      "interop": 3,
+      "e2e": 0,
+      "security": 0,
+      "negative": 0,
+      "perf": 0,
+      "total": 6,
+      "tests": [
+        "tests/conformance/hardening/test_rfc9126_par.py",
+        "tests/integration/test_profile_surface_and_contract_alignment.py",
+        "tests/unit/test_phase3_public_route_contracts.py",
+        "tests/interop/test_peer_counterpart_catalog.py",
+        "tests/interop/test_peer_matrix_artifacts.py",
+        "tests/interop/test_tier4_promotion_fail_closed.py"
+      ]
+    },
+    {
+      "target": "RFC 9207",
+      "unit": 2,
+      "integration": 1,
+      "conformance": 0,
+      "interop": 0,
+      "e2e": 0,
+      "security": 0,
+      "negative": 0,
+      "perf": 0,
+      "total": 3,
+      "tests": [
+        "tests/integration/test_profile_surface_and_contract_alignment.py",
+        "tests/unit/test_phase6_profile_discovery_runtime.py",
+        "tests/unit/test_rfc9207_issuer_identification.py"
+      ]
+    },
+    {
+      "target": "RFC 9396",
+      "unit": 1,
+      "integration": 1,
+      "conformance": 1,
+      "interop": 3,
+      "e2e": 0,
+      "security": 0,
+      "negative": 0,
+      "perf": 0,
+      "total": 6,
+      "tests": [
+        "tests/conformance/hardening/test_rfc9396_rar.py",
+        "tests/integration/test_profile_surface_and_contract_alignment.py",
+        "tests/unit/test_phase7_advanced_surface_contracts.py",
+        "tests/interop/test_peer_counterpart_catalog.py",
+        "tests/interop/test_peer_matrix_artifacts.py",
+        "tests/interop/test_tier4_promotion_fail_closed.py"
+      ]
+    },
+    {
+      "target": "RFC 9449",
+      "unit": 1,
+      "integration": 1,
+      "conformance": 1,
+      "interop": 3,
+      "e2e": 0,
+      "security": 0,
+      "negative": 0,
+      "perf": 0,
+      "total": 6,
+      "tests": [
+        "tests/conformance/hardening/test_rfc9449_dpop.py",
+        "tests/integration/test_profile_surface_and_contract_alignment.py",
+        "tests/unit/test_phase7_advanced_surface_contracts.py",
+        "tests/interop/test_peer_counterpart_catalog.py",
+        "tests/interop/test_peer_matrix_artifacts.py",
+        "tests/interop/test_tier4_promotion_fail_closed.py"
+      ]
+    },
+    {
+      "target": "RFC 9700",
+      "unit": 2,
+      "integration": 1,
+      "conformance": 0,
+      "interop": 0,
+      "e2e": 0,
+      "security": 0,
+      "negative": 1,
+      "perf": 0,
+      "total": 4,
+      "tests": [
+        "tests/integration/test_profile_surface_and_contract_alignment.py",
+        "tests/negative/test_phase6_hardening_runtime_enforcement.py",
+        "tests/unit/test_phase6_profile_discovery_runtime.py",
+        "tests/unit/test_rfc9700_security_bcp_profile_checkpoint.py"
+      ]
+    },
+    {
+      "target": "RFC 9728",
+      "unit": 1,
+      "integration": 2,
+      "conformance": 0,
+      "interop": 3,
+      "e2e": 0,
+      "security": 0,
+      "negative": 0,
+      "perf": 0,
+      "total": 6,
+      "tests": [
+        "tests/integration/test_profile_surface_and_contract_alignment.py",
+        "tests/integration/test_rfc8414_metadata.py",
+        "tests/unit/test_rfc9728_metadata_checkpoint.py",
+        "tests/interop/test_peer_counterpart_catalog.py",
+        "tests/interop/test_peer_matrix_artifacts.py",
+        "tests/interop/test_tier4_promotion_fail_closed.py"
+      ]
+    }
+  ],
+  "summary": {
+    "target_count": 39,
+    "classified_test_count": 138
+  }
+}

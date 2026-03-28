@@ -1,0 +1,4 @@
+name: gate-95-recertification
+description: Recertification report generated
+checks:
+- recertification_generated

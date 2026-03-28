@@ -1,0 +1,69 @@
+# Tier 3 execution transcript for OpenAPI 3.1 / 3.2 compatible public contract
+
+- profile: `baseline`
+- generated_at: `2026-03-26T00:08:51+00:00`
+- execution_mode: `dependency-light preserved evidence`
+- note: `Full runtime pytest execution was not possible in this container because the external tigrbl dependency is not installed; this bundle is bound to preserved gate, mapping, and contract-generation transcripts.`
+
+## scripts/claims_lint.py
+- rc: `0`
+- timestamp: `2026-03-26T00:08:43+00:00`
+```text
+
+```
+
+## scripts/verify_contract_sync.py
+- rc: `0`
+- timestamp: `2026-03-26T00:08:43+00:00`
+```text
+
+```
+
+## scripts/verify_feature_surface_modularity.py
+- rc: `0`
+- timestamp: `2026-03-26T00:08:44+00:00`
+```text
+
+```
+
+## scripts/verify_target_module_mapping.py
+- rc: `0`
+- timestamp: `2026-03-26T00:08:44+00:00`
+```text
+
+```
+
+## scripts/verify_target_route_mapping.py
+- rc: `0`
+- timestamp: `2026-03-26T00:08:45+00:00`
+```text
+
+```
+
+## scripts/verify_target_contract_mapping.py
+- rc: `0`
+- timestamp: `2026-03-26T00:08:45+00:00`
+```text
+
+```
+
+## scripts/verify_target_test_mapping.py
+- rc: `0`
+- timestamp: `2026-03-26T00:08:45+00:00`
+```text
+
+```
+
+## scripts/verify_target_evidence_mapping.py
+- rc: `0`
+- timestamp: `2026-03-26T00:08:45+00:00`
+```text
+
+```
+
+## scripts/verify_evidence_peer.py
+- rc: `0`
+- timestamp: `2026-03-26T00:08:45+00:00`
+```text
+
+```

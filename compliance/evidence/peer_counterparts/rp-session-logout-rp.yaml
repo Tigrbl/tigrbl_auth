@@ -1,0 +1,22 @@
+schema_version: 1
+id: rp-session-logout-rp
+title: External RP session/logout harness
+counterpart_class: web-rp-session-logout
+execution_style: black-box-browser
+independence_requirement: external RP/browser harness required for session/logout
+  fan-out validation
+attestation_class_required: independent-external
+required_identity_fields:
+- peer_name
+- peer_version
+required_container_fields:
+- image_ref
+- image_digest
+required_artifacts:
+- http-transcript.yaml
+- browser-trace.json
+- logout-tokens.json
+- result.yaml
+notes:
+- Use for OIDC session management, RP-initiated logout, front-channel logout, back-channel
+  logout, and cookie lifecycle validation.

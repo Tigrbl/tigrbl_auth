@@ -1,0 +1,11 @@
+capture_mode: contract-derived-snapshot
+profile: baseline
+source_contract: specs/openapi/profiles/baseline/tigrbl_auth.public.openapi.json
+paths:
+- path: /.well-known/jwks.json
+  operations:
+  - method: GET
+    operationId: get__well_known_jwks_json
+    summary: JSON Web Key Set
+    responses:
+    - '200'

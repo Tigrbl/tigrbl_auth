@@ -1,0 +1,4 @@
+name: gate-85-peer-profiles
+description: Peer profile definitions and execution manifests exist
+checks:
+- peer_profiles_materialized

@@ -1,0 +1,16 @@
+name: structure
+required:
+- compliance/claims
+- compliance/evidence
+- compliance/gates
+- compliance/mappings
+- compliance/targets
+- compliance/waivers
+- docs/adr
+- tigrbl_auth/api
+- tigrbl_auth/security
+- tigrbl_auth/standards
+checks:
+- boundary_manifests_present
+- governance_directories_present
+- normalized_target_manifests

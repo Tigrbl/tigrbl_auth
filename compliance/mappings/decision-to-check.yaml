@@ -1,0 +1,36 @@
+BND-001:
+- claims_linter
+- declared-target-only-certification
+BND-002:
+- module-boundary-resolution
+- wrapper_hygiene_scan
+BND-003:
+- claims_linter
+- extension-quarantine-check
+- boundary-import-scan
+BND-004:
+- framework_leakage_scan
+BND-005:
+- framework_leakage_scan
+- boundary-import-scan
+BND-006:
+- wrapper_hygiene_scan
+- certified_core_wrapper_count_zero
+BND-007:
+- evidence_gate
+- tier3_claims_have_evidence_refs
+BND-008:
+- peer_gate
+- tier4_claims_have_peer_refs
+BND-009:
+- project_tree_layout_check
+- migration_move_map_check
+BND-010:
+- claims_linter
+- contract_sync_gate
+BND-011:
+- claims_linter
+- contract_sync_gate
+BND-012:
+- claims_linter
+- boundary-scope-freeze

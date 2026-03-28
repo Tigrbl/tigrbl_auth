@@ -1,0 +1,20 @@
+schema_version: 1
+id: client-mgmt-harness
+title: External client-registration-management harness
+counterpart_class: client-registration-harness
+execution_style: black-box-http
+independence_requirement: external client registration and management harness required
+attestation_class_required: independent-external
+required_identity_fields:
+- peer_name
+- peer_version
+required_container_fields:
+- image_ref
+- image_digest
+required_artifacts:
+- http-transcript.yaml
+- client-metadata.json
+- result.yaml
+notes:
+- Use for RFC 7591 and RFC 7592 interop, including registration access token semantics
+  and metadata update rules.

@@ -1,0 +1,1571 @@
+{
+  "passed": false,
+  "summary": {
+    "non_rfc_target_count": 18,
+    "non_rfc_family_count": 4,
+    "non_rfc_targets_with_scope_discrepancies": 0,
+    "non_rfc_targets_internally_backed_now": 18,
+    "focus_py313_report_count": 3,
+    "focus_py313_passed_tests": 52,
+    "focus_py313_collected_tests": 52,
+    "focus_py313_all_passed": true,
+    "supported_py311_lane_count_green": 5,
+    "validated_runtime_matrix_green": false,
+    "validated_in_scope_test_lanes_green": false,
+    "migration_portability_passed": false,
+    "fully_certifiable_now": false,
+    "strict_independent_claims_ready": false,
+    "certifiably_fully_non_rfc_spec_compliant_now": false
+  },
+  "failures": [
+    "Supported runtime-matrix evidence is still incomplete for ASGI/Uvicorn/Hypercorn/Tigrcorn certification.",
+    "Supported in-scope certification-lane evidence is still incomplete across Python 3.10 and 3.12.",
+    "Migration portability evidence is still incomplete for PostgreSQL and unsupported for certification in this container."
+  ],
+  "warnings": [],
+  "details": {
+    "focus_test_reports": {
+      "report_count": 3,
+      "reports": [
+        {
+          "path": "dist/test-reports/step8-non-rfc-oidc-contracts-py313.json",
+          "passed": 22,
+          "collected": 22
+        },
+        {
+          "path": "dist/test-reports/step8-non-rfc-surface-cli-py313.json",
+          "passed": 9,
+          "collected": 9
+        },
+        {
+          "path": "dist/test-reports/step8-non-rfc-operator-runtime-py313.json",
+          "passed": 21,
+          "collected": 21
+        }
+      ],
+      "passed": 52,
+      "collected": 52,
+      "all_passed": true
+    },
+    "py311_supported_green_lanes": [
+      "conformance",
+      "core",
+      "integration",
+      "interop",
+      "security-negative"
+    ],
+    "family_summaries": [
+      {
+        "family": "oidc",
+        "target_count": 7,
+        "targets": [
+          "OIDC Core 1.0",
+          "OIDC Discovery 1.0",
+          "OIDC UserInfo",
+          "OIDC Session Management",
+          "OIDC RP-Initiated Logout",
+          "OIDC Front-Channel Logout",
+          "OIDC Back-Channel Logout"
+        ],
+        "targets_with_scope_discrepancies": [],
+        "targets_with_conformance_coverage": 7,
+        "targets_with_unit_or_integration_coverage": 7,
+        "targets_with_security_coverage": 4,
+        "targets_with_interop_coverage": 1,
+        "targets_with_peer_profile_mapping": 7,
+        "targets_internally_backed_now": 7
+      },
+      {
+        "family": "contracts",
+        "target_count": 2,
+        "targets": [
+          "OpenAPI 3.1 / 3.2 compatible public contract",
+          "OpenRPC 1.4.x admin/control-plane contract"
+        ],
+        "targets_with_scope_discrepancies": [],
+        "targets_with_conformance_coverage": 0,
+        "targets_with_unit_or_integration_coverage": 2,
+        "targets_with_security_coverage": 0,
+        "targets_with_interop_coverage": 0,
+        "targets_with_peer_profile_mapping": 2,
+        "targets_internally_backed_now": 2
+      },
+      {
+        "family": "runtime",
+        "target_count": 4,
+        "targets": [
+          "ASGI 3 application package",
+          "Runner profile: Uvicorn",
+          "Runner profile: Hypercorn",
+          "Runner profile: Tigrcorn"
+        ],
+        "targets_with_scope_discrepancies": [],
+        "targets_with_conformance_coverage": 4,
+        "targets_with_unit_or_integration_coverage": 4,
+        "targets_with_security_coverage": 0,
+        "targets_with_interop_coverage": 0,
+        "targets_with_peer_profile_mapping": 4,
+        "targets_internally_backed_now": 4
+      },
+      {
+        "family": "operator-lifecycle",
+        "target_count": 5,
+        "targets": [
+          "CLI operator surface",
+          "Bootstrap and migration lifecycle",
+          "Key lifecycle and JWKS publication",
+          "Import/export portability",
+          "Release bundle and signature verification"
+        ],
+        "targets_with_scope_discrepancies": [],
+        "targets_with_conformance_coverage": 4,
+        "targets_with_unit_or_integration_coverage": 5,
+        "targets_with_security_coverage": 1,
+        "targets_with_interop_coverage": 0,
+        "targets_with_peer_profile_mapping": 5,
+        "targets_internally_backed_now": 5
+      }
+    ],
+    "targets": [
+      {
+        "label": "OIDC Core 1.0",
+        "id": "oidc.core",
+        "family": "oidc",
+        "scope_bucket": "baseline-certifiable-now",
+        "modules": [
+          "tigrbl_auth/standards/oidc/core.py",
+          "tigrbl_auth/standards/oidc/id_token.py"
+        ],
+        "tests": [
+          "tests/conformance/baseline/test_oidc_id_token.py",
+          "tests/conformance/baseline/test_openid_userinfo_endpoint.py",
+          "tests/integration/test_authorization_response_types.py",
+          "tests/integration/test_oidc_endpoints.py"
+        ],
+        "test_categories": [
+          "conformance",
+          "integration"
+        ],
+        "supported_py311_lane_classes_green": [
+          "conformance",
+          "integration"
+        ],
+        "has_conformance_coverage": true,
+        "has_unit_or_integration_coverage": true,
+        "has_security_coverage": false,
+        "has_interop_coverage": false,
+        "evidence_refs": [
+          "compliance/evidence/tier3/oidc-core/"
+        ],
+        "peer_profiles": [
+          "browser",
+          "spa"
+        ],
+        "target_endpoints": [],
+        "current_endpoints": [],
+        "route_metadata_aligned": true,
+        "profile_reality": {
+          "baseline": {
+            "active_target": true,
+            "effective_claim": true,
+            "openapi_paths_present": [],
+            "openrpc_present": false
+          },
+          "production": {
+            "active_target": true,
+            "effective_claim": true,
+            "openapi_paths_present": [],
+            "openrpc_present": false
+          },
+          "hardening": {
+            "active_target": true,
+            "effective_claim": true,
+            "openapi_paths_present": [],
+            "openrpc_present": false
+          }
+        },
+        "discrepancies": [],
+        "openapi_artifacts_present": {
+          "baseline": false,
+          "production": false,
+          "hardening": false
+        },
+        "openrpc_artifacts_present": {
+          "baseline": true,
+          "production": true,
+          "hardening": true
+        },
+        "internally_backed_now": true
+      },
+      {
+        "label": "OIDC Discovery 1.0",
+        "id": "oidc.discovery",
+        "family": "oidc",
+        "scope_bucket": "baseline-certifiable-now",
+        "modules": [
+          "tigrbl_auth/standards/oidc/discovery.py"
+        ],
+        "tests": [
+          "tests/conformance/baseline/test_openid_configuration.py",
+          "tests/integration/test_oidc_endpoints.py",
+          "tests/integration/test_profile_surface_and_contract_alignment.py",
+          "tests/integration/test_rfc8414_metadata.py",
+          "tests/interop/test_peer_counterpart_catalog.py",
+          "tests/interop/test_peer_matrix_artifacts.py",
+          "tests/interop/test_tier4_promotion_fail_closed.py"
+        ],
+        "test_categories": [
+          "conformance",
+          "integration",
+          "interop"
+        ],
+        "supported_py311_lane_classes_green": [
+          "conformance",
+          "integration",
+          "interop"
+        ],
+        "has_conformance_coverage": true,
+        "has_unit_or_integration_coverage": true,
+        "has_security_coverage": false,
+        "has_interop_coverage": true,
+        "evidence_refs": [
+          "compliance/evidence/tier3/discovery/"
+        ],
+        "peer_profiles": [
+          "browser",
+          "gateway",
+          "spa"
+        ],
+        "target_endpoints": [
+          "/.well-known/openid-configuration"
+        ],
+        "current_endpoints": [
+          "/.well-known/openid-configuration"
+        ],
+        "route_metadata_aligned": true,
+        "profile_reality": {
+          "baseline": {
+            "active_target": true,
+            "effective_claim": true,
+            "openapi_paths_present": [
+              "/.well-known/openid-configuration"
+            ],
+            "openrpc_present": false
+          },
+          "production": {
+            "active_target": true,
+            "effective_claim": true,
+            "openapi_paths_present": [
+              "/.well-known/openid-configuration"
+            ],
+            "openrpc_present": false
+          },
+          "hardening": {
+            "active_target": true,
+            "effective_claim": true,
+            "openapi_paths_present": [
+              "/.well-known/openid-configuration"
+            ],
+            "openrpc_present": false
+          }
+        },
+        "discrepancies": [],
+        "openapi_artifacts_present": {
+          "baseline": false,
+          "production": false,
+          "hardening": false
+        },
+        "openrpc_artifacts_present": {
+          "baseline": true,
+          "production": true,
+          "hardening": true
+        },
+        "internally_backed_now": true
+      },
+      {
+        "label": "OIDC UserInfo",
+        "id": "oidc.userinfo",
+        "family": "oidc",
+        "scope_bucket": "production-completion-required",
+        "modules": [
+          "tigrbl_auth/standards/oidc/userinfo.py"
+        ],
+        "tests": [
+          "tests/conformance/baseline/test_openid_userinfo_endpoint.py",
+          "tests/integration/test_oidc_endpoints.py",
+          "tests/unit/test_openid_userinfo_endpoint.py"
+        ],
+        "test_categories": [
+          "conformance",
+          "integration",
+          "unit"
+        ],
+        "supported_py311_lane_classes_green": [
+          "conformance",
+          "core",
+          "integration"
+        ],
+        "has_conformance_coverage": true,
+        "has_unit_or_integration_coverage": true,
+        "has_security_coverage": false,
+        "has_interop_coverage": false,
+        "evidence_refs": [
+          "compliance/evidence/tier3/oidc-userinfo/"
+        ],
+        "peer_profiles": [
+          "browser"
+        ],
+        "target_endpoints": [
+          "/userinfo"
+        ],
+        "current_endpoints": [
+          "/userinfo"
+        ],
+        "route_metadata_aligned": true,
+        "profile_reality": {
+          "baseline": {
+            "active_target": false,
+            "effective_claim": false,
+            "openapi_paths_present": [],
+            "openrpc_present": false
+          },
+          "production": {
+            "active_target": true,
+            "effective_claim": true,
+            "openapi_paths_present": [
+              "/userinfo"
+            ],
+            "openrpc_present": false
+          },
+          "hardening": {
+            "active_target": true,
+            "effective_claim": true,
+            "openapi_paths_present": [
+              "/userinfo"
+            ],
+            "openrpc_present": false
+          }
+        },
+        "discrepancies": [],
+        "openapi_artifacts_present": {
+          "baseline": false,
+          "production": false,
+          "hardening": false
+        },
+        "openrpc_artifacts_present": {
+          "baseline": true,
+          "production": true,
+          "hardening": true
+        },
+        "internally_backed_now": true
+      },
+      {
+        "label": "OIDC Session Management",
+        "id": "oidc.session-management",
+        "family": "oidc",
+        "scope_bucket": "production-completion-required",
+        "modules": [
+          "tigrbl_auth/standards/oidc/session_mgmt.py",
+          "tigrbl_auth/standards/http/cookies.py",
+          "tigrbl_auth/ops/login.py",
+          "tigrbl_auth/ops/authorize.py",
+          "tigrbl_auth/ops/logout.py",
+          "tigrbl_auth/tables/auth_session.py",
+          "tigrbl_auth/tables/auth_code.py",
+          "tigrbl_auth/services/persistence.py"
+        ],
+        "tests": [
+          "tests/conformance/production/test_oidc_session_management.py",
+          "tests/integration/test_migration_upgrade_downgrade_safety.py",
+          "tests/integration/test_persistence_lifecycle_durability.py",
+          "tests/negative/test_cookie_and_logout_abuse_cases.py",
+          "tests/unit/test_phase7_session_logout_cluster_b.py"
+        ],
+        "test_categories": [
+          "conformance",
+          "integration",
+          "negative",
+          "unit"
+        ],
+        "supported_py311_lane_classes_green": [
+          "conformance",
+          "core",
+          "integration",
+          "security-negative"
+        ],
+        "has_conformance_coverage": true,
+        "has_unit_or_integration_coverage": true,
+        "has_security_coverage": true,
+        "has_interop_coverage": false,
+        "evidence_refs": [
+          "compliance/evidence/tier3/oidc-session-management/"
+        ],
+        "peer_profiles": [
+          "rp-session-logout"
+        ],
+        "target_endpoints": [
+          "/login",
+          "/authorize",
+          "/logout"
+        ],
+        "current_endpoints": [
+          "/login",
+          "/authorize",
+          "/logout"
+        ],
+        "route_metadata_aligned": true,
+        "profile_reality": {
+          "baseline": {
+            "active_target": false,
+            "effective_claim": false,
+            "openapi_paths_present": [
+              "/login",
+              "/authorize"
+            ],
+            "openrpc_present": false
+          },
+          "production": {
+            "active_target": true,
+            "effective_claim": true,
+            "openapi_paths_present": [
+              "/login",
+              "/authorize",
+              "/logout"
+            ],
+            "openrpc_present": false
+          },
+          "hardening": {
+            "active_target": true,
+            "effective_claim": true,
+            "openapi_paths_present": [
+              "/login",
+              "/authorize",
+              "/logout"
+            ],
+            "openrpc_present": false
+          }
+        },
+        "discrepancies": [],
+        "openapi_artifacts_present": {
+          "baseline": false,
+          "production": false,
+          "hardening": false
+        },
+        "openrpc_artifacts_present": {
+          "baseline": true,
+          "production": true,
+          "hardening": true
+        },
+        "internally_backed_now": true
+      },
+      {
+        "label": "OIDC RP-Initiated Logout",
+        "id": "oidc.rp-initiated-logout",
+        "family": "oidc",
+        "scope_bucket": "production-completion-required",
+        "modules": [
+          "tigrbl_auth/standards/oidc/rp_initiated_logout.py",
+          "tigrbl_auth/api/rest/routers/logout.py",
+          "tigrbl_auth/ops/logout.py",
+          "tigrbl_auth/tables/logout_state.py",
+          "tigrbl_auth/tables/client_registration.py",
+          "tigrbl_auth/services/persistence.py"
+        ],
+        "tests": [
+          "tests/conformance/production/test_oidc_rp_initiated_logout.py",
+          "tests/integration/test_migration_upgrade_downgrade_safety.py",
+          "tests/integration/test_persistence_lifecycle_durability.py",
+          "tests/negative/test_cookie_and_logout_abuse_cases.py",
+          "tests/unit/test_phase7_session_logout_cluster_b.py"
+        ],
+        "test_categories": [
+          "conformance",
+          "integration",
+          "negative",
+          "unit"
+        ],
+        "supported_py311_lane_classes_green": [
+          "conformance",
+          "core",
+          "integration",
+          "security-negative"
+        ],
+        "has_conformance_coverage": true,
+        "has_unit_or_integration_coverage": true,
+        "has_security_coverage": true,
+        "has_interop_coverage": false,
+        "evidence_refs": [
+          "compliance/evidence/tier3/oidc-rp-initiated-logout/"
+        ],
+        "peer_profiles": [
+          "rp-session-logout"
+        ],
+        "target_endpoints": [
+          "/logout"
+        ],
+        "current_endpoints": [
+          "/logout"
+        ],
+        "route_metadata_aligned": true,
+        "profile_reality": {
+          "baseline": {
+            "active_target": false,
+            "effective_claim": false,
+            "openapi_paths_present": [],
+            "openrpc_present": false
+          },
+          "production": {
+            "active_target": true,
+            "effective_claim": true,
+            "openapi_paths_present": [
+              "/logout"
+            ],
+            "openrpc_present": false
+          },
+          "hardening": {
+            "active_target": true,
+            "effective_claim": true,
+            "openapi_paths_present": [
+              "/logout"
+            ],
+            "openrpc_present": false
+          }
+        },
+        "discrepancies": [],
+        "openapi_artifacts_present": {
+          "baseline": false,
+          "production": false,
+          "hardening": false
+        },
+        "openrpc_artifacts_present": {
+          "baseline": true,
+          "production": true,
+          "hardening": true
+        },
+        "internally_backed_now": true
+      },
+      {
+        "label": "OIDC Front-Channel Logout",
+        "id": "oidc.front-channel-logout",
+        "family": "oidc",
+        "scope_bucket": "hardening-completion-required",
+        "modules": [
+          "tigrbl_auth/standards/oidc/frontchannel_logout.py",
+          "tigrbl_auth/standards/oidc/rp_initiated_logout.py",
+          "tigrbl_auth/ops/logout.py",
+          "tigrbl_auth/tables/logout_state.py",
+          "tigrbl_auth/tables/client_registration.py",
+          "tigrbl_auth/services/persistence.py",
+          "tigrbl_auth/api/rest/shared.py",
+          "tigrbl_auth/standards/oidc/discovery_metadata.py",
+          "tigrbl_auth/cli/artifacts.py"
+        ],
+        "tests": [
+          "tests/conformance/hardening/test_oidc_frontchannel_logout.py",
+          "tests/integration/test_persistence_lifecycle_durability.py",
+          "tests/negative/test_cookie_and_logout_abuse_cases.py",
+          "tests/unit/test_phase10_hardening_cluster_c.py"
+        ],
+        "test_categories": [
+          "conformance",
+          "integration",
+          "negative",
+          "unit"
+        ],
+        "supported_py311_lane_classes_green": [
+          "conformance",
+          "core",
+          "integration",
+          "security-negative"
+        ],
+        "has_conformance_coverage": true,
+        "has_unit_or_integration_coverage": true,
+        "has_security_coverage": true,
+        "has_interop_coverage": false,
+        "evidence_refs": [
+          "compliance/evidence/tier3/oidc-frontchannel-logout/"
+        ],
+        "peer_profiles": [
+          "rp-session-logout"
+        ],
+        "target_endpoints": [
+          "/logout"
+        ],
+        "current_endpoints": [
+          "/logout"
+        ],
+        "route_metadata_aligned": true,
+        "profile_reality": {
+          "baseline": {
+            "active_target": false,
+            "effective_claim": false,
+            "openapi_paths_present": [],
+            "openrpc_present": false
+          },
+          "production": {
+            "active_target": false,
+            "effective_claim": false,
+            "openapi_paths_present": [
+              "/logout"
+            ],
+            "openrpc_present": false
+          },
+          "hardening": {
+            "active_target": true,
+            "effective_claim": true,
+            "openapi_paths_present": [
+              "/logout"
+            ],
+            "openrpc_present": false
+          }
+        },
+        "discrepancies": [],
+        "openapi_artifacts_present": {
+          "baseline": false,
+          "production": false,
+          "hardening": false
+        },
+        "openrpc_artifacts_present": {
+          "baseline": true,
+          "production": true,
+          "hardening": true
+        },
+        "internally_backed_now": true
+      },
+      {
+        "label": "OIDC Back-Channel Logout",
+        "id": "oidc.back-channel-logout",
+        "family": "oidc",
+        "scope_bucket": "hardening-completion-required",
+        "modules": [
+          "tigrbl_auth/standards/oidc/backchannel_logout.py",
+          "tigrbl_auth/standards/oidc/rp_initiated_logout.py",
+          "tigrbl_auth/ops/logout.py",
+          "tigrbl_auth/tables/logout_state.py",
+          "tigrbl_auth/tables/client_registration.py",
+          "tigrbl_auth/services/persistence.py",
+          "tigrbl_auth/api/rest/shared.py",
+          "tigrbl_auth/standards/oidc/discovery_metadata.py",
+          "tigrbl_auth/cli/artifacts.py"
+        ],
+        "tests": [
+          "tests/conformance/hardening/test_oidc_backchannel_logout.py",
+          "tests/integration/test_persistence_lifecycle_durability.py",
+          "tests/negative/test_cookie_and_logout_abuse_cases.py",
+          "tests/unit/test_phase10_hardening_cluster_c.py"
+        ],
+        "test_categories": [
+          "conformance",
+          "integration",
+          "negative",
+          "unit"
+        ],
+        "supported_py311_lane_classes_green": [
+          "conformance",
+          "core",
+          "integration",
+          "security-negative"
+        ],
+        "has_conformance_coverage": true,
+        "has_unit_or_integration_coverage": true,
+        "has_security_coverage": true,
+        "has_interop_coverage": false,
+        "evidence_refs": [
+          "compliance/evidence/tier3/oidc-backchannel-logout/"
+        ],
+        "peer_profiles": [
+          "rp-session-logout"
+        ],
+        "target_endpoints": [
+          "/logout"
+        ],
+        "current_endpoints": [
+          "/logout"
+        ],
+        "route_metadata_aligned": true,
+        "profile_reality": {
+          "baseline": {
+            "active_target": false,
+            "effective_claim": false,
+            "openapi_paths_present": [],
+            "openrpc_present": false
+          },
+          "production": {
+            "active_target": false,
+            "effective_claim": false,
+            "openapi_paths_present": [
+              "/logout"
+            ],
+            "openrpc_present": false
+          },
+          "hardening": {
+            "active_target": true,
+            "effective_claim": true,
+            "openapi_paths_present": [
+              "/logout"
+            ],
+            "openrpc_present": false
+          }
+        },
+        "discrepancies": [],
+        "openapi_artifacts_present": {
+          "baseline": false,
+          "production": false,
+          "hardening": false
+        },
+        "openrpc_artifacts_present": {
+          "baseline": true,
+          "production": true,
+          "hardening": true
+        },
+        "internally_backed_now": true
+      },
+      {
+        "label": "OpenAPI 3.1 / 3.2 compatible public contract",
+        "id": "openapi.public-http",
+        "family": "contract",
+        "scope_bucket": "baseline-certifiable-now",
+        "modules": [
+          "tigrbl_auth/api/rest",
+          "tigrbl_auth/api/surfaces.py"
+        ],
+        "tests": [
+          "tests/e2e/test_release_gate_catalog.py",
+          "tests/integration/test_profile_surface_and_contract_alignment.py",
+          "tests/unit/test_contract_generation_live.py"
+        ],
+        "test_categories": [
+          "e2e",
+          "integration",
+          "unit"
+        ],
+        "supported_py311_lane_classes_green": [
+          "core",
+          "integration"
+        ],
+        "has_conformance_coverage": false,
+        "has_unit_or_integration_coverage": true,
+        "has_security_coverage": false,
+        "has_interop_coverage": false,
+        "evidence_refs": [
+          "compliance/evidence/tier3/contracts/openapi/"
+        ],
+        "peer_profiles": [
+          "ops-cli"
+        ],
+        "target_endpoints": [],
+        "current_endpoints": [],
+        "route_metadata_aligned": true,
+        "profile_reality": {
+          "baseline": {
+            "active_target": true,
+            "effective_claim": true,
+            "openapi_paths_present": [],
+            "openrpc_present": false
+          },
+          "production": {
+            "active_target": true,
+            "effective_claim": true,
+            "openapi_paths_present": [],
+            "openrpc_present": false
+          },
+          "hardening": {
+            "active_target": true,
+            "effective_claim": true,
+            "openapi_paths_present": [],
+            "openrpc_present": false
+          }
+        },
+        "discrepancies": [],
+        "openapi_artifacts_present": {
+          "baseline": false,
+          "production": false,
+          "hardening": false
+        },
+        "openrpc_artifacts_present": {
+          "baseline": true,
+          "production": true,
+          "hardening": true
+        },
+        "internally_backed_now": true
+      },
+      {
+        "label": "OpenRPC 1.4.x admin/control-plane contract",
+        "id": "openrpc.admin-plane",
+        "family": "contract",
+        "scope_bucket": "production-completion-required",
+        "modules": [
+          "tigrbl_auth/api/rpc/__init__.py",
+          "tigrbl_auth/api/rpc/registry.py",
+          "tigrbl_auth/api/rpc/methods",
+          "tigrbl_auth/api/rpc/schemas",
+          "tigrbl_auth/api/surfaces.py",
+          "tigrbl_auth/cli/artifacts.py",
+          "tigrbl_auth/cli/reports.py",
+          "tigrbl_auth/config/deployment.py"
+        ],
+        "tests": [
+          "tests/e2e/test_release_gate_catalog.py",
+          "tests/unit/test_contract_generation_live.py",
+          "tests/unit/test_rpc_registry_live.py"
+        ],
+        "test_categories": [
+          "e2e",
+          "unit"
+        ],
+        "supported_py311_lane_classes_green": [
+          "core"
+        ],
+        "has_conformance_coverage": false,
+        "has_unit_or_integration_coverage": true,
+        "has_security_coverage": false,
+        "has_interop_coverage": false,
+        "evidence_refs": [
+          "compliance/evidence/tier3/contracts/openrpc/"
+        ],
+        "peer_profiles": [
+          "ops-cli"
+        ],
+        "target_endpoints": [
+          "/rpc"
+        ],
+        "current_endpoints": [
+          "/rpc"
+        ],
+        "route_metadata_aligned": true,
+        "profile_reality": {
+          "baseline": {
+            "active_target": true,
+            "effective_claim": true,
+            "openapi_paths_present": [],
+            "openrpc_present": true
+          },
+          "production": {
+            "active_target": true,
+            "effective_claim": true,
+            "openapi_paths_present": [],
+            "openrpc_present": true
+          },
+          "hardening": {
+            "active_target": true,
+            "effective_claim": true,
+            "openapi_paths_present": [],
+            "openrpc_present": true
+          }
+        },
+        "discrepancies": [],
+        "openapi_artifacts_present": {
+          "baseline": false,
+          "production": false,
+          "hardening": false
+        },
+        "openrpc_artifacts_present": {
+          "baseline": true,
+          "production": true,
+          "hardening": true
+        },
+        "internally_backed_now": true
+      },
+      {
+        "label": "ASGI 3 application package",
+        "id": "runtime.asgi3-application",
+        "family": "runtime",
+        "scope_bucket": "runtime-completion-required",
+        "modules": [
+          "tigrbl_auth/api/app.py",
+          "tigrbl_auth/app.py",
+          "tigrbl_auth/plugin.py",
+          "tigrbl_auth/gateway.py",
+          "tigrbl_auth/config/deployment.py",
+          "tigrbl_auth/runtime/__init__.py",
+          "tigrbl_auth/runtime/types.py",
+          "tigrbl_auth/runtime/base.py",
+          "tigrbl_auth/runtime/plan.py",
+          "tigrbl_auth/runtime/registry.py",
+          "tigrbl_auth/cli/runtime.py"
+        ],
+        "tests": [
+          "tests/integration/test_profile_surface_and_contract_alignment.py",
+          "tests/unit/test_deployment_resolver.py",
+          "tests/unit/test_phase0_claim_boundary_rebaseline.py",
+          "tests/unit/test_phase2_runner_adapter_runtime_layer.py",
+          "tests/unit/test_phase3_runtime_launcher.py",
+          "tests/runtime/test_runner_invariance.py",
+          "tests/conformance/operator/test_cli_serve_runtime.py"
+        ],
+        "test_categories": [
+          "conformance",
+          "integration",
+          "unit"
+        ],
+        "supported_py311_lane_classes_green": [
+          "conformance",
+          "core",
+          "integration"
+        ],
+        "has_conformance_coverage": true,
+        "has_unit_or_integration_coverage": true,
+        "has_security_coverage": false,
+        "has_interop_coverage": false,
+        "evidence_refs": [
+          "compliance/evidence/tier3/asgi-application/"
+        ],
+        "peer_profiles": [
+          "runner-uvicorn",
+          "runner-hypercorn",
+          "runner-tigrcorn"
+        ],
+        "target_endpoints": [],
+        "current_endpoints": [],
+        "route_metadata_aligned": true,
+        "profile_reality": {
+          "baseline": {
+            "active_target": true,
+            "effective_claim": true,
+            "openapi_paths_present": [],
+            "openrpc_present": false
+          },
+          "production": {
+            "active_target": true,
+            "effective_claim": true,
+            "openapi_paths_present": [],
+            "openrpc_present": false
+          },
+          "hardening": {
+            "active_target": true,
+            "effective_claim": true,
+            "openapi_paths_present": [],
+            "openrpc_present": false
+          }
+        },
+        "discrepancies": [],
+        "openapi_artifacts_present": {
+          "baseline": false,
+          "production": false,
+          "hardening": false
+        },
+        "openrpc_artifacts_present": {
+          "baseline": true,
+          "production": true,
+          "hardening": true
+        },
+        "internally_backed_now": true
+      },
+      {
+        "label": "Runner profile: Uvicorn",
+        "id": "runtime.runner-uvicorn",
+        "family": "runtime",
+        "scope_bucket": "runtime-completion-required",
+        "modules": [
+          "tigrbl_auth/api/app.py",
+          "tigrbl_auth/gateway.py",
+          "tigrbl_auth/cli/handlers.py",
+          "tigrbl_auth/config/deployment.py",
+          "tigrbl_auth/runtime/registry.py",
+          "tigrbl_auth/runtime/plan.py",
+          "tigrbl_auth/runtime/uvicorn.py",
+          "tigrbl_auth/cli/runtime.py",
+          "tigrbl_auth/cli/reports.py"
+        ],
+        "tests": [
+          "tests/unit/test_phase0_claim_boundary_rebaseline.py",
+          "tests/unit/test_phase2_runner_adapter_runtime_layer.py",
+          "tests/unit/test_runtime_cfg.py",
+          "tests/unit/test_phase3_runtime_launcher.py",
+          "tests/runtime/test_runner_uvicorn.py",
+          "tests/runtime/test_runner_invariance.py",
+          "tests/conformance/operator/test_cli_serve_runtime.py"
+        ],
+        "test_categories": [
+          "conformance",
+          "integration",
+          "unit"
+        ],
+        "supported_py311_lane_classes_green": [
+          "conformance",
+          "core",
+          "integration"
+        ],
+        "has_conformance_coverage": true,
+        "has_unit_or_integration_coverage": true,
+        "has_security_coverage": false,
+        "has_interop_coverage": false,
+        "evidence_refs": [
+          "compliance/evidence/tier3/runner-uvicorn/"
+        ],
+        "peer_profiles": [
+          "runner-uvicorn"
+        ],
+        "target_endpoints": [],
+        "current_endpoints": [],
+        "route_metadata_aligned": true,
+        "profile_reality": {
+          "baseline": {
+            "active_target": true,
+            "effective_claim": true,
+            "openapi_paths_present": [],
+            "openrpc_present": false
+          },
+          "production": {
+            "active_target": true,
+            "effective_claim": true,
+            "openapi_paths_present": [],
+            "openrpc_present": false
+          },
+          "hardening": {
+            "active_target": true,
+            "effective_claim": true,
+            "openapi_paths_present": [],
+            "openrpc_present": false
+          }
+        },
+        "discrepancies": [],
+        "openapi_artifacts_present": {
+          "baseline": false,
+          "production": false,
+          "hardening": false
+        },
+        "openrpc_artifacts_present": {
+          "baseline": true,
+          "production": true,
+          "hardening": true
+        },
+        "internally_backed_now": true
+      },
+      {
+        "label": "Runner profile: Hypercorn",
+        "id": "runtime.runner-hypercorn",
+        "family": "runtime",
+        "scope_bucket": "runtime-completion-required",
+        "modules": [
+          "tigrbl_auth/api/app.py",
+          "tigrbl_auth/gateway.py",
+          "tigrbl_auth/cli/handlers.py",
+          "tigrbl_auth/config/deployment.py",
+          "tigrbl_auth/runtime/registry.py",
+          "tigrbl_auth/runtime/plan.py",
+          "tigrbl_auth/runtime/hypercorn.py",
+          "tigrbl_auth/cli/runtime.py",
+          "tigrbl_auth/cli/reports.py"
+        ],
+        "tests": [
+          "tests/unit/test_phase0_claim_boundary_rebaseline.py",
+          "tests/unit/test_phase2_runner_adapter_runtime_layer.py",
+          "tests/unit/test_runtime_cfg.py",
+          "tests/unit/test_phase3_runtime_launcher.py",
+          "tests/runtime/test_runner_hypercorn.py",
+          "tests/runtime/test_runner_invariance.py",
+          "tests/conformance/operator/test_cli_serve_runtime.py"
+        ],
+        "test_categories": [
+          "conformance",
+          "integration",
+          "unit"
+        ],
+        "supported_py311_lane_classes_green": [
+          "conformance",
+          "core",
+          "integration"
+        ],
+        "has_conformance_coverage": true,
+        "has_unit_or_integration_coverage": true,
+        "has_security_coverage": false,
+        "has_interop_coverage": false,
+        "evidence_refs": [
+          "compliance/evidence/tier3/runner-hypercorn/"
+        ],
+        "peer_profiles": [
+          "runner-hypercorn"
+        ],
+        "target_endpoints": [],
+        "current_endpoints": [],
+        "route_metadata_aligned": true,
+        "profile_reality": {
+          "baseline": {
+            "active_target": true,
+            "effective_claim": true,
+            "openapi_paths_present": [],
+            "openrpc_present": false
+          },
+          "production": {
+            "active_target": true,
+            "effective_claim": true,
+            "openapi_paths_present": [],
+            "openrpc_present": false
+          },
+          "hardening": {
+            "active_target": true,
+            "effective_claim": true,
+            "openapi_paths_present": [],
+            "openrpc_present": false
+          }
+        },
+        "discrepancies": [],
+        "openapi_artifacts_present": {
+          "baseline": false,
+          "production": false,
+          "hardening": false
+        },
+        "openrpc_artifacts_present": {
+          "baseline": true,
+          "production": true,
+          "hardening": true
+        },
+        "internally_backed_now": true
+      },
+      {
+        "label": "Runner profile: Tigrcorn",
+        "id": "runtime.runner-tigrcorn",
+        "family": "runtime",
+        "scope_bucket": "runtime-completion-required",
+        "modules": [
+          "tigrbl_auth/api/app.py",
+          "tigrbl_auth/gateway.py",
+          "tigrbl_auth/cli/handlers.py",
+          "tigrbl_auth/config/deployment.py",
+          "tigrbl_auth/runtime/registry.py",
+          "tigrbl_auth/runtime/plan.py",
+          "tigrbl_auth/runtime/tigrcorn.py",
+          "tigrbl_auth/cli/runtime.py",
+          "tigrbl_auth/cli/reports.py"
+        ],
+        "tests": [
+          "tests/unit/test_phase0_claim_boundary_rebaseline.py",
+          "tests/unit/test_phase2_runner_adapter_runtime_layer.py",
+          "tests/unit/test_runtime_cfg.py",
+          "tests/unit/test_phase3_runtime_launcher.py",
+          "tests/runtime/test_runner_tigrcorn.py",
+          "tests/runtime/test_runner_invariance.py",
+          "tests/conformance/operator/test_cli_serve_runtime.py"
+        ],
+        "test_categories": [
+          "conformance",
+          "integration",
+          "unit"
+        ],
+        "supported_py311_lane_classes_green": [
+          "conformance",
+          "core",
+          "integration"
+        ],
+        "has_conformance_coverage": true,
+        "has_unit_or_integration_coverage": true,
+        "has_security_coverage": false,
+        "has_interop_coverage": false,
+        "evidence_refs": [
+          "compliance/evidence/tier3/runner-tigrcorn/"
+        ],
+        "peer_profiles": [
+          "runner-tigrcorn"
+        ],
+        "target_endpoints": [],
+        "current_endpoints": [],
+        "route_metadata_aligned": true,
+        "profile_reality": {
+          "baseline": {
+            "active_target": true,
+            "effective_claim": true,
+            "openapi_paths_present": [],
+            "openrpc_present": false
+          },
+          "production": {
+            "active_target": true,
+            "effective_claim": true,
+            "openapi_paths_present": [],
+            "openrpc_present": false
+          },
+          "hardening": {
+            "active_target": true,
+            "effective_claim": true,
+            "openapi_paths_present": [],
+            "openrpc_present": false
+          }
+        },
+        "discrepancies": [],
+        "openapi_artifacts_present": {
+          "baseline": false,
+          "production": false,
+          "hardening": false
+        },
+        "openrpc_artifacts_present": {
+          "baseline": true,
+          "production": true,
+          "hardening": true
+        },
+        "internally_backed_now": true
+      },
+      {
+        "label": "CLI operator surface",
+        "id": "operator.cli-surface",
+        "family": "operator",
+        "scope_bucket": "operator-completion-required",
+        "modules": [
+          "tigrbl_auth/cli/main.py",
+          "tigrbl_auth/cli/metadata.py",
+          "tigrbl_auth/cli/handlers.py",
+          "tigrbl_auth/cli/runtime.py",
+          "tigrbl_auth/cli/reports.py",
+          "tigrbl_auth/services/operator_service.py",
+          "tigrbl_auth/services/audit_service.py",
+          "tigrbl_auth/services/client_service.py",
+          "tigrbl_auth/services/identity_service.py",
+          "tigrbl_auth/services/session_service.py"
+        ],
+        "tests": [
+          "tests/unit/test_phase0_claim_boundary_rebaseline.py",
+          "tests/unit/test_cli_surface_checkpoint.py",
+          "tests/unit/test_phase3_runtime_launcher.py",
+          "tests/unit/test_phase4_cli_contract.py",
+          "tests/unit/test_phase5_operator_service_layer.py",
+          "tests/conformance/operator/test_cli_serve_runtime.py",
+          "tests/conformance/operator/test_cli_resource_lifecycle.py",
+          "tests/conformance/operator/test_cli_keys_lifecycle.py",
+          "tests/conformance/operator/test_cli_import_export.py",
+          "tests/conformance/operator/test_cli_bootstrap_migrate.py"
+        ],
+        "test_categories": [
+          "conformance",
+          "unit"
+        ],
+        "supported_py311_lane_classes_green": [
+          "conformance",
+          "core"
+        ],
+        "has_conformance_coverage": true,
+        "has_unit_or_integration_coverage": true,
+        "has_security_coverage": false,
+        "has_interop_coverage": false,
+        "evidence_refs": [
+          "compliance/evidence/tier3/cli-operator-surface/"
+        ],
+        "peer_profiles": [
+          "ops-cli"
+        ],
+        "target_endpoints": [],
+        "current_endpoints": [],
+        "route_metadata_aligned": true,
+        "profile_reality": {
+          "baseline": {
+            "active_target": true,
+            "effective_claim": true,
+            "openapi_paths_present": [],
+            "openrpc_present": false
+          },
+          "production": {
+            "active_target": true,
+            "effective_claim": true,
+            "openapi_paths_present": [],
+            "openrpc_present": false
+          },
+          "hardening": {
+            "active_target": true,
+            "effective_claim": true,
+            "openapi_paths_present": [],
+            "openrpc_present": false
+          }
+        },
+        "discrepancies": [],
+        "openapi_artifacts_present": {
+          "baseline": false,
+          "production": false,
+          "hardening": false
+        },
+        "openrpc_artifacts_present": {
+          "baseline": true,
+          "production": true,
+          "hardening": true
+        },
+        "internally_backed_now": true
+      },
+      {
+        "label": "Bootstrap and migration lifecycle",
+        "id": "operator.bootstrap-migration",
+        "family": "operator",
+        "scope_bucket": "operator-completion-required",
+        "modules": [
+          "tigrbl_auth/cli/main.py",
+          "tigrbl_auth/cli/metadata.py",
+          "tigrbl_auth/cli/handlers.py",
+          "tigrbl_auth/cli/project_tree.py",
+          "tigrbl_auth/services/persistence.py"
+        ],
+        "tests": [
+          "tests/unit/test_phase0_claim_boundary_rebaseline.py",
+          "tests/e2e/test_release_gate_catalog.py",
+          "tests/unit/test_phase4_cli_contract.py",
+          "tests/conformance/operator/test_cli_bootstrap_migrate.py"
+        ],
+        "test_categories": [
+          "conformance",
+          "e2e",
+          "unit"
+        ],
+        "supported_py311_lane_classes_green": [
+          "conformance",
+          "core"
+        ],
+        "has_conformance_coverage": true,
+        "has_unit_or_integration_coverage": true,
+        "has_security_coverage": false,
+        "has_interop_coverage": false,
+        "evidence_refs": [
+          "compliance/evidence/tier3/bootstrap-migration/"
+        ],
+        "peer_profiles": [
+          "ops-cli"
+        ],
+        "target_endpoints": [],
+        "current_endpoints": [],
+        "route_metadata_aligned": true,
+        "profile_reality": {
+          "baseline": {
+            "active_target": true,
+            "effective_claim": true,
+            "openapi_paths_present": [],
+            "openrpc_present": false
+          },
+          "production": {
+            "active_target": true,
+            "effective_claim": true,
+            "openapi_paths_present": [],
+            "openrpc_present": false
+          },
+          "hardening": {
+            "active_target": true,
+            "effective_claim": true,
+            "openapi_paths_present": [],
+            "openrpc_present": false
+          }
+        },
+        "discrepancies": [],
+        "openapi_artifacts_present": {
+          "baseline": false,
+          "production": false,
+          "hardening": false
+        },
+        "openrpc_artifacts_present": {
+          "baseline": true,
+          "production": true,
+          "hardening": true
+        },
+        "internally_backed_now": true
+      },
+      {
+        "label": "Key lifecycle and JWKS publication",
+        "id": "operator.keys-jwks",
+        "family": "operator",
+        "scope_bucket": "operator-completion-required",
+        "modules": [
+          "tigrbl_auth/cli/metadata.py",
+          "tigrbl_auth/cli/handlers.py",
+          "tigrbl_auth/api/rpc/methods/keys.py",
+          "tigrbl_auth/standards/jose/rfc7517.py",
+          "tigrbl_auth/services/key_management.py",
+          "tigrbl_auth/services/operator_service.py"
+        ],
+        "tests": [
+          "tests/unit/test_phase0_claim_boundary_rebaseline.py",
+          "tests/unit/test_jwks_rotation.py",
+          "tests/unit/test_rpc_registry_live.py",
+          "tests/unit/test_phase4_cli_contract.py",
+          "tests/unit/test_phase5_operator_service_layer.py",
+          "tests/conformance/operator/test_cli_keys_lifecycle.py"
+        ],
+        "test_categories": [
+          "conformance",
+          "unit"
+        ],
+        "supported_py311_lane_classes_green": [
+          "conformance",
+          "core"
+        ],
+        "has_conformance_coverage": true,
+        "has_unit_or_integration_coverage": true,
+        "has_security_coverage": false,
+        "has_interop_coverage": false,
+        "evidence_refs": [
+          "compliance/evidence/tier3/key-lifecycle-jwks/"
+        ],
+        "peer_profiles": [
+          "ops-cli"
+        ],
+        "target_endpoints": [],
+        "current_endpoints": [],
+        "route_metadata_aligned": true,
+        "profile_reality": {
+          "baseline": {
+            "active_target": true,
+            "effective_claim": true,
+            "openapi_paths_present": [],
+            "openrpc_present": false
+          },
+          "production": {
+            "active_target": true,
+            "effective_claim": true,
+            "openapi_paths_present": [],
+            "openrpc_present": false
+          },
+          "hardening": {
+            "active_target": true,
+            "effective_claim": true,
+            "openapi_paths_present": [],
+            "openrpc_present": false
+          }
+        },
+        "discrepancies": [],
+        "openapi_artifacts_present": {
+          "baseline": false,
+          "production": false,
+          "hardening": false
+        },
+        "openrpc_artifacts_present": {
+          "baseline": true,
+          "production": true,
+          "hardening": true
+        },
+        "internally_backed_now": true
+      },
+      {
+        "label": "Import/export portability",
+        "id": "operator.import-export",
+        "family": "operator",
+        "scope_bucket": "operator-completion-required",
+        "modules": [
+          "tigrbl_auth/cli/metadata.py",
+          "tigrbl_auth/cli/handlers.py",
+          "tigrbl_auth/services/import_export_service.py",
+          "tigrbl_auth/services/operator_service.py"
+        ],
+        "tests": [
+          "tests/unit/test_phase0_claim_boundary_rebaseline.py",
+          "tests/unit/test_phase4_cli_contract.py",
+          "tests/unit/test_phase5_operator_service_layer.py",
+          "tests/conformance/operator/test_cli_import_export.py"
+        ],
+        "test_categories": [
+          "conformance",
+          "unit"
+        ],
+        "supported_py311_lane_classes_green": [
+          "conformance",
+          "core"
+        ],
+        "has_conformance_coverage": true,
+        "has_unit_or_integration_coverage": true,
+        "has_security_coverage": false,
+        "has_interop_coverage": false,
+        "evidence_refs": [
+          "compliance/evidence/tier3/import-export-portability/"
+        ],
+        "peer_profiles": [
+          "ops-cli"
+        ],
+        "target_endpoints": [],
+        "current_endpoints": [],
+        "route_metadata_aligned": true,
+        "profile_reality": {
+          "baseline": {
+            "active_target": true,
+            "effective_claim": true,
+            "openapi_paths_present": [],
+            "openrpc_present": false
+          },
+          "production": {
+            "active_target": true,
+            "effective_claim": true,
+            "openapi_paths_present": [],
+            "openrpc_present": false
+          },
+          "hardening": {
+            "active_target": true,
+            "effective_claim": true,
+            "openapi_paths_present": [],
+            "openrpc_present": false
+          }
+        },
+        "discrepancies": [],
+        "openapi_artifacts_present": {
+          "baseline": false,
+          "production": false,
+          "hardening": false
+        },
+        "openrpc_artifacts_present": {
+          "baseline": true,
+          "production": true,
+          "hardening": true
+        },
+        "internally_backed_now": true
+      },
+      {
+        "label": "Release bundle and signature verification",
+        "id": "operator.release-bundle-signing",
+        "family": "operator",
+        "scope_bucket": "operator-completion-required",
+        "modules": [
+          "tigrbl_auth/cli/reports.py",
+          "tigrbl_auth/cli/handlers.py",
+          "tigrbl_auth/cli/artifacts.py"
+        ],
+        "tests": [
+          "tests/unit/test_phase0_claim_boundary_rebaseline.py",
+          "tests/security/test_release_bundle_signing.py",
+          "tests/unit/test_phase1_published_dependency_model.py",
+          "tests/security/test_phase12_sender_constraint_replay.py"
+        ],
+        "test_categories": [
+          "security",
+          "unit"
+        ],
+        "supported_py311_lane_classes_green": [
+          "core",
+          "security-negative"
+        ],
+        "has_conformance_coverage": false,
+        "has_unit_or_integration_coverage": true,
+        "has_security_coverage": true,
+        "has_interop_coverage": false,
+        "evidence_refs": [
+          "compliance/evidence/tier3/release-bundle-signing/"
+        ],
+        "peer_profiles": [
+          "ops-cli"
+        ],
+        "target_endpoints": [],
+        "current_endpoints": [],
+        "route_metadata_aligned": true,
+        "profile_reality": {
+          "baseline": {
+            "active_target": true,
+            "effective_claim": true,
+            "openapi_paths_present": [],
+            "openrpc_present": false
+          },
+          "production": {
+            "active_target": true,
+            "effective_claim": true,
+            "openapi_paths_present": [],
+            "openrpc_present": false
+          },
+          "hardening": {
+            "active_target": true,
+            "effective_claim": true,
+            "openapi_paths_present": [],
+            "openrpc_present": false
+          }
+        },
+        "discrepancies": [],
+        "openapi_artifacts_present": {
+          "baseline": false,
+          "production": false,
+          "hardening": false
+        },
+        "openrpc_artifacts_present": {
+          "baseline": true,
+          "production": true,
+          "hardening": true
+        },
+        "internally_backed_now": true
+      }
+    ]
+  }
+}

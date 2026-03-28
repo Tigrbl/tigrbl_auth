@@ -1,0 +1,63 @@
+{
+  "status": "signed-ed25519-attested",
+  "algorithm": "Ed25519",
+  "package": "tigrbl_auth",
+  "version": "0.3.2.dev14",
+  "profile": "peer-claim",
+  "signer": {
+    "signer_id": "tigrbl_auth.checkpoint.attestor",
+    "key_id": "ed25519:6b8610b664b40b6cb006c386",
+    "algorithm": "Ed25519",
+    "identity_kind": "repository-release-attestor",
+    "public_key_pem": "-----BEGIN PUBLIC KEY-----\nMCowBQYDK2VwAyEAkEvTaJUUF1YbY+nrtjLarkgddj7H2oRNiCwjn9FrMCw=\n-----END PUBLIC KEY-----\n",
+    "public_key_sha256": "6b8610b664b40b6cb006c386928e92e65d914069208e07881fe2b5eaba600bf2",
+    "source": "inline-pem"
+  },
+  "verification_material": {
+    "public_key_path": "attestations/keys/ed25519-6b8610b664b40b6cb006c386.pub.pem",
+    "signer_identity_path": "attestations/signer-identity.json"
+  },
+  "release_attestation": "attestations/release-attestation.json",
+  "signed_artifacts": [
+    {
+      "label": "release-bundle",
+      "artifact_path": "release-bundle.json",
+      "artifact_sha256": "9debe09ee54d7e1ff0ff1504fa17db79b74a32afbf5a023af4fc5783a9a2460e",
+      "attestation_path": "attestations/release-bundle.attestation.json"
+    },
+    {
+      "label": "claim-manifest",
+      "artifact_path": "compliance/claims/effective-target-claims.peer-claim.yaml",
+      "artifact_sha256": "29e996c90f919d4e288a2beecbf696a2a235ec923fa1f02d3b4ee9ddfc94dacc",
+      "attestation_path": "attestations/claim-manifest.attestation.json"
+    },
+    {
+      "label": "evidence-manifest",
+      "artifact_path": "compliance/evidence/effective-release-evidence.peer-claim.yaml",
+      "artifact_sha256": "064e0ff1500cf6c553d3e7c72156c8d2ece653a79da07b23d35eda689ea64ae3",
+      "attestation_path": "attestations/evidence-manifest.attestation.json"
+    },
+    {
+      "label": "contract-set",
+      "artifact_path": "attestations/contract-set.manifest.json",
+      "artifact_sha256": "2451eb94750c050c9c21f1a146e74c91190f48c8a14416a5560e401a3911a1b9",
+      "attestation_path": "attestations/contract-set.attestation.json"
+    }
+  ],
+  "verification": {
+    "passed": true,
+    "failures": [],
+    "warnings": [],
+    "details": {
+      "bundle_root": "/tmp/tigrbl_work/tigrbl_auth_phase13_certification_target_freeze_reconciled_2026-03-24/dist/release-bundles/0.3.2.dev14/peer-claim",
+      "verified_artifact_count": 4,
+      "signing_key_id": "ed25519:6b8610b664b40b6cb006c386",
+      "artifact_labels": [
+        "release-bundle",
+        "claim-manifest",
+        "evidence-manifest",
+        "contract-set"
+      ]
+    }
+  }
+}

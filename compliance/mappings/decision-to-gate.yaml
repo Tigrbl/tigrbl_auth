@@ -1,0 +1,38 @@
+BND-001:
+- gate-05-governance
+- gate-15-boundary-enforcement
+BND-002:
+- gate-00-structure
+- gate-15-boundary-enforcement
+- gate-25-wrapper-hygiene
+BND-003:
+- gate-05-governance
+- gate-15-boundary-enforcement
+BND-004:
+- gate-10-static
+- gate-15-boundary-enforcement
+BND-005:
+- gate-10-static
+- gate-15-boundary-enforcement
+BND-006:
+- gate-15-boundary-enforcement
+- gate-25-wrapper-hygiene
+BND-007:
+- gate-40-evidence
+- gate-45-evidence-peer
+BND-008:
+- gate-45-evidence-peer
+- gate-90-release
+BND-009:
+- gate-12-project-tree-layout
+- gate-18-migration-plan
+BND-010:
+- gate-05-governance
+- gate-35-contract-sync
+BND-011:
+- gate-05-governance
+- gate-35-contract-sync
+BND-012:
+- gate-05-governance
+- gate-15-boundary-enforcement
+- gate-90-release

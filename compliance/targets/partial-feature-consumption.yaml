@@ -1,0 +1,33 @@
+schema_version: 1
+package: tigrbl_auth
+strict_disappearance_rule: true
+downstream_consumption:
+  profiles:
+    - baseline
+    - production
+    - hardening
+  surface_sets:
+    - public-rest
+    - admin-rpc
+    - diagnostics
+  combinable_surface_sets: true
+  protocol_slices:
+    - device
+    - token-exchange
+    - par
+    - jar
+    - rar
+    - dpop
+    - mtls
+  extensions:
+    - webauthn-passkeys
+    - a2a-adapter
+    - mcp-adapter
+    - set
+    - webpush
+    - dns-privacy
+  runtime_styles:
+    - plugin
+    - standalone
+enforcement_rule:
+  statement: Disabled features must disappear from mounted surface paths, discovery metadata, generated contracts, claim manifests, and release evidence manifests.

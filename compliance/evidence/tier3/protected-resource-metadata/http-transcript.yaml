@@ -1,0 +1,11 @@
+capture_mode: contract-derived-snapshot
+profile: production
+source_contract: specs/openapi/profiles/production/tigrbl_auth.public.openapi.json
+paths:
+- path: /.well-known/oauth-protected-resource
+  operations:
+  - method: GET
+    operationId: get__well_known_oauth_protected_resource
+    summary: OAuth protected resource metadata
+    responses:
+    - '200'

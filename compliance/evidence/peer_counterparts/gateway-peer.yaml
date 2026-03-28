@@ -1,0 +1,20 @@
+schema_version: 1
+id: gateway-peer
+title: External gateway or proxy harness
+counterpart_class: gateway
+execution_style: black-box-http
+independence_requirement: external gateway or proxy deployment required
+attestation_class_required: independent-external
+required_identity_fields:
+- peer_name
+- peer_version
+required_container_fields:
+- image_ref
+- image_digest
+required_artifacts:
+- http-transcript.yaml
+- gateway-config.yaml
+- result.yaml
+notes:
+- Use for discovery, JWKS, protected-resource metadata, and hardening discovery-truthfulness
+  interop.

@@ -1,0 +1,7 @@
+name: contracts
+checks:
+- openapi_contract_generated
+- openapi_contract_synchronized
+- public_contract_contains_baseline_paths
+- public_contract_contains_protected_resource_metadata_path
+- openrpc_contract_generated_checkpoint

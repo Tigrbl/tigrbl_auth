@@ -1,0 +1,23 @@
+schema_version: 1
+id: browser-rp
+title: External browser-facing relying party harness
+counterpart_class: web-rp
+execution_style: black-box-browser
+independence_requirement: external peer artifacts must originate from a non-package
+  runner or third-party RP harness
+attestation_class_required: independent-external
+required_identity_fields:
+- peer_name
+- peer_version
+required_container_fields:
+- image_ref
+- image_digest
+required_artifacts:
+- http-transcript.yaml
+- browser-trace.json
+- result.yaml
+notes:
+- Use for browser and browser-visible OIDC discovery/JWE/issuer-parameter interop
+  scenarios.
+- Tier 4 promotion requires externally supplied peer identity and container/runtime
+  digest.

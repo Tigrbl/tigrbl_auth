@@ -1,0 +1,46 @@
+{
+  "review_date": "2026-03-24",
+  "package": "tigrbl_auth",
+  "version": "0.3.2.dev14",
+  "tier3_retained_boundary_complete": true,
+  "strict_public_independent_claims_ready": false,
+  "fully_certifiably_featured_now": false,
+  "fully_certifiably_rfc_compliant_now": false,
+  "supported_python": ">=3.10,<3.13",
+  "observed_python": "3.13.5",
+  "review_changes_applied": [
+    "restored dependency-light top-level helper exports",
+    "added dependency-light RFC and introspection compatibility fallbacks",
+    "switched pytest collection to importlib mode",
+    "added pytest pythonpath root entry",
+    "excluded cache directories from recursive test discovery",
+    "made runtime_cfg reload refresh canonical settings",
+    "corrected stale serve-launch documentation",
+    "removed cache directories from the checkpoint output"
+  ],
+  "verification": {
+    "top_level_dependency_light_imports_ok": true,
+    "focused_dependency_light_pytest": {
+      "tests_passed": 52,
+      "tests_failed": 0,
+      "description": "Focused helper-oriented slice covering RFC 7515/7517/7518/7520/7636/7662/8628/8812/8932/9101/9207/9396 and runtime_cfg"
+    },
+    "broad_pytest_collection": {
+      "collection_errors": 52,
+      "dominant_missing_dependencies": [
+        "sqlalchemy",
+        "tigrbl",
+        "swarmauri_signing_jws",
+        "bcrypt"
+      ]
+    }
+  },
+  "hard_blockers": [
+    "missing Tier 4 independent peer bundles for the retained boundary",
+    "runtime application probe fails without externally installed tigrbl runtime stack",
+    "Superseded: Tigrcorn extra is now pinned to a published runner package; independent validation still absent",
+    "operator/control-plane services remain checkpoint-grade and repository-backed",
+    "migration 0007 remains effectively forward-only in checkpoint tooling",
+    "full runtime-heavy test and app-factory paths still require external dependencies not bundled in this zip"
+  ]
+}

@@ -1,0 +1,22 @@
+# Certification State Report
+
+- Passed: `False`
+
+## Summary
+
+- fully_certifiable_now: `False`
+- fully_rfc_compliant_now: `False`
+- authoritative_scope_manifest: `compliance/targets/certification_scope.yaml`
+- tier3_ready_targets: `['OIDC Core 1.0', 'OIDC Discovery 1.0', 'OIDC RP-Initiated Logout', 'OIDC Session Management', 'OIDC UserInfo', 'OpenAPI 3.1 / 3.2 compatible public contract', 'OpenRPC 1.4.x admin/control-plane contract', 'RFC 6265', 'RFC 6749', 'RFC 6750', 'RFC 7009', 'RFC 7515', 'RFC 7516', 'RFC 7517', 'RFC 7518', 'RFC 7519', 'RFC 7521', 'RFC 7523', 'RFC 7591', 'RFC 7592', 'RFC 7636', 'RFC 7662', 'RFC 8252', 'RFC 8414', 'RFC 8615', 'RFC 8628', 'RFC 8693', 'RFC 8707', 'RFC 9068', 'RFC 9728']`
+- tier4_ready_targets: `[]`
+- open_gaps: `['Tier 3 evidence is not yet promoted for the full in-scope boundary.', 'Tier 4 independent peer validation is not complete.', 'Some production and hardening protocol targets remain bounded, profile-limited, or evidence-incomplete.', 'Runtime and operator targets are explicitly in scope and remain partial.', 'The CLI operator surface now has explicit verb/flag/output/exit-code contracts and repository-backed checkpoint handlers, but full production admin/RPC parity is still incomplete.', 'The serve operator now launches through runner adapters, but clean-checkout runtime validation in this checkpoint environment is still blocked by missing published runtime dependencies such as sqlalchemy or tigrbl.', 'The Tigrcorn install profile remains unavailable in this checkpoint environment and has not yet been independently validated.']`
+
+## Details
+
+- Tier 3 evidence is not yet promoted for the full in-scope boundary.
+- Tier 4 independent peer validation is not complete.
+- Some production and hardening protocol targets remain bounded, profile-limited, or evidence-incomplete.
+- Runtime and operator targets are explicitly in scope and remain partial.
+- The CLI operator surface now has explicit verb/flag/output/exit-code contracts and repository-backed checkpoint handlers, but full production admin/RPC parity is still incomplete.
+- The serve operator now launches through runner adapters, but clean-checkout runtime validation in this checkpoint environment is still blocked by missing published runtime dependencies such as sqlalchemy or tigrbl.
+- The Tigrcorn install profile remains unavailable in this checkpoint environment and has not yet been independently validated.

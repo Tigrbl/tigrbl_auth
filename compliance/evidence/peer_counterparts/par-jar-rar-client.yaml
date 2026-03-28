@@ -1,0 +1,19 @@
+schema_version: 1
+id: par-jar-rar-client
+title: External advanced authorization request client harness
+counterpart_class: advanced-oauth-client
+execution_style: black-box-http
+independence_requirement: external request-object/PAR/RAR capable client required
+attestation_class_required: independent-external
+required_identity_fields:
+- peer_name
+- peer_version
+required_container_fields:
+- image_ref
+- image_digest
+required_artifacts:
+- http-transcript.yaml
+- request-objects/
+- result.yaml
+notes:
+- Use for RFC 9101, RFC 9126, RFC 9396, and advanced resource-indicator interop.

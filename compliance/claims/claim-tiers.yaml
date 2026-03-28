@@ -1,0 +1,19 @@
+
+schema_version: 1
+package: tigrbl_auth
+tiers:
+  0:
+    name: internal-experimental
+    description: No external certification claim.
+  1:
+    name: declared
+    description: Target declared and tracked in the governance plane.
+  2:
+    name: implemented-internal
+    description: Implemented and internally asserted.
+  3:
+    name: evidenced-release-gated
+    description: Preserved evidence bundle and release gates passed.
+  4:
+    name: independent-peer-claim
+    description: Tier 3 plus preserved independent peer or interop validation.

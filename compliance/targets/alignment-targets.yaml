@@ -1,0 +1,11 @@
+schema_version: 1
+package: tigrbl_auth
+target_family: profile
+scope: alignment-only
+targets:
+- id: oauth2.1-alignment
+  label: OAuth 2.1 alignment profile
+  claimable_as_rfc: false
+  quarantine_reason: Track draft-era alignment only. Do not emit as a final RFC compliance
+    claim.
+  status: tracked-draft-alignment-only

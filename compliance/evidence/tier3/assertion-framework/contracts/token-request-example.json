@@ -1,0 +1,6 @@
+{
+  "grant_type": "urn:ietf:params:oauth:grant-type:jwt-bearer",
+  "assertion": "<jwt-bearer-assertion>",
+  "client_id": "<client-id>",
+  "scope": "openid profile email"
+}

@@ -1,0 +1,15 @@
+schema_version: 1
+package: tigrbl_auth
+corrections:
+  - from_label: RFC 5785
+    to_label: RFC 8615
+    status: corrected
+    rationale: Well-known URI claims must track the newer RFC 8615 reference.
+  - from_label: RFC 8523
+    to_label: RFC 7523
+    status: corrected-and-quarantined
+    rationale: JWT client authentication and authorization-grant claims belong to RFC 7523; the legacy RFC 8523 naming is not a valid auth-core certification target here.
+  - from_label: RFC 8932 OAuth metadata extension
+    to_label: RFC 8932 DNS privacy extension
+    status: quarantined
+    rationale: RFC 8932 is outside the default OAuth/OIDC auth-core boundary and must not be claimed as authorization-server metadata.

@@ -1,0 +1,12 @@
+{
+  "allowed_redirect_kinds": [
+    "loopback",
+    "private-use-scheme"
+  ],
+  "loopback_requires_http": true,
+  "loopback_requires_explicit_port": true,
+  "private_use_scheme_forbids_authority": true,
+  "pkce_required": true,
+  "required_code_challenge_method": "S256",
+  "required_response_type": "code"
+}

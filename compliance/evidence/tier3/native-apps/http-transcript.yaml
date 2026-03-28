@@ -1,0 +1,13 @@
+flow: native-authorization-code-with-pkce
+requests:
+- method: POST
+  path: /register
+  application_type: native
+- method: GET
+  path: /authorize
+  response_type: code
+  pkce: required
+- method: POST
+  path: /token
+  grant_type: authorization_code
+  code_verifier: required

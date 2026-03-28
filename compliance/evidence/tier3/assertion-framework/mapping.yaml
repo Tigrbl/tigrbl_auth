@@ -1,0 +1,24 @@
+targets:
+- RFC 7521
+modules:
+- tigrbl_auth/standards/oauth2/assertion_framework.py
+- tigrbl_auth/ops/token.py
+- tigrbl_auth/cli/artifacts.py
+tests:
+- tests/unit/test_rfc7521_assertion_framework.py
+contracts:
+- contracts/oauth-authorization-server.json
+- contracts/token-request-example.json
+reports:
+- reports/current_state_report.md
+- reports/current_state_report.json
+- reports/certification_state_report.md
+- reports/certification_state_report.json
+- reports/release_gate_report.md
+- reports/release_gate_report.json
+- reports/target_module_mapping_report.md
+- reports/target_module_mapping_report.json
+- reports/target_test_mapping_report.md
+- reports/target_test_mapping_report.json
+- reports/target_evidence_mapping_report.md
+- reports/target_evidence_mapping_report.json

@@ -1,0 +1,63 @@
+{
+  "status": "signed-ed25519-attested",
+  "algorithm": "Ed25519",
+  "package": "tigrbl_auth",
+  "version": "0.3.2.dev14",
+  "profile": "baseline",
+  "signer": {
+    "signer_id": "tigrbl_auth.checkpoint.attestor",
+    "key_id": "ed25519:79439999e613a609cddf68b8",
+    "algorithm": "Ed25519",
+    "identity_kind": "repository-release-attestor",
+    "public_key_pem": "-----BEGIN PUBLIC KEY-----\nMCowBQYDK2VwAyEAAkGrE77IOJbpmd5OWrBwQdEFPQ1f9IDhZb3+kr8SbNM=\n-----END PUBLIC KEY-----\n",
+    "public_key_sha256": "79439999e613a609cddf68b8ef9638203ef0d773572b77610bf3068348053280",
+    "source": "inline-pem"
+  },
+  "verification_material": {
+    "public_key_path": "attestations/keys/ed25519-79439999e613a609cddf68b8.pub.pem",
+    "signer_identity_path": "attestations/signer-identity.json"
+  },
+  "release_attestation": "attestations/release-attestation.json",
+  "signed_artifacts": [
+    {
+      "label": "release-bundle",
+      "artifact_path": "release-bundle.json",
+      "artifact_sha256": "552719ec721957a5712293adead4dad384ddab3d93cd2930ec7073d8c733f5be",
+      "attestation_path": "attestations/release-bundle.attestation.json"
+    },
+    {
+      "label": "claim-manifest",
+      "artifact_path": "compliance/claims/effective-target-claims.baseline.yaml",
+      "artifact_sha256": "67a5dfdfbc62775c2efa4ff4767a8ed425b0455c1cdb4b2931c58ac560c2bb5f",
+      "attestation_path": "attestations/claim-manifest.attestation.json"
+    },
+    {
+      "label": "evidence-manifest",
+      "artifact_path": "compliance/evidence/effective-release-evidence.baseline.yaml",
+      "artifact_sha256": "69afc677b3073ab7d02d8335e739c181897c7eeba8bc18a99d3a51a7ba91d22c",
+      "attestation_path": "attestations/evidence-manifest.attestation.json"
+    },
+    {
+      "label": "contract-set",
+      "artifact_path": "attestations/contract-set.manifest.json",
+      "artifact_sha256": "f3ad9b2631cf66c2c54365d6984a62cb23ff57dbc0b54fa99cfc218044a10298",
+      "attestation_path": "attestations/contract-set.attestation.json"
+    }
+  ],
+  "verification": {
+    "passed": true,
+    "failures": [],
+    "warnings": [],
+    "details": {
+      "bundle_root": "/mnt/data/phase12work/extracted/tigrbl_auth_phase13_final_certification_closeout_checkpoint_updated/dist/release-bundles/0.3.2.dev14/baseline",
+      "verified_artifact_count": 4,
+      "signing_key_id": "ed25519:79439999e613a609cddf68b8",
+      "artifact_labels": [
+        "release-bundle",
+        "claim-manifest",
+        "evidence-manifest",
+        "contract-set"
+      ]
+    }
+  }
+}

@@ -1,0 +1,20 @@
+schema_version: 1
+counterparts:
+- id: browser-rp
+  path: compliance/evidence/peer_counterparts/browser-rp.yaml
+- id: device-client
+  path: compliance/evidence/peer_counterparts/device-client.yaml
+- id: dpop-client
+  path: compliance/evidence/peer_counterparts/dpop-client.yaml
+- id: gateway-peer
+  path: compliance/evidence/peer_counterparts/gateway-peer.yaml
+- id: mtls-peer
+  path: compliance/evidence/peer_counterparts/mtls-peer.yaml
+- id: native-client
+  path: compliance/evidence/peer_counterparts/native-client.yaml
+- id: par-jar-rar-client
+  path: compliance/evidence/peer_counterparts/par-jar-rar-client.yaml
+- id: resource-server
+  path: compliance/evidence/peer_counterparts/resource-server.yaml
+- id: spa-rp
+  path: compliance/evidence/peer_counterparts/spa-rp.yaml

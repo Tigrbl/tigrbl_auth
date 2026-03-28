@@ -1,0 +1,76 @@
+{
+  "post": {
+    "operationId": "post_device_authorization",
+    "summary": "Device authorization endpoint",
+    "tags": [
+      "oauth2"
+    ],
+    "responses": {
+      "200": {
+        "description": "Success",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/DeviceAuthorizationResponse"
+            }
+          }
+        }
+      }
+    },
+    "x-required-flags": [
+      "enable_rfc8628"
+    ],
+    "x-runtime-profile": {
+      "profile": "hardening",
+      "allowed_grant_types": [
+        "authorization_code",
+        "client_credentials",
+        "urn:ietf:params:oauth:grant-type:jwt-bearer",
+        "urn:ietf:params:oauth:grant-type:device_code",
+        "urn:ietf:params:oauth:grant-type:token-exchange"
+      ],
+      "allowed_response_types": [
+        "code"
+      ],
+      "par_required": true,
+      "sender_constraint_required": true,
+      "dpop_supported": true,
+      "mtls_supported": true,
+      "resource_indicators_supported": true,
+      "request_objects_supported": true,
+      "rich_authorization_requests_supported": true,
+      "jwt_access_token_profile_supported": true
+    },
+    "requestBody": {
+      "required": true,
+      "content": {
+        "application/x-www-form-urlencoded": {
+          "schema": {
+            "type": "object",
+            "required": [
+              "client_id"
+            ],
+            "properties": {
+              "client_id": {
+                "type": "string"
+              },
+              "scope": {
+                "type": "string"
+              },
+              "audience": {
+                "type": "string"
+              },
+              "resource": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "format": "uri"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

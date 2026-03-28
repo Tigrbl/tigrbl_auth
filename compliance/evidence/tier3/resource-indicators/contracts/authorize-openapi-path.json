@@ -1,0 +1,165 @@
+{
+  "get": {
+    "operationId": "get_authorize",
+    "summary": "Authorization endpoint",
+    "tags": [
+      "oauth2",
+      "oidc"
+    ],
+    "responses": {
+      "200": {
+        "description": "Success",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/AuthorizationResponse"
+            }
+          }
+        }
+      }
+    },
+    "x-required-flags": [
+      "enable_rfc6749",
+      "enable_oidc_core"
+    ],
+    "x-runtime-profile": {
+      "profile": "hardening",
+      "allowed_grant_types": [
+        "authorization_code",
+        "client_credentials",
+        "urn:ietf:params:oauth:grant-type:jwt-bearer",
+        "urn:ietf:params:oauth:grant-type:device_code",
+        "urn:ietf:params:oauth:grant-type:token-exchange"
+      ],
+      "allowed_response_types": [
+        "code"
+      ],
+      "par_required": true,
+      "sender_constraint_required": true,
+      "dpop_supported": true,
+      "mtls_supported": true,
+      "resource_indicators_supported": true,
+      "request_objects_supported": true,
+      "rich_authorization_requests_supported": true,
+      "jwt_access_token_profile_supported": true
+    },
+    "parameters": [
+      {
+        "name": "response_type",
+        "in": "query",
+        "required": true,
+        "schema": {
+          "type": "string",
+          "enum": [
+            "code"
+          ]
+        }
+      },
+      {
+        "name": "client_id",
+        "in": "query",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      },
+      {
+        "name": "redirect_uri",
+        "in": "query",
+        "required": true,
+        "schema": {
+          "type": "string",
+          "format": "uri"
+        }
+      },
+      {
+        "name": "scope",
+        "in": "query",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      },
+      {
+        "name": "response_mode",
+        "in": "query",
+        "required": false,
+        "schema": {
+          "type": "string",
+          "enum": [
+            "query",
+            "form_post"
+          ]
+        }
+      },
+      {
+        "name": "state",
+        "in": "query",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      },
+      {
+        "name": "nonce",
+        "in": "query",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      },
+      {
+        "name": "request",
+        "in": "query",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      },
+      {
+        "name": "code_challenge",
+        "in": "query",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      },
+      {
+        "name": "code_challenge_method",
+        "in": "query",
+        "required": false,
+        "schema": {
+          "type": "string",
+          "enum": [
+            "S256"
+          ]
+        }
+      },
+      {
+        "name": "request_uri",
+        "in": "query",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      },
+      {
+        "name": "authorization_details",
+        "in": "query",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      },
+      {
+        "name": "resource",
+        "in": "query",
+        "required": false,
+        "schema": {
+          "type": "string",
+          "format": "uri"
+        }
+      }
+    ]
+  }
+}

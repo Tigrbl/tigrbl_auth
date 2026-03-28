@@ -1,0 +1,16 @@
+{
+  "label": "RFC 8693",
+  "title": "OAuth 2.0 Token Exchange",
+  "runtime_status": "phase-8-lineage-audited-token-exchange-runtime",
+  "public_surface": [
+    "/token/exchange"
+  ],
+  "notes": "Mounted token-exchange endpoint with subject-token validation, optional actor-token delegation semantics, requested-token-type enforcement, consistent resource/audience binding, and audit-observable lineage details.",
+  "requested_token_types_supported": [
+    "urn:ietf:params:oauth:token-type:access_token",
+    "access_token"
+  ],
+  "delegation_supported": true,
+  "single_effective_target": true,
+  "spec_url": "https://www.rfc-editor.org/rfc/rfc8693"
+}

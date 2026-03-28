@@ -1,0 +1,14 @@
+flow: dynamic-client-registration-management
+requests:
+- method: GET
+  path: /register/{client_id}
+  auth: registration_access_token
+- method: PUT
+  path: /register/{client_id}
+  auth: registration_access_token
+- method: DELETE
+  path: /register/{client_id}
+  auth: registration_access_token
+- method: RPC
+  name: client.registration.delete
+  surface: admin-rpc

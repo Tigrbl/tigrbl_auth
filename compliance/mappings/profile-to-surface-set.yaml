@@ -1,0 +1,15 @@
+baseline:
+  default_surface_sets:
+    - public-rest
+    - admin-rpc
+    - diagnostics
+production:
+  default_surface_sets:
+    - public-rest
+    - admin-rpc
+    - diagnostics
+hardening:
+  default_surface_sets:
+    - public-rest
+    - admin-rpc
+    - diagnostics

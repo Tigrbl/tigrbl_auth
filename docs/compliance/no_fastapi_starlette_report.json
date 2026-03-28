@@ -1,0 +1,16 @@
+{
+  "scope": "runtime package, tests, scripts, and packaging metadata",
+  "root": {
+    "runtime": "tigrbl_auth",
+    "tests": "tests",
+    "scripts": "scripts",
+    "metadata": "pyproject.toml"
+  },
+  "direct_fastapi_starlette_imports_found": 0,
+  "pyproject_forbidden_dependencies_found": [],
+  "hits": {
+    "runtime_package": [],
+    "tests": [],
+    "scripts": []
+  }
+}

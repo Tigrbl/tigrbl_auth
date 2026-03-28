@@ -1,0 +1,6 @@
+name: boundary-enforcement
+checks:
+  - declared-target-only-certification
+  - strict_partial_feature_disappearance
+  - boundary_artifacts_present
+  - boundary_reports_generated

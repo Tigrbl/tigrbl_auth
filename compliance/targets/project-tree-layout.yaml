@@ -1,0 +1,82 @@
+schema_version: 1
+package: tigrbl_auth
+project_tree:
+  required_directories:
+  - docs/adr
+  - docs/architecture
+  - docs/standards
+  - docs/compliance
+  - docs/runbooks
+  - compliance/targets
+  - compliance/mappings
+  - compliance/claims
+  - compliance/evidence
+  - compliance/gates
+  - compliance/waivers
+  - specs/openapi
+  - specs/openrpc
+  - specs/jsonschema
+  - scripts
+  - tests/unit
+  - tests/integration
+  - tests/conformance
+  - tests/interop
+  - tests/negative
+  - tests/security
+  - tests/e2e
+  - tests/perf
+  - tests/examples
+  - tigrbl_auth/api
+  - tigrbl_auth/tables
+  - tigrbl_auth/ops
+  - tigrbl_auth/services
+  - tigrbl_auth/standards
+  - tigrbl_auth/security
+  - tigrbl_auth/config
+  - tigrbl_auth/adapters
+  - tigrbl_auth/schemas
+  - tigrbl_auth/migrations
+  - tigrbl_auth/cli
+  required_files:
+  - tigrbl_auth/plugin.py
+  - tigrbl_auth/gateway.py
+  - tigrbl_auth/api/app.py
+  - tigrbl_auth/api/surfaces.py
+  - docs/architecture/PROJECT_TREE_LAYOUT.md
+  - docs/architecture/MIGRATION_MOVE_PLAN.md
+  - compliance/mappings/current-to-target-paths.yaml
+  - compliance/targets/project-tree-layout.yaml
+  runtime_planes:
+    api:
+      path: tigrbl_auth/api
+      ownership: transport
+    tables:
+      path: tigrbl_auth/tables
+      ownership: persistence
+    ops:
+      path: tigrbl_auth/ops
+      ownership: transaction orchestration
+    services:
+      path: tigrbl_auth/services
+      ownership: reusable domain services
+    standards:
+      path: tigrbl_auth/standards
+      ownership: protocol behavior
+    security:
+      path: tigrbl_auth/security
+      ownership: cross-cutting hardening
+    config:
+      path: tigrbl_auth/config
+      ownership: profile and feature resolution
+    adapters:
+      path: tigrbl_auth/adapters
+      ownership: integration seams
+    cli:
+      path: tigrbl_auth/cli
+      ownership: operator and certification UX
+    plugin:
+      path: tigrbl_auth/plugin.py
+      ownership: installable composition
+    gateway:
+      path: tigrbl_auth/gateway.py
+      ownership: standalone composition

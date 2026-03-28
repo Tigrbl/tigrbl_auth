@@ -1,0 +1,19 @@
+schema_version: 1
+id: dpop-client
+title: External DPoP-capable OAuth client harness
+counterpart_class: sender-constrained-client
+execution_style: black-box-http
+independence_requirement: external proof-generating client required
+attestation_class_required: independent-external
+required_identity_fields:
+- peer_name
+- peer_version
+required_container_fields:
+- image_ref
+- image_digest
+required_artifacts:
+- http-transcript.yaml
+- proof-jwts.json
+- result.yaml
+notes:
+- Use for RFC 9449 proof replay and binding scenarios.

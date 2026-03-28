@@ -1,0 +1,4 @@
+name: gate-55-contract-validation
+description: Validate OpenAPI and OpenRPC contracts
+checks:
+- contracts_validated

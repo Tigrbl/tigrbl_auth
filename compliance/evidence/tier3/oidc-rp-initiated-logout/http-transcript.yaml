@@ -1,0 +1,11 @@
+flow: rp-initiated-logout
+requests:
+- method: GET
+  path: /logout?id_token_hint=<token>&post_logout_redirect_uri=https://rp.example/logout/callback
+  result: valid hint + registered redirect accepted
+- method: GET
+  path: /logout?id_token_hint=<broken>
+  result: invalid_id_token_hint rejected
+- method: GET
+  path: /logout?client_id=<other-client>
+  result: cross-client misuse rejected

@@ -1,0 +1,26 @@
+targets:
+- RFC 7516
+modules:
+- tigrbl_auth/standards/jose/rfc7516.py
+- tigrbl_auth/standards/oidc/id_token.py
+- tigrbl_auth/standards/oidc/discovery_metadata.py
+tests:
+- tests/unit/test_rfc7516_jwe.py
+- tests/unit/test_oidc_id_token_encryption.py
+contracts:
+- contracts/openid-configuration.json
+- contracts/oauth-authorization-server.json
+- contracts/jwe-policy.json
+reports:
+- reports/current_state_report.md
+- reports/current_state_report.json
+- reports/certification_state_report.md
+- reports/certification_state_report.json
+- reports/release_gate_report.md
+- reports/release_gate_report.json
+- reports/target_module_mapping_report.md
+- reports/target_module_mapping_report.json
+- reports/target_test_mapping_report.md
+- reports/target_test_mapping_report.json
+- reports/target_evidence_mapping_report.md
+- reports/target_evidence_mapping_report.json

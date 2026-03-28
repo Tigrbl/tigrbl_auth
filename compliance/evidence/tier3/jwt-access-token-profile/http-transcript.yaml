@@ -1,0 +1,18 @@
+capture_mode: contract-derived-snapshot
+profile: production
+source_contract: specs/openapi/profiles/production/tigrbl_auth.public.openapi.json
+paths:
+- path: /login
+  operations:
+  - method: POST
+    operationId: post_login
+    summary: Password login helper
+    responses:
+    - '200'
+- path: /token
+  operations:
+  - method: POST
+    operationId: post_token
+    summary: Token endpoint
+    responses:
+    - '200'

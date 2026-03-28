@@ -1,0 +1,19 @@
+{
+  "label": "OIDC Session Management",
+  "title": "OpenID Connect Session Management",
+  "runtime_status": "phase-7-browser-session-runtime",
+  "public_surface": [
+    "/login",
+    "/authorize",
+    "/logout"
+  ],
+  "cookie_name": "sid",
+  "cookie_rotation_seconds": 900,
+  "same_site_default": "lax",
+  "session_state_validation_supported": true,
+  "session_state_origin_bound": true,
+  "auth_code_linkage_supported": true,
+  "check_session_iframe_claimed": false,
+  "cross_site_logout_enabled": false,
+  "notes": "Durable browser sessions own opaque session-cookie secrets, cookie rotation, client binding, auth-code linkage, and OIDC session_state generation + validation across client origins. This release path does not claim a mounted check_session_iframe endpoint, and discovery/contracts remain truthful about that omission."
+}

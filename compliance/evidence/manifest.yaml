@@ -1,0 +1,130 @@
+schema_version: 1
+package: tigrbl_auth
+state:
+  governance_plane_initialized: true
+  preserved_tier3_bundles:
+  - compliance/evidence/tier3/oauth2-core
+  - compliance/evidence/tier3/bearer
+  - compliance/evidence/tier3/pkce
+  - compliance/evidence/tier3/discovery
+  - compliance/evidence/tier3/well-known
+  - compliance/evidence/tier3/jose
+  - compliance/evidence/tier3/jwks
+  - compliance/evidence/tier3/jwt
+  - compliance/evidence/tier3/oidc-core
+  - compliance/evidence/tier3/contracts/openapi
+  - compliance/evidence/tier3/revocation
+  - compliance/evidence/tier3/client-registration
+  - compliance/evidence/tier3/introspection
+  - compliance/evidence/tier3/jwt-access-token-profile
+  - compliance/evidence/tier3/cookies
+  - compliance/evidence/tier3/protected-resource-metadata
+  - compliance/evidence/tier3/oidc-userinfo
+  - compliance/evidence/tier3/contracts/openrpc
+  - dist/evidence-bundles/baseline/tier3
+  - dist/evidence-bundles/production/tier3
+  preserved_tier4_bundles: []
+  tier4_candidate_layouts:
+  - compliance/evidence/tier4/candidates/assertion-client
+  - compliance/evidence/tier4/candidates/browser
+  - compliance/evidence/tier4/candidates/client-mgmt
+  - compliance/evidence/tier4/candidates/device
+  - compliance/evidence/tier4/candidates/dpop
+  - compliance/evidence/tier4/candidates/gateway
+  - compliance/evidence/tier4/candidates/mtls
+  - compliance/evidence/tier4/candidates/native
+  - compliance/evidence/tier4/candidates/ops-cli
+  - compliance/evidence/tier4/candidates/par-jar-rar
+  - compliance/evidence/tier4/candidates/resource-server
+  - compliance/evidence/tier4/candidates/rp-session-logout
+  - compliance/evidence/tier4/candidates/runner-hypercorn
+  - compliance/evidence/tier4/candidates/runner-tigrcorn
+  - compliance/evidence/tier4/candidates/runner-uvicorn
+  - compliance/evidence/tier4/candidates/spa
+  signed_release_bundles:
+  - dist/release-bundles/0.3.2.dev14/baseline
+  - dist/release-bundles/0.3.2.dev14/production
+  - dist/release-bundles/0.3.2.dev14/hardening
+  - dist/release-bundles/0.3.2.dev14/peer-claim
+  signed_release_profile_count: 4
+  release_attestation_algorithm: Ed25519
+  phase_13_release_decision_complete: true
+  release_decision_record: docs/compliance/RELEASE_DECISION_RECORD.md
+  retained_boundary_tier3_complete: true
+  strict_independent_claims_ready: false
+  tier4_profile_catalog_count: 16
+  valid_preserved_tier4_bundles: []
+  invalid_preserved_tier4_bundles: []
+  tier4_external_bundle_count: 0
+  tier4_valid_external_bundle_count: 0
+  tier4_invalid_external_bundle_count: 0
+  tier4_missing_external_bundle_count: 16
+paths:
+  tier3_root: compliance/evidence/tier3
+  tier4_root: compliance/evidence/tier4
+  schemas_root: compliance/evidence/schemas
+  peer_profile_root: compliance/evidence/peer_profiles
+  peer_counterpart_root: compliance/evidence/peer_counterparts
+  tier4_candidate_root: compliance/evidence/tier4/candidates
+  tier4_bundle_root: compliance/evidence/tier4/bundles
+  release_bundle_root: dist/release-bundles
+  release_signing_runbook: docs/runbooks/RELEASE_SIGNING_AND_VERIFICATION.md
+required_artifacts:
+  tier3:
+  - manifest.yaml
+  - mapping.yaml
+  - execution.log
+  - reports/
+  - contracts/
+  - environment.yaml
+  - hashes.yaml
+  - signatures.yaml
+  tier4:
+  - manifest.yaml
+  - mapping.yaml
+  - execution.log
+  - peer-profile.yaml
+  - peer-artifacts/
+  - reproduction.md
+  release:
+  - release-bundle.json
+  - signature.json
+  - attestations/release-attestation.json
+  - attestations/keys/
+adr_refs:
+- docs/adr/ADR-0008-evidence-retention-and-peer-claims.md
+- docs/adr/ADR-0011-evidence-model-and-tier-promotion.md
+- docs/adr/ADR-0012-independent-peer-claims.md
+promoted_target_subsets:
+  baseline:
+  - RFC 6749
+  - RFC 6750
+  - RFC 7636
+  - RFC 8414
+  - RFC 8615
+  - RFC 7515
+  - RFC 7517
+  - RFC 7518
+  - RFC 7519
+  - OIDC Core 1.0
+  - OIDC Discovery 1.0
+  - OpenAPI 3.1 / 3.2 compatible public contract
+  production:
+  - RFC 7009
+  - RFC 7591
+  - RFC 7662
+  - RFC 9068
+  - RFC 6265
+  - RFC 9728
+  - OIDC UserInfo
+  - OpenRPC 1.4.x admin/control-plane contract
+  tier4: []
+notes:
+- Phase 10 promotes the full baseline target bucket and a selected production subset
+  to Tier 3 using preserved gate, mapping, and contract bundles.
+- Full-boundary Tier 3 promotion is still incomplete.
+- Tier 4 peer bundles remain absent.
+- Phase 13 installs the independent peer program, full retained target-to-peer mapping,
+  counterpart catalog, candidate bundle layouts, and fail-closed Tier 4 promotion
+  logic. No targets are promoted to Tier 4 in this checkpoint because preserved qualifying
+  independent external artifacts were not supplied.

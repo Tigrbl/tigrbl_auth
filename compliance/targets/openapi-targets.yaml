@@ -1,0 +1,20 @@
+schema_version: 1
+package: tigrbl_auth
+target_family: contract
+scope: core
+targets:
+- id: openapi.public-http
+  label: OpenAPI 3.1 / 3.2 compatible public contract
+  phase: P1
+  minimum_claim_tier: 2
+  profiles:
+  - baseline
+  - production
+  - hardening
+  - peer-claim
+  required_security_schemes:
+  - http bearer
+  - oauth2
+  - openIdConnect
+  artifact: specs/openapi/tigrbl_auth.public.openapi.yaml
+  status: generated-live-from-deployment-metadata

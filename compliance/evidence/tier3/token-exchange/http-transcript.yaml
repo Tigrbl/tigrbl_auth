@@ -1,0 +1,16 @@
+flow: token-exchange-delegation
+requests:
+- method: POST
+  path: /token/exchange
+  grant_type: urn:ietf:params:oauth:grant-type:token-exchange
+  parameters:
+  - subject_token
+  - subject_token_type
+  - actor_token
+  - actor_token_type
+  - requested_token_type
+  - audience
+  - resource
+- method: RPC
+  name: token.exchange
+  surface: admin-rpc

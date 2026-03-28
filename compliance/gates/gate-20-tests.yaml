@@ -1,0 +1,6 @@
+name: tests
+description: Require actual in-scope test-lane execution evidence plus migration portability validation.
+checks:
+  - test_classification_manifest_consistent
+  - in_scope_test_lanes_green
+  - migration_upgrade_downgrade_reapply_portable

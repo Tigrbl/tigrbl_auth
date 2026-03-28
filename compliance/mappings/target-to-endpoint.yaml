@@ -1,0 +1,255 @@
+RFC 6749:
+  current:
+  - /authorize
+  - /token
+  target:
+  - /authorize
+  - /token
+RFC 6750:
+  current:
+  - /token
+  - /userinfo
+  - /introspect
+  target:
+  - /token
+  - /userinfo
+  - /introspect
+  status: mounted-shared-bearer-token-surface
+RFC 7636:
+  current:
+  - /authorize
+  - /token
+  target:
+  - /authorize
+  - /token
+  status: mounted-pkce-enforced-auth-code-surface
+RFC 8414:
+  current:
+  - /.well-known/oauth-authorization-server
+  target:
+  - /.well-known/oauth-authorization-server
+OIDC Discovery 1.0:
+  current:
+  - /.well-known/openid-configuration
+  target:
+  - /.well-known/openid-configuration
+RFC 7517:
+  current:
+  - /.well-known/jwks.json
+  target:
+  - /.well-known/jwks.json
+RFC 7009:
+  current:
+  - /revoke
+  target:
+  - /revoke
+  status: mounted
+  legacy_compatibility_alias: /revoked_tokens/revoke
+RFC 7662:
+  current:
+  - /introspect
+  target:
+  - /introspect
+  status: mounted
+RFC 7591:
+  current:
+  - /register
+  target:
+  - /register
+  status: mounted
+RFC 8693:
+  current:
+  - /token/exchange
+  target:
+  - /token/exchange
+  status: mounted
+RFC 8615:
+  current:
+  - /.well-known/openid-configuration
+  - /.well-known/oauth-authorization-server
+  - /.well-known/jwks.json
+  - /.well-known/oauth-protected-resource
+  target:
+  - /.well-known/openid-configuration
+  - /.well-known/oauth-authorization-server
+  - /.well-known/jwks.json
+  - /.well-known/oauth-protected-resource
+RFC 9728:
+  current:
+  - /.well-known/oauth-protected-resource
+  target:
+  - /.well-known/oauth-protected-resource
+RFC 9700:
+  current:
+  - /authorize
+  - /token
+  - /.well-known/openid-configuration
+  target:
+  - /authorize
+  - /token
+  - /.well-known/openid-configuration
+  status: implemented-core-runtime-enforcement
+RFC 7516:
+  current: []
+  target: []
+  status: runtime-integrated-encrypted-id-token-profile
+RFC 8252:
+  current:
+  - /authorize
+  - /token
+  - /register
+  - /register/{client_id}
+  target:
+  - /authorize
+  - /token
+  - /register
+  - /register/{client_id}
+  status: runtime-validated-native-app-profile
+RFC 8628:
+  current:
+  - /device_authorization
+  target:
+  - /device_authorization
+  status: mounted
+RFC 9068:
+  current:
+  - /login
+  - /token
+  - /token/exchange
+  target:
+  - /login
+  - /token
+  - /token/exchange
+  status: mounted-jwt-access-token-profile
+RFC 9101:
+  current:
+  - /authorize
+  - /par
+  target:
+  - /authorize
+  - /par
+  status: mounted
+RFC 9126:
+  current:
+  - /par
+  target:
+  - /par
+  status: mounted-normalized-request-surface
+RFC 9207:
+  current:
+  - /authorize
+  - /.well-known/openid-configuration
+  target:
+  - /authorize
+  - /.well-known/openid-configuration
+  status: mounted
+RFC 9396:
+  current:
+  - /authorize
+  - /par
+  target:
+  - /authorize
+  - /par
+  status: mounted
+RFC 6265:
+  current:
+  - /login
+  - /authorize
+  - /logout
+  target:
+  - /login
+  - /authorize
+  - /logout
+  status: mounted
+RFC 7521:
+  current:
+  - /token
+  target:
+  - /token
+  status: runtime-integrated-token-endpoint
+RFC 7523:
+  current:
+  - /token
+  - /register
+  - /register/{client_id}
+  target:
+  - /token
+  - /register
+  - /register/{client_id}
+  status: runtime-integrated-token-endpoint-and-registration-metadata
+OIDC UserInfo:
+  current:
+  - /userinfo
+  target:
+  - /userinfo
+  status: mounted
+OIDC Session Management:
+  current:
+  - /login
+  - /authorize
+  - /logout
+  target:
+  - /login
+  - /authorize
+  - /logout
+  status: mounted
+OIDC RP-Initiated Logout:
+  current:
+  - /logout
+  target:
+  - /logout
+  status: mounted
+OIDC Front-Channel Logout:
+  current:
+  - /logout
+  target:
+  - /logout
+  status: fanout-planned-on-mounted-logout-route
+OIDC Back-Channel Logout:
+  current:
+  - /logout
+  target:
+  - /logout
+  status: fanout-planned-on-mounted-logout-route
+OpenRPC 1.4.x admin/control-plane contract:
+  current:
+  - /rpc
+  target:
+  - /rpc
+  status: implementation-backed
+RFC 7592:
+  current:
+  - /register/{client_id}
+  target:
+  - /register/{client_id}
+  status: mounted
+RFC 8705:
+  current:
+  - /token
+  - /token/exchange
+  target:
+  - /token
+  - /token/exchange
+  status: runtime-enforced-sender-constraint
+RFC 8707:
+  current:
+  - /authorize
+  - /token
+  - /device_authorization
+  - /par
+  - /token/exchange
+  target:
+  - /authorize
+  - /token
+  - /device_authorization
+  - /par
+  - /token/exchange
+  status: mounted
+RFC 9449:
+  current:
+  - /token
+  - /token/exchange
+  target:
+  - /token
+  - /token/exchange
+  status: runtime-enforced-dpop

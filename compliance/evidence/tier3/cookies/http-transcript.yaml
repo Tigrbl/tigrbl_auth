@@ -1,0 +1,30 @@
+capture_mode: contract-derived-snapshot
+profile: production
+source_contract: specs/openapi/profiles/production/tigrbl_auth.public.openapi.json
+paths:
+- path: /login
+  operations:
+  - method: POST
+    operationId: post_login
+    summary: Password login helper
+    responses:
+    - '200'
+- path: /authorize
+  operations:
+  - method: GET
+    operationId: get_authorize
+    summary: Authorization endpoint
+    responses:
+    - '200'
+- path: /logout
+  operations:
+  - method: GET
+    operationId: get_logout
+    summary: OIDC RP-initiated logout endpoint
+    responses:
+    - '200'
+  - method: POST
+    operationId: post_logout
+    summary: OIDC RP-initiated logout endpoint
+    responses:
+    - '200'

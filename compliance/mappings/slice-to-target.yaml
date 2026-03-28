@@ -1,0 +1,14 @@
+device:
+  - RFC 8628
+token-exchange:
+  - RFC 8693
+par:
+  - RFC 9126
+jar:
+  - RFC 9101
+rar:
+  - RFC 9396
+dpop:
+  - RFC 9449
+mtls:
+  - RFC 8705

@@ -1,0 +1,6 @@
+{
+  "client_id": "<client-id>",
+  "client_assertion_type": "urn:ietf:params:oauth:client-assertion-type:jwt-bearer",
+  "client_assertion": "<jwt-client-assertion>",
+  "token_endpoint_auth_method": "private_key_jwt"
+}

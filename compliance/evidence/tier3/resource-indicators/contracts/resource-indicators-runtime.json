@@ -1,0 +1,16 @@
+{
+  "label": "RFC 8707",
+  "title": "Resource Indicators for OAuth 2.0",
+  "runtime_status": "phase-8-resource-bound-runtime",
+  "public_surface": [
+    "/authorize",
+    "/token",
+    "/device_authorization",
+    "/token/exchange",
+    "/par"
+  ],
+  "notes": "Canonical standards-tree owner module for resource indicator validation across authorization, token, PAR, device, and token-exchange surfaces. The active release path binds one effective resource audience per request and fails closed on conflicting or ambiguous resource/audience inputs.",
+  "single_effective_target": true,
+  "conflicting_inputs_fail_closed": true,
+  "spec_url": "https://www.rfc-editor.org/rfc/rfc8707"
+}

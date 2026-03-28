@@ -1,0 +1,12 @@
+{
+  "label": "OIDC RP-Initiated Logout",
+  "title": "OpenID Connect RP-Initiated Logout",
+  "runtime_status": "phase-7-browser-logout-runtime",
+  "public_surface": [
+    "/logout"
+  ],
+  "id_token_hint_validation_supported": true,
+  "post_logout_redirect_uri_validation_supported": true,
+  "idempotent_replay_protection": true,
+  "notes": "The canonical /logout route validates registered post-logout redirect URIs, validates id_token_hint claims against issuer/audience/session policy, persists logout fanout plans, and reuses an existing logout_state record to provide replay-safe idempotence when logout is retried."
+}

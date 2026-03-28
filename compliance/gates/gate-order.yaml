@@ -1,0 +1,21 @@
+ordered_gates:
+- gate-00-structure
+- gate-05-governance
+- gate-10-static
+- gate-12-project-tree-layout
+- gate-15-boundary-enforcement
+- gate-18-migration-plan
+- gate-20-tests
+- gate-25-wrapper-hygiene
+- gate-30-contracts
+- gate-35-contract-sync
+- gate-40-evidence
+- gate-45-evidence-peer
+- gate-50-release-bundle
+- gate-55-contract-validation
+- gate-60-release-signing
+- gate-65-state-reports
+- gate-75-test-classification
+- gate-85-peer-profiles
+- gate-90-release
+- gate-95-recertification

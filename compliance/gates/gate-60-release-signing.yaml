@@ -1,0 +1,8 @@
+name: gate-60-release-signing
+description: Require asymmetric release signing attestations and verification to pass
+checks:
+- signed_release_bundles_present
+- signed_claim_manifests_present
+- signed_evidence_manifests_present
+- signed_contract_sets_present
+- release_signing_verification_passes

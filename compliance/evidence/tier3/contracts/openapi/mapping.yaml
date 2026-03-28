@@ -1,0 +1,53 @@
+schema_version: 1
+targets:
+- target: OpenAPI 3.1 / 3.2 compatible public contract
+  claim:
+    target: OpenAPI 3.1 / 3.2 compatible public contract
+    tier: 3
+    status: evidenced-release-gated
+    profile: baseline
+  modules:
+  - tigrbl_auth/api/rest
+  - tigrbl_auth/api/surfaces.py
+  tests:
+  - tests/e2e/test_release_gate_catalog.py
+  - tests/integration/test_profile_surface_and_contract_alignment.py
+  - tests/unit/test_contract_generation_live.py
+  endpoint_mapping: {}
+profile: baseline
+reports:
+- docs/compliance/claims_lint_report.json
+- docs/compliance/claims_lint_report.md
+- docs/compliance/contract_sync_report.json
+- docs/compliance/contract_sync_report.md
+- docs/compliance/feature_flags_surface_modularity_report.json
+- docs/compliance/feature_flags_surface_modularity_report.md
+- docs/compliance/target_module_mapping_report.json
+- docs/compliance/target_module_mapping_report.md
+- docs/compliance/target_route_mapping_report.json
+- docs/compliance/target_route_mapping_report.md
+- docs/compliance/target_contract_mapping_report.json
+- docs/compliance/target_contract_mapping_report.md
+- docs/compliance/target_test_mapping_report.json
+- docs/compliance/target_test_mapping_report.md
+- docs/compliance/target_evidence_mapping_report.json
+- docs/compliance/target_evidence_mapping_report.md
+- docs/compliance/test_classification_report.json
+- docs/compliance/test_classification_report.md
+- docs/compliance/release_gate_report.json
+- docs/compliance/release_gate_report.md
+- docs/compliance/evidence_peer_readiness_report.json
+- docs/compliance/evidence_peer_readiness_report.md
+- docs/compliance/evidence_status_report.json
+- docs/compliance/evidence_status_report.md
+- docs/compliance/current_state_report.json
+- docs/compliance/current_state_report.md
+- docs/compliance/certification_state_report.json
+- docs/compliance/certification_state_report.md
+contracts:
+- specs/openapi/profiles/baseline/tigrbl_auth.public.openapi.json
+- specs/discovery/profiles/baseline/openid-configuration.json
+- specs/discovery/profiles/baseline/oauth-authorization-server.json
+- specs/discovery/profiles/baseline/jwks.json
+scenario_ids:
+- openapi-31--32-compatible-public-contract

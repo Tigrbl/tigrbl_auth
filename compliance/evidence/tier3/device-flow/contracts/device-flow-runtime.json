@@ -1,0 +1,15 @@
+{
+  "label": "RFC 8628",
+  "title": "OAuth 2.0 Device Authorization Grant",
+  "runtime_status": "phase-8-persistence-backed-device-flow",
+  "public_surface": [
+    "/device_authorization",
+    "/token"
+  ],
+  "notes": "Canonical standards-tree owner module for device-code lifecycle helpers. The canonical /device_authorization and /token grant path are now persistence-backed with authorization_pending / slow_down / access_denied / expired_token semantics, replay protection, and audit-observable approval/denial state.",
+  "poll_interval_seconds": 5,
+  "slow_down_increment_seconds": 5,
+  "replay_protection_supported": true,
+  "approval_denial_supported": true,
+  "spec_url": "https://www.rfc-editor.org/rfc/rfc8628"
+}

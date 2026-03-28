@@ -1,0 +1,30 @@
+{
+  "checkpoint_kind": "Phase 3 published dependency and runner gap closeout",
+  "generated_at": "2026-03-24",
+  "fully_certifiable_now": false,
+  "fully_rfc_compliant_now": false,
+  "kept_runners": [
+    "uvicorn",
+    "hypercorn",
+    "tigrcorn"
+  ],
+  "package_support_boundary": ">=3.10,<3.13",
+  "certification_python_minors": [
+    "3.10",
+    "3.11",
+    "3.12"
+  ],
+  "tigrcorn_python_boundary": ">=3.11",
+  "published_dependency_verification_artifact": "constraints/dependency-lock.json",
+  "published_dependency_verification_source": "PyPI release metadata verified on 2026-03-24",
+  "runtime_profile_summary": {
+    "placeholder_supported_runner_count": 0,
+    "declared_ci_installable_runner_count": 3,
+    "declared_ci_install_probe_complete": true
+  },
+  "remaining_blockers": [
+    "Tier 4 independent peer validation is still absent.",
+    "Successful execution evidence for the full clean-room matrix is still not preserved from this container.",
+    "The current container still lacks the full published Tigrbl runtime import stack."
+  ]
+}

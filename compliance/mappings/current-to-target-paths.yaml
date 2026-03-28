@@ -1,0 +1,80 @@
+schema_version: 1
+package: tigrbl_auth
+replacement_order:
+- framework and config
+- plugin/gateway/api roots
+- tables and migrations
+- services and ops
+- standards/jose
+- standards/oauth2 baseline
+- standards/oidc baseline
+- api/rest routers
+- security
+- production targets
+- hardening targets
+- cli/contracts/evidence/release automation
+moves:
+- source: tigrbl_auth/app.py
+  target: tigrbl_auth/api/app.py
+  status: completed
+  legacy_boundary: legacy_transition
+- source: tigrbl_auth/routers/surface.py
+  target: tigrbl_auth/api/surfaces.py
+  status: completed
+  legacy_boundary: legacy_transition
+- source: tigrbl_auth/routers/auth_flows.py
+  target: tigrbl_auth/api/rest/routers/login.py
+  status: completed
+  legacy_boundary: legacy_transition
+- source: tigrbl_auth/routers/authz/oidc.py
+  target: tigrbl_auth/api/rest/routers/authorize.py
+  status: completed
+  legacy_boundary: legacy_transition
+- source: tigrbl_auth/orm
+  target: tigrbl_auth/tables
+  status: completed
+  legacy_boundary: legacy_transition
+- source: tigrbl_auth/db.py
+  target: tigrbl_auth/tables/engine.py
+  status: completed
+  legacy_boundary: legacy_transition
+- source: tigrbl_auth/runtime_cfg.py
+  target: tigrbl_auth/config/settings.py
+  status: completed
+  legacy_boundary: legacy_transition
+- source: tigrbl_auth/backends.py
+  target: tigrbl_auth/services/auth_backends.py
+  status: completed
+  legacy_boundary: legacy_transition
+- source: tigrbl_auth/crypto.py
+  target: tigrbl_auth/services/key_management.py
+  status: completed
+  legacy_boundary: legacy_transition
+- source: tigrbl_auth/jwtoken.py
+  target: tigrbl_auth/services/token_service.py
+  status: completed
+  legacy_boundary: legacy_transition
+- source: tigrbl_auth/oidc_discovery.py
+  target: tigrbl_auth/standards/oidc/discovery.py
+  status: completed
+  legacy_boundary: legacy_transition
+- source: tigrbl_auth/oidc_id_token.py
+  target: tigrbl_auth/standards/oidc/id_token.py
+  status: completed
+  legacy_boundary: legacy_transition
+- source: tigrbl_auth/oidc_userinfo.py
+  target: tigrbl_auth/standards/oidc/userinfo.py
+  status: completed
+  legacy_boundary: legacy_transition
+- source: tigrbl_auth/rfc
+  target: tigrbl_auth/standards
+  status: completed
+  legacy_boundary: legacy_transition
+- source: tests/i9n
+  target: tests/integration
+  status: completed
+  legacy_boundary: legacy_transition
+- source: vendor
+  target: <deleted>
+  status: forbidden
+  legacy_boundary: forbidden

@@ -1,0 +1,61 @@
+schema_version: 1
+targets:
+- target: OpenRPC 1.4.x admin/control-plane contract
+  claim:
+    target: OpenRPC 1.4.x admin/control-plane contract
+    tier: 3
+    status: evidenced-release-gated
+    profile: production
+  modules:
+  - tigrbl_auth/api/rpc/__init__.py
+  - tigrbl_auth/api/rpc/registry.py
+  - tigrbl_auth/api/rpc/methods
+  - tigrbl_auth/api/rpc/schemas
+  - tigrbl_auth/api/surfaces.py
+  - tigrbl_auth/cli/artifacts.py
+  - tigrbl_auth/cli/reports.py
+  - tigrbl_auth/config/deployment.py
+  tests:
+  - tests/e2e/test_release_gate_catalog.py
+  - tests/unit/test_contract_generation_live.py
+  - tests/unit/test_rpc_registry_live.py
+  endpoint_mapping:
+    current:
+    - /rpc
+    target:
+    - /rpc
+    status: implementation-backed
+profile: production
+reports:
+- docs/compliance/claims_lint_report.json
+- docs/compliance/claims_lint_report.md
+- docs/compliance/contract_sync_report.json
+- docs/compliance/contract_sync_report.md
+- docs/compliance/feature_flags_surface_modularity_report.json
+- docs/compliance/feature_flags_surface_modularity_report.md
+- docs/compliance/target_module_mapping_report.json
+- docs/compliance/target_module_mapping_report.md
+- docs/compliance/target_route_mapping_report.json
+- docs/compliance/target_route_mapping_report.md
+- docs/compliance/target_contract_mapping_report.json
+- docs/compliance/target_contract_mapping_report.md
+- docs/compliance/target_test_mapping_report.json
+- docs/compliance/target_test_mapping_report.md
+- docs/compliance/target_evidence_mapping_report.json
+- docs/compliance/target_evidence_mapping_report.md
+- docs/compliance/test_classification_report.json
+- docs/compliance/test_classification_report.md
+- docs/compliance/release_gate_report.json
+- docs/compliance/release_gate_report.md
+- docs/compliance/evidence_peer_readiness_report.json
+- docs/compliance/evidence_peer_readiness_report.md
+- docs/compliance/evidence_status_report.json
+- docs/compliance/evidence_status_report.md
+- docs/compliance/current_state_report.json
+- docs/compliance/current_state_report.md
+- docs/compliance/certification_state_report.json
+- docs/compliance/certification_state_report.md
+contracts:
+- specs/openrpc/profiles/production/tigrbl_auth.admin.openrpc.json
+scenario_ids:
+- openrpc-14x-admin-control-plane-contract

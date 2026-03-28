@@ -1,0 +1,5 @@
+flow: encrypted-id-token-discovery
+requests:
+- method: GET
+  path: /.well-known/openid-configuration
+  result: id_token_encryption_*_supported includes dir/A256GCM when enabled

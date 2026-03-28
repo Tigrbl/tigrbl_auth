@@ -1,0 +1,18 @@
+capture_mode: contract-derived-snapshot
+profile: baseline
+source_contract: specs/openapi/profiles/baseline/tigrbl_auth.public.openapi.json
+paths:
+- path: /.well-known/oauth-authorization-server
+  operations:
+  - method: GET
+    operationId: get__well_known_oauth_authorization_server
+    summary: OAuth authorization server metadata
+    responses:
+    - '200'
+- path: /.well-known/openid-configuration
+  operations:
+  - method: GET
+    operationId: get__well_known_openid_configuration
+    summary: OIDC discovery document
+    responses:
+    - '200'

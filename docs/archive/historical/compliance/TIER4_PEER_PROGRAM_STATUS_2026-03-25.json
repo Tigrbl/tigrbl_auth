@@ -1,0 +1,41 @@
+{
+  "passed": false,
+  "summary": {
+    "profile_count": 16,
+    "supported_peer_profile_count": 16,
+    "candidate_profile_count": 16,
+    "required_external_bundle_count": 16,
+    "external_bundle_count": 0,
+    "valid_external_bundle_count": 0,
+    "invalid_external_bundle_count": 0,
+    "missing_external_bundle_count": 16,
+    "promoted_target_count": 0,
+    "retained_target_count": 48,
+    "tier4_claims_present": false,
+    "retained_boundary_promoted": false,
+    "strict_independent_claims_ready": false,
+    "profiles_missing_external_bundles": [
+      "assertion-client",
+      "browser",
+      "client-mgmt",
+      "device",
+      "dpop",
+      "gateway",
+      "mtls",
+      "native",
+      "ops-cli",
+      "par-jar-rar",
+      "resource-server",
+      "rp-session-logout",
+      "runner-hypercorn",
+      "runner-tigrcorn",
+      "runner-uvicorn",
+      "spa"
+    ],
+    "profiles_with_invalid_external_bundles": []
+  },
+  "details": {
+    "external_handoff_template_root": "dist/tier4-external-handoff",
+    "next_command": "python scripts/materialize_tier4_peer_evidence.py --external-root <external-root> --require-full-boundary"
+  }
+}

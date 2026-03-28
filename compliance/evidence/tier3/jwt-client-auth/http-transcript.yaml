@@ -1,0 +1,6 @@
+flow: private-key-jwt-token-request
+requests:
+- method: POST
+  path: /token
+  content_type: application/x-www-form-urlencoded
+  client_assertion_type: urn:ietf:params:oauth:client-assertion-type:jwt-bearer

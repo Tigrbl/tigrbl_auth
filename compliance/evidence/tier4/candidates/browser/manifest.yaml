@@ -1,0 +1,55 @@
+schema_version: 1
+bundle_kind: tier4-candidate-layout
+profile: browser
+counterpart_id: browser-rp
+status: awaiting-independent-external-artifacts
+runtime_profile: hardening
+required_targets:
+- RFC 6749
+- RFC 7636
+- RFC 7516
+- RFC 8414
+- RFC 8615
+- RFC 9207
+- OIDC Core 1.0
+- OIDC Discovery 1.0
+- OIDC UserInfo
+scenario_ids:
+- browser-authz-code
+- browser-oidc-discovery
+- browser-userinfo
+- browser-jwe-id-token
+- browser-issuer-parameter
+- browser-hardening-discovery-truthfulness
+required_peer_artifacts:
+- http-transcript.yaml
+- browser-trace.json
+- result.yaml
+required_identity_fields:
+- peer_name
+- peer_version
+required_container_fields:
+- image_ref
+- image_digest
+attestation_class_required: independent-external
+contract_profiles:
+- baseline
+- hardening
+- peer-claim
+contract_snapshot_refs:
+  baseline:
+  - specs/openapi/profiles/baseline/tigrbl_auth.public.openapi.json
+  - specs/openrpc/profiles/baseline/tigrbl_auth.admin.openrpc.json
+  - compliance/claims/effective-target-claims.baseline.yaml
+  - compliance/evidence/effective-release-evidence.baseline.yaml
+  hardening:
+  - specs/openapi/profiles/hardening/tigrbl_auth.public.openapi.json
+  - specs/openrpc/profiles/hardening/tigrbl_auth.admin.openrpc.json
+  - compliance/claims/effective-target-claims.hardening.yaml
+  - compliance/evidence/effective-release-evidence.hardening.yaml
+  peer-claim:
+  - specs/openapi/profiles/peer-claim/tigrbl_auth.public.openapi.json
+  - specs/openrpc/profiles/peer-claim/tigrbl_auth.admin.openrpc.json
+  - compliance/claims/effective-target-claims.peer-claim.yaml
+  - compliance/evidence/effective-release-evidence.peer-claim.yaml
+generated_at: '2026-03-26T23:32:33+00:00'

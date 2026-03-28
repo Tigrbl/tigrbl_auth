@@ -1,0 +1,150 @@
+schema_version: 1
+package: tigrbl_auth
+decisions:
+- id: BND-001
+  statement: Only declared targets are certifiable.
+  adr: docs/adr/ADR-0009-package-boundary-strict-core.md
+  enforced_by_checks:
+  - claims_linter
+  - declared-target-only-certification
+  release_gates:
+  - gate-05-governance
+  - gate-15-boundary-enforcement
+- id: BND-002
+  statement: Runtime code is organized by domain/protocol planes rather than a flat
+    RFC-number tree.
+  adr: docs/adr/ADR-0017-plane-modularity.md
+  enforced_by_checks:
+  - module-boundary-resolution
+  - wrapper_hygiene_scan
+  release_gates:
+  - gate-00-structure
+  - gate-15-boundary-enforcement
+  - gate-25-wrapper-hygiene
+- id: BND-003
+  statement: Extensions remain outside the certified core unless explicitly promoted
+    with evidence.
+  adr: docs/adr/ADR-0005-standards-vs-extensions.md
+  enforced_by_checks:
+  - claims_linter
+  - extension-quarantine-check
+  - boundary-import-scan
+  release_gates:
+  - gate-05-governance
+  - gate-15-boundary-enforcement
+- id: BND-004
+  statement: No direct FastAPI or Starlette imports or dependencies are allowed in
+    supported package paths.
+  adr: docs/adr/ADR-0004-no-fastapi-no-starlette.md
+  enforced_by_checks:
+  - framework_leakage_scan
+  release_gates:
+  - gate-10-static
+  - gate-15-boundary-enforcement
+- id: BND-005
+  statement: Only Tigrbl public APIs may be used for release-path composition and
+    runtime integration.
+  adr: docs/adr/ADR-0014-tigrbl-public-api-only-composition.md
+  enforced_by_checks:
+  - framework_leakage_scan
+  - boundary-import-scan
+  release_gates:
+  - gate-10-static
+  - gate-15-boundary-enforcement
+- id: BND-006
+  statement: No wrapper modules remain eligible for certification claims in certified-core
+    paths.
+  adr: docs/adr/ADR-0019-boundary-enforcement-as-code.md
+  enforced_by_checks:
+  - wrapper_hygiene_scan
+  - certified_core_wrapper_count_zero
+  release_gates:
+  - gate-15-boundary-enforcement
+  - gate-25-wrapper-hygiene
+- id: BND-007
+  statement: No Tier 3 claims may be emitted without preserved evidence references.
+  adr: docs/adr/ADR-0011-evidence-model-and-tier-promotion.md
+  enforced_by_checks:
+  - evidence_gate
+  - tier3_claims_have_evidence_refs
+  release_gates:
+  - gate-40-evidence
+  - gate-45-evidence-peer
+- id: BND-008
+  statement: No Tier 4 claims may be emitted without independent peer and interop
+    evidence.
+  adr: docs/adr/ADR-0012-independent-peer-claims.md
+  enforced_by_checks:
+  - peer_gate
+  - tier4_claims_have_peer_refs
+  release_gates:
+  - gate-45-evidence-peer
+  - gate-90-release
+- id: BND-009
+  statement: The project tree layout and current-to-target move map are certification
+    artifacts and release-gated.
+  adr: docs/adr/ADR-0021-project-tree-and-migration-plan.md
+  enforced_by_checks:
+  - project_tree_layout_check
+  - migration_move_map_check
+  release_gates:
+  - gate-12-project-tree-layout
+  - gate-18-migration-plan
+- id: BND-010
+  statement: Runtime claims are for an ASGI 3 application with separately qualified
+    runner profiles, not a bundled single server claim.
+  adr: docs/adr/ADR-0027-runner-profile-certification.md
+  enforced_by_checks:
+  - claims_linter
+  - contract_sync_gate
+  release_gates:
+  - gate-05-governance
+  - gate-35-contract-sync
+- id: BND-011
+  statement: The CLI operator plane is part of the certification boundary; serve must
+    launch runtime and keys is the canonical command family.
+  adr: docs/adr/ADR-0028-cli-operator-surface-is-certification-boundary.md
+  enforced_by_checks:
+  - claims_linter
+  - contract_sync_gate
+  release_gates:
+  - gate-05-governance
+  - gate-35-contract-sync
+- id: BND-012
+  statement: The retained certification boundary is frozen during closeout; scope
+    expansion requires a separate program and no target-count drift is allowed.
+  adr: docs/adr/ADR-0029-certification-closeout-boundary-freeze.md
+  enforced_by_checks:
+  - claims_linter
+  - boundary-scope-freeze
+  release_gates:
+  - gate-05-governance
+  - gate-15-boundary-enforcement
+  - gate-90-release
+in_scope:
+- OAuth 2.0 authorization server
+- OIDC provider
+- JOSE/JWT/JWKS
+- sessions, cookies, and logout
+- client registration and management
+- token lifecycle
+- device flow, token exchange, hardened request channels, sender-constrained tokens
+- OpenAPI/OpenRPC contracts
+- ADRs, evidence, release gates, and peer claims
+- ASGI 3 application package
+- runner-qualified serving profiles
+- CLI operator lifecycle and release surfaces
+extension_boundary:
+- WebAuthn/passkeys
+- SET
+- Web Push
+- optional A2A/MCP adapters
+- optional trust/federation work
+out_of_scope_baseline:
+- SAML IdP/SP
+- LDAP/AD federation
+- SCIM
+- full authorization-policy platform
+- data-plane authorization platform
+- framework-local auth subsystem
+- Keycloak-scale federation breadth

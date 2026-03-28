@@ -1,0 +1,12 @@
+# Recertification Report
+
+- Passed: `True`
+
+## Summary
+
+- schema_version: `1`
+- fingerprint: `b9d6992409bab450fc78df29599fc6e1ff924ad6ee129af8ee730b28b1a61f6b`
+- previous_fingerprint: `b9d6992409bab450fc78df29599fc6e1ff924ad6ee129af8ee730b28b1a61f6b`
+- changed_since_last_run: `False`
+- version: `0.3.2.dev14`
+- watched_dependency_artifact_count: `14`

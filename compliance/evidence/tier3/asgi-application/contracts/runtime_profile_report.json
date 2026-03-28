@@ -1,0 +1,425 @@
+{
+  "generated_at": "20260324T070429Z",
+  "deployment_profile": "baseline",
+  "application_probe": {
+    "passed": false,
+    "app_factory": "tigrbl_auth.api.app.build_app",
+    "message": "No module named 'tigrbl'",
+    "error_type": "ModuleNotFoundError"
+  },
+  "summary": {
+    "runner_count": 3,
+    "ready_count": 0,
+    "missing_count": 1,
+    "invalid_count": 2,
+    "application_hash_invariant": true
+  },
+  "profiles": [
+    {
+      "name": "hypercorn",
+      "display_name": "Hypercorn",
+      "status": "invalid",
+      "installed": true,
+      "available_module": "hypercorn",
+      "capabilities": [
+        {
+          "name": "http",
+          "description": "HTTP ASGI serving",
+          "portable": true
+        },
+        {
+          "name": "websocket",
+          "description": "WebSocket ASGI serving",
+          "portable": true
+        },
+        {
+          "name": "lifespan",
+          "description": "ASGI lifespan integration",
+          "portable": true
+        },
+        {
+          "name": "uds",
+          "description": "Unix domain socket binding",
+          "portable": true
+        },
+        {
+          "name": "workers",
+          "description": "Worker configuration",
+          "portable": true
+        },
+        {
+          "name": "http2",
+          "description": "HTTP/2 support where configured",
+          "portable": false
+        }
+      ],
+      "flag_metadata": [
+        {
+          "name": "server",
+          "flags": [
+            "--server"
+          ],
+          "description": "Select the Hypercorn runner profile.",
+          "portable": true,
+          "value_type": "choice",
+          "default": "hypercorn",
+          "choices": [
+            "hypercorn"
+          ]
+        },
+        {
+          "name": "host",
+          "flags": [
+            "--host"
+          ],
+          "description": "Bind host.",
+          "portable": true,
+          "value_type": "string",
+          "default": "127.0.0.1"
+        },
+        {
+          "name": "port",
+          "flags": [
+            "--port"
+          ],
+          "description": "Bind port.",
+          "portable": true,
+          "value_type": "int",
+          "default": 8000
+        },
+        {
+          "name": "workers",
+          "flags": [
+            "--workers"
+          ],
+          "description": "Worker count.",
+          "portable": true,
+          "value_type": "int",
+          "default": 1
+        },
+        {
+          "name": "uds",
+          "flags": [
+            "--uds"
+          ],
+          "description": "Unix domain socket path.",
+          "portable": true,
+          "value_type": "string"
+        },
+        {
+          "name": "hypercorn_worker_class",
+          "flags": [
+            "--hypercorn-worker-class"
+          ],
+          "description": "Hypercorn worker class.",
+          "portable": false,
+          "value_type": "choice",
+          "default": "asyncio",
+          "choices": [
+            "asyncio",
+            "trio",
+            "uvloop"
+          ]
+        },
+        {
+          "name": "hypercorn_http2",
+          "flags": [
+            "--hypercorn-http2"
+          ],
+          "description": "Enable HTTP/2 ALPN for Hypercorn.",
+          "portable": false,
+          "value_type": "bool",
+          "default": true
+        }
+      ],
+      "diagnostics": [],
+      "application_hash": "6bc1a1a15b32c0648a59427ad5d2e68761cd5f5d7ae89bef383842e1dc579b43",
+      "runtime_hash": "c77fd754cbf6743178d8cc51a004988e1c3f146dda9d6b6adf8a33c570dde01e"
+    },
+    {
+      "name": "tigrcorn",
+      "display_name": "Tigrcorn",
+      "status": "missing",
+      "installed": false,
+      "available_module": null,
+      "capabilities": [
+        {
+          "name": "http",
+          "description": "HTTP ASGI serving",
+          "portable": true
+        },
+        {
+          "name": "websocket",
+          "description": "WebSocket ASGI serving",
+          "portable": true
+        },
+        {
+          "name": "lifespan",
+          "description": "ASGI lifespan integration",
+          "portable": true
+        },
+        {
+          "name": "uds",
+          "description": "Unix domain socket binding",
+          "portable": true
+        },
+        {
+          "name": "workers",
+          "description": "Worker model",
+          "portable": true
+        },
+        {
+          "name": "runner-contract",
+          "description": "External Tigrcorn adapter contract",
+          "portable": false
+        }
+      ],
+      "flag_metadata": [
+        {
+          "name": "server",
+          "flags": [
+            "--server"
+          ],
+          "description": "Select the Tigrcorn runner profile.",
+          "portable": true,
+          "value_type": "choice",
+          "default": "tigrcorn",
+          "choices": [
+            "tigrcorn"
+          ]
+        },
+        {
+          "name": "host",
+          "flags": [
+            "--host"
+          ],
+          "description": "Bind host.",
+          "portable": true,
+          "value_type": "string",
+          "default": "127.0.0.1"
+        },
+        {
+          "name": "port",
+          "flags": [
+            "--port"
+          ],
+          "description": "Bind port.",
+          "portable": true,
+          "value_type": "int",
+          "default": 8000
+        },
+        {
+          "name": "workers",
+          "flags": [
+            "--workers"
+          ],
+          "description": "Worker count.",
+          "portable": true,
+          "value_type": "int",
+          "default": 1
+        },
+        {
+          "name": "uds",
+          "flags": [
+            "--uds"
+          ],
+          "description": "Unix domain socket path.",
+          "portable": true,
+          "value_type": "string"
+        },
+        {
+          "name": "tigrcorn_contract",
+          "flags": [
+            "--tigrcorn-contract"
+          ],
+          "description": "Preferred Tigrcorn adapter contract.",
+          "portable": false,
+          "value_type": "choice",
+          "default": "auto",
+          "choices": [
+            "auto",
+            "serve",
+            "run",
+            "server"
+          ]
+        },
+        {
+          "name": "tigrcorn_mode",
+          "flags": [
+            "--tigrcorn-mode"
+          ],
+          "description": "Preferred Tigrcorn runtime mode hint.",
+          "portable": false,
+          "value_type": "choice",
+          "default": "asgi",
+          "choices": [
+            "asgi",
+            "auto"
+          ]
+        }
+      ],
+      "diagnostics": [
+        {
+          "code": "runner-not-installed",
+          "level": "warning",
+          "message": "Runner adapter is declared but the backing server package is not installed in this environment.",
+          "runner": "tigrcorn"
+        }
+      ],
+      "application_hash": "6bc1a1a15b32c0648a59427ad5d2e68761cd5f5d7ae89bef383842e1dc579b43",
+      "runtime_hash": "e5c4b6c30a0963fc4d19266bca81a908e98e52ab26fd6f7905b42ab8871f3a90"
+    },
+    {
+      "name": "uvicorn",
+      "display_name": "Uvicorn",
+      "status": "invalid",
+      "installed": true,
+      "available_module": "uvicorn",
+      "capabilities": [
+        {
+          "name": "http",
+          "description": "HTTP/1.1 ASGI serving",
+          "portable": true
+        },
+        {
+          "name": "websocket",
+          "description": "WebSocket ASGI serving",
+          "portable": true
+        },
+        {
+          "name": "lifespan",
+          "description": "ASGI lifespan integration",
+          "portable": true
+        },
+        {
+          "name": "uds",
+          "description": "Unix domain socket binding",
+          "portable": true
+        },
+        {
+          "name": "workers",
+          "description": "Process workers",
+          "portable": true
+        },
+        {
+          "name": "proxy-headers",
+          "description": "Proxy header processing",
+          "portable": true
+        }
+      ],
+      "flag_metadata": [
+        {
+          "name": "server",
+          "flags": [
+            "--server"
+          ],
+          "description": "Select the Uvicorn runner profile.",
+          "portable": true,
+          "value_type": "choice",
+          "default": "uvicorn",
+          "choices": [
+            "uvicorn"
+          ]
+        },
+        {
+          "name": "host",
+          "flags": [
+            "--host"
+          ],
+          "description": "Bind host.",
+          "portable": true,
+          "value_type": "string",
+          "default": "127.0.0.1"
+        },
+        {
+          "name": "port",
+          "flags": [
+            "--port"
+          ],
+          "description": "Bind port.",
+          "portable": true,
+          "value_type": "int",
+          "default": 8000
+        },
+        {
+          "name": "workers",
+          "flags": [
+            "--workers"
+          ],
+          "description": "Worker count.",
+          "portable": true,
+          "value_type": "int",
+          "default": 1
+        },
+        {
+          "name": "uds",
+          "flags": [
+            "--uds"
+          ],
+          "description": "Unix domain socket path.",
+          "portable": true,
+          "value_type": "string"
+        },
+        {
+          "name": "proxy_headers",
+          "flags": [
+            "--proxy-headers"
+          ],
+          "description": "Honor forwarded proxy headers.",
+          "portable": true,
+          "value_type": "bool",
+          "default": false
+        },
+        {
+          "name": "uvicorn_loop",
+          "flags": [
+            "--uvicorn-loop"
+          ],
+          "description": "Uvicorn event-loop implementation.",
+          "portable": false,
+          "value_type": "choice",
+          "default": "auto",
+          "choices": [
+            "auto",
+            "asyncio",
+            "uvloop"
+          ]
+        },
+        {
+          "name": "uvicorn_http",
+          "flags": [
+            "--uvicorn-http"
+          ],
+          "description": "Uvicorn HTTP protocol implementation.",
+          "portable": false,
+          "value_type": "choice",
+          "default": "auto",
+          "choices": [
+            "auto",
+            "h11",
+            "httptools"
+          ]
+        },
+        {
+          "name": "uvicorn_ws",
+          "flags": [
+            "--uvicorn-ws"
+          ],
+          "description": "Uvicorn WebSocket implementation.",
+          "portable": false,
+          "value_type": "choice",
+          "default": "auto",
+          "choices": [
+            "auto",
+            "websockets",
+            "wsproto",
+            "none"
+          ]
+        }
+      ],
+      "diagnostics": [],
+      "application_hash": "6bc1a1a15b32c0648a59427ad5d2e68761cd5f5d7ae89bef383842e1dc579b43",
+      "runtime_hash": "daeb45c2834409d61b8a3c58d8289a003f4d0c14ab5c5335911338217e9c4029"
+    }
+  ]
+}

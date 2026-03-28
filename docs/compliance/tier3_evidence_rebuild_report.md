@@ -1,0 +1,36 @@
+# Tier 3 Evidence Rebuild Report
+
+- Passed: `True`
+
+## Summary
+
+- runtime_report_generated_from_validated_runs: `True`
+- recognized_manifest_count: `12`
+- in_scope_validated_manifest_count: `7`
+- out_of_scope_validated_manifest_count: `5`
+- required_validated_inventory_count: `30`
+- validated_inventory_present_count: `6`
+- validated_inventory_complete: `False`
+
+## Warnings
+
+- Out-of-scope validated manifests are present and were excluded from certification counts.
+- Validated artifact inventory is below the required 14 runtime + 15 test lanes + 1 migration threshold.
+
+## Details
+
+- validated_execution_report: `docs/compliance/validated_execution_report.json`
+- validated_execution_report_sha256: `6cb85239845eca86e1ccb97f7b62ebfba27f15df2c3fb18de9064f92c0fb3879`
+- runtime_profile_report: `docs/compliance/runtime_profile_report.json`
+- runtime_profile_report_sha256: `610b2a106fef4ee70183a274cbbd2dc0f411a24cce52bdd347a55832e82496ed`
+- release_gate_report: `docs/compliance/release_gate_report.json`
+- release_gate_report_sha256: `a0c3b96c0eb3fed8907c54576d8f28a7651db053330b94a05ed224534f7f905f`
+- final_release_gate_report: `docs/compliance/final_release_gate_report.json`
+- final_release_gate_report_sha256: `ce0209196fb846620fa08bc0ea3a1c201e574100d348c4804865c73437e149e3`
+- current_state_report: `docs/compliance/current_state_report.json`
+- current_state_report_sha256: `c796da6c3e341938db11b9739510aa041747fd78e9e132f580de4dea191a6dd9`
+- collected_artifact_downloads: `dist/validated-runs/collected-artifact-downloads.json`
+- collected_artifact_downloads_sha256: `None`
+- recognized_manifest_paths: `['dist/validated-runs/migration-portability-py313.json', 'dist/validated-runs/test-conformance-py311.json', 'dist/validated-runs/test-conformance-py313.json', 'dist/validated-runs/test-core-py311.json', 'dist/validated-runs/test-core-py313.json', 'dist/validated-runs/test-integration-py311.json', 'dist/validated-runs/test-integration-py313.json', 'dist/validated-runs/test-interop-py311.json', 'dist/validated-runs/test-interop-py313.json', 'dist/validated-runs/test-security-negative-py311.json', 'dist/validated-runs/test-security-negative-py313.json', 'dist/validated-runs/tier3-evidence-py313.json']`
+- validated_manifest_paths: `['dist/validated-runs/migration-portability-py313.json', 'dist/validated-runs/test-conformance-py311.json', 'dist/validated-runs/test-core-py311.json', 'dist/validated-runs/test-integration-py311.json', 'dist/validated-runs/test-interop-py311.json', 'dist/validated-runs/test-security-negative-py311.json', 'dist/validated-runs/tier3-evidence-py313.json']`
+- out_of_scope_manifest_paths: `['dist/validated-runs/test-conformance-py313.json', 'dist/validated-runs/test-core-py313.json', 'dist/validated-runs/test-integration-py313.json', 'dist/validated-runs/test-interop-py313.json', 'dist/validated-runs/test-security-negative-py313.json']`

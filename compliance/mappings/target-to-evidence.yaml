@@ -1,0 +1,96 @@
+RFC 6749:
+- compliance/evidence/tier3/oauth2-core/
+RFC 6750:
+- compliance/evidence/tier3/bearer/
+RFC 7636:
+- compliance/evidence/tier3/pkce/
+RFC 8414:
+- compliance/evidence/tier3/discovery/
+RFC 8615:
+- compliance/evidence/tier3/well-known/
+RFC 7515:
+- compliance/evidence/tier3/jose/
+RFC 7517:
+- compliance/evidence/tier3/jwks/
+RFC 7518:
+- compliance/evidence/tier3/jose/
+RFC 7519:
+- compliance/evidence/tier3/jwt/
+OIDC Core 1.0:
+- compliance/evidence/tier3/oidc-core/
+OIDC Discovery 1.0:
+- compliance/evidence/tier3/discovery/
+RFC 7009:
+- compliance/evidence/tier3/revocation/
+RFC 7591:
+- compliance/evidence/tier3/client-registration/
+RFC 7592:
+- compliance/evidence/tier3/client-registration-management/
+RFC 7662:
+- compliance/evidence/tier3/introspection/
+RFC 8252:
+- compliance/evidence/tier3/native-apps/
+RFC 8628:
+- compliance/evidence/tier3/device-flow/
+RFC 8693:
+- compliance/evidence/tier3/token-exchange/
+RFC 8705:
+- compliance/evidence/tier3/mtls/
+RFC 8707:
+- compliance/evidence/tier3/resource-indicators/
+RFC 9068:
+- compliance/evidence/tier3/jwt-access-token-profile/
+RFC 9101:
+- compliance/evidence/tier3/jar/
+RFC 9126:
+- compliance/evidence/tier3/par/
+RFC 9396:
+- compliance/evidence/tier3/rar/
+RFC 9449:
+- compliance/evidence/tier3/dpop/
+RFC 9700:
+- compliance/evidence/tier3/security-bcp/
+RFC 9728:
+- compliance/evidence/tier3/protected-resource-metadata/
+OpenAPI 3.1 / 3.2 compatible public contract:
+- compliance/evidence/tier3/contracts/openapi/
+OpenRPC 1.4.x admin/control-plane contract:
+- compliance/evidence/tier3/contracts/openrpc/
+RFC 7516:
+- compliance/evidence/tier3/jwe/
+RFC 9207:
+- compliance/evidence/tier3/issuer-identification/
+RFC 6265:
+- compliance/evidence/tier3/cookies/
+RFC 7521:
+- compliance/evidence/tier3/assertion-framework/
+RFC 7523:
+- compliance/evidence/tier3/jwt-client-auth/
+OIDC UserInfo:
+- compliance/evidence/tier3/oidc-userinfo/
+OIDC Session Management:
+- compliance/evidence/tier3/oidc-session-management/
+OIDC RP-Initiated Logout:
+- compliance/evidence/tier3/oidc-rp-initiated-logout/
+OIDC Front-Channel Logout:
+- compliance/evidence/tier3/oidc-frontchannel-logout/
+OIDC Back-Channel Logout:
+- compliance/evidence/tier3/oidc-backchannel-logout/
+ASGI 3 application package:
+- compliance/evidence/tier3/asgi-application/
+'Runner profile: Uvicorn':
+- compliance/evidence/tier3/runner-uvicorn/
+'Runner profile: Hypercorn':
+- compliance/evidence/tier3/runner-hypercorn/
+'Runner profile: Tigrcorn':
+- compliance/evidence/tier3/runner-tigrcorn/
+CLI operator surface:
+- compliance/evidence/tier3/cli-operator-surface/
+Bootstrap and migration lifecycle:
+- compliance/evidence/tier3/bootstrap-migration/
+Key lifecycle and JWKS publication:
+- compliance/evidence/tier3/key-lifecycle-jwks/
+Import/export portability:
+- compliance/evidence/tier3/import-export-portability/
+Release bundle and signature verification:
+- compliance/evidence/tier3/release-bundle-signing/
