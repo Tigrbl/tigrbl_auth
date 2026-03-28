@@ -102,7 +102,6 @@ _BASE_MODULES: tuple[dict[str, Any], ...] = (
 )
 _TEST_MODULES: tuple[dict[str, Any], ...] = (
     {"module": "pytest", "package": "pytest", "category": "test"},
-    {"module": "pytest_asyncio", "package": "pytest-asyncio", "category": "test"},
     {"module": "xdist", "package": "pytest-xdist", "category": "test"},
     {"module": "pytest_jsonreport", "package": "pytest-json-report", "category": "test"},
     {"module": "pytest_timeout", "package": "pytest-timeout", "category": "test"},
