@@ -28,9 +28,9 @@ The repository is **not yet certifiably fully featured**, **not yet certifiably 
 - archived historical root count: `1`
 - certification bundle current-state doc count: `21`
 - install substrate manifest passed: `True`
-- install substrate supported-python binaries detected: `0` / `3`
-- install substrate current-profile import probe passed: `False`
-- validated inventory present count: `6` / `30`
+- install substrate supported-python binaries detected: `3` / `3`
+- install substrate current-profile import probe passed: `True`
+- validated inventory present count: `7` / `30`
 - validated runtime matrix passed count: `0` / `14`
 - validated test-lane passed count: `0` / `15`
 - migration portability passed: `False`

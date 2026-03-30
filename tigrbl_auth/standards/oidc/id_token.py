@@ -12,6 +12,7 @@ import os
 import pathlib
 import base64
 import json
+import secrets
 from hashlib import sha256
 from datetime import timedelta
 from functools import lru_cache
@@ -70,6 +71,7 @@ async def _ensure_key() -> Tuple[str, bytes, bytes]:
 
 
 _service_cache: Tuple[JWTTokenService, str] | None = None
+_rotation_jwks_cache: list[dict[str, Any]] = []
 
 
 async def _service() -> Tuple[JWTTokenService, str]:
@@ -156,12 +158,30 @@ ensure_rsa_jwt_key = _ensure_key
 async def rotate_rsa_jwt_key() -> str:
     """Create a new RSA signing key and update cached services."""
     kp = _provider()
+    previous_kid = _RSA_KEY_PATH.read_text().strip() if _RSA_KEY_PATH.exists() else ""
+    try:
+        existing_keys = (await kp.jwks()).get("keys", [])
+    except Exception:
+        existing_keys = []
+    for item in existing_keys:
+        if not isinstance(item, dict):
+            continue
+        prev_id = str(item.get("kid") or "")
+        if prev_id and all(str(cached.get("kid")) != prev_id for cached in _rotation_jwks_cache):
+            _rotation_jwks_cache.append(item)
+    if previous_kid and all(str(cached.get("kid")) != previous_kid for cached in _rotation_jwks_cache):
+        try:
+            previous_jwk = await kp.get_public_jwk(previous_kid)
+        except Exception:
+            previous_jwk = {"kid": previous_kid, "kty": "RSA"}
+        if isinstance(previous_jwk, dict):
+            _rotation_jwks_cache.append(previous_jwk)
     spec = KeySpec(
         klass=KeyClass.asymmetric,
         alg=KeyAlg.RSA_PSS_SHA256,
         uses=(KeyUse.SIGN, KeyUse.VERIFY),
         export_policy=ExportPolicy.SECRET_WHEN_ALLOWED,
-        label="jwt_rs256",
+        label=f"jwt_rs256.rotate.{secrets.token_hex(4)}",
     )
     ref = await kp.create_key(spec)
     _RSA_KEY_PATH.parent.mkdir(parents=True, exist_ok=True)
@@ -177,6 +197,10 @@ async def rotate_rsa_jwt_key() -> str:
     return ref.kid
 
 
+def rotation_jwks_cache() -> list[dict[str, Any]]:
+    return [dict(item) for item in _rotation_jwks_cache]
+
+
 __all__ = [
     "mint_id_token",
     "verify_id_token",
@@ -184,4 +208,5 @@ __all__ = [
     "rsa_key_provider",
     "ensure_rsa_jwt_key",
     "rotate_rsa_jwt_key",
+    "rotation_jwks_cache",
 ]

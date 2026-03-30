@@ -48,13 +48,13 @@
           "par_required": true,
           "sender_constraint_required": true,
           "dpop_supported": true,
-          "mtls_supported": true,
+          "mtls_supported": false,
           "resource_indicators_supported": true,
           "request_objects_supported": true,
           "rich_authorization_requests_supported": true,
           "query_bearer_disabled": true,
           "form_bearer_disabled": true,
-          "jwt_access_token_profile_supported": true
+          "jwt_access_token_profile_supported": false
         }
       }
     },
@@ -107,13 +107,13 @@
           "par_required": true,
           "sender_constraint_required": true,
           "dpop_supported": true,
-          "mtls_supported": true,
+          "mtls_supported": false,
           "resource_indicators_supported": true,
           "request_objects_supported": true,
           "rich_authorization_requests_supported": true,
           "query_bearer_disabled": true,
           "form_bearer_disabled": true,
-          "jwt_access_token_profile_supported": true
+          "jwt_access_token_profile_supported": false
         },
         "parameters": [
           {
@@ -272,13 +272,13 @@
           "par_required": true,
           "sender_constraint_required": true,
           "dpop_supported": true,
-          "mtls_supported": true,
+          "mtls_supported": false,
           "resource_indicators_supported": true,
           "request_objects_supported": true,
           "rich_authorization_requests_supported": true,
           "query_bearer_disabled": true,
           "form_bearer_disabled": true,
-          "jwt_access_token_profile_supported": true
+          "jwt_access_token_profile_supported": false
         },
         "requestBody": {
           "required": true,
@@ -385,14 +385,6 @@
             "schema": {
               "type": "string"
             }
-          },
-          {
-            "name": "X-Client-Cert-SHA256",
-            "in": "header",
-            "required": false,
-            "schema": {
-              "type": "string"
-            }
           }
         ]
       }
@@ -434,13 +426,13 @@
           "par_required": true,
           "sender_constraint_required": true,
           "dpop_supported": true,
-          "mtls_supported": true,
+          "mtls_supported": false,
           "resource_indicators_supported": true,
           "request_objects_supported": true,
           "rich_authorization_requests_supported": true,
           "query_bearer_disabled": true,
           "form_bearer_disabled": true,
-          "jwt_access_token_profile_supported": true
+          "jwt_access_token_profile_supported": false
         },
         "security": [
           {
@@ -486,13 +478,13 @@
           "par_required": true,
           "sender_constraint_required": true,
           "dpop_supported": true,
-          "mtls_supported": true,
+          "mtls_supported": false,
           "resource_indicators_supported": true,
           "request_objects_supported": true,
           "rich_authorization_requests_supported": true,
           "query_bearer_disabled": true,
           "form_bearer_disabled": true,
-          "jwt_access_token_profile_supported": true
+          "jwt_access_token_profile_supported": false
         },
         "requestBody": {
           "required": true,
@@ -554,13 +546,13 @@
           "par_required": true,
           "sender_constraint_required": true,
           "dpop_supported": true,
-          "mtls_supported": true,
+          "mtls_supported": false,
           "resource_indicators_supported": true,
           "request_objects_supported": true,
           "rich_authorization_requests_supported": true,
           "query_bearer_disabled": true,
           "form_bearer_disabled": true,
-          "jwt_access_token_profile_supported": true
+          "jwt_access_token_profile_supported": false
         },
         "requestBody": {
           "required": true,
@@ -695,13 +687,13 @@
           "par_required": true,
           "sender_constraint_required": true,
           "dpop_supported": true,
-          "mtls_supported": true,
+          "mtls_supported": false,
           "resource_indicators_supported": true,
           "request_objects_supported": true,
           "rich_authorization_requests_supported": true,
           "query_bearer_disabled": true,
           "form_bearer_disabled": true,
-          "jwt_access_token_profile_supported": true
+          "jwt_access_token_profile_supported": false
         },
         "parameters": [
           {
@@ -758,13 +750,13 @@
           "par_required": true,
           "sender_constraint_required": true,
           "dpop_supported": true,
-          "mtls_supported": true,
+          "mtls_supported": false,
           "resource_indicators_supported": true,
           "request_objects_supported": true,
           "rich_authorization_requests_supported": true,
           "query_bearer_disabled": true,
           "form_bearer_disabled": true,
-          "jwt_access_token_profile_supported": true
+          "jwt_access_token_profile_supported": false
         },
         "parameters": [
           {
@@ -912,13 +904,13 @@
           "par_required": true,
           "sender_constraint_required": true,
           "dpop_supported": true,
-          "mtls_supported": true,
+          "mtls_supported": false,
           "resource_indicators_supported": true,
           "request_objects_supported": true,
           "rich_authorization_requests_supported": true,
           "query_bearer_disabled": true,
           "form_bearer_disabled": true,
-          "jwt_access_token_profile_supported": true
+          "jwt_access_token_profile_supported": false
         },
         "parameters": [
           {
@@ -977,13 +969,13 @@
           "par_required": true,
           "sender_constraint_required": true,
           "dpop_supported": true,
-          "mtls_supported": true,
+          "mtls_supported": false,
           "resource_indicators_supported": true,
           "request_objects_supported": true,
           "rich_authorization_requests_supported": true,
           "query_bearer_disabled": true,
           "form_bearer_disabled": true,
-          "jwt_access_token_profile_supported": true
+          "jwt_access_token_profile_supported": false
         },
         "requestBody": {
           "required": true,
@@ -1045,13 +1037,13 @@
           "par_required": true,
           "sender_constraint_required": true,
           "dpop_supported": true,
-          "mtls_supported": true,
+          "mtls_supported": false,
           "resource_indicators_supported": true,
           "request_objects_supported": true,
           "rich_authorization_requests_supported": true,
           "query_bearer_disabled": true,
           "form_bearer_disabled": true,
-          "jwt_access_token_profile_supported": true
+          "jwt_access_token_profile_supported": false
         },
         "parameters": [
           {
@@ -1133,13 +1125,13 @@
           "par_required": true,
           "sender_constraint_required": true,
           "dpop_supported": true,
-          "mtls_supported": true,
+          "mtls_supported": false,
           "resource_indicators_supported": true,
           "request_objects_supported": true,
           "rich_authorization_requests_supported": true,
           "query_bearer_disabled": true,
           "form_bearer_disabled": true,
-          "jwt_access_token_profile_supported": true
+          "jwt_access_token_profile_supported": false
         },
         "requestBody": {
           "required": false,
@@ -1232,13 +1224,13 @@
           "par_required": true,
           "sender_constraint_required": true,
           "dpop_supported": true,
-          "mtls_supported": true,
+          "mtls_supported": false,
           "resource_indicators_supported": true,
           "request_objects_supported": true,
           "rich_authorization_requests_supported": true,
           "query_bearer_disabled": true,
           "form_bearer_disabled": true,
-          "jwt_access_token_profile_supported": true
+          "jwt_access_token_profile_supported": false
         },
         "requestBody": {
           "required": true,
@@ -1310,13 +1302,13 @@
           "par_required": true,
           "sender_constraint_required": true,
           "dpop_supported": true,
-          "mtls_supported": true,
+          "mtls_supported": false,
           "resource_indicators_supported": true,
           "request_objects_supported": true,
           "rich_authorization_requests_supported": true,
           "query_bearer_disabled": true,
           "form_bearer_disabled": true,
-          "jwt_access_token_profile_supported": true
+          "jwt_access_token_profile_supported": false
         },
         "requestBody": {
           "required": true,
@@ -1413,13 +1405,13 @@
           "par_required": true,
           "sender_constraint_required": true,
           "dpop_supported": true,
-          "mtls_supported": true,
+          "mtls_supported": false,
           "resource_indicators_supported": true,
           "request_objects_supported": true,
           "rich_authorization_requests_supported": true,
           "query_bearer_disabled": true,
           "form_bearer_disabled": true,
-          "jwt_access_token_profile_supported": true
+          "jwt_access_token_profile_supported": false
         },
         "requestBody": {
           "required": true,
@@ -1468,14 +1460,6 @@
             "schema": {
               "type": "string"
             }
-          },
-          {
-            "name": "X-Client-Cert-SHA256",
-            "in": "header",
-            "required": false,
-            "schema": {
-              "type": "string"
-            }
           }
         ]
       }
@@ -1518,13 +1502,13 @@
           "par_required": true,
           "sender_constraint_required": true,
           "dpop_supported": true,
-          "mtls_supported": true,
+          "mtls_supported": false,
           "resource_indicators_supported": true,
           "request_objects_supported": true,
           "rich_authorization_requests_supported": true,
           "query_bearer_disabled": true,
           "form_bearer_disabled": true,
-          "jwt_access_token_profile_supported": true
+          "jwt_access_token_profile_supported": false
         }
       }
     },
@@ -1566,13 +1550,13 @@
           "par_required": true,
           "sender_constraint_required": true,
           "dpop_supported": true,
-          "mtls_supported": true,
+          "mtls_supported": false,
           "resource_indicators_supported": true,
           "request_objects_supported": true,
           "rich_authorization_requests_supported": true,
           "query_bearer_disabled": true,
           "form_bearer_disabled": true,
-          "jwt_access_token_profile_supported": true
+          "jwt_access_token_profile_supported": false
         }
       }
     },
@@ -1614,13 +1598,13 @@
           "par_required": true,
           "sender_constraint_required": true,
           "dpop_supported": true,
-          "mtls_supported": true,
+          "mtls_supported": false,
           "resource_indicators_supported": true,
           "request_objects_supported": true,
           "rich_authorization_requests_supported": true,
           "query_bearer_disabled": true,
           "form_bearer_disabled": true,
-          "jwt_access_token_profile_supported": true
+          "jwt_access_token_profile_supported": false
         }
       }
     },
@@ -1662,13 +1646,13 @@
           "par_required": true,
           "sender_constraint_required": true,
           "dpop_supported": true,
-          "mtls_supported": true,
+          "mtls_supported": false,
           "resource_indicators_supported": true,
           "request_objects_supported": true,
           "rich_authorization_requests_supported": true,
           "query_bearer_disabled": true,
           "form_bearer_disabled": true,
-          "jwt_access_token_profile_supported": true
+          "jwt_access_token_profile_supported": false
         }
       }
     }
@@ -2069,8 +2053,7 @@
       "par",
       "jar",
       "rar",
-      "dpop",
-      "mtls"
+      "dpop"
     ],
     "extensions": [],
     "active_targets": [
@@ -2093,9 +2076,7 @@
       "RFC 8252",
       "RFC 8628",
       "RFC 8693",
-      "RFC 8705",
       "RFC 8707",
-      "RFC 9068",
       "RFC 9101",
       "RFC 9126",
       "RFC 9207",

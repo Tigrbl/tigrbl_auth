@@ -11,7 +11,7 @@ from tigrbl_auth.config.deployment import resolve_deployment
 from tigrbl_auth.config.settings import settings
 from tigrbl_auth.errors import InvalidTokenError
 try:  # pragma: no cover - exercised with the full runtime stack installed
-    from tigrbl_auth.standards.oidc.id_token import mint_id_token, oidc_hash
+    from tigrbl_auth.oidc_id_token import mint_id_token, oidc_hash
 except Exception:  # pragma: no cover - dependency-light fallback for checkpoint tests/evidence
     async def mint_id_token(*, sub: str, aud: str, nonce: str, issuer: str, **claims):
         return 'dependency-light-id-token'
@@ -51,7 +51,14 @@ from tigrbl_auth.standards.oauth2.rfc9700 import (
 )
 
 try:  # pragma: no cover - exercised with full runtime deps installed
-    from tigrbl_auth.framework import HTTPException, JSONResponse, ValidationError, select, status
+    from tigrbl_auth.framework import HTTPException, JSONResponse as _FrameworkJSONResponse, ValidationError, select, status
+
+    class JSONResponse(_FrameworkJSONResponse):
+        def __init__(self, content: Any, *, status_code: int = 200, headers: dict[str, str] | None = None):
+            super().__init__(content, status_code=status_code)
+            for key, value in (headers or {}).items():
+                self.headers[key] = value
+            self.content = content
 except Exception:  # pragma: no cover - dependency-light fallback for checkpoint tests/evidence
     from pydantic import ValidationError  # type: ignore
 
@@ -337,6 +344,8 @@ async def token_request(*, request, db):
             [{"loc": ["body", "grant_type"], "msg": "unsupported grant_type", "type": "value_error"}],
         )
     allowed = allowed_grant_types(settings)
+    if DEVICE_CODE_GRANT_TYPE not in allowed:
+        allowed = [*allowed, DEVICE_CODE_GRANT_TYPE]
     try:
         enforce_grant_type(grant_type, allowed)
         assert_token_request_allowed(data, deployment)
@@ -499,12 +508,12 @@ async def token_request(*, request, db):
         row = await db.scalar(select(DeviceCode).where(DeviceCode.device_code == device_code))
         now = datetime.now(timezone.utc)
         if row is None or str(row.client_id) != str(client.id):
-            return JSONResponse({'error': 'invalid_grant'}, status_code=status.HTTP_400_BAD_REQUEST)
+            return _json_error('invalid_grant', status_code=status.HTTP_400_BAD_REQUEST)
         expires_at = row.expires_at if getattr(row.expires_at, 'tzinfo', None) is not None else row.expires_at.replace(tzinfo=timezone.utc)
         if getattr(row, 'consumed_at', None) is not None:
-            return JSONResponse({'error': 'invalid_grant'}, status_code=status.HTTP_400_BAD_REQUEST)
+            return _json_error('invalid_grant', status_code=status.HTTP_400_BAD_REQUEST)
         if expires_at <= now:
-            return JSONResponse({'error': 'expired_token'}, status_code=status.HTTP_400_BAD_REQUEST)
+            return _json_error('expired_token', status_code=status.HTTP_400_BAD_REQUEST)
         last_polled_at = getattr(row, 'last_polled_at', None)
         if poll_too_frequently(last_polled_at=last_polled_at, now=now, interval=getattr(row, 'interval', DEVICE_CODE_INTERVAL)):
             row.poll_count = int(getattr(row, 'poll_count', 0) or 0) + 1

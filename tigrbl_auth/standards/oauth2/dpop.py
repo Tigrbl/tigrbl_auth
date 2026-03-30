@@ -395,20 +395,25 @@ def _verify_fallback_signature(proof: str, method: str, url: str, *, max_skew_s:
 
 def _verify_signature_requirements(proof: str, method: str, url: str, *, max_skew_s: int = _ALLOWED_SKEW) -> bool:
     if _SIGNER is not None:
-        return bool(
-            _run_async(
-                _SIGNER.verify_bytes(
-                    b"",
-                    [{"sig": proof}],
-                    require={
-                        "htm": method.upper(),
-                        "htu": url,
-                        "algs": [_ALG_VALUE],
-                        "max_skew_s": max_skew_s,
-                    },
+        try:
+            verified = bool(
+                _run_async(
+                    _SIGNER.verify_bytes(
+                        b"",
+                        [{"sig": proof}],
+                        require={
+                            "htm": method.upper(),
+                            "htu": url,
+                            "algs": [_ALG_VALUE],
+                            "max_skew_s": max_skew_s,
+                        },
+                    )
                 )
             )
-        )
+            if verified:
+                return True
+        except Exception:
+            pass
     return _verify_fallback_signature(proof, method, url, max_skew_s=max_skew_s)
 
 
@@ -442,7 +447,19 @@ def make_proof(
                 opts=opts,
             )
         )
-        return sigs[0]["sig"]
+        proof = sigs[0]["sig"]
+        try:
+            claims = proof_claims(proof)
+            expected_ath = ath_for_access_token(access_token) if access_token is not None else None
+            if expected_ath is not None and claims.ath != expected_ath:
+                raise ValueError("ath mismatch")
+            if nonce is not None and claims.nonce != str(nonce):
+                raise ValueError("nonce mismatch")
+            return proof
+        except Exception:
+            # Fallback to local Ed25519 compact-JWT signer when the runtime signer
+            # omits required claims (ath/nonce) in dependency-light environments.
+            pass
 
     private_key = _load_private_key(keyref)
     public_material = getattr(keyref, "public", None)

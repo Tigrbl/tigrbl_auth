@@ -22,25 +22,25 @@
     {
       "label": "release-bundle",
       "artifact_path": "release-bundle.json",
-      "artifact_sha256": "1b512afc8882f379b838c34b33ca168edb06a70b7412d49b36c995cc9f4d682d",
+      "artifact_sha256": "844f931b069a62712f14cae6e093fe99fd2a4cf1b42fe80e944fb90ae50004df",
       "attestation_path": "attestations/release-bundle.attestation.json"
     },
     {
       "label": "claim-manifest",
       "artifact_path": "compliance/claims/effective-target-claims.baseline.yaml",
-      "artifact_sha256": "fc7c1981fd5f5404d695fd0dfb47f58d261469d93ee80aa7c237b5c804463f35",
+      "artifact_sha256": "a0595ce30610c44a9a000fe03d61ab043f6f7ede0bc196cec60c88d1cf43b071",
       "attestation_path": "attestations/claim-manifest.attestation.json"
     },
     {
       "label": "evidence-manifest",
       "artifact_path": "compliance/evidence/effective-release-evidence.baseline.yaml",
-      "artifact_sha256": "bb9636301ff16eb4245537b56b6c372c8d0f6711945a4f5c7d4cb74e790f8867",
+      "artifact_sha256": "21fcd7ae6fa2d2903fa0d25145581c62f8bcf370c8a1e748c14e2931d1430bd0",
       "attestation_path": "attestations/evidence-manifest.attestation.json"
     },
     {
       "label": "contract-set",
       "artifact_path": "attestations/contract-set.manifest.json",
-      "artifact_sha256": "4ac2d46b9985872cd680c6f060f69388b0fe567af64f2a8e76509355e5666091",
+      "artifact_sha256": "24349591cb6df46201c2394263fc32ec6d8e364272440093dbba5084250169c3",
       "attestation_path": "attestations/contract-set.attestation.json"
     }
   ],
@@ -49,7 +49,7 @@
     "failures": [],
     "warnings": [],
     "details": {
-      "bundle_root": "/tmp/tigrbl_work/tigrbl_auth_phase13_certification_target_freeze_reconciled_2026-03-24/dist/feature-completeness-sandbox/release-bundle",
+      "bundle_root": "/workspace/tigrbl_auth/dist/feature-completeness-sandbox/release-bundle",
       "verified_artifact_count": 4,
       "signing_key_id": "ed25519:47cff9cbdf9030464a7095e6",
       "artifact_labels": [
