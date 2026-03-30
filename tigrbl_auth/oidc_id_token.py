@@ -35,8 +35,16 @@ if _CANONICAL is not None:  # pragma: no cover - covered indirectly in tests
     _service_cache = _CANONICAL._service_cache
 
     def _sync_to_canonical() -> None:
-        _CANONICAL._RSA_KEY_PATH = globals().get("_RSA_KEY_PATH", _CANONICAL._RSA_KEY_PATH)
-        _CANONICAL._service_cache = globals().get("_service_cache", _CANONICAL._service_cache)
+        next_path = globals().get("_RSA_KEY_PATH", _CANONICAL._RSA_KEY_PATH)
+        if next_path != _CANONICAL._RSA_KEY_PATH:
+            _CANONICAL._RSA_KEY_PATH = next_path
+            _CANONICAL._service_cache = None
+            try:
+                _CANONICAL._provider.cache_clear()
+            except Exception:
+                pass
+        else:
+            _CANONICAL._RSA_KEY_PATH = next_path
 
     def _sync_from_canonical() -> None:
         globals()["_RSA_KEY_PATH"] = _CANONICAL._RSA_KEY_PATH

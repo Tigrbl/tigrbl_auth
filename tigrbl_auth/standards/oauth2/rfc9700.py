@@ -387,7 +387,7 @@ def discovery_policy_metadata(deployment: ResolvedDeployment) -> dict[str, objec
         payload["authorization_response_iss_parameter_supported"] = True
     if policy.dpop_supported:
         payload["dpop_signing_alg_values_supported"] = ["EdDSA"]
-    if policy.mtls_supported:
+    if policy.mtls_supported or policy.sender_constraint_required:
         payload["tls_client_certificate_bound_access_tokens"] = True
     if policy.par_required:
         payload["require_pushed_authorization_requests"] = True
@@ -398,7 +398,7 @@ def discovery_policy_metadata(deployment: ResolvedDeployment) -> dict[str, objec
         payload["resource_parameter_supported"] = True
     if policy.rich_authorization_requests_supported:
         payload["authorization_details_types_supported"] = ["*"]
-    if deployment.flag_enabled("enable_rfc9068"):
+    if deployment.flag_enabled("enable_rfc9068") or deployment.profile in {"production", "hardening", "peer-claim"}:
         payload["access_token_signing_alg_values_supported"] = ["EdDSA"]
     return payload
 

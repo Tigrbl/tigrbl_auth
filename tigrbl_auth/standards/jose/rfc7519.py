@@ -103,7 +103,7 @@ def decode_jwt(token: str) -> dict[str, Any]:
         raise RuntimeError(f"RFC 7519 support disabled: {RFC7519_SPEC_URL}")
     coder = _runtime_coder()
     if coder is not None:
-        return coder.verify(token)
+        return coder.decode(token)
     return _fallback_decode(token)
 
 
