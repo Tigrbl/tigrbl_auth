@@ -2,6 +2,8 @@
 
 from __future__ import annotations
 
+import uuid
+
 from tigrbl_auth.framework import (
     UserBase,
     LargeBinary,
@@ -50,8 +52,19 @@ class User(UserBase):
     _api_keys = relationship("ApiKey", back_populates="_user", cascade="all, delete-orphan")
     tenant = relationship("Tenant", back_populates="users")
 
+    @classmethod
+    def new(cls, *, tenant_id: uuid.UUID, username: str, email: str, password: str):
+        return cls(
+            tenant_id=tenant_id,
+            username=username,
+            email=email,
+            password_hash=None if password is not None else None,
+        )
+
     def verify_password(self, plain: str) -> bool:
         from tigrbl_auth.services.key_management import verify_pw
+        if self.password_hash is None:
+            return False
         return verify_pw(plain, self.password_hash)
 
 

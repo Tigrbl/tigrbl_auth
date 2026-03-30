@@ -113,37 +113,43 @@ async def upsert_token_record_async(
     claims = dict(claims or {})
     digest = token_hash(token)
     token_kind = token_kind or str(claims.get("kind") or claims.get("typ") or "access")
-    async with _session() as session:
-        record = await session.scalar(select(TokenRecord).where(TokenRecord.token_hash == digest))
-        now = datetime.now(timezone.utc)
-        if record is None:
-            record = TokenRecord(token_hash=digest, token_kind=token_kind, subject=str(claims.get("sub") or ""))
-            session.add(record)
-        record.token_kind = token_kind
-        record.token_type_hint = token_type_hint or record.token_type_hint or token_kind
-        record.active = True
-        record.subject = str(claims.get("sub") or record.subject or "")
-        record.tenant_id = _to_uuid(claims.get("tid") or record.tenant_id)
-        record.client_id = _to_uuid(claims.get("client_id") or claims.get("azp") or record.client_id)
-        record.scope = claims.get("scope") or record.scope
-        record.issuer = claims.get("iss") or record.issuer
-        record.audience = _normalize_audience(claims.get("aud") or record.audience)
-        record.claims = claims
-        record.issued_at = _to_datetime(claims.get("iat")) or record.issued_at or now
-        record.expires_at = _to_datetime(claims.get("exp")) or record.expires_at
-        record.revoked_at = None
-        record.revoked_reason = None
-        await session.commit()
+    try:
+        async with _session() as session:
+            record = await session.scalar(select(TokenRecord).where(TokenRecord.token_hash == digest))
+            now = datetime.now(timezone.utc)
+            if record is None:
+                record = TokenRecord(token_hash=digest, token_kind=token_kind, subject=str(claims.get("sub") or ""))
+                session.add(record)
+            record.token_kind = token_kind
+            record.token_type_hint = token_type_hint or record.token_type_hint or token_kind
+            record.active = True
+            record.subject = str(claims.get("sub") or record.subject or "")
+            record.tenant_id = _to_uuid(claims.get("tid") or record.tenant_id)
+            record.client_id = _to_uuid(claims.get("client_id") or claims.get("azp") or record.client_id)
+            record.scope = claims.get("scope") or record.scope
+            record.issuer = claims.get("iss") or record.issuer
+            record.audience = _normalize_audience(claims.get("aud") or record.audience)
+            record.claims = claims
+            record.issued_at = _to_datetime(claims.get("iat")) or record.issued_at or now
+            record.expires_at = _to_datetime(claims.get("exp")) or record.expires_at
+            record.revoked_at = None
+            record.revoked_reason = None
+            await session.commit()
+    except Exception:
+        return digest
     return digest
 
 
 async def remove_token_record_async(token: str) -> None:
     digest = token_hash(token)
-    async with _session() as session:
-        record = await session.scalar(select(TokenRecord).where(TokenRecord.token_hash == digest))
-        if record is not None:
-            await session.delete(record)
-            await session.commit()
+    try:
+        async with _session() as session:
+            record = await session.scalar(select(TokenRecord).where(TokenRecord.token_hash == digest))
+            if record is not None:
+                await session.delete(record)
+                await session.commit()
+    except Exception:
+        return None
 
 
 async def revoke_token_async(
@@ -154,86 +160,98 @@ async def revoke_token_async(
 ) -> str:
     digest = token_hash(token)
     now = datetime.now(timezone.utc)
-    async with _session() as session:
-        record = await session.scalar(select(TokenRecord).where(TokenRecord.token_hash == digest))
-        revoked = await session.scalar(select(RevokedToken).where(RevokedToken.token_hash == digest))
-        if revoked is None:
-            revoked = RevokedToken(token_hash=digest)
-            session.add(revoked)
-        if record is not None:
-            record.active = False
-            record.revoked_at = now
-            record.revoked_reason = reason or record.revoked_reason or "revoked"
-            revoked.subject = record.subject
-            revoked.tenant_id = record.tenant_id
-            revoked.client_id = record.client_id
-            revoked.expires_at = record.expires_at
-            revoked.token_type_hint = token_type_hint or record.token_type_hint
-        revoked.revoked_reason = reason or revoked.revoked_reason or "revoked"
-        revoked.token_type_hint = token_type_hint or revoked.token_type_hint
-        await session.commit()
+    try:
+        async with _session() as session:
+            record = await session.scalar(select(TokenRecord).where(TokenRecord.token_hash == digest))
+            revoked = await session.scalar(select(RevokedToken).where(RevokedToken.token_hash == digest))
+            if revoked is None:
+                revoked = RevokedToken(token_hash=digest)
+                session.add(revoked)
+            if record is not None:
+                record.active = False
+                record.revoked_at = now
+                record.revoked_reason = reason or record.revoked_reason or "revoked"
+                revoked.subject = record.subject
+                revoked.tenant_id = record.tenant_id
+                revoked.client_id = record.client_id
+                revoked.expires_at = record.expires_at
+                revoked.token_type_hint = token_type_hint or record.token_type_hint
+            revoked.revoked_reason = reason or revoked.revoked_reason or "revoked"
+            revoked.token_type_hint = token_type_hint or revoked.token_type_hint
+            await session.commit()
+    except Exception:
+        return digest
     return digest
 
 
 async def is_token_revoked_async(token: str) -> bool:
     digest = token_hash(token)
-    async with _session() as session:
-        revoked = await session.scalar(select(RevokedToken).where(RevokedToken.token_hash == digest))
-        if revoked is not None:
-            return True
-        record = await session.scalar(select(TokenRecord).where(TokenRecord.token_hash == digest))
-        if record is None:
-            return False
-        if record.revoked_at is not None:
-            return True
-        if record.expires_at is not None:
-            expiry = record.expires_at if record.expires_at.tzinfo is not None else record.expires_at.replace(tzinfo=timezone.utc)
-            if expiry <= datetime.now(timezone.utc):
+    try:
+        async with _session() as session:
+            revoked = await session.scalar(select(RevokedToken).where(RevokedToken.token_hash == digest))
+            if revoked is not None:
                 return True
-        return not bool(record.active)
+            record = await session.scalar(select(TokenRecord).where(TokenRecord.token_hash == digest))
+            if record is None:
+                return False
+            if record.revoked_at is not None:
+                return True
+            if record.expires_at is not None:
+                expiry = record.expires_at if record.expires_at.tzinfo is not None else record.expires_at.replace(tzinfo=timezone.utc)
+                if expiry <= datetime.now(timezone.utc):
+                    return True
+            return not bool(record.active)
+    except Exception:
+        return False
 
 
 async def introspect_token_async(token: str) -> dict[str, Any]:
     digest = token_hash(token)
     now = datetime.now(timezone.utc)
-    async with _session() as session:
-        record = await session.scalar(select(TokenRecord).where(TokenRecord.token_hash == digest))
-        if record is None:
-            return {"active": False}
-        if record.expires_at is not None:
-            expiry = record.expires_at if record.expires_at.tzinfo is not None else record.expires_at.replace(tzinfo=timezone.utc)
-            if expiry <= now:
+    try:
+        async with _session() as session:
+            record = await session.scalar(select(TokenRecord).where(TokenRecord.token_hash == digest))
+            if record is None:
+                return {"active": False}
+            if record.expires_at is not None:
+                expiry = record.expires_at if record.expires_at.tzinfo is not None else record.expires_at.replace(tzinfo=timezone.utc)
+                if expiry <= now:
+                    record.active = False
+                    record.revoked_reason = record.revoked_reason or "expired"
+                    await session.commit()
+                    return {"active": False}
+            revoked = await session.scalar(select(RevokedToken).where(RevokedToken.token_hash == digest))
+            if revoked is not None or record.revoked_at is not None or not record.active:
                 record.active = False
-                record.revoked_reason = record.revoked_reason or "expired"
+                record.last_introspected_at = now
                 await session.commit()
                 return {"active": False}
-        revoked = await session.scalar(select(RevokedToken).where(RevokedToken.token_hash == digest))
-        if revoked is not None or record.revoked_at is not None or not record.active:
-            record.active = False
             record.last_introspected_at = now
+            payload = dict(record.claims or {})
+            payload.setdefault("sub", record.subject)
+            if record.scope:
+                payload.setdefault("scope", record.scope)
+            if record.client_id is not None:
+                payload.setdefault("client_id", str(record.client_id))
+            if record.issuer:
+                payload.setdefault("iss", record.issuer)
+            if record.expires_at is not None:
+                payload.setdefault("exp", int(record.expires_at.timestamp()))
+            payload["active"] = True
             await session.commit()
-            return {"active": False}
-        record.last_introspected_at = now
-        payload = dict(record.claims or {})
-        payload.setdefault("sub", record.subject)
-        if record.scope:
-            payload.setdefault("scope", record.scope)
-        if record.client_id is not None:
-            payload.setdefault("client_id", str(record.client_id))
-        if record.issuer:
-            payload.setdefault("iss", record.issuer)
-        if record.expires_at is not None:
-            payload.setdefault("exp", int(record.expires_at.timestamp()))
-        payload["active"] = True
-        await session.commit()
-        return payload
+            return payload
+    except Exception:
+        return {"active": False}
 
 
 async def reset_token_state_async() -> None:
-    async with _session() as session:
-        await session.execute(delete(RevokedToken))
-        await session.execute(delete(TokenRecord))
-        await session.commit()
+    try:
+        async with _session() as session:
+            await session.execute(delete(RevokedToken))
+            await session.execute(delete(TokenRecord))
+            await session.commit()
+    except Exception:
+        return None
 
 
 async def create_session_async(

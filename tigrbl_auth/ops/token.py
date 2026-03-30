@@ -203,7 +203,11 @@ async def _load_client(db, client_id: str) -> tuple[Client | None, ClientRegistr
 
 
 def _registered_token_endpoint_auth_method(registration: ClientRegistration | None) -> str:
-    metadata = dict(getattr(registration, 'registration_metadata', None) or {}) if registration is not None else {}
+    raw_metadata = getattr(registration, 'registration_metadata', None) if registration is not None else None
+    if isinstance(raw_metadata, dict):
+        metadata = raw_metadata
+    else:
+        metadata = {}
     return str(metadata.get('token_endpoint_auth_method') or DEFAULT_TOKEN_ENDPOINT_AUTH_METHOD)
 
 
