@@ -8,6 +8,7 @@ artifacts, and conformance snapshots are all derived from these structures.
 """
 
 import argparse
+import re
 from dataclasses import dataclass, field
 from typing import Any, Iterable, Sequence
 
@@ -829,17 +830,22 @@ def build_cli_contract_manifest() -> dict[str, Any]:
     }
 
 
+def _normalize_help_snapshot(text: str) -> str:
+    """Normalize argparse help text across Python minor versions."""
+    return re.sub(r" \(default: (?:True|False)\)", "", text)
+
+
 def build_help_snapshots() -> dict[str, str]:
     parser = build_parser()
-    snapshots: dict[str, str] = {"tigrbl-auth": parser.format_help()}
+    snapshots: dict[str, str] = {"tigrbl-auth": _normalize_help_snapshot(parser.format_help())}
     root_subparsers = next(action for action in parser._actions if isinstance(action, argparse._SubParsersAction))
     for spec in COMMAND_SPECS:
         command_parser = root_subparsers.choices[spec.name]
-        snapshots[f"tigrbl-auth {spec.name}"] = command_parser.format_help()
+        snapshots[f"tigrbl-auth {spec.name}"] = _normalize_help_snapshot(command_parser.format_help())
         if spec.verbs:
             nested = next(action for action in command_parser._actions if isinstance(action, argparse._SubParsersAction))
             for verb in spec.verbs:
-                snapshots[f"tigrbl-auth {spec.name} {verb.name}"] = nested.choices[verb.name].format_help()
+                snapshots[f"tigrbl-auth {spec.name} {verb.name}"] = _normalize_help_snapshot(nested.choices[verb.name].format_help())
     return snapshots
 
 
