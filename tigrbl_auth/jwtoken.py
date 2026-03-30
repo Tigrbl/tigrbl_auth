@@ -261,7 +261,9 @@ class JWTCoder:
             ):
                 raise InvalidTokenError("token is expired")
         cnf = payload.get("cnf") if isinstance(payload.get("cnf"), dict) else {}
-        if settings.enable_rfc8705 and cnf.get("x5t#S256") is not None:
+        if settings.enable_rfc8705:
+            if cnf.get("x5t#S256") is None:
+                raise InvalidTokenError("token missing required cnf.x5t#S256 claim")
             validate_certificate_binding(payload, cert_thumbprint)
         if settings.enable_rfc9068:
             if issuer is None or audience is None:

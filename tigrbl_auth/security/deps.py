@@ -61,6 +61,23 @@ async def _user_from_jwt(token: str, db: AsyncSession, *, cert_thumbprint: str |
     except InvalidTokenError:
         return None
 
+    users = await User.handlers.list.core(
+        {
+            "payload": {
+                "filters": {
+                    "id": payload["sub"],
+                    "is_active": True,
+                }
+            },
+            "db": db,
+        }
+    )
+    if hasattr(users, "items"):
+        users = users.items
+    if isinstance(users, (list, tuple)):
+        return users[0] if users else None
+
+    # Fallback for dependency-light runtimes that expose scalar() only.
     return await db.scalar(select(User).where(User.id == payload["sub"], User.is_active.is_(True)))
 
 

@@ -20,6 +20,9 @@ from tigrbl_auth.framework import (
     ForeignKeySpec,
     PgUUID,
 )
+from tigrbl_auth.runtime_cfg import settings
+from tigrbl_auth.framework import HTTPException
+from http import HTTPStatus as status
 
 DEFAULT_PAR_EXPIRY = 90
 
@@ -80,6 +83,16 @@ class PushedAuthorizationRequest(Base, GUIDPk, Timestamped):
         consumed_at = _utc(now) or datetime.now(tz=timezone.utc)
         self.consumed_at = consumed_at
         return consumed_at
+
+    @staticmethod
+    async def _extract_form_params(context: dict) -> dict:
+        if not settings.enable_rfc9126:
+            raise HTTPException(status.HTTP_404_NOT_FOUND, "PAR disabled")
+        request = context.get("request")
+        if request is None:
+            return {}
+        form = await request.form()
+        return dict(form or {})
 
 
 __all__ = ["PushedAuthorizationRequest", "DEFAULT_PAR_EXPIRY"]
