@@ -229,7 +229,7 @@ class Settings(BaseSettings):
         default=_env_bool("TIGRBL_AUTH_ENABLE_RFC8252", "true"),
         description="Track RFC 8252 native-app support in the flag registry.",
     )
-    enable_rfc9068: bool = Field(default=_env_bool("TIGRBL_AUTH_ENABLE_RFC9068", "true"))
+    enable_rfc9068: bool = Field(default=_env_bool("TIGRBL_AUTH_ENABLE_RFC9068", "false"))
     enable_rfc9207: bool = Field(default=_env_bool("TIGRBL_AUTH_ENABLE_RFC9207", "true"))
     enable_rfc9728: bool = Field(
         default=_env_bool("TIGRBL_AUTH_ENABLE_RFC9728", "true"),
@@ -250,7 +250,7 @@ class Settings(BaseSettings):
     enable_rfc8628: bool = Field(default=_env_bool("TIGRBL_AUTH_ENABLE_RFC8628", "true"))
     enable_rfc8693: bool = Field(default=_env_bool("TIGRBL_AUTH_ENABLE_RFC8693", "true"))
     rfc8707_enabled: bool = Field(default=_env_bool("TIGRBL_AUTH_ENABLE_RFC8707", "true"))
-    enable_rfc8705: bool = Field(default=_env_bool("TIGRBL_AUTH_ENABLE_RFC8705", "true"))
+    enable_rfc8705: bool = Field(default=_env_bool("TIGRBL_AUTH_ENABLE_RFC8705", "false"))
     enable_rfc8707: bool = Field(default=_env_bool("TIGRBL_AUTH_ENABLE_RFC8707", "true"))
     enable_rfc9101: bool = Field(default=_env_bool("TIGRBL_AUTH_ENABLE_RFC9101", "true"))
     enable_rfc9126: bool = Field(default=_env_bool("TIGRBL_AUTH_ENABLE_RFC9126", "true"))

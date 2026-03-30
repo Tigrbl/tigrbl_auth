@@ -25,6 +25,42 @@ from tests.lanes import (
 from tests.support import TestClient
 
 
+class _MockDataFactory:
+    def create_user_data(self, **overrides):
+        data = {
+            "username": "testuser",
+            "email": "test@example.com",
+            "password": "SecurePassword123!",
+            "is_active": True,
+        }
+        data.update(overrides)
+        return data
+
+    def create_api_key_data(self, **overrides):
+        data = {
+            "raw_key": "api-key-12345",
+        }
+        data.update(overrides)
+        return data
+
+    def create_client_data(self, **overrides):
+        data = {
+            "client_secret": "client-secret-12345",
+            "is_active": True,
+        }
+        data.update(overrides)
+        return data
+
+
+@pytest.fixture
+def mock_data_factory():
+    return _MockDataFactory()
+
+
+@pytest.fixture
+def sample_tenant_data():
+    return {"slug": "test-tenant", "name": "Test Tenant"}
+
 
 
 def pytest_addoption(parser: pytest.Parser) -> None:

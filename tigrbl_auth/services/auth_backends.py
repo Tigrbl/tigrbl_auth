@@ -53,18 +53,20 @@ class ApiKeyBackend:
         digest = ApiKey.digest_of(api_key)
 
         key_row: Optional[ApiKey] = await db.scalar(await self._get_key_stmt(digest))
-        if key_row and key_row._user:
-            if not key_row._user.is_active:
+        user = getattr(key_row, "user", None) or getattr(key_row, "_user", None)
+        if key_row and user:
+            if not user.is_active:
                 raise AuthError("user is inactive")
             key_row.touch()
-            return key_row._user, "user"
+            return user, "user"
 
         svc_row: Optional[ServiceKey] = await db.scalar(await self._get_service_key_stmt(digest))
-        if svc_row and svc_row._service:
-            if not svc_row._service.is_active:
+        service = getattr(svc_row, "service", None) or getattr(svc_row, "_service", None)
+        if svc_row and service:
+            if not service.is_active:
                 raise AuthError("service is inactive")
             svc_row.touch()
-            return svc_row._service, "service"
+            return service, "service"
 
         clients: Iterable[Client] = await db.scalars(await self._get_client_stmt())
         for client in clients:
