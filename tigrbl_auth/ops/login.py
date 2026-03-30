@@ -8,7 +8,7 @@ from tigrbl_auth.api.rest.shared import _jwt, _require_tls
 from tigrbl_auth.config.settings import settings
 from tigrbl_auth.services.persistence import append_audit_event_async
 from tigrbl_auth.standards.http.cookies import issue_session_cookie, session_cookie_policy
-from tigrbl_auth.standards.oidc.id_token import mint_id_token
+from tigrbl_auth.oidc_id_token import mint_id_token
 from tigrbl_auth.standards.oidc.session_mgmt import create_browser_session
 from tigrbl_auth.standards.oauth2.rfc8414_metadata import ISSUER
 from tigrbl_auth.tables import User

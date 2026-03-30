@@ -59,13 +59,13 @@
 - install_substrate_report_present: `True`
 - install_substrate_manifest_passed: `True`
 - install_substrate_current_profile: `base`
-- install_substrate_current_python_supported: `False`
-- install_substrate_detected_supported_python_count: `0`
+- install_substrate_current_python_supported: `True`
+- install_substrate_detected_supported_python_count: `3`
 - install_substrate_expected_supported_python_count: `3`
 - install_substrate_tox_env_count: `33`
 - install_substrate_tox_pip_check_complete: `True`
 - install_substrate_tox_import_probe_complete: `True`
-- install_substrate_current_profile_import_probe_passed: `False`
+- install_substrate_current_profile_import_probe_passed: `True`
 - test_constraints_manifest_present: `True`
 - tox_manifest_present: `True`
 - native_uv_lock_present: `False`
@@ -80,7 +80,7 @@
 - registered_runner_count: `3`
 - registered_runner_names: `hypercorn, tigrcorn, uvicorn`
 - runtime_application_hash_invariant: `True`
-- runtime_runner_availability_count: `2`
+- runtime_runner_availability_count: `1`
 - runtime_profile_report_present: `True`
 - runtime_profile_ready_count: `0`
 - runtime_profile_missing_count: `3`
@@ -98,8 +98,8 @@
 - operator_plane_backend: `sqlite-authoritative`
 - operator_plane_repo_mutation_dependency: `False`
 - operator_plane_tenancy_enforced: `True`
-- operator_plane_database_present: `True`
-- operator_plane_state_root: `/home/oai/.local/state/tigrbl_auth/operator-plane/tigrbl_auth_phase13_certification_target_freeze_reconciled_2026-03-24-34345189485dce1e`
+- operator_plane_database_present: `False`
+- operator_plane_state_root: `/tmp/pytest-of-root/pytest-5/operator-plane-state187/tigrbl_auth-eaa801ad242b716f`
 - operator_plane_portability_schema_version: `3`
 - pyproject_requires_python: `>=3.10,<3.13`
 - serve_runtime_launcher_present: `True`
@@ -128,9 +128,9 @@
 - historical_doc_stale_ref_count: `0`
 - derived_current_doc_count: `11`
 - historical_archive_present: `True`
-- validated_execution_artifact_count: `7`
+- validated_execution_artifact_count: `8`
 - required_validated_inventory_count: `30`
-- validated_inventory_present_count: `6`
+- validated_inventory_present_count: `7`
 - validated_inventory_complete: `False`
 - validated_runtime_matrix_expected_count: `14`
 - validated_runtime_matrix_passed_count: `0`

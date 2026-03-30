@@ -82,9 +82,9 @@
       "Runner profile: Uvicorn"
     ],
     "tier4_ready_targets": [],
-    "validated_execution_artifact_count": 7,
+    "validated_execution_artifact_count": 8,
     "required_validated_inventory_count": 30,
-    "validated_inventory_present_count": 6,
+    "validated_inventory_present_count": 7,
     "validated_inventory_complete": false,
     "clean_room_matrix_green": false,
     "in_scope_test_lanes_green": false,

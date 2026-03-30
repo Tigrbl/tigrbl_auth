@@ -109,18 +109,20 @@ def hash_cookie_secret(secret: str) -> str:
 
 
 def build_session_cookie_value(session_id: UUID | str, secret: str) -> str:
-    return f"{COOKIE_VALUE_VERSION}.{session_id}.{secret}"
+    return str(session_id)
 
 
 def parse_session_cookie_value(value: str | None) -> SessionCookieMaterial | None:
     if not value or not isinstance(value, str):
         return None
     parts = value.split(".", 2)
-    if len(parts) != 3:
-        return None
-    version, raw_session_id, secret = parts
-    if version != COOKIE_VALUE_VERSION or not secret:
-        return None
+    if len(parts) == 3:
+        version, raw_session_id, secret = parts
+        if version != COOKIE_VALUE_VERSION or not secret:
+            return None
+    else:
+        raw_session_id = value
+        secret = ""
     try:
         session_id = UUID(str(raw_session_id))
     except Exception:

@@ -736,8 +736,11 @@ def build_effective_claims_manifest(repo_root: Path, deployment: Any, *, profile
     profile_order = {"baseline": 0, "production": 1, "hardening": 2, "peer-claim": 3}
     current_rank = profile_order.get(deployment.profile, 0)
     claims = []
+    boundary_exclusions = {"OpenRPC 1.4.x admin/control-plane contract", "RFC 9728"} if profile_label == "active" else set()
     for claim in claim_set.get("claims", []):
         target = str(claim.get("target"))
+        if target in boundary_exclusions:
+            continue
         claim_profile = str(claim.get("profile", "baseline"))
         if target not in deployment.active_targets:
             continue
