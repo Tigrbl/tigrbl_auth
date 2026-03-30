@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import base64
+import inspect
 from datetime import datetime, timezone
 from typing import Any
 from urllib.parse import parse_qs
@@ -109,7 +110,7 @@ except Exception:  # pragma: no cover - dependency-light fallback
         token_type: str = 'bearer'
 
 try:  # pragma: no cover
-    from tigrbl_auth.api.rest.shared import _jwt, _pwd_backend, _require_tls, allowed_grant_types
+    from tigrbl_auth.routers.shared import _jwt, _pwd_backend, _require_tls, allowed_grant_types
 except Exception:  # pragma: no cover - dependency-light fallback
     from tigrbl_auth.services.token_service import JWTCoder
 
@@ -281,7 +282,11 @@ async def token_request(*, request, db):
         return _json_error('invalid_client', status_code=status.HTTP_401_UNAUTHORIZED, headers={'WWW-Authenticate': 'Basic'})
 
     registered_auth_method = _registered_token_endpoint_auth_method(registration)
-    registration_metadata = dict(getattr(registration, 'registration_metadata', None) or {}) if registration is not None else {}
+    registration_metadata: dict[str, object] = {}
+    if registration is not None:
+        raw_registration_metadata = getattr(registration, 'registration_metadata', None)
+        if isinstance(raw_registration_metadata, dict):
+            registration_metadata = dict(raw_registration_metadata)
     if registered_auth_method == PRIVATE_KEY_JWT_AUTH_METHOD:
         if not client_assertion:
             return _json_error('invalid_client', status_code=status.HTTP_401_UNAUTHORIZED, description='client_assertion required for private_key_jwt clients')
@@ -310,8 +315,12 @@ async def token_request(*, request, db):
             return _json_error('invalid_client', status_code=status.HTTP_401_UNAUTHORIZED, description=str(exc))
     elif client_assertion:
         return _json_error('invalid_client', status_code=status.HTTP_401_UNAUTHORIZED, description='client is not configured for JWT client authentication')
-    elif client_secret and not client.verify_secret(client_secret):
-        return _json_error('invalid_client', status_code=status.HTTP_401_UNAUTHORIZED, headers={'WWW-Authenticate': 'Basic'})
+    elif client_secret:
+        secret_valid = client.verify_secret(client_secret)
+        if inspect.isawaitable(secret_valid):
+            secret_valid = await secret_valid
+        if not secret_valid:
+            return _json_error('invalid_client', status_code=status.HTTP_401_UNAUTHORIZED, headers={'WWW-Authenticate': 'Basic'})
 
     if data.get('client_id') and data['client_id'] != str(client_id):
         return _json_error('invalid_client', status_code=status.HTTP_401_UNAUTHORIZED, headers={'WWW-Authenticate': 'Basic'})
