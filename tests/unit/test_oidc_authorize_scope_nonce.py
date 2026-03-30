@@ -10,6 +10,7 @@ from tigrbl_auth.crypto import hash_pw
 from tigrbl_auth.orm import AuthCode, AuthSession, Client, Tenant, User
 from tigrbl_auth.oidc_discovery import ISSUER
 from tigrbl_auth.oidc_id_token import verify_id_token
+from tigrbl_auth.standards.http.cookies import parse_session_cookie_value
 
 
 @pytest.mark.usefixtures("temp_key_file")
@@ -258,7 +259,9 @@ async def test_authorize_max_age_requires_recent_login(async_client, db_session)
         "/login", json={"identifier": "dave", "password": "password"}
     )
     sid = resp.cookies.get("sid")
-    session = await db_session.get(AuthSession, uuid.UUID(sid))
+    parsed_cookie = parse_session_cookie_value(sid)
+    assert parsed_cookie is not None
+    session = await db_session.get(AuthSession, parsed_cookie.session_id)
     assert session is not None
     session.auth_time = datetime.now(timezone.utc) - timedelta(seconds=31)
     await db_session.commit()

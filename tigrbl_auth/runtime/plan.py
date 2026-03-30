@@ -15,6 +15,21 @@ def _stable_hash(payload: Any) -> str:
     return hashlib.sha256(rendered.encode("utf-8")).hexdigest()
 
 
+def _deployment_manifest(deployment: Any) -> dict[str, Any]:
+    to_manifest = getattr(deployment, "to_manifest", None)
+    if callable(to_manifest):
+        payload = to_manifest()
+        if isinstance(payload, dict):
+            return payload
+    return {
+        "profile": str(getattr(deployment, "profile", "baseline")),
+        "runtime_style": str(getattr(deployment, "runtime_style", "portable")),
+        "plugin_mode": str(getattr(deployment, "plugin_mode", "self-contained")),
+        "surfaces": dict(getattr(deployment, "surfaces", {}) or {}),
+        "flags": dict(getattr(deployment, "flags", {}) or {}),
+    }
+
+
 @dataclass(slots=True, frozen=True)
 class RuntimePlan:
     profile: str
@@ -56,7 +71,7 @@ class RuntimePlan:
             "plugin_mode": self.plugin_mode,
             "environment": self.environment,
             "app_factory": self.app_factory,
-            "deployment": self.deployment.to_manifest(),
+            "deployment": _deployment_manifest(self.deployment),
             "surface_toggles": {
                 "public": self.public,
                 "admin": self.admin,
@@ -156,10 +171,14 @@ def build_runtime_plan(
     resolved_settings = settings_obj
     resolved_deployment = deployment or resolve_deployment(resolved_settings)
     adapter = get_runner_adapter(runner)
+    deployment_profile = str(getattr(resolved_deployment, "profile", "baseline"))
+    deployment_runtime_style = str(getattr(resolved_deployment, "runtime_style", "portable"))
+    deployment_plugin_mode = str(getattr(resolved_deployment, "plugin_mode", "self-contained"))
+    deployment_surfaces = getattr(resolved_deployment, "surfaces", {}) or {}
     plan = RuntimePlan(
-        profile=resolved_deployment.profile,
-        runtime_style=resolved_deployment.runtime_style,
-        plugin_mode=resolved_deployment.plugin_mode,
+        profile=deployment_profile,
+        runtime_style=deployment_runtime_style,
+        plugin_mode=deployment_plugin_mode,
         runner=adapter.name,
         environment=environment,
         app_factory="tigrbl_auth.api.app.build_app",
@@ -179,10 +198,10 @@ def build_runtime_plan(
         cookies=cookies,
         health=health,
         metrics=metrics,
-        public=bool(resolved_deployment.surfaces.get("surface_public_enabled", False)) if public is None else bool(public),
-        admin=bool(resolved_deployment.surfaces.get("surface_admin_enabled", False)) if admin is None else bool(admin),
-        rpc=bool(resolved_deployment.surfaces.get("surface_rpc_enabled", False)) if rpc is None else bool(rpc),
-        diagnostics=bool(resolved_deployment.surfaces.get("surface_diagnostics_enabled", False)) if diagnostics is None else bool(diagnostics),
+        public=bool(deployment_surfaces.get("surface_public_enabled", False)) if public is None else bool(public),
+        admin=bool(deployment_surfaces.get("surface_admin_enabled", False)) if admin is None else bool(admin),
+        rpc=bool(deployment_surfaces.get("surface_rpc_enabled", False)) if rpc is None else bool(rpc),
+        diagnostics=bool(deployment_surfaces.get("surface_diagnostics_enabled", False)) if diagnostics is None else bool(diagnostics),
         jwks_refresh_seconds=jwks_refresh_seconds,
         runner_options=dict(runner_options or {}),
         runner_capabilities=tuple(adapter.capabilities),
