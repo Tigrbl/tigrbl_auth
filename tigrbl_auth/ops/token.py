@@ -216,7 +216,10 @@ def _json_error(error: str, *, status_code: int, description: str | None = None,
     payload = {'error': error}
     if description:
         payload['error_description'] = description
-    return JSONResponse(payload, status_code=status_code, headers=headers)
+    response = JSONResponse(payload, status_code=status_code)
+    for key, value in (headers or {}).items():
+        response.headers[key] = value
+    return response
 
 
 
