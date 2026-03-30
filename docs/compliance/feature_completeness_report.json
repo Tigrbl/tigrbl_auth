@@ -44,18 +44,18 @@
       "details": {
         "schema_version": 1,
         "backend": "sqlite-authoritative",
-        "state_root": "/home/oai/.local/state/tigrbl_auth/operator-plane/operator-state-e8998ba0947bb6aa",
-        "database_path": "/home/oai/.local/state/tigrbl_auth/operator-plane/operator-state-e8998ba0947bb6aa/operator_plane.sqlite3",
-        "snapshot_root": "/home/oai/.local/state/tigrbl_auth/operator-plane/operator-state-e8998ba0947bb6aa/snapshots",
-        "log_root": "/home/oai/.local/state/tigrbl_auth/operator-plane/operator-state-e8998ba0947bb6aa/logs",
+        "state_root": "/tmp/pytest-of-root/pytest-5/operator-plane-state230/operator-state-db445cd67d346bae",
+        "database_path": "/tmp/pytest-of-root/pytest-5/operator-plane-state230/operator-state-db445cd67d346bae/operator_plane.sqlite3",
+        "snapshot_root": "/tmp/pytest-of-root/pytest-5/operator-plane-state230/operator-state-db445cd67d346bae/snapshots",
+        "log_root": "/tmp/pytest-of-root/pytest-5/operator-plane-state230/operator-state-db445cd67d346bae/logs",
         "repo_mutation_dependency": false,
         "concurrency_model": "sqlite-wal-begin-immediate",
         "tenancy_enforced": true,
         "portability_schema_version": 3,
         "database_present": true,
-        "audit_log_path": "/home/oai/.local/state/tigrbl_auth/operator-plane/operator-state-e8998ba0947bb6aa/logs/audit-events.jsonl",
-        "transaction_log_path": "/home/oai/.local/state/tigrbl_auth/operator-plane/operator-state-e8998ba0947bb6aa/logs/transactions.jsonl",
-        "activity_log_path": "/home/oai/.local/state/tigrbl_auth/operator-plane/operator-state-e8998ba0947bb6aa/logs/activity.jsonl"
+        "audit_log_path": "/tmp/pytest-of-root/pytest-5/operator-plane-state230/operator-state-db445cd67d346bae/logs/audit-events.jsonl",
+        "transaction_log_path": "/tmp/pytest-of-root/pytest-5/operator-plane-state230/operator-state-db445cd67d346bae/logs/transactions.jsonl",
+        "activity_log_path": "/tmp/pytest-of-root/pytest-5/operator-plane-state230/operator-state-db445cd67d346bae/logs/activity.jsonl"
       }
     },
     "register_manage_clients": {

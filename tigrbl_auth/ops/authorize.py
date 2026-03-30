@@ -11,7 +11,7 @@ from tigrbl_auth.api.rest.shared import _jwt, _require_tls
 from tigrbl_auth.config.deployment import resolve_deployment
 from tigrbl_auth.config.settings import settings
 from tigrbl_auth.standards.http.cookies import issue_session_cookie
-from tigrbl_auth.standards.oidc.id_token import mint_id_token, oidc_hash
+from tigrbl_auth.oidc_id_token import mint_id_token, oidc_hash
 from tigrbl_auth.standards.oidc.session_mgmt import (
     bind_browser_session_client,
     maybe_rotate_browser_session_cookie,

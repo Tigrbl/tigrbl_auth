@@ -1,57 +1,46 @@
 # Install Substrate Report
 
-- Generated at: `20260327T202340Z`
-- Passed: `False`
+- Generated at: `20260330T112827Z`
+- Passed: `True`
 - Static manifest passed: `True`
 - Profile: `base`
-- Profile identity: `base@py313`
+- Profile identity: `base@py312`
 - Environment identity present: `True`
-- Current Python: `3.13.5`
-- Current Python supported: `False`
+- Current Python: `3.12.12`
+- Current Python supported: `True`
 - Expected supported Python versions: `3.10, 3.11, 3.12`
-- Detected supported Python binaries: `0` / `3`
+- Detected supported Python binaries: `3` / `3`
 - Certification tox envs declared: `33`
 - Runtime matrix envs declared: `14`
 - Test lane envs declared: `15`
 - Tox templates with pip check: `14` / `14`
 - Tox templates with install probe: `14` / `14`
-- Current profile import probe passed: `False`
+- Current profile import probe passed: `True`
 - Runtime surface probe passed: `True`
-
-## Failures
-
-- The current environment is outside the declared certification interpreter support range.
-- The current environment does not provide the full supported interpreter matrix required for clean-room certification.
-- The current environment is missing one or more modules required by the selected install profile.
-
-## Warnings
-
-- Current container Python is outside the declared certification support range (>=3.10,<3.13).
-- The current container does not provide supported interpreter binaries for: 3.10, 3.11, 3.12.
 
 ## Current environment import probe
 
-- `tigrbl` (tigrbl) → passed=`False` message=`No module named 'tigrbl'`
-- `swarmauri_core` (swarmauri_core) → passed=`False` message=`No module named 'swarmauri_core'`
-- `swarmauri_base` (swarmauri_base) → passed=`False` message=`No module named 'swarmauri_base'`
-- `swarmauri_standard` (swarmauri_standard) → passed=`False` message=`No module named 'swarmauri_standard'`
-- `swarmauri_tokens_jwt` (swarmauri_tokens_jwt) → passed=`False` message=`No module named 'swarmauri_tokens_jwt'`
-- `swarmauri_signing_jws` (swarmauri_signing_jws) → passed=`False` message=`No module named 'swarmauri_signing_jws'`
-- `swarmauri_signing_ed25519` (swarmauri_signing_ed25519) → passed=`False` message=`No module named 'swarmauri_signing_ed25519'`
-- `swarmauri_signing_dpop` (swarmauri_signing_dpop) → passed=`False` message=`No module named 'swarmauri_signing_dpop'`
-- `swarmauri_crypto_jwe` (swarmauri_crypto_jwe) → passed=`False` message=`No module named 'swarmauri_crypto_jwe'`
-- `swarmauri_crypto_paramiko` (swarmauri_crypto_paramiko) → passed=`False` message=`No module named 'swarmauri_crypto_paramiko'`
-- `swarmauri_keyprovider_file` (swarmauri_keyprovider_file) → passed=`False` message=`No module named 'swarmauri_keyprovider_file'`
-- `swarmauri_keyprovider_local` (swarmauri_keyprovider_local) → passed=`False` message=`No module named 'swarmauri_keyprovider_local'`
-- `sqlalchemy` (sqlalchemy) → passed=`False` message=`No module named 'sqlalchemy'`
-- `bcrypt` (bcrypt) → passed=`False` message=`No module named 'bcrypt'`
+- `tigrbl` (tigrbl) → passed=`True` message=`import ok`
+- `swarmauri_core` (swarmauri_core) → passed=`True` message=`import ok`
+- `swarmauri_base` (swarmauri_base) → passed=`True` message=`import ok`
+- `swarmauri_standard` (swarmauri_standard) → passed=`True` message=`import ok`
+- `swarmauri_tokens_jwt` (swarmauri_tokens_jwt) → passed=`True` message=`import ok`
+- `swarmauri_signing_jws` (swarmauri_signing_jws) → passed=`True` message=`import ok`
+- `swarmauri_signing_ed25519` (swarmauri_signing_ed25519) → passed=`True` message=`import ok`
+- `swarmauri_signing_dpop` (swarmauri_signing_dpop) → passed=`True` message=`import ok`
+- `swarmauri_crypto_jwe` (swarmauri_crypto_jwe) → passed=`True` message=`import ok`
+- `swarmauri_crypto_paramiko` (swarmauri_crypto_paramiko) → passed=`True` message=`import ok`
+- `swarmauri_keyprovider_file` (swarmauri_keyprovider_file) → passed=`True` message=`import ok`
+- `swarmauri_keyprovider_local` (swarmauri_keyprovider_local) → passed=`True` message=`import ok`
+- `sqlalchemy` (sqlalchemy) → passed=`True` message=`import ok`
+- `bcrypt` (bcrypt) → passed=`True` message=`import ok`
 - `httpx` (httpx) → passed=`True` message=`import ok`
 - `yaml` (PyYAML) → passed=`True` message=`import ok`
 - `pydantic` (pydantic) → passed=`True` message=`import ok`
 - `pydantic_settings` (pydantic-settings) → passed=`True` message=`import ok`
 - `dotenv` (python-dotenv) → passed=`True` message=`import ok`
 - `multipart` (python-multipart) → passed=`True` message=`import ok`
-- `aiosqlite` (aiosqlite) → passed=`False` message=`No module named 'aiosqlite'`
+- `aiosqlite` (aiosqlite) → passed=`True` message=`import ok`
 
 ## Runtime import surfaces
 
@@ -62,9 +51,9 @@
 
 ## Detected supported interpreters
 
-- `3.10` → available=`False` path=`None`
-- `3.11` → available=`False` path=`None`
-- `3.12` → available=`False` path=`None`
+- `3.10` → available=`True` path=`/root/.pyenv/shims/python3.10`
+- `3.11` → available=`True` path=`/root/.pyenv/shims/python3.11`
+- `3.12` → available=`True` path=`/workspace/tigrbl_auth/.tox/py312-test-core/bin/python3.12`
 
 ## Workflow coverage
 

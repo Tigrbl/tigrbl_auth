@@ -45,9 +45,6 @@ if _CANONICAL is not None:  # pragma: no cover - covered indirectly in tests
                 pass
         else:
             _CANONICAL._RSA_KEY_PATH = next_path
-        facade_cache = globals().get("_service_cache", "__missing__")
-        if facade_cache is None:
-            _CANONICAL._service_cache = None
 
     def _sync_from_canonical() -> None:
         globals()["_RSA_KEY_PATH"] = _CANONICAL._RSA_KEY_PATH

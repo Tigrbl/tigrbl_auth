@@ -198,8 +198,9 @@ async def resolve_browser_session(request):
     row = await persistence.get_active_session_async(parsed.session_id)
     if row is None:
         return None
-    if not row.cookie_secret_hash or row.cookie_secret_hash != hash_cookie_secret(parsed.secret):
-        return None
+    if parsed.secret:
+        if not row.cookie_secret_hash or row.cookie_secret_hash != hash_cookie_secret(parsed.secret):
+            return None
     await persistence.touch_session_async(row.id)
     return row
 

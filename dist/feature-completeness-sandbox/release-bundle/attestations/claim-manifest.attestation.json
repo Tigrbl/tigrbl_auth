@@ -3,7 +3,7 @@
   "payload": {
     "schema_version": 1,
     "statement_type": "https://tigrbl.dev/attestations/release-artifact/v1",
-    "issued_at": "2026-03-27T20:23:43Z",
+    "issued_at": "2026-03-30T11:28:31Z",
     "signer": {
       "signer_id": "tigrbl_auth.checkpoint.attestor",
       "key_id": "ed25519:47cff9cbdf9030464a7095e6",
@@ -20,14 +20,14 @@
       "artifact_label": "claim-manifest",
       "artifact_kind": "claim-manifest",
       "artifact_path": "compliance/claims/effective-target-claims.baseline.yaml",
-      "artifact_sha256": "fc7c1981fd5f5404d695fd0dfb47f58d261469d93ee80aa7c237b5c804463f35",
+      "artifact_sha256": "a0595ce30610c44a9a000fe03d61ab043f6f7ede0bc196cec60c88d1cf43b071",
       "media_type": "application/yaml"
     }
   },
   "signature": {
     "algorithm": "Ed25519",
     "encoding": "base64url",
-    "value": "ml_5ZptlJ1wuoSFRJ3NeZhWUEkfbJzvqMUkF4dKfEpqi3JvZQyXL76W2ZCqs_LFO9W-siIaoKT8OgMQyEJ6zDA",
-    "payload_sha256": "26526e7550ca727d2e35bbfd572b590e72bacc935538c53f4b9c9ce0b044f8ad"
+    "value": "JMjXmJoc9pqznIbTpY7NObnHkvzakkmn-acS-f217DrCYTEQKKemdD-k5BJBoFKlbkKSJFhWPVu2PIPMFFQaCQ",
+    "payload_sha256": "a36a2c47d6783d38eb6bf728409a2771c56f9f93df91ea012e1aa006d173a40e"
   }
 }

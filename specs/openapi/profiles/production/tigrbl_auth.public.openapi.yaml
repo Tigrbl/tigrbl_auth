@@ -45,7 +45,7 @@ paths:
         rich_authorization_requests_supported: false
         query_bearer_disabled: true
         form_bearer_disabled: true
-        jwt_access_token_profile_supported: true
+        jwt_access_token_profile_supported: false
   /authorize:
     get:
       operationId: get_authorize
@@ -91,7 +91,7 @@ paths:
         rich_authorization_requests_supported: false
         query_bearer_disabled: true
         form_bearer_disabled: true
-        jwt_access_token_profile_supported: true
+        jwt_access_token_profile_supported: false
       parameters:
       - name: response_type
         in: query
@@ -213,7 +213,7 @@ paths:
         rich_authorization_requests_supported: false
         query_bearer_disabled: true
         form_bearer_disabled: true
-        jwt_access_token_profile_supported: true
+        jwt_access_token_profile_supported: false
       requestBody:
         required: true
         content:
@@ -321,7 +321,7 @@ paths:
         rich_authorization_requests_supported: false
         query_bearer_disabled: true
         form_bearer_disabled: true
-        jwt_access_token_profile_supported: true
+        jwt_access_token_profile_supported: false
       security:
       - bearerAuth: []
   /introspect:
@@ -363,7 +363,7 @@ paths:
         rich_authorization_requests_supported: false
         query_bearer_disabled: true
         form_bearer_disabled: true
-        jwt_access_token_profile_supported: true
+        jwt_access_token_profile_supported: false
       requestBody:
         required: true
         content:
@@ -416,7 +416,7 @@ paths:
         rich_authorization_requests_supported: false
         query_bearer_disabled: true
         form_bearer_disabled: true
-        jwt_access_token_profile_supported: true
+        jwt_access_token_profile_supported: false
       requestBody:
         required: true
         content:
@@ -520,7 +520,7 @@ paths:
         rich_authorization_requests_supported: false
         query_bearer_disabled: true
         form_bearer_disabled: true
-        jwt_access_token_profile_supported: true
+        jwt_access_token_profile_supported: false
       parameters:
       - name: client_id
         in: path
@@ -570,7 +570,7 @@ paths:
         rich_authorization_requests_supported: false
         query_bearer_disabled: true
         form_bearer_disabled: true
-        jwt_access_token_profile_supported: true
+        jwt_access_token_profile_supported: false
       parameters:
       - name: client_id
         in: path
@@ -682,7 +682,7 @@ paths:
         rich_authorization_requests_supported: false
         query_bearer_disabled: true
         form_bearer_disabled: true
-        jwt_access_token_profile_supported: true
+        jwt_access_token_profile_supported: false
       parameters:
       - name: client_id
         in: path
@@ -733,7 +733,7 @@ paths:
         rich_authorization_requests_supported: false
         query_bearer_disabled: true
         form_bearer_disabled: true
-        jwt_access_token_profile_supported: true
+        jwt_access_token_profile_supported: false
       requestBody:
         required: true
         content:
@@ -786,7 +786,7 @@ paths:
         rich_authorization_requests_supported: false
         query_bearer_disabled: true
         form_bearer_disabled: true
-        jwt_access_token_profile_supported: true
+        jwt_access_token_profile_supported: false
       parameters:
       - name: id_token_hint
         in: query
@@ -852,7 +852,7 @@ paths:
         rich_authorization_requests_supported: false
         query_bearer_disabled: true
         form_bearer_disabled: true
-        jwt_access_token_profile_supported: true
+        jwt_access_token_profile_supported: false
       requestBody:
         required: false
         content:
@@ -927,7 +927,7 @@ paths:
         rich_authorization_requests_supported: false
         query_bearer_disabled: true
         form_bearer_disabled: true
-        jwt_access_token_profile_supported: true
+        jwt_access_token_profile_supported: false
   /.well-known/oauth-authorization-server:
     get:
       operationId: get__well_known_oauth_authorization_server
@@ -968,7 +968,7 @@ paths:
         rich_authorization_requests_supported: false
         query_bearer_disabled: true
         form_bearer_disabled: true
-        jwt_access_token_profile_supported: true
+        jwt_access_token_profile_supported: false
   /.well-known/oauth-protected-resource:
     get:
       operationId: get__well_known_oauth_protected_resource
@@ -1009,7 +1009,7 @@ paths:
         rich_authorization_requests_supported: false
         query_bearer_disabled: true
         form_bearer_disabled: true
-        jwt_access_token_profile_supported: true
+        jwt_access_token_profile_supported: false
   /.well-known/jwks.json:
     get:
       operationId: get__well_known_jwks_json
@@ -1050,7 +1050,7 @@ paths:
         rich_authorization_requests_supported: false
         query_bearer_disabled: true
         form_bearer_disabled: true
-        jwt_access_token_profile_supported: true
+        jwt_access_token_profile_supported: false
 components:
   securitySchemes:
     bearerAuth:
@@ -1341,7 +1341,6 @@ x-tigrbl-auth:
   - RFC 7592
   - RFC 7662
   - RFC 8252
-  - RFC 9068
   - RFC 9207
   - RFC 9728
   - RFC 6265

@@ -1,11 +1,13 @@
 {
-  "generated_at": "20260326T083237Z",
+  "generated_at": "20260330T112653Z",
   "passed": true,
   "summary": {
     "static_manifest_passed": true,
     "passed": true,
     "profile": "test-core",
-    "current_python": "3.11.8",
+    "current_profile_identity": "test-core@py312",
+    "environment_identity_present": true,
+    "current_python": "3.12.12",
     "current_python_supported": true,
     "expected_supported_python_versions": [
       "3.10",
@@ -13,7 +15,7 @@
       "3.12"
     ],
     "expected_supported_python_count": 3,
-    "detected_supported_python_count": 1,
+    "detected_supported_python_count": 3,
     "declared_runtime_matrix_env_count": 14,
     "declared_test_lane_env_count": 15,
     "declared_certification_tox_env_count": 33,
@@ -37,33 +39,31 @@
     "release_gates_extra_env_present_count": 2,
     "install_profiles_artifact_upload_present": true,
     "release_gates_artifact_upload_present": true,
-    "current_profile_expected_module_count": 28,
-    "current_profile_import_probe_passed_count": 0,
+    "current_profile_expected_module_count": 27,
+    "current_profile_import_probe_passed_count": 27,
     "current_profile_import_probe_failed_count": 0,
     "current_profile_import_probe_passed": true,
-    "runtime_surface_probe_count": 0,
+    "runtime_surface_probe_count": 4,
     "runtime_surface_probe_failed_count": 0,
     "runtime_surface_probe_passed": true
   },
   "failures": [],
-  "warnings": [
-    "The current container does not provide supported interpreter binaries for: 3.10, 3.12."
-  ],
+  "warnings": [],
   "detected_supported_pythons": [
     {
       "version": "3.10",
-      "available": false,
-      "path": null
+      "available": true,
+      "path": "/root/.pyenv/shims/python3.10"
     },
     {
       "version": "3.11",
       "available": true,
-      "path": "/usr/local/bin/python3.11"
+      "path": "/root/.pyenv/shims/python3.11"
     },
     {
       "version": "3.12",
-      "available": false,
-      "path": null
+      "available": true,
+      "path": "/workspace/tigrbl_auth/.tox/py312-test-core/bin/python3.12"
     }
   ],
   "dependency_manifest": {
@@ -95,11 +95,11 @@
     "optional_dependencies": {
       "test": [
         "pytest==8.4.1",
-        "pytest-asyncio==0.24.0",
         "pytest-xdist==3.6.1",
         "pytest-json-report==1.5.0",
         "pytest-timeout==2.3.1",
         "pytest-benchmark==4.0.0",
+        "pytest-asyncio==1.2.0",
         "requests==2.32.3"
       ],
       "postgres": [
@@ -131,6 +131,13 @@
   "constraints_consistency": {
     "passed": true,
     "mismatches": [],
+    "illegal_constraint_extras": {
+      "base": [],
+      "test": [],
+      "uvicorn": [],
+      "hypercorn": [],
+      "tigrcorn": []
+    },
     "base_count": 22,
     "test_count": 7,
     "uvicorn_count": 1,
@@ -466,7 +473,6 @@
         "multipart",
         "aiosqlite",
         "pytest",
-        "pytest_asyncio",
         "xdist",
         "pytest_jsonreport",
         "pytest_timeout",
@@ -512,7 +518,6 @@
         "multipart",
         "aiosqlite",
         "pytest",
-        "pytest_asyncio",
         "xdist",
         "pytest_jsonreport",
         "pytest_timeout",
@@ -555,7 +560,6 @@
         "multipart",
         "aiosqlite",
         "pytest",
-        "pytest_asyncio",
         "xdist",
         "pytest_jsonreport",
         "pytest_timeout",
@@ -600,7 +604,6 @@
         "multipart",
         "aiosqlite",
         "pytest",
-        "pytest_asyncio",
         "xdist",
         "pytest_jsonreport",
         "pytest_timeout",
@@ -649,7 +652,6 @@
         "multipart",
         "aiosqlite",
         "pytest",
-        "pytest_asyncio",
         "xdist",
         "pytest_jsonreport",
         "pytest_timeout",
@@ -698,7 +700,6 @@
         "multipart",
         "aiosqlite",
         "pytest",
-        "pytest_asyncio",
         "xdist",
         "pytest_jsonreport",
         "pytest_timeout",
@@ -745,7 +746,6 @@
         "multipart",
         "aiosqlite",
         "pytest",
-        "pytest_asyncio",
         "xdist",
         "pytest_jsonreport",
         "pytest_timeout",
@@ -793,7 +793,6 @@
         "multipart",
         "aiosqlite",
         "pytest",
-        "pytest_asyncio",
         "xdist",
         "pytest_jsonreport",
         "pytest_timeout",
@@ -842,7 +841,6 @@
         "multipart",
         "aiosqlite",
         "pytest",
-        "pytest_asyncio",
         "xdist",
         "pytest_jsonreport",
         "pytest_timeout",
@@ -891,7 +889,6 @@
         "multipart",
         "aiosqlite",
         "pytest",
-        "pytest_asyncio",
         "xdist",
         "pytest_jsonreport",
         "pytest_timeout",
@@ -904,11 +901,289 @@
       ]
     }
   },
+  "identity": "test-core@py312",
+  "environment_identity": {
+    "python_version": "3.12",
+    "python_full_version": "3.12.12",
+    "python_tag": "py312",
+    "implementation": "CPython",
+    "implementation_version": "3.12.12",
+    "executable": "/root/.pyenv/versions/3.12.12/bin/python3.12",
+    "platform": "Linux-6.12.47-x86_64-with-glibc2.39",
+    "platform_system": "Linux",
+    "platform_release": "6.12.47",
+    "platform_version": "#1 SMP Mon Oct 27 10:01:15 UTC 2025",
+    "machine": "x86_64",
+    "processor": "x86_64",
+    "tox_env": "py312-test-core",
+    "matrix_profile": "base",
+    "install_profile": "test-core",
+    "test_lane": "core",
+    "runner": ""
+  },
   "current_environment_probe": {
     "profile": "test-core",
-    "python": "3.11.8",
+    "identity": "test-core@py312",
+    "environment_identity": {
+      "python_version": "3.12",
+      "python_full_version": "3.12.12",
+      "python_tag": "py312",
+      "implementation": "CPython",
+      "implementation_version": "3.12.12",
+      "executable": "/root/.pyenv/versions/3.12.12/bin/python3.12",
+      "platform": "Linux-6.12.47-x86_64-with-glibc2.39",
+      "platform_system": "Linux",
+      "platform_release": "6.12.47",
+      "platform_version": "#1 SMP Mon Oct 27 10:01:15 UTC 2025",
+      "machine": "x86_64",
+      "processor": "x86_64",
+      "tox_env": "py312-test-core",
+      "matrix_profile": "base",
+      "install_profile": "test-core",
+      "test_lane": "core",
+      "runner": ""
+    },
+    "python": "3.12.12",
     "python_supported": true,
-    "module_results": [],
-    "runtime_surface_results": []
+    "module_results": [
+      {
+        "module": "tigrbl",
+        "package": "tigrbl",
+        "passed": true,
+        "category": "runtime",
+        "message": "import ok",
+        "error_type": null
+      },
+      {
+        "module": "swarmauri_core",
+        "package": "swarmauri_core",
+        "passed": true,
+        "category": "runtime",
+        "message": "import ok",
+        "error_type": null
+      },
+      {
+        "module": "swarmauri_base",
+        "package": "swarmauri_base",
+        "passed": true,
+        "category": "runtime",
+        "message": "import ok",
+        "error_type": null
+      },
+      {
+        "module": "swarmauri_standard",
+        "package": "swarmauri_standard",
+        "passed": true,
+        "category": "runtime",
+        "message": "import ok",
+        "error_type": null
+      },
+      {
+        "module": "swarmauri_tokens_jwt",
+        "package": "swarmauri_tokens_jwt",
+        "passed": true,
+        "category": "runtime",
+        "message": "import ok",
+        "error_type": null
+      },
+      {
+        "module": "swarmauri_signing_jws",
+        "package": "swarmauri_signing_jws",
+        "passed": true,
+        "category": "runtime",
+        "message": "import ok",
+        "error_type": null
+      },
+      {
+        "module": "swarmauri_signing_ed25519",
+        "package": "swarmauri_signing_ed25519",
+        "passed": true,
+        "category": "runtime",
+        "message": "import ok",
+        "error_type": null
+      },
+      {
+        "module": "swarmauri_signing_dpop",
+        "package": "swarmauri_signing_dpop",
+        "passed": true,
+        "category": "runtime",
+        "message": "import ok",
+        "error_type": null
+      },
+      {
+        "module": "swarmauri_crypto_jwe",
+        "package": "swarmauri_crypto_jwe",
+        "passed": true,
+        "category": "runtime",
+        "message": "import ok",
+        "error_type": null
+      },
+      {
+        "module": "swarmauri_crypto_paramiko",
+        "package": "swarmauri_crypto_paramiko",
+        "passed": true,
+        "category": "runtime",
+        "message": "import ok",
+        "error_type": null
+      },
+      {
+        "module": "swarmauri_keyprovider_file",
+        "package": "swarmauri_keyprovider_file",
+        "passed": true,
+        "category": "runtime",
+        "message": "import ok",
+        "error_type": null
+      },
+      {
+        "module": "swarmauri_keyprovider_local",
+        "package": "swarmauri_keyprovider_local",
+        "passed": true,
+        "category": "runtime",
+        "message": "import ok",
+        "error_type": null
+      },
+      {
+        "module": "sqlalchemy",
+        "package": "sqlalchemy",
+        "passed": true,
+        "category": "runtime",
+        "message": "import ok",
+        "error_type": null
+      },
+      {
+        "module": "bcrypt",
+        "package": "bcrypt",
+        "passed": true,
+        "category": "runtime",
+        "message": "import ok",
+        "error_type": null
+      },
+      {
+        "module": "httpx",
+        "package": "httpx",
+        "passed": true,
+        "category": "runtime",
+        "message": "import ok",
+        "error_type": null
+      },
+      {
+        "module": "yaml",
+        "package": "PyYAML",
+        "passed": true,
+        "category": "runtime",
+        "message": "import ok",
+        "error_type": null
+      },
+      {
+        "module": "pydantic",
+        "package": "pydantic",
+        "passed": true,
+        "category": "runtime",
+        "message": "import ok",
+        "error_type": null
+      },
+      {
+        "module": "pydantic_settings",
+        "package": "pydantic-settings",
+        "passed": true,
+        "category": "runtime",
+        "message": "import ok",
+        "error_type": null
+      },
+      {
+        "module": "dotenv",
+        "package": "python-dotenv",
+        "passed": true,
+        "category": "runtime",
+        "message": "import ok",
+        "error_type": null
+      },
+      {
+        "module": "multipart",
+        "package": "python-multipart",
+        "passed": true,
+        "category": "runtime",
+        "message": "import ok",
+        "error_type": null
+      },
+      {
+        "module": "aiosqlite",
+        "package": "aiosqlite",
+        "passed": true,
+        "category": "runtime",
+        "message": "import ok",
+        "error_type": null
+      },
+      {
+        "module": "pytest",
+        "package": "pytest",
+        "passed": true,
+        "category": "test",
+        "message": "import ok",
+        "error_type": null
+      },
+      {
+        "module": "xdist",
+        "package": "pytest-xdist",
+        "passed": true,
+        "category": "test",
+        "message": "import ok",
+        "error_type": null
+      },
+      {
+        "module": "pytest_jsonreport",
+        "package": "pytest-json-report",
+        "passed": true,
+        "category": "test",
+        "message": "import ok",
+        "error_type": null
+      },
+      {
+        "module": "pytest_timeout",
+        "package": "pytest-timeout",
+        "passed": true,
+        "category": "test",
+        "message": "import ok",
+        "error_type": null
+      },
+      {
+        "module": "pytest_benchmark",
+        "package": "pytest-benchmark",
+        "passed": true,
+        "category": "test",
+        "message": "import ok",
+        "error_type": null
+      },
+      {
+        "module": "requests",
+        "package": "requests",
+        "passed": true,
+        "category": "test",
+        "message": "import ok",
+        "error_type": null
+      }
+    ],
+    "runtime_surface_results": [
+      {
+        "module": "tigrbl_auth.api.app",
+        "passed": true,
+        "message": "import surface resolvable"
+      },
+      {
+        "module": "tigrbl_auth.app",
+        "passed": true,
+        "message": "import surface resolvable"
+      },
+      {
+        "module": "tigrbl_auth.plugin",
+        "passed": true,
+        "message": "import surface resolvable"
+      },
+      {
+        "module": "tigrbl_auth.gateway",
+        "passed": true,
+        "message": "import surface resolvable"
+      }
+    ]
   }
 }

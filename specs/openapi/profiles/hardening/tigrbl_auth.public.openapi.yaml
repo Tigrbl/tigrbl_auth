@@ -34,13 +34,13 @@ paths:
         par_required: true
         sender_constraint_required: true
         dpop_supported: true
-        mtls_supported: true
+        mtls_supported: false
         resource_indicators_supported: true
         request_objects_supported: true
         rich_authorization_requests_supported: true
         query_bearer_disabled: true
         form_bearer_disabled: true
-        jwt_access_token_profile_supported: true
+        jwt_access_token_profile_supported: false
   /authorize:
     get:
       operationId: get_authorize
@@ -75,13 +75,13 @@ paths:
         par_required: true
         sender_constraint_required: true
         dpop_supported: true
-        mtls_supported: true
+        mtls_supported: false
         resource_indicators_supported: true
         request_objects_supported: true
         rich_authorization_requests_supported: true
         query_bearer_disabled: true
         form_bearer_disabled: true
-        jwt_access_token_profile_supported: true
+        jwt_access_token_profile_supported: false
       parameters:
       - name: response_type
         in: query
@@ -185,13 +185,13 @@ paths:
         par_required: true
         sender_constraint_required: true
         dpop_supported: true
-        mtls_supported: true
+        mtls_supported: false
         resource_indicators_supported: true
         request_objects_supported: true
         rich_authorization_requests_supported: true
         query_bearer_disabled: true
         form_bearer_disabled: true
-        jwt_access_token_profile_supported: true
+        jwt_access_token_profile_supported: false
       requestBody:
         required: true
         content:
@@ -267,11 +267,6 @@ paths:
         required: true
         schema:
           type: string
-      - name: X-Client-Cert-SHA256
-        in: header
-        required: false
-        schema:
-          type: string
   /userinfo:
     get:
       operationId: get_userinfo
@@ -300,13 +295,13 @@ paths:
         par_required: true
         sender_constraint_required: true
         dpop_supported: true
-        mtls_supported: true
+        mtls_supported: false
         resource_indicators_supported: true
         request_objects_supported: true
         rich_authorization_requests_supported: true
         query_bearer_disabled: true
         form_bearer_disabled: true
-        jwt_access_token_profile_supported: true
+        jwt_access_token_profile_supported: false
       security:
       - bearerAuth: []
   /introspect:
@@ -337,13 +332,13 @@ paths:
         par_required: true
         sender_constraint_required: true
         dpop_supported: true
-        mtls_supported: true
+        mtls_supported: false
         resource_indicators_supported: true
         request_objects_supported: true
         rich_authorization_requests_supported: true
         query_bearer_disabled: true
         form_bearer_disabled: true
-        jwt_access_token_profile_supported: true
+        jwt_access_token_profile_supported: false
       requestBody:
         required: true
         content:
@@ -385,13 +380,13 @@ paths:
         par_required: true
         sender_constraint_required: true
         dpop_supported: true
-        mtls_supported: true
+        mtls_supported: false
         resource_indicators_supported: true
         request_objects_supported: true
         rich_authorization_requests_supported: true
         query_bearer_disabled: true
         form_bearer_disabled: true
-        jwt_access_token_profile_supported: true
+        jwt_access_token_profile_supported: false
       requestBody:
         required: true
         content:
@@ -484,13 +479,13 @@ paths:
         par_required: true
         sender_constraint_required: true
         dpop_supported: true
-        mtls_supported: true
+        mtls_supported: false
         resource_indicators_supported: true
         request_objects_supported: true
         rich_authorization_requests_supported: true
         query_bearer_disabled: true
         form_bearer_disabled: true
-        jwt_access_token_profile_supported: true
+        jwt_access_token_profile_supported: false
       parameters:
       - name: client_id
         in: path
@@ -529,13 +524,13 @@ paths:
         par_required: true
         sender_constraint_required: true
         dpop_supported: true
-        mtls_supported: true
+        mtls_supported: false
         resource_indicators_supported: true
         request_objects_supported: true
         rich_authorization_requests_supported: true
         query_bearer_disabled: true
         form_bearer_disabled: true
-        jwt_access_token_profile_supported: true
+        jwt_access_token_profile_supported: false
       parameters:
       - name: client_id
         in: path
@@ -636,13 +631,13 @@ paths:
         par_required: true
         sender_constraint_required: true
         dpop_supported: true
-        mtls_supported: true
+        mtls_supported: false
         resource_indicators_supported: true
         request_objects_supported: true
         rich_authorization_requests_supported: true
         query_bearer_disabled: true
         form_bearer_disabled: true
-        jwt_access_token_profile_supported: true
+        jwt_access_token_profile_supported: false
       parameters:
       - name: client_id
         in: path
@@ -682,13 +677,13 @@ paths:
         par_required: true
         sender_constraint_required: true
         dpop_supported: true
-        mtls_supported: true
+        mtls_supported: false
         resource_indicators_supported: true
         request_objects_supported: true
         rich_authorization_requests_supported: true
         query_bearer_disabled: true
         form_bearer_disabled: true
-        jwt_access_token_profile_supported: true
+        jwt_access_token_profile_supported: false
       requestBody:
         required: true
         content:
@@ -730,13 +725,13 @@ paths:
         par_required: true
         sender_constraint_required: true
         dpop_supported: true
-        mtls_supported: true
+        mtls_supported: false
         resource_indicators_supported: true
         request_objects_supported: true
         rich_authorization_requests_supported: true
         query_bearer_disabled: true
         form_bearer_disabled: true
-        jwt_access_token_profile_supported: true
+        jwt_access_token_profile_supported: false
       parameters:
       - name: id_token_hint
         in: query
@@ -791,13 +786,13 @@ paths:
         par_required: true
         sender_constraint_required: true
         dpop_supported: true
-        mtls_supported: true
+        mtls_supported: false
         resource_indicators_supported: true
         request_objects_supported: true
         rich_authorization_requests_supported: true
         query_bearer_disabled: true
         form_bearer_disabled: true
-        jwt_access_token_profile_supported: true
+        jwt_access_token_profile_supported: false
       requestBody:
         required: false
         content:
@@ -860,13 +855,13 @@ paths:
         par_required: true
         sender_constraint_required: true
         dpop_supported: true
-        mtls_supported: true
+        mtls_supported: false
         resource_indicators_supported: true
         request_objects_supported: true
         rich_authorization_requests_supported: true
         query_bearer_disabled: true
         form_bearer_disabled: true
-        jwt_access_token_profile_supported: true
+        jwt_access_token_profile_supported: false
       requestBody:
         required: true
         content:
@@ -915,13 +910,13 @@ paths:
         par_required: true
         sender_constraint_required: true
         dpop_supported: true
-        mtls_supported: true
+        mtls_supported: false
         resource_indicators_supported: true
         request_objects_supported: true
         rich_authorization_requests_supported: true
         query_bearer_disabled: true
         form_bearer_disabled: true
-        jwt_access_token_profile_supported: true
+        jwt_access_token_profile_supported: false
       requestBody:
         required: true
         content:
@@ -987,13 +982,13 @@ paths:
         par_required: true
         sender_constraint_required: true
         dpop_supported: true
-        mtls_supported: true
+        mtls_supported: false
         resource_indicators_supported: true
         request_objects_supported: true
         rich_authorization_requests_supported: true
         query_bearer_disabled: true
         form_bearer_disabled: true
-        jwt_access_token_profile_supported: true
+        jwt_access_token_profile_supported: false
       requestBody:
         required: true
         content:
@@ -1026,11 +1021,6 @@ paths:
         required: true
         schema:
           type: string
-      - name: X-Client-Cert-SHA256
-        in: header
-        required: false
-        schema:
-          type: string
   /.well-known/openid-configuration:
     get:
       operationId: get__well_known_openid_configuration
@@ -1060,13 +1050,13 @@ paths:
         par_required: true
         sender_constraint_required: true
         dpop_supported: true
-        mtls_supported: true
+        mtls_supported: false
         resource_indicators_supported: true
         request_objects_supported: true
         rich_authorization_requests_supported: true
         query_bearer_disabled: true
         form_bearer_disabled: true
-        jwt_access_token_profile_supported: true
+        jwt_access_token_profile_supported: false
   /.well-known/oauth-authorization-server:
     get:
       operationId: get__well_known_oauth_authorization_server
@@ -1096,13 +1086,13 @@ paths:
         par_required: true
         sender_constraint_required: true
         dpop_supported: true
-        mtls_supported: true
+        mtls_supported: false
         resource_indicators_supported: true
         request_objects_supported: true
         rich_authorization_requests_supported: true
         query_bearer_disabled: true
         form_bearer_disabled: true
-        jwt_access_token_profile_supported: true
+        jwt_access_token_profile_supported: false
   /.well-known/oauth-protected-resource:
     get:
       operationId: get__well_known_oauth_protected_resource
@@ -1132,13 +1122,13 @@ paths:
         par_required: true
         sender_constraint_required: true
         dpop_supported: true
-        mtls_supported: true
+        mtls_supported: false
         resource_indicators_supported: true
         request_objects_supported: true
         rich_authorization_requests_supported: true
         query_bearer_disabled: true
         form_bearer_disabled: true
-        jwt_access_token_profile_supported: true
+        jwt_access_token_profile_supported: false
   /.well-known/jwks.json:
     get:
       operationId: get__well_known_jwks_json
@@ -1168,13 +1158,13 @@ paths:
         par_required: true
         sender_constraint_required: true
         dpop_supported: true
-        mtls_supported: true
+        mtls_supported: false
         resource_indicators_supported: true
         request_objects_supported: true
         rich_authorization_requests_supported: true
         query_bearer_disabled: true
         form_bearer_disabled: true
-        jwt_access_token_profile_supported: true
+        jwt_access_token_profile_supported: false
 components:
   securitySchemes:
     bearerAuth:
@@ -1452,7 +1442,6 @@ x-tigrbl-auth:
   - jar
   - rar
   - dpop
-  - mtls
   extensions: []
   active_targets:
   - RFC 6749
@@ -1474,9 +1463,7 @@ x-tigrbl-auth:
   - RFC 8252
   - RFC 8628
   - RFC 8693
-  - RFC 8705
   - RFC 8707
-  - RFC 9068
   - RFC 9101
   - RFC 9126
   - RFC 9207

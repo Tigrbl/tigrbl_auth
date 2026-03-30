@@ -16,7 +16,8 @@
 
 ```text
 usage: tigrbl-auth [-h]
-                   {serve,verify,gate,spec,claims,evidence,adr,doctor,bootstrap,migrate,release,tenant,client,identity,flow,session,token,keys,discovery,import,export} ...
+                   {serve,verify,gate,spec,claims,evidence,adr,doctor,bootstrap,migrate,release,tenant,client,identity,flow,session,token,keys,discovery,import,export}
+                   ...
 
 Tigrbl-native operator CLI for the tigrbl_auth package.
 
@@ -755,7 +756,8 @@ usage: tigrbl-auth client [-h] [--config CONFIG] [--env-file ENV_FILE]
                           [--runtime-style {plugin,standalone}] [--strict]
                           [--no-strict] [--format {json,yaml,text}]
                           [--output OUTPUT] [--verbose] [--trace]
-                          {create,update,delete,get,list,rotate-secret,enable,disable} ...
+                          {create,update,delete,get,list,rotate-secret,enable,disable}
+                          ...
 
 Stateful durable operator-plane client lifecycle operators.
 
@@ -1537,7 +1539,8 @@ usage: tigrbl-auth evidence [-h] [--config CONFIG] [--env-file ENV_FILE]
                             [--runtime-style {plugin,standalone}] [--strict]
                             [--no-strict] [--format {json,yaml,text}]
                             [--output OUTPUT] [--verbose] [--trace]
-                            {bundle,status,verify,peer-status,peer-execute} ...
+                            {bundle,status,verify,peer-status,peer-execute}
+                            ...
 
 Operate on Tier 3/Tier 4 evidence automation.
 
@@ -2534,7 +2537,8 @@ usage: tigrbl-auth identity [-h] [--config CONFIG] [--env-file ENV_FILE]
                             [--runtime-style {plugin,standalone}] [--strict]
                             [--no-strict] [--format {json,yaml,text}]
                             [--output OUTPUT] [--verbose] [--trace]
-                            {create,update,delete,get,list,set-password,lock,unlock} ...
+                            {create,update,delete,get,list,set-password,lock,unlock}
+                            ...
 
 Stateful durable operator-plane identity lifecycle operators.
 
@@ -3230,7 +3234,8 @@ usage: tigrbl-auth keys [-h] [--config CONFIG] [--env-file ENV_FILE]
                         [--runtime-style {plugin,standalone}] [--strict]
                         [--no-strict] [--format {json,yaml,text}]
                         [--output OUTPUT] [--verbose] [--trace]
-                        {generate,import,export,rotate,retire,publish-jwks,get,list,delete} ...
+                        {generate,import,export,rotate,retire,publish-jwks,get,list,delete}
+                        ...
 
 Stateful durable operator-plane key lifecycle and JWKS publication operators.
 

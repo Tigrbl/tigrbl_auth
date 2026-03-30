@@ -10,10 +10,10 @@
     "Unsupported-version or out-of-scope validated manifests are present and excluded from certification counts."
   ],
   "summary": {
-    "validated_artifact_count": 7,
+    "validated_artifact_count": 8,
     "out_of_scope_validated_artifact_count": 5,
     "required_validated_inventory_count": 30,
-    "validated_inventory_present_count": 6,
+    "validated_inventory_present_count": 7,
     "validated_inventory_complete": false,
     "runtime_matrix_present_count": 0,
     "runtime_matrix_expected_count": 14,
@@ -60,10 +60,10 @@
       "interop@py3.11",
       "interop@py3.12"
     ],
-    "test_lane_present_count": 5,
+    "test_lane_present_count": 6,
     "migration_manifest_present": true,
     "required_validated_inventory_count": 30,
-    "validated_inventory_present_count": 6,
+    "validated_inventory_present_count": 7,
     "validated_inventory_complete": false,
     "runtime_evidence": {},
     "test_lane_evidence": {
@@ -105,6 +105,19 @@
         "pytest_report_exit_code": 0,
         "tests_collected": 67,
         "tests_total": 67
+      },
+      "core@py3.12": {
+        "path": "dist/validated-runs/test-core-py312.json",
+        "manifest_passed": false,
+        "counts_as_passed": false,
+        "identity": "core@py312",
+        "environment_identity_ready": true,
+        "install_evidence_ready": true,
+        "pytest_report_present": true,
+        "pytest_exit_code": 1,
+        "pytest_report_exit_code": 1,
+        "tests_collected": 470,
+        "tests_total": 470
       },
       "core@py3.13": {
         "path": "dist/validated-runs/test-core-py313.json",
@@ -220,6 +233,7 @@
       "dist/validated-runs/migration-portability-py313.json",
       "dist/validated-runs/test-conformance-py311.json",
       "dist/validated-runs/test-core-py311.json",
+      "dist/validated-runs/test-core-py312.json",
       "dist/validated-runs/test-integration-py311.json",
       "dist/validated-runs/test-interop-py311.json",
       "dist/validated-runs/test-security-negative-py311.json",
@@ -267,6 +281,7 @@
       "dist/validated-runs/test-conformance-py311.json",
       "dist/validated-runs/test-conformance-py313.json",
       "dist/validated-runs/test-core-py311.json",
+      "dist/validated-runs/test-core-py312.json",
       "dist/validated-runs/test-core-py313.json",
       "dist/validated-runs/test-integration-py311.json",
       "dist/validated-runs/test-integration-py313.json",

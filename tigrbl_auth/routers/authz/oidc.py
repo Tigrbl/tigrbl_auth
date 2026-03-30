@@ -19,7 +19,7 @@ from tigrbl_auth.framework import (
 from tigrbl_auth.tables.engine import get_db
 
 from tigrbl_auth.tables import AuthCode, AuthSession, Client, User
-from tigrbl_auth.standards.oidc.id_token import mint_id_token, oidc_hash
+from tigrbl_auth.oidc_id_token import mint_id_token, oidc_hash
 from tigrbl_auth.standards.oauth2.rfc8414_metadata import ISSUER
 from tigrbl_auth.standards.oauth2.native_apps import is_native_redirect_uri
 from ..shared import _require_tls

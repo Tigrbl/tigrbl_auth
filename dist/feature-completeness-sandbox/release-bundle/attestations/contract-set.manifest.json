@@ -20,18 +20,18 @@
     },
     {
       "path": "specs/discovery/profiles/baseline/oauth-authorization-server.json",
-      "sha256": "d1e8d9e1fabcd81d8ea456c77cd51ea1036fffb0531948496a1c9a06491cf7f9",
-      "bytes": 1199
+      "sha256": "96f92750813e6fdf01cb07d901bbb31eee10b4d518023dc7d0bcc7edd9f1fb3a",
+      "bytes": 1141
     },
     {
       "path": "specs/discovery/profiles/baseline/openid-configuration.json",
-      "sha256": "d1e8d9e1fabcd81d8ea456c77cd51ea1036fffb0531948496a1c9a06491cf7f9",
-      "bytes": 1199
+      "sha256": "96f92750813e6fdf01cb07d901bbb31eee10b4d518023dc7d0bcc7edd9f1fb3a",
+      "bytes": 1141
     },
     {
       "path": "specs/openapi/profiles/baseline/tigrbl_auth.public.openapi.json",
-      "sha256": "05c68144246c02d1e99956d4db872348ddb34ff8ed54cfd743ca5385ba8d21c5",
-      "bytes": 25685
+      "sha256": "2b3cc25c56012faa609f4feec4faad5454cc6a2aa669f5090adb325c9ec24148",
+      "bytes": 25736
     },
     {
       "path": "specs/openrpc/profiles/baseline/tigrbl_auth.admin.openrpc.json",
