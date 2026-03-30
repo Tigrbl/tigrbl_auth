@@ -89,6 +89,8 @@ def classify_test_path(path: Path) -> str:
 
 
 def lane_allows_path(selected_lane: str, path: Path) -> bool:
+    if path.name in DEFERRED_INTEGRATION_FILES:
+        return selected_lane in {"all", "*", "extension"}
     lane = classify_test_path(path)
     if selected_lane in {"all", "*"}:
         return True
