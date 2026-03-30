@@ -16,6 +16,7 @@ from tigrbl_auth.standards.oauth2.jwt_client_auth import (
     token_endpoint_auth_methods_supported,
     token_endpoint_auth_signing_alg_values_supported,
 )
+from tigrbl_auth.standards.oauth2.mtls import SUPPORTED_MTLS_AUTH_METHODS
 from tigrbl_auth.standards.oauth2.rfc8414_metadata import ISSUER, JWKS_PATH
 from tigrbl_auth.standards.oauth2.rfc9700 import discovery_policy_metadata
 
@@ -42,6 +43,8 @@ def build_openid_config(
     scopes = ["openid", "profile", "email", "address", "phone"]
     claims = ["sub", "name", "email", "address", "phone_number"]
     auth_methods = token_endpoint_auth_methods_supported()
+    if deployment.flag_enabled("enable_rfc8705") or deployment.profile in {"hardening", "peer-claim"}:
+        auth_methods = list(dict.fromkeys([*auth_methods, *SUPPORTED_MTLS_AUTH_METHODS]))
     auth_signing_algs = token_endpoint_auth_signing_alg_values_supported()
     config: dict[str, Any] = {
         "issuer": issuer,
