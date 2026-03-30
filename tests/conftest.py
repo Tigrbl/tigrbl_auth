@@ -3,6 +3,7 @@ Shared test configuration and fixtures for tigrbl_auth test suite.
 """
 
 import asyncio
+import inspect
 import os
 import shutil
 import sys
@@ -211,23 +212,36 @@ async def _runtime_engine_context(database_url: str):
     setattr(surface_api, "_ddl_executed", False)
     await surface_api.initialize()
     raw_engine, _ = provider.ensure()
-    async with raw_engine.begin() as conn:
-        def _create_runtime_tables(sync_conn):
-            from tigrbl_auth.tables import Base
 
-            Base.metadata.create_all(bind=sync_conn, checkfirst=True)
+    def _create_runtime_tables(sync_conn):
+        from tigrbl_auth.tables import Base
 
-        await conn.run_sync(_create_runtime_tables)
+        Base.metadata.create_all(bind=sync_conn, checkfirst=True)
+
+    begin_ctx = raw_engine.begin()
+    if hasattr(begin_ctx, "__aenter__"):
+        async with begin_ctx as conn:
+            await conn.run_sync(_create_runtime_tables)
+    else:
+        with begin_ctx as conn:
+            _create_runtime_tables(conn)
     try:
         yield engine
     finally:
         if str(database_url).startswith("postgresql"):
             try:
-                async with raw_engine.begin() as conn:
-                    await conn.exec_driver_sql("DROP SCHEMA IF EXISTS authn CASCADE")
+                cleanup_ctx = raw_engine.begin()
+                if hasattr(cleanup_ctx, "__aenter__"):
+                    async with cleanup_ctx as conn:
+                        await conn.exec_driver_sql("DROP SCHEMA IF EXISTS authn CASCADE")
+                else:
+                    with cleanup_ctx as conn:
+                        conn.exec_driver_sql("DROP SCHEMA IF EXISTS authn CASCADE")
             except Exception:
                 pass
-        await raw_engine.dispose()
+        dispose_result = raw_engine.dispose()
+        if inspect.isawaitable(dispose_result):
+            await dispose_result
         register_api_provider(surface_api, original_surface or provider)
         register_api_provider(composed_surface_api, original_composed_surface or provider)
         register_api_provider(app, original_app or provider)

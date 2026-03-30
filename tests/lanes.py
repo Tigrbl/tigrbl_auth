@@ -72,7 +72,7 @@ def classify_test_path(path: Path) -> str:
     name = path.name
     parts = path.parts
     if name in DEFERRED_INTEGRATION_FILES:
-        return "extension"
+        return "integration"
     if name.startswith(EXTENSION_TEST_PREFIXES) or any(
         bucket in parts for bucket in ("examples", "e2e", "perf")
     ):

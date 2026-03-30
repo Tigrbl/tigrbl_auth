@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import argparse
 import asyncio
+import inspect
 import json
 import os
 import shutil
@@ -82,8 +83,13 @@ async def _applied_revision_snapshot(revision_order: list[str]) -> list[str]:
     if provider is None:
         return []
     raw_engine, _ = provider.ensure()
-    async with raw_engine.begin() as conn:
-        applied = await conn.run_sync(lambda sync_conn: applied_revisions(sync_conn))
+    begin_ctx = raw_engine.begin()
+    if hasattr(begin_ctx, "__aenter__"):
+        async with begin_ctx as conn:
+            applied = await conn.run_sync(lambda sync_conn: applied_revisions(sync_conn))
+    else:
+        with begin_ctx as conn:
+            applied = applied_revisions(conn)
     return [revision for revision in revision_order if revision in set(applied)]
 
 
@@ -123,11 +129,18 @@ async def _exercise_backend(
             raw_engine, _ = provider.ensure()
             if str(database_url).startswith("postgresql"):
                 try:
-                    async with raw_engine.begin() as conn:
-                        await conn.exec_driver_sql("DROP SCHEMA IF EXISTS authn CASCADE")
+                    cleanup_ctx = raw_engine.begin()
+                    if hasattr(cleanup_ctx, "__aenter__"):
+                        async with cleanup_ctx as conn:
+                            await conn.exec_driver_sql("DROP SCHEMA IF EXISTS authn CASCADE")
+                    else:
+                        with cleanup_ctx as conn:
+                            conn.exec_driver_sql("DROP SCHEMA IF EXISTS authn CASCADE")
                 except Exception:
                     pass
-            await raw_engine.dispose()
+            dispose_result = raw_engine.dispose()
+            if inspect.isawaitable(dispose_result):
+                await dispose_result
             register_api_provider(surface_api, original_surface or provider)
             register_api_provider(app, original_app or provider)
             setattr(surface_api, "_ddl_executed", False)

@@ -5,7 +5,7 @@ from __future__ import annotations
 from collections.abc import Iterable
 from typing import Protocol
 
-from sqlalchemy import Column, ForeignKey, Index, MetaData, Table, inspect
+from sqlalchemy import Column, ForeignKey, Index, MetaData, Table, inspect, text
 from sqlalchemy.schema import SchemaConst
 
 
@@ -46,13 +46,13 @@ def applied_revisions(conn) -> set[str]:
 def mark_revision(conn, revision: str) -> None:
     ensure_migration_table(conn)
     table = MIGRATION_TABLE if conn.dialect.name == "sqlite" else f"{AUTHN_SCHEMA}.{MIGRATION_TABLE}"
-    conn.exec_driver_sql(f"INSERT INTO {table} (revision) VALUES (:revision)", {"revision": revision})
+    conn.execute(text(f"INSERT INTO {table} (revision) VALUES (:revision)"), {"revision": revision})
 
 
 def unmark_revision(conn, revision: str) -> None:
     ensure_migration_table(conn)
     table = MIGRATION_TABLE if conn.dialect.name == "sqlite" else f"{AUTHN_SCHEMA}.{MIGRATION_TABLE}"
-    conn.exec_driver_sql(f"DELETE FROM {table} WHERE revision = :revision", {"revision": revision})
+    conn.execute(text(f"DELETE FROM {table} WHERE revision = :revision"), {"revision": revision})
 
 
 def _ddl_tables(conn, *models: SupportsTable) -> list[Table]:
