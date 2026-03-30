@@ -109,7 +109,7 @@ def hash_cookie_secret(secret: str) -> str:
 
 
 def build_session_cookie_value(session_id: UUID | str, secret: str) -> str:
-    return str(session_id)
+    return f"{COOKIE_VALUE_VERSION}.{session_id}.{secret}"
 
 
 def parse_session_cookie_value(value: str | None) -> SessionCookieMaterial | None:

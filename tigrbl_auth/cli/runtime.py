@@ -302,9 +302,6 @@ def _runtime_report_mode(repo_root: Path, report_mode: str | None) -> str:
     requested = (report_mode or os.environ.get("TIGRBL_AUTH_RUNTIME_REPORT_MODE", "auto")).strip().lower() or "auto"
     if requested in {"validated-runs", "live-probe"}:
         return requested
-    if requested == "auto":
-        if _validated_artifact_inventory_present(repo_root):
-            return "validated-runs"
     return "live-probe"
 
 

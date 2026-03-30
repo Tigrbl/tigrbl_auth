@@ -155,7 +155,7 @@ def runtime_security_profile(
     hardened = _is_hardened_profile(deployment)
     enabled = deployment.flag_enabled("enable_rfc9700") if hardened else False
     dpop_supported = deployment.flag_enabled("enable_rfc9449")
-    mtls_supported = deployment.flag_enabled("enable_rfc8705")
+    mtls_supported = deployment.flag_enabled("enable_rfc8705") or hardened
     return RuntimeSecurityProfile(
         profile=deployment.profile,
         enabled=enabled,
