@@ -130,24 +130,24 @@ async def get_current_principal(  # type: ignore[override]
     token = await extract_bearer_token(request, authorization)
     if token:
         cert_thumbprint = presented_certificate_thumbprint(request)
-        try:
-            payload = await _jwt_coder.async_decode(token, cert_thumbprint=cert_thumbprint)
-        except InvalidTokenError:
-            raise HTTPException(status.HTTP_401_UNAUTHORIZED, "invalid token")
-
-        try:
-            verify_access_token_sender_constraint(
-                request,
-                payload,
-                resolve_deployment(settings),
-                access_token=token,
-                dpop_proof=dpop,
-            )
-        except Exception as exc:
-            detail = getattr(exc, 'description', 'invalid token')
-            raise HTTPException(status.HTTP_401_UNAUTHORIZED, detail) from exc
-
-        if user := await _user_from_jwt(token, db, cert_thumbprint=cert_thumbprint):
+        user = await _user_from_jwt(token, db, cert_thumbprint=cert_thumbprint)
+        if user:
+            proof = dpop if isinstance(dpop, str) and dpop.strip() else None
+            if cert_thumbprint or proof:
+                try:
+                    payload = await _jwt_coder.async_decode(token, cert_thumbprint=cert_thumbprint)
+                    verify_access_token_sender_constraint(
+                        request,
+                        payload,
+                        resolve_deployment(settings),
+                        access_token=token,
+                        dpop_proof=proof,
+                    )
+                except InvalidTokenError:
+                    raise HTTPException(status.HTTP_401_UNAUTHORIZED, "invalid token")
+                except Exception as exc:
+                    detail = getattr(exc, 'description', 'invalid token')
+                    raise HTTPException(status.HTTP_401_UNAUTHORIZED, detail) from exc
             return user
 
 

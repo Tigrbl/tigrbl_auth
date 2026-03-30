@@ -19,6 +19,7 @@ from tigrbl_auth.tables import (
     Consent,
     LogoutState,
     RevokedToken,
+    Tenant,
     TokenRecord,
 )
 from tigrbl_auth.tables.engine import ENGINE
@@ -563,8 +564,11 @@ async def append_audit_event_async(
     details: dict[str, Any] | None = None,
 ) -> AuditEvent:
     async with _session() as session:
+        effective_tenant_id = tenant_id
+        if effective_tenant_id is None:
+            effective_tenant_id = await session.scalar(select(Tenant.id))
         row = AuditEvent(
-            tenant_id=tenant_id,
+            tenant_id=effective_tenant_id,
             actor_user_id=actor_user_id,
             actor_client_id=actor_client_id,
             session_id=session_id,
