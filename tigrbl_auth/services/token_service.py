@@ -208,7 +208,7 @@ class JWTCoder:
         except Exception as exc:
             raise InvalidTokenError("signature verification failed") from exc
         payload = dict(payload)
-        if getattr(settings, "enable_rfc9700", False):
+        if getattr(settings, "enable_rfc9700", False) and (audience is not None or issuer is not None):
             if payload.get("iss") in {None, "", "placeholder-issuer"}:
                 raise InvalidTokenError("missing issuer")
             aud = payload.get("aud")

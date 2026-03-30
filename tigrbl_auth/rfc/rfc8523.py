@@ -28,11 +28,11 @@ def validate_enhanced_jwt_bearer(
     clock_skew_seconds: int = 30,
 ) -> Dict[str, Any]:
     if not settings.enable_rfc8523:
-        raise RuntimeError("Legacy RFC 8523 path disabled")
+        raise RuntimeError("RFC 8523 support disabled")
     claims = validate_client_jwt_bearer(assertion, audience=audience)
     missing = REQUIRED_CLAIMS - claims.keys()
     if missing:
-        raise ValueError(f"Legacy RFC 8523 path missing claims: {', '.join(sorted(missing))}")
+        raise ValueError(f"missing required claims: {', '.join(sorted(missing))}")
     current_time = int(time.time())
     iat = claims.get("iat")
     if not isinstance(iat, int):
@@ -56,7 +56,7 @@ def makeClientAssertionJwt(
     additional_claims: Optional[Dict[str, Any]] = None,
 ) -> str:
     if not settings.enable_rfc8523:
-        raise RuntimeError("Legacy RFC 8523 path disabled")
+        raise RuntimeError("RFC 8523 support disabled")
     from .rfc7519 import encode_jwt
     import uuid
 

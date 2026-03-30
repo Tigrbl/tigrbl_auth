@@ -11,6 +11,8 @@ See RFC 6750: https://www.rfc-editor.org/rfc/rfc6750
 
 from __future__ import annotations
 
+from urllib.parse import parse_qs
+
 from tigrbl_auth.framework import Request
 from typing import Final
 
@@ -50,8 +52,15 @@ async def extract_bearer_token(request: Request, authorization: str) -> str | No
         and "application/x-www-form-urlencoded"
         in request.headers.get("Content-Type", "")
     ):
-        form = await request.form()
-        token = form.get("access_token")
+        form_reader = getattr(request, "form", None)
+        if callable(form_reader):
+            form = await form_reader()
+            token = form.get("access_token")
+        else:
+            body = getattr(request, "body", b"") or b""
+            parsed = parse_qs(body.decode("utf-8"), keep_blank_values=True)
+            values = parsed.get("access_token") or []
+            token = values[0] if values else None
         if token:
             return token
 
