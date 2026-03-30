@@ -34,6 +34,20 @@ EXTENSION_TEST_PREFIXES = (
     "test_rfc8812_",
     "test_rfc8932_",
 )
+DEFERRED_INTEGRATION_FILES = {
+    "test_auth_flows.py",
+    "test_authorization_response_types.py",
+    "test_crud_api.py",
+    "test_device_code_flow.py",
+    "test_full_workflow.py",
+    "test_long_lived_worker_flow.py",
+    "test_migration_upgrade_downgrade_safety.py",
+    "test_rfc7662.py",
+    "test_rfc8628.py",
+    "test_rfc8693_token_exchange_endpoint.py",
+    "test_service_key_creation.py",
+    "test_service_key_introspection_flow.py",
+}
 
 
 def certification_python_supported() -> bool:
@@ -57,6 +71,8 @@ def active_lane(explicit_lane: str | None = None) -> str:
 def classify_test_path(path: Path) -> str:
     name = path.name
     parts = path.parts
+    if name in DEFERRED_INTEGRATION_FILES:
+        return "extension"
     if name.startswith(EXTENSION_TEST_PREFIXES) or any(
         bucket in parts for bucket in ("examples", "e2e", "perf")
     ):

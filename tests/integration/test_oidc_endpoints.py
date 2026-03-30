@@ -210,8 +210,8 @@ class TestJWKSEndpoint:
                 continue
             assert field in key, f"JWK must contain '{field}' field"
 
-        # Key type should be RSA for ID tokens
-        assert key["kty"] in ["RSA"], f"Unexpected key type: {key['kty']}"
+        # Key type can be RSA (RS256) or OKP (EdDSA/Ed25519) depending on profile.
+        assert key["kty"] in ["RSA", "OKP"], f"Unexpected key type: {key['kty']}"
 
         # Should have a key ID for rotation
         assert key["kid"], "Key should have a non-empty key ID"
@@ -286,10 +286,10 @@ class TestJWKSEndpoint:
         response = await async_client.get("/.well-known/jwks.json")
         jwks_doc = response.json()
 
-        # Should have at least one key and it should be RSA
+        # Should have at least one key.
         assert len(jwks_doc["keys"]) >= 1
         key = jwks_doc["keys"][0]
-        assert key["kty"] == "RSA"
+        assert key["kty"] in {"RSA", "OKP"}
 
 
 @pytest.mark.integration
@@ -320,6 +320,9 @@ class TestOIDCEndpointIntegration:
         if "RS256" in signing_algs:
             rsa_keys = [key for key in jwks_doc["keys"] if key.get("kty") == "RSA"]
             assert len(rsa_keys) > 0, "Should have RSA keys if RS256 is supported"
+        if "EdDSA" in signing_algs:
+            okp_keys = [key for key in jwks_doc["keys"] if key.get("kty") == "OKP"]
+            assert len(okp_keys) > 0, "Should have OKP keys if EdDSA is supported"
 
     @pytest.mark.asyncio
     async def test_oidc_endpoints_security_headers(self, async_client):
@@ -412,13 +415,15 @@ class TestOIDCCompliance:
         jwks_doc = response.json()
 
         rsa_keys = [key for key in jwks_doc["keys"] if key.get("kty") == "RSA"]
+        okp_keys = [key for key in jwks_doc["keys"] if key.get("kty") == "OKP"]
 
-        assert len(rsa_keys) > 0, "Should have at least one RSA key"
+        assert rsa_keys or okp_keys, "Should have at least one RSA or OKP signing key"
 
         for key in rsa_keys:
-            assert "n" in key and "e" in key, (
-                "RSA keys must include modulus and exponent"
-            )
+            assert "n" in key and "e" in key, "RSA keys must include modulus and exponent"
+        for key in okp_keys:
+            assert key.get("crv") == "Ed25519", "OKP keys should use Ed25519"
+            assert "x" in key, "OKP keys must include public key coordinate 'x'"
 
     @pytest.mark.asyncio
     async def test_content_type_compliance(self, async_client):
