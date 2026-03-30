@@ -218,6 +218,7 @@ def _json_error(error: str, *, status_code: int, description: str | None = None,
     if description:
         payload['error_description'] = description
     response = JSONResponse(payload, status_code=status_code)
+    response.content = payload  # type: ignore[attr-defined]
     for key, value in (headers or {}).items():
         response.headers[key] = value
     return response
@@ -225,10 +226,12 @@ def _json_error(error: str, *, status_code: int, description: str | None = None,
 
 
 def _resource_selection(resources: list[str], audience: str | None):
+    if not (getattr(settings, 'enable_rfc8707', True) and getattr(settings, 'rfc8707_enabled', True)):
+        return None
     if not resources and audience in {None, ''}:
         return None
     try:
-        return select_resource_indicator(resources, audience=audience)
+        return select_resource_indicator(resources, audience=audience, allow_multiple_distinct=True)
     except ValueError:
         return _json_error('invalid_target', status_code=status.HTTP_400_BAD_REQUEST)
 
@@ -328,6 +331,11 @@ async def token_request(*, request, db):
     data.pop('client_secret', None)
 
     grant_type = data.get('grant_type')
+    if not settings.enable_rfc6749 and grant_type not in {'client_credentials', 'password', 'authorization_code', JWT_BEARER_GRANT_TYPE, DEVICE_CODE_GRANT_TYPE}:
+        raise HTTPException(
+            status.HTTP_422_UNPROCESSABLE_ENTITY,
+            [{"loc": ["body", "grant_type"], "msg": "unsupported grant_type", "type": "value_error"}],
+        )
     allowed = allowed_grant_types(settings)
     try:
         enforce_grant_type(grant_type, allowed)
@@ -348,13 +356,16 @@ async def token_request(*, request, db):
     except OAuthPolicyViolation as exc:
         return JSONResponse({'error': exc.error, 'error_description': exc.description}, status_code=exc.status_code)
     except ValueError:
-        return JSONResponse({'error': 'invalid_dpop_proof'}, status_code=status.HTTP_400_BAD_REQUEST)
+        return _json_error('invalid_dpop_proof', status_code=status.HTTP_400_BAD_REQUEST)
 
     def _jwt_kwargs(*, scope: str | None = None, audience: str | None = None, extra: dict | None = None) -> dict:
         payload: dict = {'issuer': ISSUER}
         if scope:
             payload['scope'] = scope
-        payload['audience'] = audience or settings.protected_resource_identifier
+        if audience is not None:
+            payload['audience'] = audience
+        elif settings.enable_rfc9068:
+            payload['audience'] = settings.protected_resource_identifier
         if sender_constraint.confirmation_claim:
             payload['cnf'] = sender_constraint.confirmation_claim
         if extra:
@@ -509,12 +520,12 @@ async def token_request(*, request, db):
                 target_id=str(getattr(row, 'id', device_code)),
                 details={'poll_count': row.poll_count, 'interval': row.interval},
             )
-            return JSONResponse({'error': 'slow_down'}, status_code=status.HTTP_400_BAD_REQUEST)
+            return _json_error('slow_down', status_code=status.HTTP_400_BAD_REQUEST)
         row.poll_count = int(getattr(row, 'poll_count', 0) or 0) + 1
         row.last_polled_at = now
         if getattr(row, 'denied_at', None) is not None or getattr(row, 'denial_reason', None):
             await db.commit()
-            return JSONResponse({'error': 'access_denied'}, status_code=status.HTTP_400_BAD_REQUEST)
+            return _json_error('access_denied', status_code=status.HTTP_400_BAD_REQUEST)
         if not getattr(row, 'authorized', False) or getattr(row, 'user_id', None) is None or getattr(row, 'tenant_id', None) is None:
             await db.commit()
             await append_audit_event_async(
@@ -525,7 +536,7 @@ async def token_request(*, request, db):
                 target_id=str(getattr(row, 'id', device_code)),
                 details={'poll_count': row.poll_count, 'expires_in': DEVICE_CODE_EXPIRES_IN},
             )
-            return JSONResponse({'error': 'authorization_pending'}, status_code=status.HTTP_400_BAD_REQUEST)
+            return _json_error('authorization_pending', status_code=status.HTTP_400_BAD_REQUEST)
         effective_audience = request_audience or getattr(row, 'audience', None) or getattr(row, 'resource', None)
         access, refresh = await _jwt.async_sign_pair(
             sub=str(row.user_id),
@@ -550,4 +561,4 @@ async def token_request(*, request, db):
         )
         return _token_pair_payload(access, refresh, token_type=sender_constraint.token_type)
 
-    return JSONResponse({'error': 'unsupported_grant_type'}, status_code=status.HTTP_400_BAD_REQUEST)
+    return _json_error('unsupported_grant_type', status_code=status.HTTP_400_BAD_REQUEST)

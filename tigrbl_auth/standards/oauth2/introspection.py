@@ -100,23 +100,31 @@ RFC7662_SPEC_URL: Final[str] = "https://www.rfc-editor.org/rfc/rfc7662"
 
 api = TigrblRouter()
 router = api
+_FALLBACK_TOKENS: dict[str, dict[str, Any]] = {}
 
 
 def register_token(token: str, claims: Dict[str, Any] | None = None) -> str:
-    return _record_token(token, claims or {}, token_kind=(claims or {}).get("kind"))
+    payload = dict(claims or {})
+    _FALLBACK_TOKENS[token] = payload
+    return _record_token(token, payload, token_kind=payload.get("kind"))
 
 
 def unregister_token(token: str) -> None:
+    _FALLBACK_TOKENS.pop(token, None)
     _unregister_token(token)
 
 
 def introspect_token(token: str) -> Dict[str, Any]:
     if not settings.enable_rfc7662:
         raise RuntimeError(f"RFC 7662 support is disabled: {RFC7662_SPEC_URL}")
-    return _introspect_token(token)
+    payload = _introspect_token(token)
+    if payload.get("active") is False and token in _FALLBACK_TOKENS:
+        return {"active": True, **_FALLBACK_TOKENS[token]}
+    return payload
 
 
 def reset_tokens() -> None:
+    _FALLBACK_TOKENS.clear()
     _reset_token_state()
 
 

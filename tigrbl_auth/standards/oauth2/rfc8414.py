@@ -18,6 +18,8 @@ router = api
 
 @api.route("/.well-known/oauth-authorization-server", methods=["GET"], include_in_schema=False, tags=[".well-known"])
 async def authorization_server_metadata(request: Request):
+    if not settings.enable_rfc8414:
+        raise HTTPException(status.HTTP_404_NOT_FOUND, f"RFC 8414 disabled: {RFC8414_SPEC_URL}")
     deployment = deployment_from_request(request, settings)
     if not deployment.route_enabled("/.well-known/oauth-authorization-server"):
         raise HTTPException(status.HTTP_404_NOT_FOUND, f"RFC 8414 disabled: {RFC8414_SPEC_URL}")

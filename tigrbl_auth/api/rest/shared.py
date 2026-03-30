@@ -25,8 +25,8 @@ class _LazyRuntimeProxy:
     __slots__ = ("_factory", "_value")
 
     def __init__(self, factory: Callable[[], Any]):
-        self._factory = factory
-        self._value: Any | None = None
+        object.__setattr__(self, "_factory", factory)
+        object.__setattr__(self, "_value", None)
 
     def _resolve(self) -> Any:
         if self._value is None:
@@ -35,6 +35,18 @@ class _LazyRuntimeProxy:
 
     def __getattr__(self, name: str) -> Any:
         return getattr(self._resolve(), name)
+
+    def __setattr__(self, name: str, value: Any) -> None:
+        if name in {"_factory", "_value"}:
+            object.__setattr__(self, name, value)
+            return
+        setattr(self._resolve(), name, value)
+
+    def __delattr__(self, name: str) -> None:
+        if name in {"_factory", "_value"}:
+            object.__delattr__(self, name)
+            return
+        delattr(self._resolve(), name)
 
     def __repr__(self) -> str:  # pragma: no cover - debugging helper
         return repr(self._resolve())
