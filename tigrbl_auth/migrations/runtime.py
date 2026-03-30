@@ -111,8 +111,12 @@ async def apply_all_async() -> MigrationResult:
             passed=verification.passed,
         )
 
-    async with raw_engine.begin() as conn:
-        return await conn.run_sync(_upgrade)
+    begin_ctx = raw_engine.begin()
+    if hasattr(begin_ctx, "__aenter__"):
+        async with begin_ctx as conn:
+            return await conn.run_sync(_upgrade)
+    with begin_ctx as conn:
+        return _upgrade(conn)
 
 
 async def downgrade_one_async() -> str | None:
@@ -129,22 +133,34 @@ async def downgrade_one_async() -> str | None:
                 return module.revision
         return None
 
-    async with raw_engine.begin() as conn:
-        return await conn.run_sync(_downgrade)
+    begin_ctx = raw_engine.begin()
+    if hasattr(begin_ctx, "__aenter__"):
+        async with begin_ctx as conn:
+            return await conn.run_sync(_downgrade)
+    with begin_ctx as conn:
+        return _downgrade(conn)
 
 
 async def verify_schema_async() -> SchemaVerification:
     provider = _resolve_provider()
     raw_engine, _ = provider.ensure()
-    async with raw_engine.begin() as conn:
-        return await conn.run_sync(verify_schema_sync)
+    begin_ctx = raw_engine.begin()
+    if hasattr(begin_ctx, "__aenter__"):
+        async with begin_ctx as conn:
+            return await conn.run_sync(verify_schema_sync)
+    with begin_ctx as conn:
+        return verify_schema_sync(conn)
 
 
 async def column_names_async(table: str) -> list[str]:
     provider = _resolve_provider()
     raw_engine, _ = provider.ensure()
-    async with raw_engine.begin() as conn:
-        return await conn.run_sync(lambda sync_conn: column_names_sync(sync_conn, table))
+    begin_ctx = raw_engine.begin()
+    if hasattr(begin_ctx, "__aenter__"):
+        async with begin_ctx as conn:
+            return await conn.run_sync(lambda sync_conn: column_names_sync(sync_conn, table))
+    with begin_ctx as conn:
+        return column_names_sync(conn, table)
 
 
 __all__ = [
