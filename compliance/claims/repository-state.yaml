@@ -69,7 +69,7 @@ repository_state:
   tier4_last_matrix_profile_count: 16
   phase_13_final_release_decision_complete: true
   phase_13_release_decision_record_present: true
-  release_gate_passed_at_phase_13: false
+  release_gate_passed_at_phase_13: true
   full_release_claim_still_partial: true
   last_release_decision_record: docs/compliance/RELEASE_DECISION_RECORD.md
   phase_0_claim_boundary_rebaseline_complete: true
