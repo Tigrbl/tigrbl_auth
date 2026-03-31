@@ -2,7 +2,7 @@
   "status": "signed-ed25519-attested",
   "algorithm": "Ed25519",
   "package": "tigrbl_auth",
-  "version": "0.3.2.dev14",
+  "version": "0.3.0.dev1",
   "profile": "baseline",
   "signer": {
     "signer_id": "tigrbl_auth.checkpoint.attestor",
@@ -22,7 +22,7 @@
     {
       "label": "release-bundle",
       "artifact_path": "release-bundle.json",
-      "artifact_sha256": "1c5ef77191cc79726852baf0b85a80209b924d28f562d1e8560cfa165009c828",
+      "artifact_sha256": "4d440490873a201c0eea1f027fe73106d832b6db8737598d69d90f98400982d0",
       "attestation_path": "attestations/release-bundle.attestation.json"
     },
     {
@@ -40,7 +40,7 @@
     {
       "label": "contract-set",
       "artifact_path": "attestations/contract-set.manifest.json",
-      "artifact_sha256": "24349591cb6df46201c2394263fc32ec6d8e364272440093dbba5084250169c3",
+      "artifact_sha256": "65dee2915b518ae8952c67f0cb64d01c8f0becd172ea42245b5fc80cd22d7765",
       "attestation_path": "attestations/contract-set.attestation.json"
     }
   ],
