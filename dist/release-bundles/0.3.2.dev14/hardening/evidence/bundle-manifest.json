@@ -19,8 +19,7 @@
       "par",
       "jar",
       "rar",
-      "dpop",
-      "mtls"
+      "dpop"
     ],
     "extensions": [],
     "issuer": "https://authn.example.com",
@@ -47,6 +46,7 @@
       "enable_rfc7519": true,
       "enable_oidc_core": true,
       "enable_oidc_discovery": true,
+      "enable_oidc_session_management": true,
       "enable_rfc7009": true,
       "enable_rfc7521": true,
       "enable_rfc7523": true,
@@ -54,15 +54,14 @@
       "enable_rfc7591": true,
       "enable_rfc7592": true,
       "enable_rfc8252": true,
-      "enable_rfc9068": true,
+      "enable_rfc9068": false,
       "enable_rfc9207": true,
       "enable_rfc9728": true,
       "enable_oidc_userinfo": true,
-      "enable_oidc_session_management": true,
       "enable_oidc_rp_initiated_logout": true,
       "enable_rfc8628": true,
       "enable_rfc8693": true,
-      "enable_rfc8705": true,
+      "enable_rfc8705": false,
       "enable_rfc8707": true,
       "enable_rfc9101": true,
       "enable_rfc9126": true,
@@ -179,9 +178,7 @@
       "RFC 8252",
       "RFC 8628",
       "RFC 8693",
-      "RFC 8705",
       "RFC 8707",
-      "RFC 9068",
       "RFC 9101",
       "RFC 9126",
       "RFC 9207",
@@ -251,17 +248,17 @@
     {
       "path": "compliance/claims/effective-target-claims.hardening.yaml",
       "present": true,
-      "sha256": "2179eda0df66f740828c7fb6337ac87d1e31d225354fb12491e6231a6c396a63"
+      "sha256": "59b9c6197a117bf9d350ae381b2852b47db9c2c2ec058e98d4285781ed467521"
     },
     {
       "path": "compliance/evidence/effective-release-evidence.hardening.yaml",
       "present": true,
-      "sha256": "83ac3b20497c55ec3f667d31aad83d238fa7f35364d438dc10efdc0d48a979ba"
+      "sha256": "ea6348b966a016a13877a0ba45f24b0b280cb82ae4260960fa5114810cf8936a"
     },
     {
       "path": "specs/openapi/profiles/hardening/tigrbl_auth.public.openapi.json",
       "present": true,
-      "sha256": "9eef3d7659f1a752ba28c5eb87c114275d70a43b78427ccec9883d8973559276"
+      "sha256": "30974405d6e06d9c5e8ecf42fe12b0a578c90aaeda90c91db3fa887bf5c0e27a"
     },
     {
       "path": "specs/openrpc/profiles/hardening/tigrbl_auth.admin.openrpc.json",

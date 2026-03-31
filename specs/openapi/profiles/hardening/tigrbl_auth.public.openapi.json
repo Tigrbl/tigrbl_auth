@@ -48,7 +48,7 @@
           "par_required": true,
           "sender_constraint_required": true,
           "dpop_supported": true,
-          "mtls_supported": false,
+          "mtls_supported": true,
           "resource_indicators_supported": true,
           "request_objects_supported": true,
           "rich_authorization_requests_supported": true,
@@ -107,7 +107,7 @@
           "par_required": true,
           "sender_constraint_required": true,
           "dpop_supported": true,
-          "mtls_supported": false,
+          "mtls_supported": true,
           "resource_indicators_supported": true,
           "request_objects_supported": true,
           "rich_authorization_requests_supported": true,
@@ -272,7 +272,7 @@
           "par_required": true,
           "sender_constraint_required": true,
           "dpop_supported": true,
-          "mtls_supported": false,
+          "mtls_supported": true,
           "resource_indicators_supported": true,
           "request_objects_supported": true,
           "rich_authorization_requests_supported": true,
@@ -385,6 +385,14 @@
             "schema": {
               "type": "string"
             }
+          },
+          {
+            "name": "X-Client-Cert-SHA256",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
           }
         ]
       }
@@ -426,7 +434,7 @@
           "par_required": true,
           "sender_constraint_required": true,
           "dpop_supported": true,
-          "mtls_supported": false,
+          "mtls_supported": true,
           "resource_indicators_supported": true,
           "request_objects_supported": true,
           "rich_authorization_requests_supported": true,
@@ -478,7 +486,7 @@
           "par_required": true,
           "sender_constraint_required": true,
           "dpop_supported": true,
-          "mtls_supported": false,
+          "mtls_supported": true,
           "resource_indicators_supported": true,
           "request_objects_supported": true,
           "rich_authorization_requests_supported": true,
@@ -546,7 +554,7 @@
           "par_required": true,
           "sender_constraint_required": true,
           "dpop_supported": true,
-          "mtls_supported": false,
+          "mtls_supported": true,
           "resource_indicators_supported": true,
           "request_objects_supported": true,
           "rich_authorization_requests_supported": true,
@@ -687,7 +695,7 @@
           "par_required": true,
           "sender_constraint_required": true,
           "dpop_supported": true,
-          "mtls_supported": false,
+          "mtls_supported": true,
           "resource_indicators_supported": true,
           "request_objects_supported": true,
           "rich_authorization_requests_supported": true,
@@ -750,7 +758,7 @@
           "par_required": true,
           "sender_constraint_required": true,
           "dpop_supported": true,
-          "mtls_supported": false,
+          "mtls_supported": true,
           "resource_indicators_supported": true,
           "request_objects_supported": true,
           "rich_authorization_requests_supported": true,
@@ -904,7 +912,7 @@
           "par_required": true,
           "sender_constraint_required": true,
           "dpop_supported": true,
-          "mtls_supported": false,
+          "mtls_supported": true,
           "resource_indicators_supported": true,
           "request_objects_supported": true,
           "rich_authorization_requests_supported": true,
@@ -969,7 +977,7 @@
           "par_required": true,
           "sender_constraint_required": true,
           "dpop_supported": true,
-          "mtls_supported": false,
+          "mtls_supported": true,
           "resource_indicators_supported": true,
           "request_objects_supported": true,
           "rich_authorization_requests_supported": true,
@@ -1037,7 +1045,7 @@
           "par_required": true,
           "sender_constraint_required": true,
           "dpop_supported": true,
-          "mtls_supported": false,
+          "mtls_supported": true,
           "resource_indicators_supported": true,
           "request_objects_supported": true,
           "rich_authorization_requests_supported": true,
@@ -1125,7 +1133,7 @@
           "par_required": true,
           "sender_constraint_required": true,
           "dpop_supported": true,
-          "mtls_supported": false,
+          "mtls_supported": true,
           "resource_indicators_supported": true,
           "request_objects_supported": true,
           "rich_authorization_requests_supported": true,
@@ -1224,7 +1232,7 @@
           "par_required": true,
           "sender_constraint_required": true,
           "dpop_supported": true,
-          "mtls_supported": false,
+          "mtls_supported": true,
           "resource_indicators_supported": true,
           "request_objects_supported": true,
           "rich_authorization_requests_supported": true,
@@ -1302,7 +1310,7 @@
           "par_required": true,
           "sender_constraint_required": true,
           "dpop_supported": true,
-          "mtls_supported": false,
+          "mtls_supported": true,
           "resource_indicators_supported": true,
           "request_objects_supported": true,
           "rich_authorization_requests_supported": true,
@@ -1405,7 +1413,7 @@
           "par_required": true,
           "sender_constraint_required": true,
           "dpop_supported": true,
-          "mtls_supported": false,
+          "mtls_supported": true,
           "resource_indicators_supported": true,
           "request_objects_supported": true,
           "rich_authorization_requests_supported": true,
@@ -1460,6 +1468,14 @@
             "schema": {
               "type": "string"
             }
+          },
+          {
+            "name": "X-Client-Cert-SHA256",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
           }
         ]
       }
@@ -1502,7 +1518,7 @@
           "par_required": true,
           "sender_constraint_required": true,
           "dpop_supported": true,
-          "mtls_supported": false,
+          "mtls_supported": true,
           "resource_indicators_supported": true,
           "request_objects_supported": true,
           "rich_authorization_requests_supported": true,
@@ -1550,7 +1566,7 @@
           "par_required": true,
           "sender_constraint_required": true,
           "dpop_supported": true,
-          "mtls_supported": false,
+          "mtls_supported": true,
           "resource_indicators_supported": true,
           "request_objects_supported": true,
           "rich_authorization_requests_supported": true,
@@ -1598,7 +1614,7 @@
           "par_required": true,
           "sender_constraint_required": true,
           "dpop_supported": true,
-          "mtls_supported": false,
+          "mtls_supported": true,
           "resource_indicators_supported": true,
           "request_objects_supported": true,
           "rich_authorization_requests_supported": true,
@@ -1646,7 +1662,7 @@
           "par_required": true,
           "sender_constraint_required": true,
           "dpop_supported": true,
-          "mtls_supported": false,
+          "mtls_supported": true,
           "resource_indicators_supported": true,
           "request_objects_supported": true,
           "rich_authorization_requests_supported": true,

@@ -1,5 +1,5 @@
 {
-  "generated_at": "20260330T112827Z",
+  "generated_at": "20260331T090715Z",
   "passed": true,
   "summary": {
     "static_manifest_passed": true,
@@ -63,7 +63,7 @@
     {
       "version": "3.12",
       "available": true,
-      "path": "/workspace/tigrbl_auth/.tox/py312-test-core/bin/python3.12"
+      "path": "/root/.pyenv/versions/3.12.12/bin/python3.12"
     }
   ],
   "dependency_manifest": {
@@ -103,7 +103,8 @@
         "requests==2.32.3"
       ],
       "postgres": [
-        "asyncpg==0.31.0"
+        "asyncpg==0.31.0",
+        "psycopg2-binary==2.9.10"
       ],
       "sqlite": [
         "aiosqlite==0.22.1"
@@ -915,11 +916,11 @@
     "platform_version": "#1 SMP Mon Oct 27 10:01:15 UTC 2025",
     "machine": "x86_64",
     "processor": "x86_64",
-    "tox_env": "py312-test-core",
-    "matrix_profile": "base",
+    "tox_env": null,
+    "matrix_profile": null,
     "install_profile": "base",
-    "test_lane": "core",
-    "runner": ""
+    "test_lane": null,
+    "runner": null
   },
   "current_environment_probe": {
     "profile": "base",
@@ -937,11 +938,11 @@
       "platform_version": "#1 SMP Mon Oct 27 10:01:15 UTC 2025",
       "machine": "x86_64",
       "processor": "x86_64",
-      "tox_env": "py312-test-core",
-      "matrix_profile": "base",
+      "tox_env": null,
+      "matrix_profile": null,
       "install_profile": "base",
-      "test_lane": "core",
-      "runner": ""
+      "test_lane": null,
+      "runner": null
     },
     "python": "3.12.12",
     "python_supported": true,

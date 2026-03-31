@@ -34,6 +34,7 @@ effective_deployment:
     enable_rfc7519: true
     enable_oidc_core: true
     enable_oidc_discovery: true
+    enable_oidc_session_management: true
     enable_rfc7009: true
     enable_rfc7521: true
     enable_rfc7523: true
@@ -41,11 +42,10 @@ effective_deployment:
     enable_rfc7591: true
     enable_rfc7592: true
     enable_rfc8252: true
-    enable_rfc9068: true
+    enable_rfc9068: false
     enable_rfc9207: true
     enable_rfc9728: true
     enable_oidc_userinfo: true
-    enable_oidc_session_management: true
     enable_oidc_rp_initiated_logout: true
     enable_rfc8628: false
     enable_rfc8693: false
@@ -148,7 +148,6 @@ effective_deployment:
   - RFC 7592
   - RFC 7662
   - RFC 8252
-  - RFC 9068
   - RFC 9207
   - RFC 9728
   - RFC 6265
@@ -266,10 +265,6 @@ bundle_manifest:
     tier: 3
     refs:
     - compliance/evidence/tier3/native-apps/
-  - target: RFC 9068
-    tier: 3
-    refs:
-    - compliance/evidence/tier3/jwt-access-token-profile/
   - target: RFC 9207
     tier: 3
     refs:

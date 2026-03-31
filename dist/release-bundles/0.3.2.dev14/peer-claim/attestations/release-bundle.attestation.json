@@ -3,14 +3,14 @@
   "payload": {
     "schema_version": 1,
     "statement_type": "https://tigrbl.dev/attestations/release-artifact/v1",
-    "issued_at": "2026-03-27T20:23:32Z",
+    "issued_at": "2026-03-31T09:07:04Z",
     "signer": {
       "signer_id": "tigrbl_auth.checkpoint.attestor",
-      "key_id": "ed25519:6b8610b664b40b6cb006c386",
+      "key_id": "ed25519:6e6017ff4213c81fc0b69468",
       "algorithm": "Ed25519",
       "identity_kind": "repository-release-attestor",
-      "public_key_pem": "-----BEGIN PUBLIC KEY-----\nMCowBQYDK2VwAyEAkEvTaJUUF1YbY+nrtjLarkgddj7H2oRNiCwjn9FrMCw=\n-----END PUBLIC KEY-----\n",
-      "public_key_sha256": "6b8610b664b40b6cb006c386928e92e65d914069208e07881fe2b5eaba600bf2",
+      "public_key_pem": "-----BEGIN PUBLIC KEY-----\nMCowBQYDK2VwAyEAYfvwNsnztrDh1HKx66fva5wa2CgaWJjQWVXit2L+Zxo=\n-----END PUBLIC KEY-----\n",
+      "public_key_sha256": "6e6017ff4213c81fc0b6946829eaae60a91dc2a5da3ec1eb09aa68de45633054",
       "source": "inline-pem"
     },
     "subject": {
@@ -20,14 +20,14 @@
       "artifact_label": "release-bundle",
       "artifact_kind": "release-bundle-manifest",
       "artifact_path": "release-bundle.json",
-      "artifact_sha256": "9debe09ee54d7e1ff0ff1504fa17db79b74a32afbf5a023af4fc5783a9a2460e",
+      "artifact_sha256": "7fd8055ea36a4a1d0c4bbb6879be342dc4613e0543baff2764548a9c1c2e706b",
       "media_type": "application/json"
     }
   },
   "signature": {
     "algorithm": "Ed25519",
     "encoding": "base64url",
-    "value": "g10qakiXhYetbFToA0Zbi9aYBnGbDGZeDd2zR8X9TnrsedWVSFPg34b-FnQENqhapXAyUlSNBZbKV7IhvhhSBw",
-    "payload_sha256": "1526050aba6fb814a8879254c85cdfee0a0f5e8b2fddd0aa9609cf36da661b55"
+    "value": "8qNGuE8JcuQTqztLNJUCqfFSs9qb6Juev503WcvmNTvNq0ruo1snzY-Wfw8rQyls-MU52g5lQAk0C7zgEkZ8Bw",
+    "payload_sha256": "167fda8ce08f8c5143b6041a8e6386b1a5ec3481c6968f8ba1eb80d5f4289bf9"
   }
 }

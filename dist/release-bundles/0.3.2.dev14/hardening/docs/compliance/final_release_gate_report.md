@@ -22,4 +22,7 @@
 - The clean-room install matrix is not green from validated-run evidence.
 - In-scope certification test lanes are not green from validated-run evidence.
 - Migration portability validation is not preserved for both SQLite and PostgreSQL.
+
+## Warnings
+
 - Tier 4 bundle promotion is not complete for the retained boundary.

@@ -16,7 +16,6 @@ effective_deployment:
   - jar
   - rar
   - dpop
-  - mtls
   extensions: []
   issuer: https://authn.example.com
   protected_resource_identifier: https://authn.example.com/resource
@@ -41,6 +40,7 @@ effective_deployment:
     enable_rfc7519: true
     enable_oidc_core: true
     enable_oidc_discovery: true
+    enable_oidc_session_management: true
     enable_rfc7009: true
     enable_rfc7521: true
     enable_rfc7523: true
@@ -48,15 +48,14 @@ effective_deployment:
     enable_rfc7591: true
     enable_rfc7592: true
     enable_rfc8252: true
-    enable_rfc9068: true
+    enable_rfc9068: false
     enable_rfc9207: true
     enable_rfc9728: true
     enable_oidc_userinfo: true
-    enable_oidc_session_management: true
     enable_oidc_rp_initiated_logout: true
     enable_rfc8628: true
     enable_rfc8693: true
-    enable_rfc8705: true
+    enable_rfc8705: false
     enable_rfc8707: true
     enable_rfc9101: true
     enable_rfc9126: true
@@ -168,9 +167,7 @@ effective_deployment:
   - RFC 8252
   - RFC 8628
   - RFC 8693
-  - RFC 8705
   - RFC 8707
-  - RFC 9068
   - RFC 9101
   - RFC 9126
   - RFC 9207
@@ -303,18 +300,10 @@ bundle_manifest:
     tier: 3
     refs:
     - compliance/evidence/tier3/token-exchange/
-  - target: RFC 8705
-    tier: 3
-    refs:
-    - compliance/evidence/tier3/mtls/
   - target: RFC 8707
     tier: 3
     refs:
     - compliance/evidence/tier3/resource-indicators/
-  - target: RFC 9068
-    tier: 3
-    refs:
-    - compliance/evidence/tier3/jwt-access-token-profile/
   - target: RFC 9101
     tier: 3
     refs:
