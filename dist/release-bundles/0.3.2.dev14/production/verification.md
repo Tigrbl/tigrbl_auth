@@ -4,7 +4,7 @@
 
 ## Details
 
-- bundle_root: `/tmp/tigrbl_work/tigrbl_auth_phase13_certification_target_freeze_reconciled_2026-03-24/dist/release-bundles/0.3.2.dev14/production`
+- bundle_root: `/workspace/tigrbl_auth/dist/release-bundles/0.3.2.dev14/production`
 - verified_artifact_count: `4`
-- signing_key_id: `ed25519:6b8610b664b40b6cb006c386`
+- signing_key_id: `ed25519:6e6017ff4213c81fc0b69468`
 - artifact_labels: `['release-bundle', 'claim-manifest', 'evidence-manifest', 'contract-set']`

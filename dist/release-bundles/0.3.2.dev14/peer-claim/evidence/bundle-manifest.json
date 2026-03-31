@@ -19,8 +19,7 @@
       "par",
       "jar",
       "rar",
-      "dpop",
-      "mtls"
+      "dpop"
     ],
     "extensions": [],
     "issuer": "https://authn.example.com",
@@ -47,6 +46,7 @@
       "enable_rfc7519": true,
       "enable_oidc_core": true,
       "enable_oidc_discovery": true,
+      "enable_oidc_session_management": true,
       "enable_rfc7009": true,
       "enable_rfc7521": true,
       "enable_rfc7523": true,
@@ -54,15 +54,14 @@
       "enable_rfc7591": true,
       "enable_rfc7592": true,
       "enable_rfc8252": true,
-      "enable_rfc9068": true,
+      "enable_rfc9068": false,
       "enable_rfc9207": true,
       "enable_rfc9728": true,
       "enable_oidc_userinfo": true,
-      "enable_oidc_session_management": true,
       "enable_oidc_rp_initiated_logout": true,
       "enable_rfc8628": true,
       "enable_rfc8693": true,
-      "enable_rfc8705": true,
+      "enable_rfc8705": false,
       "enable_rfc8707": true,
       "enable_rfc9101": true,
       "enable_rfc9126": true,
@@ -179,9 +178,7 @@
       "RFC 8252",
       "RFC 8628",
       "RFC 8693",
-      "RFC 8705",
       "RFC 8707",
-      "RFC 9068",
       "RFC 9101",
       "RFC 9126",
       "RFC 9207",
@@ -251,17 +248,17 @@
     {
       "path": "compliance/claims/effective-target-claims.peer-claim.yaml",
       "present": true,
-      "sha256": "29e996c90f919d4e288a2beecbf696a2a235ec923fa1f02d3b4ee9ddfc94dacc"
+      "sha256": "0ed3a8fd99c330ae4588e4cdf711b4a8db1db29b4841ddc9c551022ebf5382de"
     },
     {
       "path": "compliance/evidence/effective-release-evidence.peer-claim.yaml",
       "present": true,
-      "sha256": "064e0ff1500cf6c553d3e7c72156c8d2ece653a79da07b23d35eda689ea64ae3"
+      "sha256": "eb712210e4a78c2b55e3d8a44e7aa97822d0b773420bfcadc60111fea0453e08"
     },
     {
       "path": "specs/openapi/profiles/peer-claim/tigrbl_auth.public.openapi.json",
       "present": true,
-      "sha256": "8b9e881e7d9a4139a0cd6ab2f1dd6db1c3834e6b4a38abfa2df8533ec62cfb92"
+      "sha256": "abf1c7868cd1865f1a353eb14e956d4baa45cd2f7c1c315255977df25b6ee944"
     },
     {
       "path": "specs/openrpc/profiles/peer-claim/tigrbl_auth.admin.openrpc.json",

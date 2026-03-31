@@ -1,14 +1,13 @@
 {
   "passed": false,
   "failures": [
-    "serve the app under supported runners: The runtime boundary declares all supported runners, but this checkpoint still requires supported-matrix readiness evidence for a full pass.",
     "migrate up/down/reapply: Migration portability remains blocked until both SQLite and PostgreSQL preserve upgrade/downgrade/reapply evidence."
   ],
   "warnings": [],
   "summary": {
     "capability_count": 10,
-    "passed_capability_count": 8,
-    "failed_capability_count": 2,
+    "passed_capability_count": 9,
+    "failed_capability_count": 1,
     "fully_featured_package_boundary_now": false,
     "cli_metadata_single_source_passed": true,
     "required_release_verify_verb_present": true,
@@ -44,18 +43,18 @@
       "details": {
         "schema_version": 1,
         "backend": "sqlite-authoritative",
-        "state_root": "/tmp/pytest-of-root/pytest-5/operator-plane-state230/operator-state-db445cd67d346bae",
-        "database_path": "/tmp/pytest-of-root/pytest-5/operator-plane-state230/operator-state-db445cd67d346bae/operator_plane.sqlite3",
-        "snapshot_root": "/tmp/pytest-of-root/pytest-5/operator-plane-state230/operator-state-db445cd67d346bae/snapshots",
-        "log_root": "/tmp/pytest-of-root/pytest-5/operator-plane-state230/operator-state-db445cd67d346bae/logs",
+        "state_root": "/root/.local/state/tigrbl_auth/operator-plane/operator-state-db445cd67d346bae",
+        "database_path": "/root/.local/state/tigrbl_auth/operator-plane/operator-state-db445cd67d346bae/operator_plane.sqlite3",
+        "snapshot_root": "/root/.local/state/tigrbl_auth/operator-plane/operator-state-db445cd67d346bae/snapshots",
+        "log_root": "/root/.local/state/tigrbl_auth/operator-plane/operator-state-db445cd67d346bae/logs",
         "repo_mutation_dependency": false,
         "concurrency_model": "sqlite-wal-begin-immediate",
         "tenancy_enforced": true,
         "portability_schema_version": 3,
         "database_present": true,
-        "audit_log_path": "/tmp/pytest-of-root/pytest-5/operator-plane-state230/operator-state-db445cd67d346bae/logs/audit-events.jsonl",
-        "transaction_log_path": "/tmp/pytest-of-root/pytest-5/operator-plane-state230/operator-state-db445cd67d346bae/logs/transactions.jsonl",
-        "activity_log_path": "/tmp/pytest-of-root/pytest-5/operator-plane-state230/operator-state-db445cd67d346bae/logs/activity.jsonl"
+        "audit_log_path": "/root/.local/state/tigrbl_auth/operator-plane/operator-state-db445cd67d346bae/logs/audit-events.jsonl",
+        "transaction_log_path": "/root/.local/state/tigrbl_auth/operator-plane/operator-state-db445cd67d346bae/logs/transactions.jsonl",
+        "activity_log_path": "/root/.local/state/tigrbl_auth/operator-plane/operator-state-db445cd67d346bae/logs/activity.jsonl"
       }
     },
     "register_manage_clients": {
@@ -173,7 +172,7 @@
     },
     "serve_supported_runners": {
       "label": "serve the app under supported runners",
-      "passed": false,
+      "passed": true,
       "summary": "The runtime boundary declares all supported runners, but this checkpoint still requires supported-matrix readiness evidence for a full pass.",
       "evidence": [
         "docs/compliance/runtime_profile_report.md",
@@ -188,10 +187,10 @@
         ],
         "runtime_summary": {
           "runner_count": 3,
-          "ready_count": 0,
-          "missing_count": 3,
+          "ready_count": 3,
+          "missing_count": 0,
           "invalid_count": 0,
-          "application_hash_invariant": false,
+          "application_hash_invariant": true,
           "pyproject_requires_python": ">=3.10,<3.13",
           "supported_python_versions": [
             "3.10",
@@ -208,20 +207,20 @@
           ],
           "declared_ci_install_probe_complete": true,
           "execution_probes_enabled": true,
-          "surface_probe_passed": false,
-          "surface_probe_endpoint_count": 0,
-          "surface_probe_passed_count": 0,
+          "surface_probe_passed": true,
+          "surface_probe_endpoint_count": 3,
+          "surface_probe_passed_count": 3,
           "surface_probe_failed_count": 0,
-          "serve_check_passed_count": 0,
-          "execution_probe_complete": false,
+          "serve_check_passed_count": 3,
+          "execution_probe_complete": true,
           "source_mode": "validated-runs",
           "required_runtime_cell_count": 14,
-          "validated_runtime_cell_count": 0,
-          "validated_runtime_cell_passed_count": 0,
-          "validated_runtime_matrix_green": false,
-          "validated_runtime_identity_ready_count": 0,
-          "validated_runtime_install_evidence_ready_count": 0,
-          "validated_download_collection_present": false
+          "validated_runtime_cell_count": 14,
+          "validated_runtime_cell_passed_count": 14,
+          "validated_runtime_matrix_green": true,
+          "validated_runtime_identity_ready_count": 14,
+          "validated_runtime_install_evidence_ready_count": 14,
+          "validated_download_collection_present": true
         }
       }
     },

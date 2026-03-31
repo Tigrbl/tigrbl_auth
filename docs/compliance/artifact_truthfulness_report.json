@@ -307,31 +307,31 @@
         },
         "contract_hashes": {
           "hypercorn": {
-            "openapi": "54a138fe72ab61a5475e6622279473cdf7d24f6ff15c25a093ffe824f3b12ce5",
+            "openapi": "e73b47f47bbced231d0770bde6f5ed228ba2f4c6a37bb4fffb29af5dd701d541",
             "openrpc": "e30fb613489774204b93774e35948dec6d4e2f378662643af9063d6e99def704",
             "discovery": {
-              "openid-configuration.json": "1b9b44cef869451ff468263c6605b5baee766d07e7e32583ca288be222e95e61",
-              "oauth-authorization-server.json": "1b9b44cef869451ff468263c6605b5baee766d07e7e32583ca288be222e95e61",
+              "openid-configuration.json": "3949e3835aaed9621b2e47049ba321f898b699e6b07e00efafe37587ff1fcab5",
+              "oauth-authorization-server.json": "3949e3835aaed9621b2e47049ba321f898b699e6b07e00efafe37587ff1fcab5",
               "jwks.json": "0439add085b0093a78687d50ece19d622b2b93bc4e74cd0833de8d93c3b9abac",
               "oauth-protected-resource.json": "45f14ac912d496be75845a32ccf91e7467f256270633f1e78d1c93be3a02f14f"
             }
           },
           "tigrcorn": {
-            "openapi": "54a138fe72ab61a5475e6622279473cdf7d24f6ff15c25a093ffe824f3b12ce5",
+            "openapi": "e73b47f47bbced231d0770bde6f5ed228ba2f4c6a37bb4fffb29af5dd701d541",
             "openrpc": "e30fb613489774204b93774e35948dec6d4e2f378662643af9063d6e99def704",
             "discovery": {
-              "openid-configuration.json": "1b9b44cef869451ff468263c6605b5baee766d07e7e32583ca288be222e95e61",
-              "oauth-authorization-server.json": "1b9b44cef869451ff468263c6605b5baee766d07e7e32583ca288be222e95e61",
+              "openid-configuration.json": "3949e3835aaed9621b2e47049ba321f898b699e6b07e00efafe37587ff1fcab5",
+              "oauth-authorization-server.json": "3949e3835aaed9621b2e47049ba321f898b699e6b07e00efafe37587ff1fcab5",
               "jwks.json": "0439add085b0093a78687d50ece19d622b2b93bc4e74cd0833de8d93c3b9abac",
               "oauth-protected-resource.json": "45f14ac912d496be75845a32ccf91e7467f256270633f1e78d1c93be3a02f14f"
             }
           },
           "uvicorn": {
-            "openapi": "54a138fe72ab61a5475e6622279473cdf7d24f6ff15c25a093ffe824f3b12ce5",
+            "openapi": "e73b47f47bbced231d0770bde6f5ed228ba2f4c6a37bb4fffb29af5dd701d541",
             "openrpc": "e30fb613489774204b93774e35948dec6d4e2f378662643af9063d6e99def704",
             "discovery": {
-              "openid-configuration.json": "1b9b44cef869451ff468263c6605b5baee766d07e7e32583ca288be222e95e61",
-              "oauth-authorization-server.json": "1b9b44cef869451ff468263c6605b5baee766d07e7e32583ca288be222e95e61",
+              "openid-configuration.json": "3949e3835aaed9621b2e47049ba321f898b699e6b07e00efafe37587ff1fcab5",
+              "oauth-authorization-server.json": "3949e3835aaed9621b2e47049ba321f898b699e6b07e00efafe37587ff1fcab5",
               "jwks.json": "0439add085b0093a78687d50ece19d622b2b93bc4e74cd0833de8d93c3b9abac",
               "oauth-protected-resource.json": "45f14ac912d496be75845a32ccf91e7467f256270633f1e78d1c93be3a02f14f"
             }
@@ -348,31 +348,31 @@
         },
         "contract_hashes": {
           "hypercorn": {
-            "openapi": "a62e9a5fd68062dec3d45cb26f4d404b6aafe51953c8edb3a9843845c9691202",
+            "openapi": "21d1f32dce84f42b76e06678f017f4b4452c943c9750f74c18ff5f1ecdab6c35",
             "openrpc": "9990e5b285721681998ea928d8f588fc89a9ac378f6241d1b2ac7ae4e8a16f06",
             "discovery": {
-              "openid-configuration.json": "1b9b44cef869451ff468263c6605b5baee766d07e7e32583ca288be222e95e61",
-              "oauth-authorization-server.json": "1b9b44cef869451ff468263c6605b5baee766d07e7e32583ca288be222e95e61",
+              "openid-configuration.json": "3949e3835aaed9621b2e47049ba321f898b699e6b07e00efafe37587ff1fcab5",
+              "oauth-authorization-server.json": "3949e3835aaed9621b2e47049ba321f898b699e6b07e00efafe37587ff1fcab5",
               "jwks.json": "314bcd0196aa7e89e498bd0271ea5dbb26341df60db935026577850aa51a77f6",
               "oauth-protected-resource.json": "45f14ac912d496be75845a32ccf91e7467f256270633f1e78d1c93be3a02f14f"
             }
           },
           "tigrcorn": {
-            "openapi": "a62e9a5fd68062dec3d45cb26f4d404b6aafe51953c8edb3a9843845c9691202",
+            "openapi": "21d1f32dce84f42b76e06678f017f4b4452c943c9750f74c18ff5f1ecdab6c35",
             "openrpc": "9990e5b285721681998ea928d8f588fc89a9ac378f6241d1b2ac7ae4e8a16f06",
             "discovery": {
-              "openid-configuration.json": "1b9b44cef869451ff468263c6605b5baee766d07e7e32583ca288be222e95e61",
-              "oauth-authorization-server.json": "1b9b44cef869451ff468263c6605b5baee766d07e7e32583ca288be222e95e61",
+              "openid-configuration.json": "3949e3835aaed9621b2e47049ba321f898b699e6b07e00efafe37587ff1fcab5",
+              "oauth-authorization-server.json": "3949e3835aaed9621b2e47049ba321f898b699e6b07e00efafe37587ff1fcab5",
               "jwks.json": "314bcd0196aa7e89e498bd0271ea5dbb26341df60db935026577850aa51a77f6",
               "oauth-protected-resource.json": "45f14ac912d496be75845a32ccf91e7467f256270633f1e78d1c93be3a02f14f"
             }
           },
           "uvicorn": {
-            "openapi": "a62e9a5fd68062dec3d45cb26f4d404b6aafe51953c8edb3a9843845c9691202",
+            "openapi": "21d1f32dce84f42b76e06678f017f4b4452c943c9750f74c18ff5f1ecdab6c35",
             "openrpc": "9990e5b285721681998ea928d8f588fc89a9ac378f6241d1b2ac7ae4e8a16f06",
             "discovery": {
-              "openid-configuration.json": "1b9b44cef869451ff468263c6605b5baee766d07e7e32583ca288be222e95e61",
-              "oauth-authorization-server.json": "1b9b44cef869451ff468263c6605b5baee766d07e7e32583ca288be222e95e61",
+              "openid-configuration.json": "3949e3835aaed9621b2e47049ba321f898b699e6b07e00efafe37587ff1fcab5",
+              "oauth-authorization-server.json": "3949e3835aaed9621b2e47049ba321f898b699e6b07e00efafe37587ff1fcab5",
               "jwks.json": "314bcd0196aa7e89e498bd0271ea5dbb26341df60db935026577850aa51a77f6",
               "oauth-protected-resource.json": "45f14ac912d496be75845a32ccf91e7467f256270633f1e78d1c93be3a02f14f"
             }
