@@ -45,7 +45,7 @@
 - tier4_invalid_external_bundle_count: `0`
 - tier4_missing_external_bundle_count: `16`
 - tier4_external_handoff_template_present: `True`
-- signed_release_bundle_count: `4`
+- signed_release_bundle_count: `8`
 - release_attestation_verifiable: `True`
 - base_dependency_count: `22`
 - base_exact_pinned_dependency_count: `22`
@@ -98,7 +98,7 @@
 - operator_plane_backend: `sqlite-authoritative`
 - operator_plane_repo_mutation_dependency: `False`
 - operator_plane_tenancy_enforced: `True`
-- operator_plane_database_present: `True`
+- operator_plane_database_present: `False`
 - operator_plane_state_root: `/root/.local/state/tigrbl_auth/operator-plane/tigrbl_auth-eaa801ad242b716f`
 - operator_plane_portability_schema_version: `3`
 - pyproject_requires_python: `>=3.10,<3.13`

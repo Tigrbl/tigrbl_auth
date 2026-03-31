@@ -45,7 +45,7 @@
 - tier4_invalid_external_bundle_count: `0`
 - tier4_missing_external_bundle_count: `16`
 - tier4_external_handoff_template_present: `True`
-- signed_release_bundle_count: `4`
+- signed_release_bundle_count: `8`
 - release_attestation_verifiable: `True`
 - base_dependency_count: `22`
 - base_exact_pinned_dependency_count: `22`

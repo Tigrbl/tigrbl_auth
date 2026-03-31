@@ -1,6 +1,6 @@
 # Runtime Profile Report
 
-- Generated at: `20260331T090719Z`
+- Generated at: `20260331T165743Z`
 - Deployment profile: `baseline`
 - Report mode: `validated-runs`
 - Validated artifact source: `dist/validated-runs/collected-artifact-downloads.json`

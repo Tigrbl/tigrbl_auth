@@ -5,8 +5,8 @@
 ## Summary
 
 - schema_version: `1`
-- fingerprint: `7417199cb0faad0103f802f26a3ab356dbff73759a51270bc6f6fff7499af464`
-- previous_fingerprint: `7417199cb0faad0103f802f26a3ab356dbff73759a51270bc6f6fff7499af464`
+- fingerprint: `80c6be826b2a7f78f23ececf019306e9954fb9588cd59aa4bfcb79a8c047bbcb`
+- previous_fingerprint: `80c6be826b2a7f78f23ececf019306e9954fb9588cd59aa4bfcb79a8c047bbcb`
 - changed_since_last_run: `False`
-- version: `0.3.2.dev14`
+- version: `0.3.0.dev1`
 - watched_dependency_artifact_count: `14`

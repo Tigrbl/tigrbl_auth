@@ -1,7 +1,7 @@
 # OpenRPC Contract Summary
 
 - Title: `tigrbl_auth admin/control-plane`
-- Version: `0.3.2.dev14`
+- Version: `0.3.0.dev1`
 - Profile: `baseline`
 - Method count: `35`
 - Schema count: `74`
