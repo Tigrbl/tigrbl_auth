@@ -250,8 +250,9 @@ def validated_migration_manifest_passed(payload: Mapping[str, Any]) -> bool:
     pytest_exit_code = _coerce_int(payload.get("pytest_exit_code"))
     pytest_report_sha256 = str(payload.get("pytest_report_sha256") or "").strip()
     pytest_report_present = bool(payload.get("pytest_report_artifact")) and bool(pytest_report_sha256)
+    report_passed = bool(payload.get("report_passed", payload.get("passed", False)))
     return bool(
-        payload.get("passed", False)
+        report_passed
         and pytest_exit_code in {None, 0}
         and pytest_report_present
     )

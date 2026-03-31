@@ -28,7 +28,7 @@ tigrbl_auth/runtime_cfg.py: legacy_transition
 tigrbl_auth/crypto.py: legacy_transition
 tigrbl_auth/jwtoken.py: legacy_transition
 tigrbl_auth/oidc_discovery.py: legacy_transition
-tigrbl_auth/oidc_id_token.py: legacy_transition
+tigrbl_auth/oidc_id_token.py: certified_core
 tigrbl_auth/oidc_userinfo.py: legacy_transition
 tigrbl_auth/app.py: certified_core
 tigrbl_auth/principal_ctx.py: legacy_transition

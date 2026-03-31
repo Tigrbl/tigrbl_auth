@@ -149,6 +149,8 @@ categories:
   - tests/unit/test_phase4_cli_contract.py
   - tests/unit/test_phase5_operator_service_layer.py
   - tests/unit/test_boundary_freeze_checkpoint.py
+  - tests/unit/test_phase13_truthfulness_alignment.py
+  - tests/unit/test_phase6_migration_portability_evidence.py
   - tests/unit/test_phase1_clean_room_install_substrate.py
   - tests/unit/test_phase2_app_factory_materialization.py
   - tests/unit/test_phase4_collect_validated_artifact_downloads.py
