@@ -22,7 +22,7 @@
     {
       "label": "release-bundle",
       "artifact_path": "release-bundle.json",
-      "artifact_sha256": "844f931b069a62712f14cae6e093fe99fd2a4cf1b42fe80e944fb90ae50004df",
+      "artifact_sha256": "6ccb71626bc3d9dee2c4d58cb1a964947141b089943ff1255f4e4275d2b2c0fc",
       "attestation_path": "attestations/release-bundle.attestation.json"
     },
     {

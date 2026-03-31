@@ -54,7 +54,7 @@
           "rich_authorization_requests_supported": true,
           "query_bearer_disabled": true,
           "form_bearer_disabled": true,
-          "jwt_access_token_profile_supported": true
+          "jwt_access_token_profile_supported": false
         }
       }
     },
@@ -113,7 +113,7 @@
           "rich_authorization_requests_supported": true,
           "query_bearer_disabled": true,
           "form_bearer_disabled": true,
-          "jwt_access_token_profile_supported": true
+          "jwt_access_token_profile_supported": false
         },
         "parameters": [
           {
@@ -278,7 +278,7 @@
           "rich_authorization_requests_supported": true,
           "query_bearer_disabled": true,
           "form_bearer_disabled": true,
-          "jwt_access_token_profile_supported": true
+          "jwt_access_token_profile_supported": false
         },
         "requestBody": {
           "required": true,
@@ -440,7 +440,7 @@
           "rich_authorization_requests_supported": true,
           "query_bearer_disabled": true,
           "form_bearer_disabled": true,
-          "jwt_access_token_profile_supported": true
+          "jwt_access_token_profile_supported": false
         },
         "security": [
           {
@@ -492,7 +492,7 @@
           "rich_authorization_requests_supported": true,
           "query_bearer_disabled": true,
           "form_bearer_disabled": true,
-          "jwt_access_token_profile_supported": true
+          "jwt_access_token_profile_supported": false
         },
         "requestBody": {
           "required": true,
@@ -560,7 +560,7 @@
           "rich_authorization_requests_supported": true,
           "query_bearer_disabled": true,
           "form_bearer_disabled": true,
-          "jwt_access_token_profile_supported": true
+          "jwt_access_token_profile_supported": false
         },
         "requestBody": {
           "required": true,
@@ -701,7 +701,7 @@
           "rich_authorization_requests_supported": true,
           "query_bearer_disabled": true,
           "form_bearer_disabled": true,
-          "jwt_access_token_profile_supported": true
+          "jwt_access_token_profile_supported": false
         },
         "parameters": [
           {
@@ -764,7 +764,7 @@
           "rich_authorization_requests_supported": true,
           "query_bearer_disabled": true,
           "form_bearer_disabled": true,
-          "jwt_access_token_profile_supported": true
+          "jwt_access_token_profile_supported": false
         },
         "parameters": [
           {
@@ -918,7 +918,7 @@
           "rich_authorization_requests_supported": true,
           "query_bearer_disabled": true,
           "form_bearer_disabled": true,
-          "jwt_access_token_profile_supported": true
+          "jwt_access_token_profile_supported": false
         },
         "parameters": [
           {
@@ -983,7 +983,7 @@
           "rich_authorization_requests_supported": true,
           "query_bearer_disabled": true,
           "form_bearer_disabled": true,
-          "jwt_access_token_profile_supported": true
+          "jwt_access_token_profile_supported": false
         },
         "requestBody": {
           "required": true,
@@ -1051,7 +1051,7 @@
           "rich_authorization_requests_supported": true,
           "query_bearer_disabled": true,
           "form_bearer_disabled": true,
-          "jwt_access_token_profile_supported": true
+          "jwt_access_token_profile_supported": false
         },
         "parameters": [
           {
@@ -1139,7 +1139,7 @@
           "rich_authorization_requests_supported": true,
           "query_bearer_disabled": true,
           "form_bearer_disabled": true,
-          "jwt_access_token_profile_supported": true
+          "jwt_access_token_profile_supported": false
         },
         "requestBody": {
           "required": false,
@@ -1238,7 +1238,7 @@
           "rich_authorization_requests_supported": true,
           "query_bearer_disabled": true,
           "form_bearer_disabled": true,
-          "jwt_access_token_profile_supported": true
+          "jwt_access_token_profile_supported": false
         },
         "requestBody": {
           "required": true,
@@ -1316,7 +1316,7 @@
           "rich_authorization_requests_supported": true,
           "query_bearer_disabled": true,
           "form_bearer_disabled": true,
-          "jwt_access_token_profile_supported": true
+          "jwt_access_token_profile_supported": false
         },
         "requestBody": {
           "required": true,
@@ -1419,7 +1419,7 @@
           "rich_authorization_requests_supported": true,
           "query_bearer_disabled": true,
           "form_bearer_disabled": true,
-          "jwt_access_token_profile_supported": true
+          "jwt_access_token_profile_supported": false
         },
         "requestBody": {
           "required": true,
@@ -1524,7 +1524,7 @@
           "rich_authorization_requests_supported": true,
           "query_bearer_disabled": true,
           "form_bearer_disabled": true,
-          "jwt_access_token_profile_supported": true
+          "jwt_access_token_profile_supported": false
         }
       }
     },
@@ -1572,7 +1572,7 @@
           "rich_authorization_requests_supported": true,
           "query_bearer_disabled": true,
           "form_bearer_disabled": true,
-          "jwt_access_token_profile_supported": true
+          "jwt_access_token_profile_supported": false
         }
       }
     },
@@ -1620,7 +1620,7 @@
           "rich_authorization_requests_supported": true,
           "query_bearer_disabled": true,
           "form_bearer_disabled": true,
-          "jwt_access_token_profile_supported": true
+          "jwt_access_token_profile_supported": false
         }
       }
     },
@@ -1668,7 +1668,7 @@
           "rich_authorization_requests_supported": true,
           "query_bearer_disabled": true,
           "form_bearer_disabled": true,
-          "jwt_access_token_profile_supported": true
+          "jwt_access_token_profile_supported": false
         }
       }
     }
@@ -2069,8 +2069,7 @@
       "par",
       "jar",
       "rar",
-      "dpop",
-      "mtls"
+      "dpop"
     ],
     "extensions": [],
     "active_targets": [
@@ -2093,9 +2092,7 @@
       "RFC 8252",
       "RFC 8628",
       "RFC 8693",
-      "RFC 8705",
       "RFC 8707",
-      "RFC 9068",
       "RFC 9101",
       "RFC 9126",
       "RFC 9207",

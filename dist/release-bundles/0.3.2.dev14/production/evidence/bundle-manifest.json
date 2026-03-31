@@ -39,6 +39,7 @@
       "enable_rfc7519": true,
       "enable_oidc_core": true,
       "enable_oidc_discovery": true,
+      "enable_oidc_session_management": true,
       "enable_rfc7009": true,
       "enable_rfc7521": true,
       "enable_rfc7523": true,
@@ -46,11 +47,10 @@
       "enable_rfc7591": true,
       "enable_rfc7592": true,
       "enable_rfc8252": true,
-      "enable_rfc9068": true,
+      "enable_rfc9068": false,
       "enable_rfc9207": true,
       "enable_rfc9728": true,
       "enable_oidc_userinfo": true,
-      "enable_oidc_session_management": true,
       "enable_oidc_rp_initiated_logout": true,
       "enable_rfc8628": false,
       "enable_rfc8693": false,
@@ -158,7 +158,6 @@
       "RFC 7592",
       "RFC 7662",
       "RFC 8252",
-      "RFC 9068",
       "RFC 9207",
       "RFC 9728",
       "RFC 6265",
@@ -221,17 +220,17 @@
     {
       "path": "compliance/claims/effective-target-claims.production.yaml",
       "present": true,
-      "sha256": "f1dbad2cf4b9e8b3edc4c3267d6e60846012f1c861862e49a3fbf6af980c2464"
+      "sha256": "021627f4419e0b82f191dec90fa5da25f5f33e2d1e88b5ca8fbd11d5a92fd1d9"
     },
     {
       "path": "compliance/evidence/effective-release-evidence.production.yaml",
       "present": true,
-      "sha256": "16155e334f1e03baffd2dd5b991821286a4cd3f8a4fbf1e8aab417602ac5c9f8"
+      "sha256": "8e8677f6b3356343e1595f4d5befe2706d86fd0e3eb0876e7461639a8aa3b5db"
     },
     {
       "path": "specs/openapi/profiles/production/tigrbl_auth.public.openapi.json",
       "present": true,
-      "sha256": "4bc2c693e05cee326cfd20aef881e83e1d989df81527500606f658ace6dcc1aa"
+      "sha256": "163560046b67d278ca88d348df0dbd366b01df9b83c1e6ca5222a71e9a5fa2d6"
     },
     {
       "path": "specs/openrpc/profiles/production/tigrbl_auth.admin.openrpc.json",

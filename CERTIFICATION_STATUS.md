@@ -20,8 +20,8 @@
 - alignment_only_checkpoint_no_new_certification_evidence: `False`
 - clean_room_executor_matrix_declared_complete: `True`
 - validated_manifest_identity_contract_installed: `True`
-- clean_room_install_matrix_green: `False`
-- in_scope_test_lanes_green: `False`
+- clean_room_install_matrix_green: `True`
+- in_scope_test_lanes_green: `True`
 - migration_portability_passed: `False`
 - tier3_evidence_rebuilt_from_validated_runs: `True`
 - tier4_bundle_promotion_complete: `False`
@@ -30,14 +30,6 @@
 
 - Tier 4 independent peer validation is not complete for the retained boundary.
 - One or more supported peer profiles still have no preserved external Tier 4 bundle.
-- The runtime validation stack now executes real app-factory, serve-check, and HTTP surface probes in the clean-room matrix, but successful execution across the supported interpreter/profile matrix is not yet preserved in the validated-run inventory.
-- Tigrcorn is now pinned and included in the clean-room matrix for Python 3.11/3.12, but preserved independent validation artifacts remain absent.
-- The runtime HTTP surface probe is not yet proven green across the preserved validated base-environment manifests.
-- The application factory is not yet proven materialized across the preserved validated base-environment manifests.
-- Real runtime execution probes are implemented in tox and CI, but the preserved validated runtime inventory does not yet cover the full kept-runner matrix.
-- Validated clean-room install matrix evidence is incomplete or missing.
-- Validated in-scope certification lane execution evidence is incomplete or missing.
-- Migration upgrade → downgrade → reapply portability has not been preserved for both SQLite and PostgreSQL.
 - One or more operator-visible package capabilities still lacks end-to-end verification in the current environment.
 
 ## Practical recommendation

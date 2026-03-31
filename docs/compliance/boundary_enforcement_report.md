@@ -11,8 +11,8 @@
 - production_route_count: `13`
 - hardening_route_count: `16`
 - baseline_claim_count: `23`
-- production_claim_count: `37`
-- hardening_claim_count: `48`
+- production_claim_count: `36`
+- hardening_claim_count: `46`
 - scope_freeze_present: `True`
 - scope_freeze_decision_id: `BND-012`
 - scope_freeze_effective_date: `2026-03-26`

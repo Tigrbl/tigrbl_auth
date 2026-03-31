@@ -3,7 +3,7 @@
   "payload": {
     "schema_version": 1,
     "statement_type": "https://tigrbl.dev/attestations/release-artifact/v1",
-    "issued_at": "2026-03-30T11:28:31Z",
+    "issued_at": "2026-03-31T09:15:18Z",
     "signer": {
       "signer_id": "tigrbl_auth.checkpoint.attestor",
       "key_id": "ed25519:47cff9cbdf9030464a7095e6",
@@ -27,7 +27,7 @@
   "signature": {
     "algorithm": "Ed25519",
     "encoding": "base64url",
-    "value": "NThynaFL6-9H3yS54MAW2qa3JbAAtfb3Hc-MRZPddBsTh3KI3KiOeNVMREURSqlhq3860pkPkXXXtgnkKAaYCw",
-    "payload_sha256": "5d4a63673d2378d5dbc9fc2414564f8fde27f56919c513d0c2f4091689eadc45"
+    "value": "fTELw_KNfhXP6hyMQ-upTncn4faYPf2qQGKtdFaGnUJ-p0Hr5WN1-F2TFeeEDJGP8iJWDxHovBczr-JXlSyJDQ",
+    "payload_sha256": "24029c6712fea32704f48592c01e0bcc96e8ac9688532511304477be5a5bf9c5"
   }
 }

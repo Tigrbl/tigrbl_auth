@@ -1,0 +1,71 @@
+{
+  "passed": true,
+  "required_backends": [
+    "sqlite",
+    "postgres"
+  ],
+  "validated_backends": [
+    "sqlite",
+    "postgres"
+  ],
+  "passed_backends": [
+    "sqlite",
+    "postgres"
+  ],
+  "backend_results": {
+    "sqlite": {
+      "backend": "sqlite",
+      "available": true,
+      "database_url": "sqlite+aiosqlite:////mnt/data/step6_work/tigrbl_auth_phase13_certification_target_freeze_reconciled_2026-03-24/dist/migration-portability/sqlite/tigrbl_auth_migration_portability.db",
+      "passed": true,
+      "upgrade_passed": true,
+      "downgrade_passed": true,
+      "reapply_passed": true,
+      "downgraded_revision": "95ecc648cc71",
+      "artifacts": {
+        "upgrade": "dist/migration-portability/sqlite/upgrade.json",
+        "downgrade": "dist/migration-portability/sqlite/downgrade.json",
+        "reapply": "dist/migration-portability/sqlite/reapply.json"
+      },
+      "expected_head_revision": "95ecc648cc71",
+      "downgrade_target_revision": "1975ea83b712",
+      "head_revision_after_upgrade": "95ecc648cc71",
+      "head_revision_after_downgrade": "1975ea83b712",
+      "head_revision_after_reapply": "95ecc648cc71"
+    },
+    "postgres": {
+      "backend": "postgres",
+      "available": true,
+      "passed": true,
+      "upgrade_passed": true,
+      "downgrade_passed": true,
+      "reapply_passed": true,
+      "downgraded_revision": "95ecc648cc71",
+      "artifacts": {
+        "upgrade": "dist/migration-portability/postgres/upgrade.json",
+        "downgrade": "dist/migration-portability/postgres/downgrade.json",
+        "reapply": "dist/migration-portability/postgres/reapply.json"
+      },
+      "failure": "POSTGRES_URL not set in the current environment.",
+      "expected_head_revision": "95ecc648cc71",
+      "downgrade_target_revision": "1975ea83b712",
+      "head_revision_after_upgrade": "95ecc648cc71",
+      "head_revision_after_downgrade": "1975ea83b712",
+      "head_revision_after_reapply": "95ecc648cc71"
+    }
+  },
+  "pytest_report_artifact": "dist/test-reports/py311-test-integration.json",
+  "pytest_exit_code": 0,
+  "pytest_summary": {
+    "collected": 1,
+    "passed": 1,
+    "failed": 0
+  },
+  "revision_inventory": [
+    "1975ea83b712",
+    "95ecc648cc71"
+  ],
+  "expected_head_revision": "95ecc648cc71",
+  "head_revision": "95ecc648cc71",
+  "downgrade_target_revision": "1975ea83b712"
+}

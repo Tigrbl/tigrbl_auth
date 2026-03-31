@@ -12,28 +12,28 @@
       "bundle_dir": "dist/release-bundles/0.3.2.dev14/baseline",
       "signed": "signed-ed25519-attested",
       "verified": true,
-      "signing_key_id": "ed25519:6b8610b664b40b6cb006c386"
+      "signing_key_id": "ed25519:ed2788acb603c8e72156bf59"
     },
     {
       "profile": "production",
       "bundle_dir": "dist/release-bundles/0.3.2.dev14/production",
       "signed": "signed-ed25519-attested",
       "verified": true,
-      "signing_key_id": "ed25519:6b8610b664b40b6cb006c386"
+      "signing_key_id": "ed25519:ed2788acb603c8e72156bf59"
     },
     {
       "profile": "hardening",
       "bundle_dir": "dist/release-bundles/0.3.2.dev14/hardening",
       "signed": "signed-ed25519-attested",
       "verified": true,
-      "signing_key_id": "ed25519:6b8610b664b40b6cb006c386"
+      "signing_key_id": "ed25519:ed2788acb603c8e72156bf59"
     },
     {
       "profile": "peer-claim",
       "bundle_dir": "dist/release-bundles/0.3.2.dev14/peer-claim",
       "signed": "signed-ed25519-attested",
       "verified": true,
-      "signing_key_id": "ed25519:6b8610b664b40b6cb006c386"
+      "signing_key_id": "ed25519:ed2788acb603c8e72156bf59"
     }
   ]
 }

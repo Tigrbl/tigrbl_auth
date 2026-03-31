@@ -1,12 +1,38 @@
 {
-  "schema_version": 2,
+  "schema_version": 4,
   "kind": "test-lane",
-  "generated_at": "20260326T134958Z",
+  "generated_at": "20260331T091252Z",
   "python_version": "3.11",
   "tox_env": "py311-test-interop",
   "matrix_profile": null,
+  "repository_version": "0.3.2.dev14",
+  "validated_run_root": "dist/validated-runs",
+  "identity": "interop@py311",
+  "environment_identity": {
+    "python_version": "3.11",
+    "tox_env": "py311-test-interop",
+    "install_profile": "test-interop",
+    "test_lane": "interop"
+  },
   "lane": "interop",
+  "install_profile": "test-interop",
+  "install_substrate_artifact": "dist/install-substrate/py311-test-interop.json",
+  "install_substrate_artifact_sha256": "5dcabf73ae2e7a4753f9372a5045533891582e53953fbb4657e51656fdd7b4ae",
+  "install_substrate_identity": {
+    "profile": "test-interop"
+  },
+  "install_substrate_environment_identity": {
+    "python_version": "3.11",
+    "tox_env": "py311-test-interop",
+    "install_profile": "test-interop",
+    "test_lane": "interop"
+  },
+  "install_substrate_passed": true,
+  "install_substrate_static_manifest_passed": true,
+  "install_substrate_current_profile_import_probe_passed": true,
+  "install_substrate_runtime_surface_probe_passed": true,
   "pytest_report_artifact": "dist/test-reports/py311-test-interop.json",
+  "pytest_report_sha256": "3f8fc25f80d46fe9c4eb760db9271b734f522968939472f4b9501866636b3622",
   "pytest_report_present": true,
   "pytest_exit_code": 0,
   "pytest_report_exit_code": 0,

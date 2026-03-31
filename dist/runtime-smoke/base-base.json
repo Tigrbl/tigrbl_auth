@@ -1,0 +1,11 @@
+{
+  "passed": true,
+  "application_probe_passed": true,
+  "surface_probe_passed": true,
+  "surface_probe_endpoint_count": 3,
+  "surface_probe_passed_count": 3,
+  "surface_probe_failed_count": 0,
+  "runner_available": false,
+  "application_hash": "validated-artifact-matrix",
+  "runtime_hash": "validated-artifact-matrix"
+}

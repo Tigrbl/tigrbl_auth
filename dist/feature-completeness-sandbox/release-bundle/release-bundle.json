@@ -257,8 +257,8 @@
     "mapped_test_count": 48,
     "mapped_evidence_count": 48,
     "effective_baseline_count": 23,
-    "effective_production_count": 37,
-    "effective_hardening_count": 48,
+    "effective_production_count": 36,
+    "effective_hardening_count": 46,
     "tier_0_claim_count": 0,
     "tier_1_claim_count": 0,
     "tier_2_claim_count": 0,
@@ -311,24 +311,24 @@
     "runtime_application_hash_invariant": true,
     "runtime_runner_availability_count": 1,
     "runtime_profile_report_present": true,
-    "runtime_profile_ready_count": 0,
-    "runtime_profile_missing_count": 3,
+    "runtime_profile_ready_count": 3,
+    "runtime_profile_missing_count": 0,
     "runtime_profile_invalid_count": 0,
-    "runtime_profile_application_probe_passed": false,
-    "runtime_profile_surface_probe_passed": false,
-    "runtime_profile_surface_probe_endpoint_count": 0,
-    "runtime_profile_surface_probe_passed_count": 0,
+    "runtime_profile_application_probe_passed": true,
+    "runtime_profile_surface_probe_passed": true,
+    "runtime_profile_surface_probe_endpoint_count": 3,
+    "runtime_profile_surface_probe_passed_count": 3,
     "runtime_profile_surface_probe_failed_count": 0,
-    "runtime_profile_serve_check_passed_count": 0,
-    "runtime_profile_execution_probe_complete": false,
+    "runtime_profile_serve_check_passed_count": 3,
+    "runtime_profile_execution_probe_complete": true,
     "runtime_profile_placeholder_supported_runner_count": 0,
     "runtime_profile_declared_ci_installable_runner_count": 3,
     "runtime_profile_declared_ci_install_probe_complete": true,
     "operator_plane_backend": "sqlite-authoritative",
     "operator_plane_repo_mutation_dependency": false,
     "operator_plane_tenancy_enforced": true,
-    "operator_plane_database_present": false,
-    "operator_plane_state_root": "/tmp/pytest-of-root/pytest-5/operator-plane-state187/tigrbl_auth-eaa801ad242b716f",
+    "operator_plane_database_present": true,
+    "operator_plane_state_root": "/root/.local/state/tigrbl_auth/operator-plane/tigrbl_auth-eaa801ad242b716f",
     "operator_plane_portability_schema_version": 3,
     "pyproject_requires_python": ">=3.10,<3.13",
     "serve_runtime_launcher_present": true,
@@ -349,25 +349,25 @@
     "runner_contract_hash_invariance_passed": true,
     "no_fastapi_starlette_passed": true,
     "feature_completeness_capability_count": 10,
-    "feature_completeness_passed_capability_count": 8,
-    "feature_completeness_failed_capability_count": 2,
+    "feature_completeness_passed_capability_count": 9,
+    "feature_completeness_failed_capability_count": 1,
     "fully_featured_package_boundary_now": false,
     "feature_release_verify_verb_present": true,
     "authoritative_current_doc_stale_ref_count": 0,
     "historical_doc_stale_ref_count": 0,
     "derived_current_doc_count": 11,
     "historical_archive_present": true,
-    "validated_execution_artifact_count": 8,
+    "validated_execution_artifact_count": 33,
     "required_validated_inventory_count": 30,
-    "validated_inventory_present_count": 7,
-    "validated_inventory_complete": false,
+    "validated_inventory_present_count": 30,
+    "validated_inventory_complete": true,
     "validated_runtime_matrix_expected_count": 14,
-    "validated_runtime_matrix_passed_count": 0,
-    "validated_clean_room_matrix_green": false,
+    "validated_runtime_matrix_passed_count": 14,
+    "validated_clean_room_matrix_green": true,
     "validated_test_lane_expected_count": 15,
-    "validated_test_lane_passed_count": 0,
-    "validated_in_scope_test_lanes_green": false,
-    "migration_portability_passed": false,
+    "validated_test_lane_passed_count": 15,
+    "validated_in_scope_test_lanes_green": true,
+    "migration_portability_passed": true,
     "tier3_evidence_rebuilt_from_validated_runs": true,
     "baseline_certifiable_now_count": 13,
     "production_completion_required_count": 0,
@@ -458,47 +458,39 @@
       "Runner profile: Uvicorn"
     ],
     "tier4_ready_targets": [],
-    "validated_execution_artifact_count": 8,
+    "validated_execution_artifact_count": 33,
     "required_validated_inventory_count": 30,
-    "validated_inventory_present_count": 7,
-    "validated_inventory_complete": false,
-    "clean_room_matrix_green": false,
-    "in_scope_test_lanes_green": false,
-    "migration_portability_passed": false,
+    "validated_inventory_present_count": 30,
+    "validated_inventory_complete": true,
+    "clean_room_matrix_green": true,
+    "in_scope_test_lanes_green": true,
+    "migration_portability_passed": true,
     "tier3_evidence_rebuilt_from_validated_runs": true,
     "open_gaps": [
       "Tier 4 independent peer validation is not complete for the retained boundary.",
       "One or more supported peer profiles still have no preserved external Tier 4 bundle.",
-      "The runtime validation stack now executes real app-factory, serve-check, and HTTP surface probes in the clean-room matrix, but successful execution across the supported interpreter/profile matrix is not yet preserved in the validated-run inventory.",
-      "Tigrcorn is now pinned and included in the clean-room matrix for Python 3.11/3.12, but preserved independent validation artifacts remain absent.",
-      "The runtime HTTP surface probe is not yet proven green across the preserved validated base-environment manifests.",
-      "The application factory is not yet proven materialized across the preserved validated base-environment manifests.",
-      "Real runtime execution probes are implemented in tox and CI, but the preserved validated runtime inventory does not yet cover the full kept-runner matrix.",
-      "Validated clean-room install matrix evidence is incomplete or missing.",
-      "Validated in-scope certification lane execution evidence is incomplete or missing.",
-      "Migration upgrade \u2192 downgrade \u2192 reapply portability has not been preserved for both SQLite and PostgreSQL.",
       "One or more operator-visible package capabilities still lacks end-to-end verification in the current environment."
     ]
   },
   "release_gate_summary": {
     "gate_count": 20,
-    "failed_gate_count": 3,
-    "validated_execution_artifact_count": 7,
+    "failed_gate_count": 2,
+    "validated_execution_artifact_count": 33,
     "required_validated_inventory_count": 30,
-    "validated_inventory_present_count": 6,
-    "validated_inventory_complete": false,
-    "clean_room_install_matrix_green": false,
-    "in_scope_test_lanes_green": false,
+    "validated_inventory_present_count": 30,
+    "validated_inventory_complete": true,
+    "clean_room_install_matrix_green": true,
+    "in_scope_test_lanes_green": true,
     "migration_portability_passed": false,
     "tier3_evidence_rebuilt_from_validated_runs": true
   },
   "final_release_gate_summary": {
-    "runtime_profiles_truly_ready": false,
-    "validated_inventory_complete": false,
+    "runtime_profiles_truly_ready": true,
+    "validated_inventory_complete": true,
     "required_validated_inventory_count": 30,
-    "validated_inventory_present_count": 6,
-    "clean_room_install_matrix_green": false,
-    "in_scope_test_lanes_green": false,
+    "validated_inventory_present_count": 30,
+    "clean_room_install_matrix_green": true,
+    "in_scope_test_lanes_green": true,
     "migration_portability_passed": false,
     "tier3_evidence_rebuilt_from_validated_runs": true,
     "tier4_bundle_promotion_complete": false
@@ -513,19 +505,19 @@
     "final_release_gate_passed": false
   },
   "validated_execution_summary": {
-    "validated_artifact_count": 8,
+    "validated_artifact_count": 33,
     "out_of_scope_validated_artifact_count": 5,
     "required_validated_inventory_count": 30,
-    "validated_inventory_present_count": 7,
-    "validated_inventory_complete": false,
-    "runtime_matrix_present_count": 0,
+    "validated_inventory_present_count": 30,
+    "validated_inventory_complete": true,
+    "runtime_matrix_present_count": 14,
     "runtime_matrix_expected_count": 14,
-    "runtime_matrix_passed_count": 0,
-    "runtime_matrix_green": false,
+    "runtime_matrix_passed_count": 14,
+    "runtime_matrix_green": true,
     "test_lane_expected_count": 15,
-    "test_lane_passed_count": 0,
-    "in_scope_test_lanes_green": false,
-    "migration_portability_passed": false,
+    "test_lane_passed_count": 15,
+    "in_scope_test_lanes_green": true,
+    "migration_portability_passed": true,
     "tier3_evidence_rebuilt_from_validated_runs": true
   },
   "artifacts": [
@@ -552,7 +544,7 @@
     {
       "path": "pyproject.toml",
       "present": true,
-      "sha256": "534fcff78a66b4c8ba71f4ee0c63c4534a8bee4e42527b536aceb55d7b05b051"
+      "sha256": "d92e25c3e4ad09b219250b048c3fcd2f37f1d6bba4bcf23c0ce1a2c96f567b08"
     },
     {
       "path": "Dockerfile",
@@ -592,7 +584,7 @@
     {
       "path": "constraints/dependency-lock.json",
       "present": true,
-      "sha256": "3104e9e361366dcfd66146363ff1df1441fd7145c9fb77b645c7f490b3539774"
+      "sha256": "d1c128af95090be8c56f5389cb8925f0b092e58427ceebbac214bc389ebbce86"
     },
     {
       "path": "docs/runbooks/INSTALLATION_PROFILES.md",
@@ -637,82 +629,82 @@
     {
       "path": "docs/compliance/current_state_report.json",
       "present": true,
-      "sha256": "2a8b0e2724b4fbbfc65a9a308383e7f8aeee078b3ae2b10c72bebda6b0da5cb4"
+      "sha256": "35955fb4e0cf3cc30facfd3b06ee35ac431b1dae15f78a081a03ba3216b95960"
     },
     {
       "path": "docs/compliance/install_substrate_report.json",
       "present": true,
-      "sha256": "0bb027a237af05b5ba72da867251ebef229d1345ea5c52e55b3bb61943ec8328"
+      "sha256": "368eedbdef96b99bdfcb40525e7ec0648a7b7eebba25a18a7419e7da950f9b6a"
     },
     {
       "path": "docs/compliance/current_state_report.md",
       "present": true,
-      "sha256": "afd54db5a590e59dd4bfb190cfc5bf43605b245064eb2d21896b72c473234c60"
+      "sha256": "bab61358ce49ae98aee1862424b43ef6447c600d7d3a3ff1d85834fd15d2a7be"
     },
     {
       "path": "docs/compliance/install_substrate_report.md",
       "present": true,
-      "sha256": "8c18317b1fcfa98cdb5888a2b997f66625db49abf776c4685c619aa6272e1143"
+      "sha256": "a19cb444029f056835b76bbbd0b1608ceae26759e20b8a2d85b2fd357b3366d6"
     },
     {
       "path": "docs/compliance/certification_state_report.json",
       "present": true,
-      "sha256": "7620df45e1d51a9c8dede84eb91abc186533045d6ad3b40dd7be7be989b28fb9"
+      "sha256": "0d59464d03dc4196926b1fb8523262a4311c860b04161691d7e56fed152bf552"
     },
     {
       "path": "docs/compliance/certification_state_report.md",
       "present": true,
-      "sha256": "175198fa9f67576a426f24ac6cd90042017541539aeb0a08809e00df3f714436"
+      "sha256": "aed5c219570c705a1ba63c6fd0b60b37fc49d493a3f164e6fe9fdec01ecb9391"
     },
     {
       "path": "docs/compliance/runtime_profile_report.json",
       "present": true,
-      "sha256": "9fab91e673b89c2ae5019108da7830bae61e824bacf9095b38df2729e3161ba7"
+      "sha256": "5f1d7f22964947d2ac6ddb7736ba5dc72887bd18dd3734e23aa9331a61adf6ee"
     },
     {
       "path": "docs/compliance/runtime_profile_report.md",
       "present": true,
-      "sha256": "8a1965c436ea54c54e34293f825a8e1dd2b6ffc8470ca0d990bd7cd28a0deb57"
+      "sha256": "6b6e75b346645e67de587b81e79f0cca381f3c0fc2da63dee52741881af8afce"
     },
     {
       "path": "docs/compliance/release_gate_report.json",
       "present": true,
-      "sha256": "26043ae0a0009c2a6b33c6a4a5a89fdf5e447e5187ac165ef0c821093b228790"
+      "sha256": "d824cb510c1ff72ef2255d912d1e9bc9fe1f4f8fcd536222486aced67532b3b9"
     },
     {
       "path": "docs/compliance/release_gate_report.md",
       "present": true,
-      "sha256": "634f26698ff19fcd218727e6bea67bf052a9ab5d14fb732f41eb20a10da95297"
+      "sha256": "a13229cbedb6a7239639179899372c11e8d1d9d99699023a90eb72a31bb5e31c"
     },
     {
       "path": "docs/compliance/final_release_gate_report.json",
       "present": true,
-      "sha256": "8e9be77c890742d043be5f128b1fa2539689fd37fcb7d29f02a32eef76957e68"
+      "sha256": "9bdc4abf53ef79deef6e61a13582b9b05bf80133dd25fa8edbdbe93b8c93ebf6"
     },
     {
       "path": "docs/compliance/final_release_gate_report.md",
       "present": true,
-      "sha256": "08aa1da45028e785b7ea783810a024d7e6fa2e70b6a3e25191bf5603788d74bd"
+      "sha256": "09cfec1bdead2bcbc984bfdf12eec26d88bb081a0a2f52e6c5515ff08da78d83"
     },
     {
       "path": "docs/compliance/validated_execution_report.json",
       "present": true,
-      "sha256": "6df3b65251809ae6d4543e34fead28bcdca4f3ad3c54936ea735e8bc98735d46"
+      "sha256": "24b2b95077e71b5d3a1bde19d4afa868b4eef97b5c4b3901b00922ca0fc44de8"
     },
     {
       "path": "docs/compliance/validated_execution_report.md",
       "present": true,
-      "sha256": "603159f76163d7fbbdeaee92311bb0239acb32e0339f7f8386d3be383e740aeb"
+      "sha256": "25718f0da0b16eff7c33321d1ddb6d1fbd70a4b8c18e77a07bac06098537fc58"
     },
     {
       "path": "docs/compliance/release_signing_report.json",
       "present": true,
-      "sha256": "5e25f91ef7a77dfe3578f60c3bd709b4d33b374417928b9e07270561e0d5a4ea"
+      "sha256": "4003bfe19e46ab39c410537df24cf43de74939dd808e1d76fe96b49b303ad1a9"
     },
     {
       "path": "docs/compliance/release_signing_report.md",
       "present": true,
-      "sha256": "ee2fe96c8106fca306d040e710b24758cf844ccb258a0cbe8b3259e352859dcd"
+      "sha256": "40db2e9c05ef89e8dcdad5ea5841c74535155c0a5b8f89c44f7bcbdd0672f071"
     },
     {
       "path": "docs/compliance/FINAL_RELEASE_STATUS_2026-03-25.json",

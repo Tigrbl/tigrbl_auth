@@ -222,10 +222,10 @@ def _install_substrate_candidates(install_profile: str | None) -> list[Path]:
     report_root = ROOT / "docs" / "compliance"
     tox_env = os.environ.get("TOX_ENV_NAME", "").strip()
     candidates: list[Path] = []
-    if install_profile:
-        candidates.append(install_root / f"{install_profile}.json")
     if tox_env:
         candidates.append(install_root / f"{tox_env}.json")
+    if install_profile:
+        candidates.append(install_root / f"{install_profile}.json")
     candidates.append(report_root / "install_substrate_report.json")
     return candidates
 

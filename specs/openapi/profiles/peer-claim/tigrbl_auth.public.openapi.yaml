@@ -34,7 +34,7 @@ paths:
         par_required: true
         sender_constraint_required: true
         dpop_supported: true
-        mtls_supported: false
+        mtls_supported: true
         resource_indicators_supported: true
         request_objects_supported: true
         rich_authorization_requests_supported: true
@@ -75,7 +75,7 @@ paths:
         par_required: true
         sender_constraint_required: true
         dpop_supported: true
-        mtls_supported: false
+        mtls_supported: true
         resource_indicators_supported: true
         request_objects_supported: true
         rich_authorization_requests_supported: true
@@ -185,7 +185,7 @@ paths:
         par_required: true
         sender_constraint_required: true
         dpop_supported: true
-        mtls_supported: false
+        mtls_supported: true
         resource_indicators_supported: true
         request_objects_supported: true
         rich_authorization_requests_supported: true
@@ -267,6 +267,11 @@ paths:
         required: true
         schema:
           type: string
+      - name: X-Client-Cert-SHA256
+        in: header
+        required: false
+        schema:
+          type: string
   /userinfo:
     get:
       operationId: get_userinfo
@@ -295,7 +300,7 @@ paths:
         par_required: true
         sender_constraint_required: true
         dpop_supported: true
-        mtls_supported: false
+        mtls_supported: true
         resource_indicators_supported: true
         request_objects_supported: true
         rich_authorization_requests_supported: true
@@ -332,7 +337,7 @@ paths:
         par_required: true
         sender_constraint_required: true
         dpop_supported: true
-        mtls_supported: false
+        mtls_supported: true
         resource_indicators_supported: true
         request_objects_supported: true
         rich_authorization_requests_supported: true
@@ -380,7 +385,7 @@ paths:
         par_required: true
         sender_constraint_required: true
         dpop_supported: true
-        mtls_supported: false
+        mtls_supported: true
         resource_indicators_supported: true
         request_objects_supported: true
         rich_authorization_requests_supported: true
@@ -479,7 +484,7 @@ paths:
         par_required: true
         sender_constraint_required: true
         dpop_supported: true
-        mtls_supported: false
+        mtls_supported: true
         resource_indicators_supported: true
         request_objects_supported: true
         rich_authorization_requests_supported: true
@@ -524,7 +529,7 @@ paths:
         par_required: true
         sender_constraint_required: true
         dpop_supported: true
-        mtls_supported: false
+        mtls_supported: true
         resource_indicators_supported: true
         request_objects_supported: true
         rich_authorization_requests_supported: true
@@ -631,7 +636,7 @@ paths:
         par_required: true
         sender_constraint_required: true
         dpop_supported: true
-        mtls_supported: false
+        mtls_supported: true
         resource_indicators_supported: true
         request_objects_supported: true
         rich_authorization_requests_supported: true
@@ -677,7 +682,7 @@ paths:
         par_required: true
         sender_constraint_required: true
         dpop_supported: true
-        mtls_supported: false
+        mtls_supported: true
         resource_indicators_supported: true
         request_objects_supported: true
         rich_authorization_requests_supported: true
@@ -725,7 +730,7 @@ paths:
         par_required: true
         sender_constraint_required: true
         dpop_supported: true
-        mtls_supported: false
+        mtls_supported: true
         resource_indicators_supported: true
         request_objects_supported: true
         rich_authorization_requests_supported: true
@@ -786,7 +791,7 @@ paths:
         par_required: true
         sender_constraint_required: true
         dpop_supported: true
-        mtls_supported: false
+        mtls_supported: true
         resource_indicators_supported: true
         request_objects_supported: true
         rich_authorization_requests_supported: true
@@ -855,7 +860,7 @@ paths:
         par_required: true
         sender_constraint_required: true
         dpop_supported: true
-        mtls_supported: false
+        mtls_supported: true
         resource_indicators_supported: true
         request_objects_supported: true
         rich_authorization_requests_supported: true
@@ -910,7 +915,7 @@ paths:
         par_required: true
         sender_constraint_required: true
         dpop_supported: true
-        mtls_supported: false
+        mtls_supported: true
         resource_indicators_supported: true
         request_objects_supported: true
         rich_authorization_requests_supported: true
@@ -982,7 +987,7 @@ paths:
         par_required: true
         sender_constraint_required: true
         dpop_supported: true
-        mtls_supported: false
+        mtls_supported: true
         resource_indicators_supported: true
         request_objects_supported: true
         rich_authorization_requests_supported: true
@@ -1021,6 +1026,11 @@ paths:
         required: true
         schema:
           type: string
+      - name: X-Client-Cert-SHA256
+        in: header
+        required: false
+        schema:
+          type: string
   /.well-known/openid-configuration:
     get:
       operationId: get__well_known_openid_configuration
@@ -1050,7 +1060,7 @@ paths:
         par_required: true
         sender_constraint_required: true
         dpop_supported: true
-        mtls_supported: false
+        mtls_supported: true
         resource_indicators_supported: true
         request_objects_supported: true
         rich_authorization_requests_supported: true
@@ -1086,7 +1096,7 @@ paths:
         par_required: true
         sender_constraint_required: true
         dpop_supported: true
-        mtls_supported: false
+        mtls_supported: true
         resource_indicators_supported: true
         request_objects_supported: true
         rich_authorization_requests_supported: true
@@ -1122,7 +1132,7 @@ paths:
         par_required: true
         sender_constraint_required: true
         dpop_supported: true
-        mtls_supported: false
+        mtls_supported: true
         resource_indicators_supported: true
         request_objects_supported: true
         rich_authorization_requests_supported: true
@@ -1158,7 +1168,7 @@ paths:
         par_required: true
         sender_constraint_required: true
         dpop_supported: true
-        mtls_supported: false
+        mtls_supported: true
         resource_indicators_supported: true
         request_objects_supported: true
         rich_authorization_requests_supported: true

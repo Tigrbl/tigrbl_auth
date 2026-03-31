@@ -1,6 +1,6 @@
 # Install Substrate Report
 
-- Generated at: `20260330T112827Z`
+- Generated at: `20260331T091515Z`
 - Passed: `True`
 - Static manifest passed: `True`
 - Profile: `base`
@@ -53,7 +53,7 @@
 
 - `3.10` → available=`True` path=`/root/.pyenv/shims/python3.10`
 - `3.11` → available=`True` path=`/root/.pyenv/shims/python3.11`
-- `3.12` → available=`True` path=`/workspace/tigrbl_auth/.tox/py312-test-core/bin/python3.12`
+- `3.12` → available=`True` path=`/root/.pyenv/versions/3.12.12/bin/python3.12`
 
 ## Workflow coverage
 

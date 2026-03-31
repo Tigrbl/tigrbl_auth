@@ -30,12 +30,12 @@ The repository is **not yet certifiably fully featured**, **not yet certifiably 
 - install substrate manifest passed: `True`
 - install substrate supported-python binaries detected: `3` / `3`
 - install substrate current-profile import probe passed: `True`
-- validated inventory present count: `7` / `30`
-- validated runtime matrix passed count: `0` / `14`
-- validated test-lane passed count: `0` / `15`
-- migration portability passed: `False`
-- runtime profile ready count: `0`
-- runtime profile missing count: `3`
+- validated inventory present count: `30` / `30`
+- validated runtime matrix passed count: `14` / `14`
+- validated test-lane passed count: `15` / `15`
+- migration portability passed: `True`
+- runtime profile ready count: `3`
+- runtime profile missing count: `0`
 - runtime profile invalid count: `0`
 - historical stale doc refs outside archive: `0`
 

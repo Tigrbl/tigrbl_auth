@@ -36,6 +36,7 @@ deployment:
     enable_rfc7519: true
     enable_oidc_core: true
     enable_oidc_discovery: true
+    enable_oidc_session_management: true
     enable_rfc7009: false
     enable_rfc7521: false
     enable_rfc7523: false
@@ -47,7 +48,6 @@ deployment:
     enable_rfc9207: false
     enable_rfc9728: false
     enable_oidc_userinfo: false
-    enable_oidc_session_management: false
     enable_oidc_rp_initiated_logout: false
     enable_rfc8628: false
     enable_rfc8693: false
@@ -116,8 +116,10 @@ deployment:
   - RFC 7517
   - RFC 7518
   - RFC 7519
+  - RFC 6265
   - OIDC Core 1.0
   - OIDC Discovery 1.0
+  - OIDC Session Management
   - OpenAPI 3.1 / 3.2 compatible public contract
   - OpenRPC 1.4.x admin/control-plane contract
   - ASGI 3 application package
@@ -168,13 +170,13 @@ deployment:
 copied_artifacts:
 - path: compliance/claims/effective-target-claims.baseline.yaml
   present: true
-  sha256: fc7c1981fd5f5404d695fd0dfb47f58d261469d93ee80aa7c237b5c804463f35
+  sha256: a0595ce30610c44a9a000fe03d61ab043f6f7ede0bc196cec60c88d1cf43b071
 - path: compliance/evidence/effective-release-evidence.baseline.yaml
   present: true
-  sha256: bb9636301ff16eb4245537b56b6c372c8d0f6711945a4f5c7d4cb74e790f8867
+  sha256: 21fcd7ae6fa2d2903fa0d25145581c62f8bcf370c8a1e748c14e2931d1430bd0
 - path: specs/openapi/profiles/baseline/tigrbl_auth.public.openapi.json
   present: true
-  sha256: 05c68144246c02d1e99956d4db872348ddb34ff8ed54cfd743ca5385ba8d21c5
+  sha256: 2b3cc25c56012faa609f4feec4faad5454cc6a2aa669f5090adb325c9ec24148
 - path: specs/openrpc/profiles/baseline/tigrbl_auth.admin.openrpc.json
   present: true
   sha256: aa28c229ddcb715bab6ab6e99c3e00f865686cefeeb5a011bc326b6e9aa335df

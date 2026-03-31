@@ -1,12 +1,38 @@
 {
-  "schema_version": 2,
+  "schema_version": 4,
   "kind": "test-lane",
-  "generated_at": "20260326T134946Z",
+  "generated_at": "20260331T091251Z",
   "python_version": "3.11",
   "tox_env": "py311-test-conformance",
   "matrix_profile": null,
+  "repository_version": "0.3.2.dev14",
+  "validated_run_root": "dist/validated-runs",
+  "identity": "conformance@py311",
+  "environment_identity": {
+    "python_version": "3.11",
+    "tox_env": "py311-test-conformance",
+    "install_profile": "test-conformance",
+    "test_lane": "conformance"
+  },
   "lane": "conformance",
+  "install_profile": "test-conformance",
+  "install_substrate_artifact": "dist/install-substrate/py311-test-conformance.json",
+  "install_substrate_artifact_sha256": "b7f83872aa9df730e50ad906562dfda74862ce715ef66b96191c61a00da8b570",
+  "install_substrate_identity": {
+    "profile": "test-conformance"
+  },
+  "install_substrate_environment_identity": {
+    "python_version": "3.11",
+    "tox_env": "py311-test-conformance",
+    "install_profile": "test-conformance",
+    "test_lane": "conformance"
+  },
+  "install_substrate_passed": true,
+  "install_substrate_static_manifest_passed": true,
+  "install_substrate_current_profile_import_probe_passed": true,
+  "install_substrate_runtime_surface_probe_passed": true,
   "pytest_report_artifact": "dist/test-reports/py311-test-conformance.json",
+  "pytest_report_sha256": "104015679a5514cc557085f53243767629c45cec4f407ed8784368b094f48d54",
   "pytest_report_present": true,
   "pytest_exit_code": 0,
   "pytest_report_exit_code": 0,

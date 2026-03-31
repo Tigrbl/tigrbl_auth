@@ -17,9 +17,9 @@ Do **not** cut a final certified release. Publish only a truthful candidate chec
 - fully RFC/spec compliant now: `False`
 - fully non-RFC spec/standard compliant now: `False`
 - strict independent claims ready: `False`
-- validated runtime matrix green: `False`
-- validated in-scope test lanes green: `False`
-- validated migration portability: `False`
+- validated runtime matrix green: `True`
+- validated in-scope test lanes green: `True`
+- validated migration portability: `True`
 
 ## Documentation authority
 

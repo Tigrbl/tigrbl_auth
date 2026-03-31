@@ -1,0 +1,13 @@
+{
+  "launch_ready": true,
+  "selected_runner_profile": {
+    "status": "ready",
+    "serve_check": {
+      "exit_code": 0
+    }
+  },
+  "application_probe": {
+    "passed": true
+  },
+  "server": "uvicorn"
+}

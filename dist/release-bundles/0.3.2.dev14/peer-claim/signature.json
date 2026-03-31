@@ -6,15 +6,15 @@
   "profile": "peer-claim",
   "signer": {
     "signer_id": "tigrbl_auth.checkpoint.attestor",
-    "key_id": "ed25519:6b8610b664b40b6cb006c386",
+    "key_id": "ed25519:ed2788acb603c8e72156bf59",
     "algorithm": "Ed25519",
     "identity_kind": "repository-release-attestor",
-    "public_key_pem": "-----BEGIN PUBLIC KEY-----\nMCowBQYDK2VwAyEAkEvTaJUUF1YbY+nrtjLarkgddj7H2oRNiCwjn9FrMCw=\n-----END PUBLIC KEY-----\n",
-    "public_key_sha256": "6b8610b664b40b6cb006c386928e92e65d914069208e07881fe2b5eaba600bf2",
+    "public_key_pem": "-----BEGIN PUBLIC KEY-----\nMCowBQYDK2VwAyEADIn6feQk7QXhUAjtNoPtiV2l1ipJlnnLr5w9461FEkU=\n-----END PUBLIC KEY-----\n",
+    "public_key_sha256": "ed2788acb603c8e72156bf596deaad7a890c08f14b9b09cac3f77105a6c80eee",
     "source": "inline-pem"
   },
   "verification_material": {
-    "public_key_path": "attestations/keys/ed25519-6b8610b664b40b6cb006c386.pub.pem",
+    "public_key_path": "attestations/keys/ed25519-ed2788acb603c8e72156bf59.pub.pem",
     "signer_identity_path": "attestations/signer-identity.json"
   },
   "release_attestation": "attestations/release-attestation.json",
@@ -22,25 +22,25 @@
     {
       "label": "release-bundle",
       "artifact_path": "release-bundle.json",
-      "artifact_sha256": "9debe09ee54d7e1ff0ff1504fa17db79b74a32afbf5a023af4fc5783a9a2460e",
+      "artifact_sha256": "e20a9a4fa707f9703a1e6ab65deac198fc280897a6dd72285ead51b69153135d",
       "attestation_path": "attestations/release-bundle.attestation.json"
     },
     {
       "label": "claim-manifest",
       "artifact_path": "compliance/claims/effective-target-claims.peer-claim.yaml",
-      "artifact_sha256": "29e996c90f919d4e288a2beecbf696a2a235ec923fa1f02d3b4ee9ddfc94dacc",
+      "artifact_sha256": "0ed3a8fd99c330ae4588e4cdf711b4a8db1db29b4841ddc9c551022ebf5382de",
       "attestation_path": "attestations/claim-manifest.attestation.json"
     },
     {
       "label": "evidence-manifest",
       "artifact_path": "compliance/evidence/effective-release-evidence.peer-claim.yaml",
-      "artifact_sha256": "064e0ff1500cf6c553d3e7c72156c8d2ece653a79da07b23d35eda689ea64ae3",
+      "artifact_sha256": "eb712210e4a78c2b55e3d8a44e7aa97822d0b773420bfcadc60111fea0453e08",
       "attestation_path": "attestations/evidence-manifest.attestation.json"
     },
     {
       "label": "contract-set",
       "artifact_path": "attestations/contract-set.manifest.json",
-      "artifact_sha256": "2451eb94750c050c9c21f1a146e74c91190f48c8a14416a5560e401a3911a1b9",
+      "artifact_sha256": "f1bcd22fa213d8cf6285a974b5247dc2de4309a1a26d0a5cf275a835ded55b2d",
       "attestation_path": "attestations/contract-set.attestation.json"
     }
   ],
@@ -49,9 +49,9 @@
     "failures": [],
     "warnings": [],
     "details": {
-      "bundle_root": "/tmp/tigrbl_work/tigrbl_auth_phase13_certification_target_freeze_reconciled_2026-03-24/dist/release-bundles/0.3.2.dev14/peer-claim",
+      "bundle_root": "/workspace/tigrbl_auth/dist/release-bundles/0.3.2.dev14/peer-claim",
       "verified_artifact_count": 4,
-      "signing_key_id": "ed25519:6b8610b664b40b6cb006c386",
+      "signing_key_id": "ed25519:ed2788acb603c8e72156bf59",
       "artifact_labels": [
         "release-bundle",
         "claim-manifest",

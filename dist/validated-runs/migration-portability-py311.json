@@ -1,0 +1,104 @@
+{
+  "schema_version": 4,
+  "kind": "migration-portability",
+  "generated_at": "20260331T091440Z",
+  "python_version": "3.11",
+  "tox_env": "py311-migration-portability",
+  "matrix_profile": null,
+  "repository_version": "0.3.2.dev14",
+  "validated_run_root": "dist/validated-runs",
+  "identity": "migration-portability@py311",
+  "environment_identity": {
+    "python_version": "3.11",
+    "tox_env": "py311-migration-portability",
+    "install_profile": "migration-portability"
+  },
+  "install_profile": "migration-portability",
+  "install_substrate_artifact": "dist/install-substrate/py311-migration-portability.json",
+  "install_substrate_artifact_sha256": "2be76ce567d6aed57ac8ae50b9fd3b3c77be353541dc5030dcc4d56eee2436f3",
+  "install_substrate_identity": {
+    "profile": "migration-portability"
+  },
+  "install_substrate_environment_identity": {
+    "python_version": "3.11",
+    "tox_env": "py311-migration-portability",
+    "install_profile": "migration-portability"
+  },
+  "install_substrate_passed": true,
+  "install_substrate_static_manifest_passed": true,
+  "install_substrate_current_profile_import_probe_passed": true,
+  "install_substrate_runtime_surface_probe_passed": true,
+  "report_artifact": "dist/migration-portability/validated-migration-portability.json",
+  "report_sha256": "a392a17fd0ea2fe5495656e73352ca28f603d9eb59a926601211da491c8861a1",
+  "backends": [
+    "sqlite",
+    "postgres"
+  ],
+  "required_backends": [
+    "sqlite",
+    "postgres"
+  ],
+  "passed_backends": [
+    "sqlite",
+    "postgres"
+  ],
+  "backend_results": {
+    "sqlite": {
+      "backend": "sqlite",
+      "available": true,
+      "database_url": "sqlite+aiosqlite:////mnt/data/step6_work/tigrbl_auth_phase13_certification_target_freeze_reconciled_2026-03-24/dist/migration-portability/sqlite/tigrbl_auth_migration_portability.db",
+      "passed": true,
+      "upgrade_passed": true,
+      "downgrade_passed": true,
+      "reapply_passed": true,
+      "downgraded_revision": "95ecc648cc71",
+      "artifacts": {
+        "upgrade": "dist/migration-portability/sqlite/upgrade.json",
+        "downgrade": "dist/migration-portability/sqlite/downgrade.json",
+        "reapply": "dist/migration-portability/sqlite/reapply.json"
+      },
+      "expected_head_revision": "95ecc648cc71",
+      "downgrade_target_revision": "1975ea83b712",
+      "head_revision_after_upgrade": "95ecc648cc71",
+      "head_revision_after_downgrade": "1975ea83b712",
+      "head_revision_after_reapply": "95ecc648cc71"
+    },
+    "postgres": {
+      "backend": "postgres",
+      "available": true,
+      "passed": true,
+      "upgrade_passed": true,
+      "downgrade_passed": true,
+      "reapply_passed": true,
+      "downgraded_revision": "95ecc648cc71",
+      "artifacts": {
+        "upgrade": "dist/migration-portability/postgres/upgrade.json",
+        "downgrade": "dist/migration-portability/postgres/downgrade.json",
+        "reapply": "dist/migration-portability/postgres/reapply.json"
+      },
+      "failure": "POSTGRES_URL not set in the current environment.",
+      "expected_head_revision": "95ecc648cc71",
+      "downgrade_target_revision": "1975ea83b712",
+      "head_revision_after_upgrade": "95ecc648cc71",
+      "head_revision_after_downgrade": "1975ea83b712",
+      "head_revision_after_reapply": "95ecc648cc71"
+    }
+  },
+  "pytest_report_artifact": "dist/test-reports/py311-test-integration.json",
+  "pytest_report_sha256": "1b6fe20ff555d774919975da4d1d0b1967abae39a76cfbea890624e16c09af08",
+  "pytest_exit_code": 0,
+  "pytest_summary": {
+    "collected": 1,
+    "passed": 1,
+    "failed": 0
+  },
+  "revision_inventory": [
+    "1975ea83b712",
+    "95ecc648cc71"
+  ],
+  "expected_head_revision": "95ecc648cc71",
+  "head_revision": "95ecc648cc71",
+  "downgrade_target_revision": "1975ea83b712",
+  "report_passed": true,
+  "passed": true
+}
