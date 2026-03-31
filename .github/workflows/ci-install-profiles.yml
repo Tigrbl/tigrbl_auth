@@ -25,8 +25,8 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: ${{ matrix.python-version }}
-      - name: Install toolchain
-        run: python -m pip install --upgrade pip tox uv
+      - name: Install uv Python toolchain
+        run: bash scripts/install_uv_python_toolchain.sh
       - name: Run clean-room base smoke
         run: tox -e ${{ matrix.toxenv }}
       - name: Upload runtime profile artifacts
@@ -67,8 +67,8 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: ${{ matrix.python-version }}
-      - name: Install toolchain
-        run: python -m pip install --upgrade pip tox uv
+      - name: Install uv Python toolchain
+        run: bash scripts/install_uv_python_toolchain.sh
       - name: Run SQLite + Uvicorn clean-room smoke
         run: tox -e ${{ matrix.toxenv }}
       - name: Upload runtime profile artifacts
@@ -125,8 +125,10 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: ${{ matrix.python-version }}
-      - name: Install toolchain
-        run: python -m pip install --upgrade pip tox uv
+      - name: Install uv Python toolchain
+        run: bash scripts/install_uv_python_toolchain.sh
+      - name: Ensure local PostgreSQL is available
+        run: bash scripts/install_and_start_postgres.sh
       - name: Run PostgreSQL + Hypercorn clean-room smoke
         run: tox -e ${{ matrix.toxenv }}
       - name: Upload runtime profile artifacts
@@ -165,8 +167,8 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: ${{ matrix.python-version }}
-      - name: Install toolchain
-        run: python -m pip install --upgrade pip tox uv
+      - name: Install uv Python toolchain
+        run: bash scripts/install_uv_python_toolchain.sh
       - name: Run Tigrcorn clean-room smoke
         run: tox -e ${{ matrix.toxenv }}
       - name: Upload runtime profile artifacts
@@ -207,8 +209,8 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: ${{ matrix.python-version }}
-      - name: Install toolchain
-        run: python -m pip install --upgrade pip tox uv
+      - name: Install uv Python toolchain
+        run: bash scripts/install_uv_python_toolchain.sh
       - name: Run dev/test clean-room smoke
         run: tox -e ${{ matrix.toxenv }}
       - name: Upload runtime profile artifacts

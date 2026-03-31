@@ -63,8 +63,10 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: ${{ matrix.python-version }}
-      - name: Install toolchain
-        run: python -m pip install --upgrade pip tox uv
+      - name: Install uv Python toolchain
+        run: bash scripts/install_uv_python_toolchain.sh
+      - name: Ensure local PostgreSQL is available
+        run: bash scripts/install_and_start_postgres.sh
       - name: Run clean-room matrix env
         run: tox -e ${{ matrix.toxenv }}
       - name: Upload validated artifacts
@@ -139,8 +141,10 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: ${{ matrix.python-version }}
-      - name: Install toolchain
-        run: python -m pip install --upgrade pip tox uv
+      - name: Install uv Python toolchain
+        run: bash scripts/install_uv_python_toolchain.sh
+      - name: Ensure local PostgreSQL is available
+        run: bash scripts/install_and_start_postgres.sh
       - name: Run certification lane
         run: tox -e ${{ matrix.toxenv }}
       - name: Upload validated lane artifacts
@@ -180,8 +184,10 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-      - name: Install toolchain
-        run: python -m pip install --upgrade pip tox uv
+      - name: Install uv Python toolchain
+        run: bash scripts/install_uv_python_toolchain.sh
+      - name: Ensure local PostgreSQL is available
+        run: bash scripts/install_and_start_postgres.sh
       - name: Run migration portability validation
         run: tox -e py311-migration-portability
       - name: Upload migration artifacts
@@ -228,8 +234,10 @@ jobs:
         with:
           pattern: validated-*
           path: .artifacts/validated-downloads
-      - name: Install toolchain
-        run: python -m pip install --upgrade pip tox uv
+      - name: Install uv Python toolchain
+        run: bash scripts/install_uv_python_toolchain.sh
+      - name: Ensure local PostgreSQL is available
+        run: bash scripts/install_and_start_postgres.sh
       - name: Run final certification gates
         env:
           TIGRBL_AUTH_VALIDATED_ARTIFACT_DOWNLOAD_ROOT: .artifacts/validated-downloads

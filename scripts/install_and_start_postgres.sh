@@ -6,6 +6,14 @@ POSTGRES_USER="${POSTGRES_USER:-postgres}"
 POSTGRES_PASSWORD="${POSTGRES_PASSWORD:-postgres}"
 POSTGRES_PORT="${POSTGRES_PORT:-5432}"
 
+if command -v pg_isready >/dev/null 2>&1; then
+  if pg_isready -h 127.0.0.1 -p "${POSTGRES_PORT}" -U "${POSTGRES_USER}" -d "${POSTGRES_DB}" >/dev/null 2>&1; then
+    echo "[postgres-setup] Existing PostgreSQL instance is already reachable at 127.0.0.1:${POSTGRES_PORT}."
+    echo "[postgres-setup] POSTGRES_URL=postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@127.0.0.1:${POSTGRES_PORT}/${POSTGRES_DB}"
+    exit 0
+  fi
+fi
+
 if ! command -v psql >/dev/null 2>&1; then
   echo "[postgres-setup] Installing PostgreSQL packages..."
   export DEBIAN_FRONTEND=noninteractive

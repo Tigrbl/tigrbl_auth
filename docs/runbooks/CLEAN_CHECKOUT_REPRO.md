@@ -49,3 +49,12 @@ The release-gate tox environment runs the same serve-check and HTTP-surface prob
 ## Install-substrate proof step
 
 Before treating a clean checkout as valid, run `python scripts/verify_clean_room_install_substrate.py --profile <profile> --strict-manifest` in the selected environment and preserve the resulting `docs/compliance/install_substrate_report.json` plus the per-profile `dist/install-substrate/<profile>.json` artifact.
+
+## Local bootstrap helpers
+
+For local reproduction of the CI certification lanes, run:
+
+- `bash scripts/install_uv_python_toolchain.sh` to install `uv`, `tox`, and CPython `3.10`, `3.11`, and `3.12`.
+- `bash scripts/install_and_start_postgres.sh` to install/start PostgreSQL and print a ready-to-use `POSTGRES_URL`.
+
+The release-gate and install-profile workflows call these scripts before executing tox lanes so local and CI bootstrapping stay aligned.
