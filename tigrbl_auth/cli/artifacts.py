@@ -5,6 +5,7 @@ from pathlib import Path
 from typing import Any
 
 import yaml
+from pydantic.version import VERSION as PYDANTIC_VERSION
 
 from tigrbl_auth.api.rpc import iter_active_rpc_methods
 from tigrbl_auth.config.deployment import ROUTE_REGISTRY, resolve_deployment
@@ -585,7 +586,10 @@ def _collect_model_schema(model: Any, components: dict[str, Any]) -> dict[str, A
 
 
 def _openrpc_params_from_model(model: Any, components: dict[str, Any]) -> list[dict[str, Any]]:
-    if not (getattr(model, "model_fields", None) or getattr(model, "__fields__", None)):
+    model_fields = getattr(model, "model_fields", None)
+    if not model_fields and PYDANTIC_VERSION.startswith("1."):
+        model_fields = getattr(model, "__fields__", None)
+    if not model_fields:
         return []
     schema_ref = _collect_model_schema(model, components)
     model_name = schema_ref["$ref"].split("/")[-1]

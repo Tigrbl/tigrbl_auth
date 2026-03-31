@@ -2,7 +2,6 @@
 Shared test configuration and fixtures for tigrbl_auth test suite.
 """
 
-import asyncio
 import inspect
 import os
 import shutil
@@ -179,14 +178,6 @@ def disable_tls_requirement():
         yield
     finally:
         settings.require_tls = original
-
-
-@pytest.fixture(scope="session")
-def event_loop() -> Generator[asyncio.AbstractEventLoop, None, None]:
-    """Create an event loop for the test session."""
-    loop = asyncio.new_event_loop()
-    yield loop
-    loop.close()
 
 
 @asynccontextmanager
