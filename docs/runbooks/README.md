@@ -14,4 +14,5 @@ Authoritative current runbooks include:
 - `CLEAN_CHECKOUT_REPRO.md`
 - `CLI_AND_RELEASE_AUTOMATION_RUNBOOK.md`
 - `RELEASE_GATING_RUNBOOK.md`
+- `../development/final-certification-local.md`
 - `RELEASE_SIGNING_AND_VERIFICATION.md`
