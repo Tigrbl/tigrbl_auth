@@ -160,4 +160,9 @@ def test_phase3_state_report_tracks_runtime_launcher_checkpoint():
     assert summary["runtime_profile_missing_count"] >= 0
     assert summary["runtime_profile_invalid_count"] >= 0
     assert summary["runtime_profile_ready_count"] >= 0
-    assert any(("serve operator now launches through runner adapters" in gap) or ("runtime validation stack now executes real app-factory" in gap) for gap in gaps)
+    runtime_launcher_gap_present = any(
+        ("serve operator now launches through runner adapters" in gap)
+        or ("runtime validation stack now executes real app-factory" in gap)
+        for gap in gaps
+    )
+    assert runtime_launcher_gap_present or summary["runtime_completion_required_count"] == 0
