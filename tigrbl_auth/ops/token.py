@@ -117,7 +117,7 @@ except Exception:  # pragma: no cover - dependency-light fallback
         token_type: str = 'bearer'
 
 try:  # pragma: no cover
-    from tigrbl_auth.routers.shared import _jwt, _pwd_backend, _require_tls, allowed_grant_types
+    from tigrbl_auth.api.rest.shared import _jwt, _pwd_backend, _require_tls, allowed_grant_types
 except Exception:  # pragma: no cover - dependency-light fallback
     from tigrbl_auth.services.token_service import JWTCoder
 

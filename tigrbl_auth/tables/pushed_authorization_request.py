@@ -20,7 +20,7 @@ from tigrbl_auth.framework import (
     ForeignKeySpec,
     PgUUID,
 )
-from tigrbl_auth.runtime_cfg import settings
+from tigrbl_auth.config.settings import settings
 from tigrbl_auth.framework import HTTPException
 from http import HTTPStatus as status
 
