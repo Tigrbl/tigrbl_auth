@@ -13,14 +13,32 @@ if ! command -v psql >/dev/null 2>&1; then
 fi
 
 if ! pg_isready -h "${DB_HOST}" -p "${DB_PORT}" >/dev/null 2>&1; then
-  sudo pg_ctlcluster 16 main start || true
+  if command -v pg_ctlcluster >/dev/null 2>&1; then
+    sudo pg_ctlcluster 16 main start || true
+  fi
 fi
 
-sudo -u postgres psql -v ON_ERROR_STOP=1 -c "ALTER USER ${DB_USER} WITH PASSWORD '${DB_PASS}';"
-sudo -u postgres psql -v ON_ERROR_STOP=1 -tc "SELECT 1 FROM pg_database WHERE datname='${DB_NAME}'" | grep -q 1 || \
-  sudo -u postgres psql -v ON_ERROR_STOP=1 -c "CREATE DATABASE ${DB_NAME};"
+if ! pg_isready -h "${DB_HOST}" -p "${DB_PORT}" >/dev/null 2>&1; then
+  echo "PostgreSQL is not reachable at ${DB_HOST}:${DB_PORT}" >&2
+  exit 1
+fi
+
+export PGPASSWORD="${DB_PASS}"
+
+if ! psql -h "${DB_HOST}" -p "${DB_PORT}" -U "${DB_USER}" -d postgres -c "SELECT 1" >/dev/null 2>&1; then
+  if id postgres >/dev/null 2>&1; then
+    sudo -u postgres psql -d postgres -v ON_ERROR_STOP=1 -c "ALTER USER ${DB_USER} WITH PASSWORD '${DB_PASS}';"
+  fi
+fi
+
+psql -h "${DB_HOST}" -p "${DB_PORT}" -U "${DB_USER}" -d postgres -v ON_ERROR_STOP=1 -c "ALTER USER ${DB_USER} WITH PASSWORD '${DB_PASS}';"
+psql -h "${DB_HOST}" -p "${DB_PORT}" -U "${DB_USER}" -d postgres -v ON_ERROR_STOP=1 -tc "SELECT 1 FROM pg_database WHERE datname='${DB_NAME}'" | grep -q 1 || \
+  psql -h "${DB_HOST}" -p "${DB_PORT}" -U "${DB_USER}" -d postgres -v ON_ERROR_STOP=1 -c "CREATE DATABASE ${DB_NAME};"
 
 POSTGRES_URL="postgresql://${DB_USER}:${DB_PASS}@${DB_HOST}:${DB_PORT}/${DB_NAME}"
-echo "POSTGRES_URL=${POSTGRES_URL}" >> "${GITHUB_ENV:-/dev/null}" || true
+if [ -n "${GITHUB_ENV:-}" ]; then
+  echo "POSTGRES_URL=${POSTGRES_URL}" >> "${GITHUB_ENV}"
+fi
+
 echo "POSTGRES_URL=${POSTGRES_URL}"
 pg_isready -h "${DB_HOST}" -p "${DB_PORT}"

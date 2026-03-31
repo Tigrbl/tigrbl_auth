@@ -65,10 +65,6 @@ jobs:
           python-version: ${{ matrix.python-version }}
       - name: Install toolchain
         run: python -m pip install --upgrade pip tox uv
-      - name: Install uv Python matrix
-        run: ./scripts/ci/install_uv_python_matrix.sh
-      - name: Install local PostgreSQL
-        run: ./scripts/ci/install_local_postgres.sh
       - name: Run clean-room matrix env
         run: tox -e ${{ matrix.toxenv }}
       - name: Upload validated artifacts
@@ -145,10 +141,6 @@ jobs:
           python-version: ${{ matrix.python-version }}
       - name: Install toolchain
         run: python -m pip install --upgrade pip tox uv
-      - name: Install uv Python matrix
-        run: ./scripts/ci/install_uv_python_matrix.sh
-      - name: Install local PostgreSQL
-        run: ./scripts/ci/install_local_postgres.sh
       - name: Run certification lane
         run: tox -e ${{ matrix.toxenv }}
       - name: Upload validated lane artifacts
@@ -190,10 +182,6 @@ jobs:
           python-version: '3.11'
       - name: Install toolchain
         run: python -m pip install --upgrade pip tox uv
-      - name: Install uv Python matrix
-        run: ./scripts/ci/install_uv_python_matrix.sh
-      - name: Install local PostgreSQL
-        run: ./scripts/ci/install_local_postgres.sh
       - name: Run migration portability validation
         run: tox -e py311-migration-portability
       - name: Upload migration artifacts
@@ -242,10 +230,6 @@ jobs:
           path: .artifacts/validated-downloads
       - name: Install toolchain
         run: python -m pip install --upgrade pip tox uv
-      - name: Install uv Python matrix
-        run: ./scripts/ci/install_uv_python_matrix.sh
-      - name: Install local PostgreSQL
-        run: ./scripts/ci/install_local_postgres.sh
       - name: Run final certification gates
         env:
           TIGRBL_AUTH_VALIDATED_ARTIFACT_DOWNLOAD_ROOT: .artifacts/validated-downloads
